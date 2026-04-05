@@ -288,6 +288,160 @@ strong {
   color: #fff;
 }
 
+/* E-Bike Vermietung (oben) */
+.section--ebike-showcase {
+  padding: clamp(2.25rem, 5vw, 3.25rem) 0 clamp(2rem, 4vw, 2.75rem);
+  background: linear-gradient(
+    180deg,
+    #ffffff 0%,
+    #f1f5f9 55%,
+    #e2e8f0 100%
+  );
+  border-bottom: 1px solid var(--line);
+  scroll-margin-top: calc(var(--header-h) + 1rem);
+}
+
+.section__head--ebike {
+  text-align: center;
+  max-width: 40rem;
+  margin-inline: auto;
+  margin-bottom: 2rem;
+}
+
+@media (min-width: 720px) {
+  .section__head--ebike {
+    margin-bottom: 2.5rem;
+  }
+}
+
+.ebike-showcase__eyebrow {
+  margin: 0 0 0.5rem;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--teal);
+}
+
+.section__head--ebike h2 {
+  margin-bottom: 0.65rem;
+}
+
+.section__head-lead {
+  margin: 0;
+  color: var(--muted);
+  font-size: 1.05rem;
+}
+
+.ebike-showcase__grid {
+  display: grid;
+  gap: 1.5rem;
+}
+
+@media (min-width: 860px) {
+  .ebike-showcase__grid {
+    grid-template-columns: 1fr 1fr;
+    gap: 1.75rem;
+    align-items: stretch;
+  }
+}
+
+.ebike-card {
+  display: flex;
+  flex-direction: column;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+  transition:
+    box-shadow 0.25s ease,
+    border-color 0.25s ease;
+}
+
+.ebike-card:hover {
+  border-color: rgba(79, 70, 229, 0.2);
+  box-shadow: var(--shadow);
+}
+
+.ebike-card__media {
+  aspect-ratio: 4 / 3;
+  background: #e2e8f0;
+  overflow: hidden;
+}
+
+.ebike-card__media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform 0.45s ease;
+}
+
+.ebike-card:hover .ebike-card__media img {
+  transform: scale(1.03);
+}
+
+.ebike-card__body {
+  padding: 1.25rem 1.35rem 1.35rem;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: 0.35rem;
+}
+
+.ebike-card__titles h3 {
+  margin: 0;
+  font-size: 1.2rem;
+}
+
+.ebike-card__size {
+  margin: 0 0 0.25rem;
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+.ebike-card__badge {
+  margin: 0.35rem 0 0;
+  font-size: 0.92rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.ebike-card__badge-mark {
+  display: inline-block;
+  padding: 0.2rem 0.55rem;
+  border-radius: 8px;
+  background: var(--teal-soft);
+  color: var(--teal);
+  font-weight: 800;
+  font-size: 0.82rem;
+  letter-spacing: 0.03em;
+  margin-right: 0.15rem;
+}
+
+.ebike-card__note {
+  margin: 0.35rem 0 0;
+  font-size: 0.96rem;
+  color: var(--muted);
+  line-height: 1.55;
+  flex: 1;
+}
+
+.ebike-card__cta {
+  margin-top: 1rem;
+  font-weight: 700;
+  text-decoration: none;
+  color: var(--accent);
+}
+
+.ebike-card__cta:hover {
+  color: var(--accent-hover);
+}
+
 /* Hero */
 .hero-anchor {
   position: relative;

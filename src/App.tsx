@@ -98,16 +98,24 @@ function App() {
           <a
             className="brand"
             href="https://fixbike.online/"
-            aria-label="Fixbike Fahrradservice — Startseite"
+            aria-label="FIXBIKE — E-Bike Service und Fahrradvermietung in Neuwied. Zur Startseite."
           >
             <img
               className="brand__logo"
               src="/images/fixbike-logo.png"
-              alt="Fixbike"
-              width={152}
-              height={48}
+              alt=""
+              width={306}
+              height={80}
               decoding="async"
+              aria-hidden="true"
             />
+            <span className="brand__seo">
+              <span className="brand__seo-mark">FIXBIKE</span>
+              <span className="brand__seo-text">
+                {" "}
+                — E-Bike Service · Fahrradvermietung · Neuwied
+              </span>
+            </span>
           </a>
 
           <nav className="nav" aria-label="Hauptnavigation">

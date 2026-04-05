@@ -95,11 +95,15 @@ function App() {
 
       <header className="site-header">
         <div className="container header__inner">
-          <a className="brand" href="#top" aria-label="Fixbike Fahrradservice Startseite">
+          <a
+            className="brand"
+            href="https://fixbike.online/"
+            aria-label="Fixbike Fahrradservice — Startseite"
+          >
             <img
               className="brand__logo"
               src="/images/fixbike-logo.png"
-              alt=""
+              alt="Fixbike"
               width={152}
               height={48}
               decoding="async"

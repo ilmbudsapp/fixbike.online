@@ -1074,6 +1074,17 @@ strong {
   color: #94a3b8 !important;
 }
 
+.footer__designer-credit a {
+  color: #cbd5e1;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.footer__designer-credit a:hover {
+  color: #fff;
+  text-decoration: underline;
+}
+
 .footer__bottom p {
   margin: 0;
   font-size: 0.85rem;

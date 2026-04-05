@@ -518,7 +518,14 @@ function App() {
             <div className="footer__bottom-row">
               <p>© {new Date().getFullYear()} Fixbike · fixbike.online</p>
               <p className="footer__designer-credit">
-                AGRMULTIMEDIA-Web Designer Agron Osmani
+                <a
+                  href="https://agrmultimedia.eu/"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  AGRMULTIMEDIA
+                </a>
+                -Web Designer Agron Osmani
               </p>
             </div>
             <p className="footer__photos">

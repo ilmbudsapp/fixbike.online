@@ -9,14 +9,21 @@ const services = [
   {
     title: "Fahrrad-Reparatur & Inspektion",
     text: "Von der schnellen Pannenhilfe bis zur kompletten Inspektion: Bremsen, Schaltung, Lager und Sicherheit — für Trekkingrad, MTB und Alltagsbike.",
+    image: "/images/werkstatt.jpg",
+    imageAlt:
+      "Fahrradwerkstatt: Werkzeug und Fahrradreifen — Reparatur und Inspektion",
   },
   {
     title: "E-Bike Service & Diagnose",
     text: "E-Bike Reparatur mit Fokus auf Antrieb, Akku-Handling und Software-Updates. Sorgfältige Fehleranalyse für zuverlässige Reichweite und Sicherheit.",
+    image: "/images/ebike.jpg",
+    imageAlt: "E-Bike und klassisches Fahrrad — Diagnose im Fachbetrieb",
   },
   {
     title: "Zubehör & kleine Upgrades",
     text: "Schlösser, Beleuchtung, Schutzbleche, Pedale und mehr — montiert und eingestellt, damit Ihr Fahrrad alltagstauglich bleibt.",
+    image: "/images/zubehoer.jpg",
+    imageAlt: "Fahrradlenker und Komponenten — Zubehör und Upgrade-Service",
   },
 ];
 
@@ -85,21 +92,41 @@ function App() {
                 <li>City- &amp; Trekkingräder</li>
               </ul>
             </div>
-            <aside className="hero__panel" aria-label="Kurzinfo">
-              <div className="hero__stat">
-                <span className="hero__stat-label">Schwerpunkt</span>
-                <span className="hero__stat-value">Service &amp; Sicherheit</span>
-              </div>
-              <p className="hero__panel-text">
-                Ob <strong>Zweirad Werkstatt</strong> für den Arbeitsweg oder
-                Vorbereitung auf die Saison — wir kümmern uns um Schaltung,
-                Bremsen, Reifen und Antrieb, damit Sie wieder zuverlässig
-                unterwegs sind.
-              </p>
-              <a className="hero__panel-link" href="#leistungen">
-                Leistungen ansehen →
-              </a>
-            </aside>
+            <div className="hero__shots">
+              <figure className="hero__figure">
+                <div className="hero__photo-wrap">
+                  <img
+                    className="hero__photo"
+                    src="/images/hero.jpg"
+                    width={900}
+                    height={1125}
+                    alt="Geparkte Fahrräder in der Stadt — Fixbike Fahrradwerkstatt und Service"
+                    fetchPriority="high"
+                    decoding="async"
+                  />
+                </div>
+                <figcaption className="visually-hidden">
+                  Symbolfoto: Fahrräder und Mobilität in der Stadt
+                </figcaption>
+              </figure>
+              <aside className="hero__panel" aria-label="Kurzinfo">
+                <div className="hero__stat">
+                  <span className="hero__stat-label">Schwerpunkt</span>
+                  <span className="hero__stat-value">
+                    Service &amp; Sicherheit
+                  </span>
+                </div>
+                <p className="hero__panel-text">
+                  Ob <strong>Zweirad Werkstatt</strong> für den Arbeitsweg oder
+                  Vorbereitung auf die Saison — wir kümmern uns um Schaltung,
+                  Bremsen, Reifen und Antrieb, damit Sie wieder zuverlässig
+                  unterwegs sind.
+                </p>
+                <a className="hero__panel-link" href="#leistungen">
+                  Leistungen ansehen →
+                </a>
+              </aside>
+            </div>
           </div>
         </section>
 
@@ -116,8 +143,20 @@ function App() {
             <ul className="cards">
               {services.map((s) => (
                 <li key={s.title} className="card">
-                  <h3>{s.title}</h3>
-                  <p>{s.text}</p>
+                  <div className="card__media">
+                    <img
+                      src={s.image}
+                      alt={s.imageAlt}
+                      width={640}
+                      height={400}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="card__body">
+                    <h3>{s.title}</h3>
+                    <p>{s.text}</p>
+                  </div>
                 </li>
               ))}
             </ul>
@@ -126,7 +165,19 @@ function App() {
 
         <section id="verleih" className="section">
           <div className="container split">
-            <div>
+            <figure className="split__figure split__figure--lift">
+              <div className="media-frame">
+                <img
+                  src="/images/verleih.jpg"
+                  alt="Fahrrad in der Stadt — Fahrradverleih und flexible Mobilität"
+                  width={800}
+                  height={1000}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+            <div className="split__content">
               <h2>Fahrradverleih — flexibel mobil</h2>
               <p className="split__lead">
                 <strong>Fahrrad mieten</strong> für Gäste, Events oder den
@@ -139,17 +190,17 @@ function App() {
                 <li>E-Bikes auf Anfrage</li>
                 <li>Klare Mietbedingungen &amp; Übergabe</li>
               </ul>
-            </div>
-            <div className="split__aside">
-              <div className="callout">
-                <h3 className="callout__title">Verleih-Anfrage</h3>
-                <p>
-                  Nennen Sie Zeitraum, Radtyp und Körpergröße — wir melden uns
-                  mit Verfügbarkeit und Preis.
-                </p>
-                <a className="btn btn--secondary" href="#kontakt">
-                  Jetzt anfragen
-                </a>
+              <div className="split__callout">
+                <div className="callout">
+                  <h3 className="callout__title">Verleih-Anfrage</h3>
+                  <p>
+                    Nennen Sie Zeitraum, Radtyp und Körpergröße — wir melden uns
+                    mit Verfügbarkeit und Preis.
+                  </p>
+                  <a className="btn btn--secondary" href="#kontakt">
+                    Jetzt anfragen
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -157,7 +208,19 @@ function App() {
 
         <section id="verkauf" className="section section--surface">
           <div className="container split split--reverse">
-            <div>
+            <figure className="split__figure split__figure--lift">
+              <div className="media-frame media-frame--soft">
+                <img
+                  src="/images/verkauf.jpg"
+                  alt="Fahrräder im Geschäft — Fahrradverkauf und Beratung"
+                  width={800}
+                  height={1000}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+            <div className="split__content">
               <h2>Fahrradverkauf — passend beraten</h2>
               <p className="split__lead">
                 Ausgewählte Modelle und Gebrauchräder mit Check aus der
@@ -169,17 +232,17 @@ function App() {
                 Online-Shop und Zahlungsoptionen werden ergänzt — bis dahin
                 erreichen Sie uns über die Kontaktwege unten.
               </p>
-            </div>
-            <div className="split__aside">
-              <div className="callout callout--accent">
-                <h3 className="callout__title">Stöbern &amp; reservieren</h3>
-                <p>
-                  Aktuelle Räder und Preise können Sie telefonisch oder per
-                  E-Mail erfragen — wir halten Sie auf dem Laufenden.
-                </p>
-                <a className="btn btn--primary" href="#kontakt">
-                  Kontakt aufnehmen
-                </a>
+              <div className="split__callout">
+                <div className="callout callout--accent">
+                  <h3 className="callout__title">Stöbern &amp; reservieren</h3>
+                  <p>
+                    Aktuelle Räder und Preise können Sie telefonisch oder per
+                    E-Mail erfragen — wir halten Sie auf dem Laufenden.
+                  </p>
+                  <a className="btn btn--primary" href="#kontakt">
+                    Kontakt aufnehmen
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -284,6 +347,17 @@ function App() {
 
           <div className="footer__bottom container">
             <p>© {new Date().getFullYear()} Fixbike · fixbike.online</p>
+            <p className="footer__photos">
+              Symbolfotos über{" "}
+              <a
+                href="https://www.pexels.com/license/"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Pexels
+              </a>{" "}
+              — kann durch eigene Betriebsfotos ersetzt werden.
+            </p>
           </div>
         </footer>
       </main>

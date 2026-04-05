@@ -515,7 +515,12 @@ function App() {
           </div>
 
           <div className="footer__bottom container">
-            <p>© {new Date().getFullYear()} Fixbike · fixbike.online</p>
+            <div className="footer__bottom-row">
+              <p>© {new Date().getFullYear()} Fixbike · fixbike.online</p>
+              <p className="footer__designer-credit">
+                AGRMULTIMEDIA-Web Designer Agron Osmani
+              </p>
+            </div>
             <p className="footer__photos">
               Symbolfotos über{" "}
               <a

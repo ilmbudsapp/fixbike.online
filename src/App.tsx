@@ -379,15 +379,32 @@ function App() {
               Betriebs ersetzt werden (§ 5 TMG / DDG).
             </p>
             <p>
-              Fixbike
+              <strong>Fixbike</strong>
               <br />
-              [Name / Rechtsform]
+              Adem Osmani
               <br />
-              [Anschrift]
+              Wagenhallenweg 8
               <br />
-              [Kontakt: E-Mail, Telefon]
+              56566 Neuwied
               <br />
-              [USt-IdNr. falls vorhanden]
+              Deutschland
+            </p>
+            <p>
+              <strong>Kontakt:</strong>
+              <br />
+              E-Mail:{" "}
+              <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+              <br />
+              Telefon:{" "}
+              <a href={`tel:${CONTACT.phoneTel}`}>{CONTACT.phoneDisplay}</a>
+            </p>
+            <p>
+              <strong>Steuernummer:</strong> {CONTACT.steuernummer}
+              <br />
+              <span className="muted small">
+                (Eine <strong>USt-IdNr.</strong> im Format DE… erteilt das
+                Finanzamt gesondert — bitte ergänzen, sobald vorliegend.)
+              </span>
             </p>
           </div>
 
@@ -400,9 +417,11 @@ function App() {
               Rechtsberatung.
             </p>
             <p>
-              Verantwortliche Stelle: [wie Impressum]. Diese Website kann
-              technisch notwendige Daten verarbeiten (z. B. Server-Logs beim
-              Hosting-Anbieter).
+              Verantwortliche Stelle: Fixbike, Adem Osmani, Wagenhallenweg 8,
+              56566 Neuwied, Deutschland — Kontakt:{" "}
+              <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>. Diese
+              Website kann technisch notwendige Daten verarbeiten (z. B.
+              Server-Logs beim Hosting-Anbieter).
             </p>
           </div>
 

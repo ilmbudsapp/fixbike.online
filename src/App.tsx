@@ -53,9 +53,9 @@ const services = [
   {
     title: "Fahrrad-Reparatur & Inspektion",
     text: "Von der schnellen Pannenhilfe bis zur kompletten Inspektion: Bremsen, Schaltung, Lager und Sicherheit — für Trekkingrad, MTB und Alltagsbike.",
-    image: "/images/werkstatt.jpg",
+    image: "/images/service-reparatur.jpg",
     imageAlt:
-      "Fahrradwerkstatt: Werkzeug und Fahrradreifen — Reparatur und Inspektion",
+      "Fahrradservice: Werkzeug und Fahrradreifen — Reparatur und Inspektion",
   },
   {
     title: "E-Bike Service & Diagnose",
@@ -95,12 +95,15 @@ function App() {
 
       <header className="site-header">
         <div className="container header__inner">
-          <a className="brand" href="#top" aria-label="Fixbike Startseite">
-            <span className="brand__mark" aria-hidden="true" />
-            <span className="brand__text">
-              <span className="brand__name">Fixbike</span>
-              <span className="brand__tag">Fahrradwerkstatt</span>
-            </span>
+          <a className="brand" href="#top" aria-label="Fixbike Fahrradservice Startseite">
+            <img
+              className="brand__logo"
+              src="/images/fixbike-logo.png"
+              alt=""
+              width={152}
+              height={48}
+              decoding="async"
+            />
           </a>
 
           <nav className="nav" aria-label="Hauptnavigation">
@@ -126,7 +129,7 @@ function App() {
           <div className="hero__glow" aria-hidden="true" />
           <div className="container hero__grid">
             <div className="hero__copy">
-              <p className="hero__eyebrow">Fahrradwerkstatt · E-Bike Service</p>
+              <p className="hero__eyebrow">Fahrradservice · E-Bike Service</p>
               <h1 id="hero-heading">
                 Reparatur, Verleih &amp; Verkauf — alles rund ums Fahrrad
               </h1>
@@ -139,7 +142,7 @@ function App() {
               </p>
               <div className="hero__actions">
                 <a className="btn btn--primary btn--lg" href="#kontakt">
-                  Werkstatt-Termin
+                  Service-Termin
                 </a>
                 <a className="btn btn--ghost btn--lg" href="#ebike-vermietung">
                   E-Bike mieten
@@ -153,19 +156,19 @@ function App() {
             </div>
             <div className="hero__shots">
               <figure className="hero__figure">
-                <div className="hero__photo-wrap hero__photo-wrap--werkstatt">
+                <div className="hero__photo-wrap hero__photo-wrap--mechaniker">
                   <img
-                    className="hero__photo hero__photo--werkstatt"
-                    src="/images/hero-werkstatt.png"
+                    className="hero__photo hero__photo--mechaniker"
+                    src="/images/hero-mechaniker.png"
                     width={1200}
                     height={800}
-                    alt="Fixbike Werkstatt: E-Bike-Service und Reparatur am CUBE Stereo Hybrid"
+                    alt="Fixbike Service: E-Bike-Reparatur am CUBE Stereo Hybrid"
                     fetchPriority="high"
                     decoding="async"
                   />
                 </div>
                 <figcaption className="visually-hidden">
-                  Werkstatt: professionelle Fahrrad- und E-Bike-Reparatur bei
+                  Service: professionelle Fahrrad- und E-Bike-Reparatur bei
                   Fixbike
                 </figcaption>
               </figure>
@@ -177,7 +180,7 @@ function App() {
                   </span>
                 </div>
                 <p className="hero__panel-text">
-                  Ob <strong>Zweirad Werkstatt</strong> für den Arbeitsweg oder
+                  Ob <strong>Zweirad Service</strong> für den Arbeitsweg oder
                   Vorbereitung auf die Saison — wir kümmern uns um Schaltung,
                   Bremsen, Reifen und Antrieb, damit Sie wieder zuverlässig
                   unterwegs sind.
@@ -244,7 +247,7 @@ function App() {
         <section id="leistungen" className="section section--surface">
           <div className="container">
             <header className="section__head">
-              <h2>Fahrradwerkstatt-Leistungen</h2>
+              <h2>Fahrradservice-Leistungen</h2>
               <p>
                 Von der <strong>Fahrrad Reparatur</strong> bis zum{" "}
                 <strong>E-Bike Service</strong> — wir arbeiten präzise und
@@ -292,8 +295,8 @@ function App() {
               <h2>Fahrradverleih — flexibel mobil</h2>
               <p className="split__lead">
                 <strong>Fahrrad mieten</strong> für Gäste, Events oder den
-                schnellen Ersatz, wenn Ihr eigenes Rad in der{" "}
-                <strong>Fahrradwerkstatt</strong> ist. Reservierung und Details
+                schnellen Ersatz, wenn Ihr eigenes Rad bei uns im{" "}
+                <strong>Fahrradservice</strong> ist. Reservierung und Details
                 folgen hier in Kürze — sprechen Sie uns gern direkt an.
               </p>
               <ul className="checklist">
@@ -334,8 +337,8 @@ function App() {
             <div className="split__content">
               <h2>Fahrradverkauf — passend beraten</h2>
               <p className="split__lead">
-                Ausgewählte Modelle und Gebrauchräder mit Check aus der
-                Werkstatt. Beim <strong>Fahrrad kaufen</strong> zählen
+                Ausgewählte Modelle und Gebrauchräder mit Check durch unseren
+                Service. Beim <strong>Fahrrad kaufen</strong> zählen
                 Sitzposition, Komponenten und Wartungsfreundlichkeit — wir
                 beraten sachlich und ohne Schnickschnack.
               </p>
@@ -365,13 +368,13 @@ function App() {
               <h2>Kontakt</h2>
               <p>
                 Rufen Sie uns an oder schreiben Sie uns — wir vereinbaren einen
-                Termin, und erledigen Werkstatt, Verleih oder Beratung nach
-                Absprache.
+                Termin und kümmern uns nach Absprache um Service, Verleih oder
+                Beratung.
               </p>
             </header>
             <div className="contact-grid">
               <address className="contact-card">
-                <h3>Werkstatt &amp; Adresse</h3>
+                <h3>Service &amp; Adresse</h3>
                 <p>
                   <strong>Fixbike</strong>
                   <br />
@@ -437,7 +440,7 @@ function App() {
             <div>
               <p className="footer__brand">Fixbike</p>
               <p className="footer__tagline">
-                Fahrradwerkstatt · E-Bike Reparatur · Fahrradverleih ·
+                Fahrradservice · E-Bike Reparatur · Fahrradverleih ·
                 Fahrradverkauf
               </p>
             </div>

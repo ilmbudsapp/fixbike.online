@@ -404,23 +404,11 @@ strong {
   letter-spacing: 0.04em;
 }
 
-.ebike-card__badge {
-  margin: 0.35rem 0 0;
+.ebike-card__availability {
+  margin: 0.4rem 0 0;
   font-size: 0.92rem;
-  font-weight: 600;
-  color: var(--ink-soft);
-}
-
-.ebike-card__badge-mark {
-  display: inline-block;
-  padding: 0.2rem 0.55rem;
-  border-radius: 8px;
-  background: var(--teal-soft);
+  font-weight: 700;
   color: var(--teal);
-  font-weight: 800;
-  font-size: 0.82rem;
-  letter-spacing: 0.03em;
-  margin-right: 0.15rem;
 }
 
 .ebike-card__note {
@@ -537,10 +525,21 @@ strong {
   object-fit: cover;
 }
 
+.hero__photo--werkstatt {
+  aspect-ratio: 3 / 2;
+  object-position: center 35%;
+}
+
 @media (max-width: 899px) {
-  .hero__photo {
+  .hero__photo:not(.hero__photo--werkstatt) {
     aspect-ratio: 16 / 10;
     max-height: 320px;
+  }
+
+  .hero__photo--werkstatt {
+    aspect-ratio: 16 / 10;
+    max-height: 280px;
+    object-position: center 30%;
   }
 }
 

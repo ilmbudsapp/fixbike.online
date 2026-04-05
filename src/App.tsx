@@ -23,7 +23,7 @@ const nav = [
 const rentalEBikes: {
   title: string;
   size: string;
-  countBadge?: string;
+  availability?: string;
   countNote: string;
   image: string;
   imageAlt: string;
@@ -31,9 +31,9 @@ const rentalEBikes: {
   {
     title: "CUBE Touring Hybrid",
     size: "Größe M",
-    countBadge: "2 Stück",
+    availability: "2 Stück verfügbar — beide in Weiß.",
     countNote:
-      "Wir vermieten zwei identische E-Bikes dieses Modells — ideal für Paare oder Gruppen.",
+      "Zwei identische E-Bikes dieses Modells — ideal für Paare oder Gruppen.",
     image: "/images/cube-touring-hybrid-m.png",
     imageAlt:
       "CUBE Touring Hybrid E-Bike in Weiß, Größe M — Trekking und Alltag",
@@ -122,60 +122,6 @@ function App() {
       <main id="main">
         <div id="top" className="hero-anchor" aria-hidden="true" />
 
-        <section
-          id="ebike-vermietung"
-          className="section section--ebike-showcase"
-          aria-labelledby="ebike-rental-heading"
-        >
-          <div className="container">
-            <header className="section__head section__head--ebike">
-              <p className="ebike-showcase__eyebrow">Vermietung</p>
-              <h2 id="ebike-rental-heading">
-                Elektrische Fahrräder zur Miete (E-Bikes)
-              </h2>
-              <p className="section__head-lead">
-                Hochwertige <strong>CUBE</strong> E-Bikes in{" "}
-                <strong>Größe M</strong> — Abholung nach Terminvereinbarung.
-                Reservierung per Telefon, WhatsApp oder E-Mail.
-              </p>
-            </header>
-            <div className="ebike-showcase__grid">
-              {rentalEBikes.map((bike) => (
-                <article key={bike.title} className="ebike-card">
-                  <div className="ebike-card__media">
-                    <img
-                      src={bike.image}
-                      alt={bike.imageAlt}
-                      width={900}
-                      height={675}
-                      loading="eager"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="ebike-card__body">
-                    <div className="ebike-card__titles">
-                      <h3>{bike.title}</h3>
-                      <p className="ebike-card__size">{bike.size}</p>
-                    </div>
-                    {bike.countBadge ? (
-                      <p className="ebike-card__badge" role="status">
-                        <span className="ebike-card__badge-mark">
-                          {bike.countBadge}
-                        </span>{" "}
-                        im Angebot
-                      </p>
-                    ) : null}
-                    <p className="ebike-card__note">{bike.countNote}</p>
-                    <a className="ebike-card__cta" href="#kontakt">
-                      Miete anfragen →
-                    </a>
-                  </div>
-                </article>
-              ))}
-            </div>
-          </div>
-        </section>
-
         <section className="hero" aria-labelledby="hero-heading">
           <div className="hero__glow" aria-hidden="true" />
           <div className="container hero__grid">
@@ -195,8 +141,8 @@ function App() {
                 <a className="btn btn--primary btn--lg" href="#kontakt">
                   Werkstatt-Termin
                 </a>
-                <a className="btn btn--ghost btn--lg" href="#verleih">
-                  Fahrrad mieten
+                <a className="btn btn--ghost btn--lg" href="#ebike-vermietung">
+                  E-Bike mieten
                 </a>
               </div>
               <ul className="hero__badges" aria-label="Schwerpunkte">
@@ -207,19 +153,20 @@ function App() {
             </div>
             <div className="hero__shots">
               <figure className="hero__figure">
-                <div className="hero__photo-wrap">
+                <div className="hero__photo-wrap hero__photo-wrap--werkstatt">
                   <img
-                    className="hero__photo"
-                    src="/images/hero.jpg"
-                    width={900}
-                    height={1125}
-                    alt="Geparkte Fahrräder in der Stadt — Fixbike Fahrradwerkstatt und Service"
+                    className="hero__photo hero__photo--werkstatt"
+                    src="/images/hero-werkstatt.png"
+                    width={1200}
+                    height={800}
+                    alt="Fixbike Werkstatt: E-Bike-Service und Reparatur am CUBE Stereo Hybrid"
                     fetchPriority="high"
                     decoding="async"
                   />
                 </div>
                 <figcaption className="visually-hidden">
-                  Symbolfoto: Fahrräder und Mobilität in der Stadt
+                  Werkstatt: professionelle Fahrrad- und E-Bike-Reparatur bei
+                  Fixbike
                 </figcaption>
               </figure>
               <aside className="hero__panel" aria-label="Kurzinfo">
@@ -239,6 +186,57 @@ function App() {
                   Leistungen ansehen →
                 </a>
               </aside>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="ebike-vermietung"
+          className="section section--ebike-showcase"
+          aria-labelledby="ebike-rental-heading"
+        >
+          <div className="container">
+            <header className="section__head section__head--ebike">
+              <p className="ebike-showcase__eyebrow">E-Bike Vermietung</p>
+              <h2 id="ebike-rental-heading">
+                Elektrische Fahrräder zur Miete (E-Bikes)
+              </h2>
+              <p className="section__head-lead">
+                Hochwertige <strong>CUBE</strong> E-Bikes in{" "}
+                <strong>Größe M</strong> — Abholung nach Terminvereinbarung.
+                Reservierung per Telefon, WhatsApp oder E-Mail.
+              </p>
+            </header>
+            <div className="ebike-showcase__grid">
+              {rentalEBikes.map((bike) => (
+                <article key={bike.title} className="ebike-card">
+                  <div className="ebike-card__media">
+                    <img
+                      src={bike.image}
+                      alt={bike.imageAlt}
+                      width={900}
+                      height={675}
+                      loading="lazy"
+                      decoding="async"
+                    />
+                  </div>
+                  <div className="ebike-card__body">
+                    <div className="ebike-card__titles">
+                      <h3>{bike.title}</h3>
+                      <p className="ebike-card__size">{bike.size}</p>
+                    </div>
+                    {bike.availability ? (
+                      <p className="ebike-card__availability" role="status">
+                        {bike.availability}
+                      </p>
+                    ) : null}
+                    <p className="ebike-card__note">{bike.countNote}</p>
+                    <a className="ebike-card__cta" href="#kontakt">
+                      Miete anfragen →
+                    </a>
+                  </div>
+                </article>
+              ))}
             </div>
           </div>
         </section>

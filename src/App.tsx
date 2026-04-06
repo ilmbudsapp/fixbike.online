@@ -2,6 +2,12 @@ const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=" +
   encodeURIComponent("Wagenhallenweg 8, 56566 Neuwied");
 
+/** Google Maps Embed (ohne API-Key) — Standort: Wagenhallenweg 8, Neuwied */
+const MAPS_EMBED_URL =
+  "https://maps.google.com/maps?q=" +
+  encodeURIComponent("Wagenhallenweg 8, 56566 Neuwied, Deutschland") +
+  "&hl=de&z=15&ie=UTF8&iwloc=B&output=embed";
+
 const CONTACT = {
   phoneDisplay: "+49 163 7046825",
   phoneTel: "+491637046825",
@@ -14,7 +20,8 @@ const CONTACT = {
 
 const nav = [
   { href: "#ebike-vermietung", label: "E-Bike Vermietung" },
-  { href: "#leistungen", label: "Leistungen" },
+  { href: "#leistungen", label: "Services" },
+  { href: "#warum-fixbike", label: "Warum FixBike" },
   { href: "#verleih", label: "Fahrradverleih" },
   { href: "#verkauf", label: "Fahrradverkauf" },
   { href: "#kontakt", label: "Kontakt" },
@@ -49,27 +56,29 @@ const rentalEBikes: {
   },
 ];
 
-const services = [
+const serviceBlocks = [
   {
-    title: "Fahrrad-Reparatur & Inspektion",
-    text: "Von der schnellen Pannenhilfe bis zur kompletten Inspektion: Bremsen, Schaltung, Lager und Sicherheit — für Trekkingrad, MTB und Alltagsbike.",
+    title: "Fahrrad Reparatur Neu-Wied",
+    text: "Von der Pannenhilfe bis zur kompletten Überholung: Bremsen, Schaltung, Reifen und Gangschaltung — für Trekkingrad, MTB und Alltagsbike im Fahrradservice Neu-Wied.",
     image: "/images/service-reparatur.jpg",
     imageAlt:
-      "Fahrradservice: Werkzeug und Fahrradreifen — Reparatur und Inspektion",
+      "Fahrrad Reparatur Neu-Wied — Bremsen, Schaltung und Reifen im Fahrradservice",
   },
   {
-    title: "E-Bike Service & Diagnose",
-    text: "E-Bike Reparatur mit Fokus auf Antrieb, Akku-Handling und Software-Updates. Sorgfältige Fehleranalyse für zuverlässige Reichweite und Sicherheit.",
+    title: "E-Bike Service Neuwied",
+    text: "Batterie-Check, Software-Updates, Motor-Service und Systemdiagnose — damit Ihr Pedelec sicher fährt und zuverlässige Reichweite liefert.",
     image: "/images/ebike.jpg",
-    imageAlt: "E-Bike und klassisches Fahrrad — Diagnose im Fachbetrieb",
+    imageAlt:
+      "E-Bike Service Neuwied — Diagnose und Wartung von E-Bikes bei FixBike",
   },
   {
-    title: "Zubehör & kleine Upgrades",
-    text: "Schlösser, Beleuchtung, Schutzbleche, Pedale und mehr — montiert und eingestellt, damit Ihr Fahrrad alltagstauglich bleibt.",
+    title: "Saison Wartung — Fahrradservice Neu-Wied",
+    text: "Jahresinspektion, Winter-Check und Sommer-Service: Lager, Schaltung, Bremsen und Sicherheit — Ihr Rad startet fit in die Saison.",
     image: "/images/zubehoer.jpg",
-    imageAlt: "Fahrradlenker und Komponenten — Zubehör und Upgrade-Service",
+    imageAlt:
+      "Saison Wartung und Inspektion — Fahrradservice Neu-Wied bei FixBike",
   },
-];
+] as const;
 
 function App() {
   return (
@@ -98,7 +107,7 @@ function App() {
           <a
             className="brand"
             href="https://fixbike.online/"
-            aria-label="FixBike — E-Bike Service, Fahrradvermietung und Reparatur in Neuwied. Zur Startseite."
+            aria-label="FixBike Fahrradservice Neu-Wied — E-Bike Service und Fahrrad Reparatur. Zur Startseite."
           >
             <img
               className="brand__logo"
@@ -140,18 +149,27 @@ function App() {
             <div className="hero__copy">
               <p className="hero__eyebrow">Fahrradservice · E-Bike Service</p>
               <h1 id="hero-heading">
-                Reparatur, Verleih &amp; Verkauf — alles rund ums Fahrrad
+                Fahrradservice &amp; E-Bike Service Neu-Wied | Schnelle
+                Reparatur
               </h1>
               <p className="hero__lead">
-                Professionelle <strong>Fahrrad Reparatur</strong> für klassische
-                Bikes und <strong>E-Bikes</strong>, transparenter{" "}
-                <strong>Fahrradverleih</strong> und ausgewählter{" "}
+                Professionelle <strong>Fahrrad Reparatur Neu-Wied</strong> für
+                klassische Bikes und <strong>E-Bike Service Neuwied</strong>,
+                transparenter <strong>Fahrradverleih</strong> und ausgewählter{" "}
                 <strong>Fahrradverkauf</strong>. Schnelle Hilfe, ehrliche
-                Beratung, feste Qualität.
+                Beratung — Ihr <strong>Fahrradservice Neu-Wied</strong>.
               </p>
               <div className="hero__actions">
                 <a className="btn btn--primary btn--lg" href="#kontakt">
                   Service-Termin
+                </a>
+                <a
+                  className="btn btn--whatsapp btn--lg"
+                  href={CONTACT.whatsapp}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  WhatsApp
                 </a>
                 <a className="btn btn--ghost btn--lg" href="#ebike-vermietung">
                   E-Bike mieten
@@ -211,12 +229,16 @@ function App() {
             <header className="section__head section__head--ebike">
               <p className="ebike-showcase__eyebrow">E-Bike Vermietung</p>
               <h2 id="ebike-rental-heading">
-                Elektrische Fahrräder zur Miete (E-Bikes)
+                E-Bike Vermietung Neuwied — elektrische Fahrräder mieten
               </h2>
+              <h3 className="ebike-showcase__subheading">
+                E-Bike Service Neuwied: CUBE Pedelecs zur Miete
+              </h3>
               <p className="section__head-lead">
                 Hochwertige <strong>CUBE</strong> E-Bikes in{" "}
-                <strong>Größe M</strong> — Abholung nach Terminvereinbarung.
-                Reservierung per Telefon, WhatsApp oder E-Mail.
+                <strong>Größe M</strong> — Abholung nach Terminvereinbarung im{" "}
+                <strong>Fahrradservice Neu-Wied</strong>. Reservierung per
+                Telefon, WhatsApp oder E-Mail.
               </p>
             </header>
             <div className="ebike-showcase__grid">
@@ -253,18 +275,24 @@ function App() {
           </div>
         </section>
 
-        <section id="leistungen" className="section section--surface">
+        <section
+          id="leistungen"
+          className="section section--surface"
+          aria-labelledby="services-heading"
+        >
           <div className="container">
             <header className="section__head">
-              <h2>Fahrradservice-Leistungen</h2>
+              <h2 id="services-heading">
+                Unsere Services — Fahrradservice Neu-Wied
+              </h2>
               <p>
-                Von der <strong>Fahrrad Reparatur</strong> bis zum{" "}
-                <strong>E-Bike Service</strong> — wir arbeiten präzise und
-                erklären, was Ihr Bike wirklich braucht.
+                Von der <strong>Fahrrad Reparatur Neu-Wied</strong> bis zum{" "}
+                <strong>E-Bike Service Neuwied</strong> — wir arbeiten präzise
+                und erklären, was Ihr Bike wirklich braucht.
               </p>
             </header>
             <ul className="cards">
-              {services.map((s) => (
+              {serviceBlocks.map((s) => (
                 <li key={s.title} className="card">
                   <div className="card__media">
                     <img
@@ -286,13 +314,55 @@ function App() {
           </div>
         </section>
 
+        <section
+          id="warum-fixbike"
+          className="section"
+          aria-labelledby="warum-heading"
+        >
+          <div className="container">
+            <header className="section__head">
+              <h2 id="warum-heading">Warum FixBike in Neu-Wied?</h2>
+              <p>
+                Ihr <strong>Fahrradservice Neu-Wied</strong> mit Fokus auf
+                Qualität, Transparenz und schnelle Hilfe bei{" "}
+                <strong>Fahrrad Reparatur</strong> und{" "}
+                <strong>E-Bike Service</strong>.
+              </p>
+            </header>
+            <div className="why-grid">
+              <article className="why-card">
+                <h3>Fahrradservice Neu-Wied — lokal &amp; persönlich</h3>
+                <p>
+                  Kurze Wege in der Region Neuwied, direkter Draht zum Service
+                  und keine anonyme Kette.
+                </p>
+              </article>
+              <article className="why-card">
+                <h3>Schnelle Fahrrad Reparatur Neu-Wied</h3>
+                <p>
+                  Pannen und sicherheitsrelevante Themen priorisieren wir — Sie
+                  wissen, woran Sie sind.
+                </p>
+              </article>
+              <article className="why-card">
+                <h3>Faire Preise &amp; Ersatzteile</h3>
+                <p>
+                  Qualitätskomponenten von Herstellern wie{" "}
+                  <strong>Shimano</strong> und <strong>SRAM</strong>, abgestimmt
+                  auf Ihr Rad und Ihre Nutzung.
+                </p>
+              </article>
+            </div>
+          </div>
+        </section>
+
         <section id="verleih" className="section">
           <div className="container split">
             <figure className="split__figure split__figure--lift">
               <div className="media-frame">
                 <img
                   src="/images/verleih.jpg"
-                  alt="Fahrrad in der Stadt — Fahrradverleih und flexible Mobilität"
+                  alt="Fahrradverleih Neu-Wied — flexible Mobilität und Ausleihe"
                   width={800}
                   height={1000}
                   loading="lazy"
@@ -301,7 +371,10 @@ function App() {
               </div>
             </figure>
             <div className="split__content">
-              <h2>Fahrradverleih — flexibel mobil</h2>
+              <h2>Fahrradverleih Neu-Wied — flexibel mobil</h2>
+              <h3 className="split__subheading">
+                Fahrrad Reparatur Neu-Wied während Ihr Ersatzrad rollt
+              </h3>
               <p className="split__lead">
                 <strong>Fahrrad mieten</strong> für Gäste, Events oder den
                 schnellen Ersatz, wenn Ihr eigenes Rad bei uns im{" "}
@@ -344,7 +417,10 @@ function App() {
               </div>
             </figure>
             <div className="split__content">
-              <h2>Fahrradverkauf — passend beraten</h2>
+              <h2>Fahrradverkauf Neu-Wied — passend beraten</h2>
+              <h3 className="split__subheading">
+                Fahrradservice Neu-Wied prüft jedes Rad vor dem Verkauf
+              </h3>
               <p className="split__lead">
                 Ausgewählte Modelle und Gebrauchräder mit Check durch unseren
                 Service. Beim <strong>Fahrrad kaufen</strong> zählen
@@ -371,21 +447,40 @@ function App() {
           </div>
         </section>
 
-        <section id="kontakt" className="section section--contact">
+        <section
+          id="kontakt"
+          className="section section--contact"
+          aria-labelledby="kontakt-heading"
+        >
           <div className="container">
             <header className="section__head section__head--tight">
-              <h2>Kontakt</h2>
+              <h2 id="kontakt-heading">Kontakt &amp; Anfahrt</h2>
               <p>
-                Rufen Sie uns an oder schreiben Sie uns — wir vereinbaren einen
-                Termin und kümmern uns nach Absprache um Service, Verleih oder
-                Beratung.
+                <strong>Fahrradservice Neu-Wied</strong> — Rufen Sie an,
+                schreiben Sie per WhatsApp oder E-Mail. Wir vereinbaren einen
+                Termin für <strong>Fahrrad Reparatur</strong>,{" "}
+                <strong>E-Bike Service Neuwied</strong>, Verleih oder Beratung.
               </p>
             </header>
+
+            <div className="contact-map" aria-label="Karte: Anfahrt FixBike">
+              <iframe
+                title="Google Maps: FixBike, Wagenhallenweg 8, 56566 Neuwied"
+                className="contact-map__iframe"
+                src={MAPS_EMBED_URL}
+                width={600}
+                height={380}
+                loading="lazy"
+                referrerPolicy="no-referrer-when-downgrade"
+                allowFullScreen
+              />
+            </div>
+
             <div className="contact-grid">
               <address className="contact-card">
-                <h3>Service &amp; Adresse</h3>
+                <h3>Adresse &amp; Erreichbarkeit</h3>
                 <p>
-                  <strong>Fixbike</strong>
+                  <strong>FixBike Neu-Wied Fahrradservice</strong>
                   <br />
                   <a
                     className="contact-card__maps"
@@ -407,6 +502,16 @@ function App() {
                   <br />
                   <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
                 </p>
+                <h3 className="contact-card__h3-secondary">
+                  Öffnungszeiten (Erreichbarkeit)
+                </h3>
+                <p>
+                  Telefonisch und per WhatsApp sind wir typischerweise{" "}
+                  <strong>Montag–Freitag 9:00–18:00</strong> und{" "}
+                  <strong>Samstag 9:00–14:00</strong> erreichbar. Der Service am
+                  Rad erfolgt <strong>nach Terminvereinbarung</strong> — bitte
+                  vorher anrufen oder schreiben.
+                </p>
                 <p className="contact-card__actions">
                   <a
                     className="btn btn--maps"
@@ -427,17 +532,17 @@ function App() {
                 </p>
               </address>
               <div className="contact-card contact-card--highlight">
-                <h3>Termin nach Vereinbarung</h3>
+                <h3>Termin — Fahrrad Reparatur &amp; E-Bike Service</h3>
                 <p>
                   Wir arbeiten <strong>nach vorheriger Absprache</strong>: Sie
-                  rufen uns an oder schreiben uns (Telefon, WhatsApp oder
-                  E-Mail), wir <strong>vereinbaren einen Termin</strong>, und zu
-                  diesem Zeitpunkt kümmern wir uns um Ihr Anliegen — ob Reparatur,
-                  Service, Verleih oder Beratung.
+                  melden sich per Telefon, WhatsApp oder E-Mail — wir
+                  vereinbaren einen Termin für Reparatur, Inspektion,{" "}
+                  <strong>E-Bike Service Neuwied</strong> oder Verleih.
                 </p>
                 <p className="muted small">
-                  Es gibt keine festen Ladenöffnungszeiten; so bleiben wir
-                  flexibel und können uns Zeit für Sie nehmen.
+                  So bleibt Ihr <strong>Fahrradservice Neu-Wied</strong>{" "}
+                  flexibel, und wir können uns die nötige Zeit für Ihr Rad
+                  nehmen.
                 </p>
               </div>
             </div>

@@ -20,11 +20,11 @@ const CONTACT = {
 
 const nav = [
   { href: "#ebike-vermietung", label: "E-Bike Vermietung" },
-  { href: "#leistungen", label: "Services" },
+  { href: "#services", label: "Services" },
   { href: "#warum-fixbike", label: "Warum FixBike" },
   { href: "#verleih", label: "Fahrradverleih" },
   { href: "#verkauf", label: "Fahrradverkauf" },
-  { href: "#kontakt", label: "Kontakt" },
+  { href: "#contact", label: "Kontakt" },
 ];
 
 const rentalEBikes: {
@@ -58,25 +58,25 @@ const rentalEBikes: {
 
 const serviceBlocks = [
   {
-    title: "Fahrrad Reparatur Neu-Wied",
-    text: "Von der Pannenhilfe bis zur kompletten Überholung: Bremsen, Schaltung, Reifen und Gangschaltung — für Trekkingrad, MTB und Alltagsbike im Fahrradservice Neu-Wied.",
+    title: "Fahrrad Reparatur",
+    text: "Fahrrad Reparatur Neu-Wied: Bremsen, Schaltung, Reifen und Gangschaltung — von der Pannenhilfe bis zur kompletten Überholung für Trekkingrad, MTB und Alltagsbike im Fahrradservice Neu-Wied.",
     image: "/images/service-reparatur.jpg",
     imageAlt:
-      "Fahrrad Reparatur Neu-Wied — Bremsen, Schaltung und Reifen im Fahrradservice",
+      "Fahrrad Reparatur Neu-Wied — Bremsen, Schaltung, Reifen, Gangschaltung",
   },
   {
     title: "E-Bike Service Neuwied",
-    text: "Batterie-Check, Software-Updates, Motor-Service und Systemdiagnose — damit Ihr Pedelec sicher fährt und zuverlässige Reichweite liefert.",
+    text: "E-Bike Service Neuwied mit Batterie-Check, Software-Update, Motor-Service und Systemdiagnose — damit Ihr Pedelec sicher fährt und zuverlässige Reichweite liefert.",
     image: "/images/ebike.jpg",
     imageAlt:
-      "E-Bike Service Neuwied — Diagnose und Wartung von E-Bikes bei FixBike",
+      "E-Bike Service Neuwied — Batterie, Software, Motor beim Fahrradservice",
   },
   {
-    title: "Saison Wartung — Fahrradservice Neu-Wied",
-    text: "Jahresinspektion, Winter-Check und Sommer-Service: Lager, Schaltung, Bremsen und Sicherheit — Ihr Rad startet fit in die Saison.",
+    title: "Saison Wartung",
+    text: "Saison Wartung im Fahrradservice Neu-Wied: Jahresinspektion, Winter-Check und Sommer-Service — Lager, Schaltung, Bremsen und Sicherheit, damit Ihr Rad fit in die Saison startet.",
     image: "/images/zubehoer.jpg",
     imageAlt:
-      "Saison Wartung und Inspektion — Fahrradservice Neu-Wied bei FixBike",
+      "Saison Wartung — Jahresinspektion, Winter- und Sommer-Check Neuwied",
   },
 ] as const;
 
@@ -134,7 +134,7 @@ function App() {
             </ul>
           </nav>
 
-          <a className="btn btn--primary header__cta" href="#kontakt">
+          <a className="btn btn--primary header__cta" href="#contact">
             Termin anfragen
           </a>
         </div>
@@ -160,7 +160,7 @@ function App() {
                 Beratung — Ihr <strong>Fahrradservice Neu-Wied</strong>.
               </p>
               <div className="hero__actions">
-                <a className="btn btn--primary btn--lg" href="#kontakt">
+                <a className="btn btn--primary btn--lg" href="#contact">
                   Service-Termin
                 </a>
                 <a
@@ -212,7 +212,7 @@ function App() {
                   Bremsen, Reifen und Antrieb, damit Sie wieder zuverlässig
                   unterwegs sind.
                 </p>
-                <a className="hero__panel-link" href="#leistungen">
+                <a className="hero__panel-link" href="#services">
                   Leistungen ansehen →
                 </a>
               </aside>
@@ -265,7 +265,7 @@ function App() {
                       </p>
                     ) : null}
                     <p className="ebike-card__note">{bike.countNote}</p>
-                    <a className="ebike-card__cta" href="#kontakt">
+                    <a className="ebike-card__cta" href="#contact">
                       Miete anfragen →
                     </a>
                   </div>
@@ -276,14 +276,14 @@ function App() {
         </section>
 
         <section
-          id="leistungen"
+          id="services"
           className="section section--surface"
           aria-labelledby="services-heading"
         >
           <div className="container">
             <header className="section__head">
               <h2 id="services-heading">
-                Unsere Services — Fahrradservice Neu-Wied
+                Unsere Services - Fahrradservice Neu-Wied
               </h2>
               <p>
                 Von der <strong>Fahrrad Reparatur Neu-Wied</strong> bis zum{" "}
@@ -393,7 +393,7 @@ function App() {
                     Nennen Sie Zeitraum, Radtyp und Körpergröße — wir melden uns
                     mit Verfügbarkeit und Preis.
                   </p>
-                  <a className="btn btn--secondary" href="#kontakt">
+                  <a className="btn btn--secondary" href="#contact">
                     Jetzt anfragen
                   </a>
                 </div>
@@ -438,7 +438,7 @@ function App() {
                     Aktuelle Räder und Preise können Sie telefonisch oder per
                     E-Mail erfragen — wir halten Sie auf dem Laufenden.
                   </p>
-                  <a className="btn btn--primary" href="#kontakt">
+                  <a className="btn btn--primary" href="#contact">
                     Kontakt aufnehmen
                   </a>
                 </div>
@@ -448,13 +448,13 @@ function App() {
         </section>
 
         <section
-          id="kontakt"
+          id="contact"
           className="section section--contact"
-          aria-labelledby="kontakt-heading"
+          aria-labelledby="contact-heading"
         >
           <div className="container">
             <header className="section__head section__head--tight">
-              <h2 id="kontakt-heading">Kontakt &amp; Anfahrt</h2>
+              <h2 id="contact-heading">Kontakt &amp; Anfahrt</h2>
               <p>
                 <strong>Fahrradservice Neu-Wied</strong> — Rufen Sie an,
                 schreiben Sie per WhatsApp oder E-Mail. Wir vereinbaren einen

@@ -15,7 +15,12 @@
     />
     <meta name="author" content="Fixbike" />
     <meta name="robots" content="index, follow" />
+    <meta
+      name="google-site-verification"
+      content="PASTE_VERIFICATION_CODE_HERE"
+    />
     <link rel="canonical" href="https://fixbike.online/" />
+    <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
 
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
@@ -64,42 +69,28 @@
     />
 
     <title>Fahrradservice Neu-Wied - E-Bike Reparatur &amp; Wartung | FixBike</title>
-
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.tsx"></script>
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": ["LocalBusiness", "BicycleStore"],
+        "@type": "LocalBusiness",
         "name": "FixBike Neu-Wied Fahrradservice",
-        "alternateName": "Fixbike",
         "url": "https://fixbike.online",
-        "image": "https://fixbike.online/images/hero-mechaniker.png",
-        "description": "Fahrradservice Neu-Wied: Fahrrad Reparatur, E-Bike Service, Inspektion und Wartung. Fahrradverleih und Verkauf nach Terminvereinbarung.",
         "telephone": "+49 163 7046825",
         "email": "fixbike2025@gmail.com",
+        "openingHours": "Mo-Fr 09:00-18:00, Sa 09:00-14:00",
         "address": {
           "@type": "PostalAddress",
           "streetAddress": "Wagenhallenweg 8",
           "postalCode": "56566",
           "addressLocality": "Neuwied",
-          "addressRegion": "RP",
+          "addressRegion": "Rheinland-Pfalz",
           "addressCountry": "DE"
-        },
-        "areaServed": [
-          {
-            "@type": "City",
-            "name": "Neuwied"
-          },
-          {
-            "@type": "AdministrativeArea",
-            "name": "Landkreis Neuwied"
-          }
-        ],
-        "sameAs": ["https://wa.me/491637046825"]
+        }
       }
     </script>
-  </head>
-  <body>
-    <div id="root"></div>
-    <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

@@ -103,18 +103,12 @@ function App() {
             <img
               className="brand__logo"
               src="/images/fixbike-logo.png"
-              alt=""
-              width={152}
-              height={48}
+              alt="FixBike"
+              width={188}
+              height={100}
               decoding="async"
-              aria-hidden="true"
             />
             <span className="brand__lockup">
-              <span className="brand__wordmark">
-                <span className="brand__wm-part">Fi</span>
-                <span className="brand__wm-x">x</span>
-                <span className="brand__wm-part">Bike</span>
-              </span>
               <span className="brand__seo-line">
                 E-Bike Service · Fahrradvermietung &amp; Reparatur · Neuwied
               </span>

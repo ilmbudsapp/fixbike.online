@@ -170,6 +170,7 @@ strong {
   object-fit: contain;
   object-position: left center;
   flex-shrink: 0;
+  background: transparent;
 }
 
 .brand__lockup {
@@ -178,25 +179,6 @@ strong {
   gap: 0.15rem;
   line-height: 1.05;
   min-width: 0;
-}
-
-.brand__wordmark {
-  font-family: var(--font-display);
-  font-weight: 800;
-  font-size: 1.35rem;
-  font-style: italic;
-  letter-spacing: -0.03em;
-  display: flex;
-  align-items: baseline;
-  white-space: nowrap;
-}
-
-.brand__wm-part {
-  color: #1e293b;
-}
-
-.brand__wm-x {
-  color: #ea580c;
 }
 
 .brand__seo-line {
@@ -211,10 +193,6 @@ strong {
 }
 
 @media (max-width: 520px) {
-  .brand__wordmark {
-    font-size: 1.1rem;
-  }
-
   .brand__seo-line {
     font-size: 0.58rem;
     max-width: 11rem;

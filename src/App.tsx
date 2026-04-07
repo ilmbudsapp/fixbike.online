@@ -103,7 +103,7 @@ function App() {
       </a>
 
       <header className="site-header">
-        <div className="container header__inner">
+        <div className="container container--wide header__inner">
           <a
             className="brand"
             href="https://fixbike.online/"
@@ -124,7 +124,7 @@ function App() {
             </span>
           </a>
 
-          <nav className="nav" aria-label="Hauptnavigation">
+          <nav className="nav nav--header" aria-label="Hauptnavigation">
             <ul className="nav__list">
               {nav.map((item) => (
                 <li key={item.href}>
@@ -144,78 +144,87 @@ function App() {
         <div id="top" className="hero-anchor" aria-hidden="true" />
 
         <section className="hero" aria-labelledby="hero-heading">
-          <div className="hero__glow" aria-hidden="true" />
-          <div className="container hero__grid">
-            <div className="hero__copy">
+          <div className="hero__frame" aria-hidden="true" />
+          <div className="hero__noise" aria-hidden="true" />
+          <div className="container container--wide hero__shell">
+            <header className="hero__masthead">
               <p className="hero__eyebrow">Fahrradservice · E-Bike Service</p>
-              <h1 id="hero-heading">
+              <h1 id="hero-heading" className="hero__title">
                 Fahrradservice &amp; E-Bike Service Neu-Wied | Schnelle
                 Reparatur
               </h1>
-              <p className="hero__lead">
-                Professionelle <strong>Fahrrad Reparatur Neu-Wied</strong> für
-                klassische Bikes und <strong>E-Bike Service Neuwied</strong>,
-                transparenter <strong>Fahrradverleih</strong> und ausgewählter{" "}
-                <strong>Fahrradverkauf</strong>. Schnelle Hilfe, ehrliche
-                Beratung — Ihr <strong>Fahrradservice Neu-Wied</strong>.
-              </p>
-              <div className="hero__actions">
-                <a className="btn btn--primary btn--lg" href="#contact">
-                  Service-Termin
-                </a>
-                <a
-                  className="btn btn--whatsapp btn--lg"
-                  href={CONTACT.whatsapp}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  WhatsApp
-                </a>
-                <a className="btn btn--ghost btn--lg" href="#ebike-vermietung">
-                  E-Bike mieten
-                </a>
-              </div>
-              <ul className="hero__badges" aria-label="Schwerpunkte">
-                <li>E-Bike Diagnose</li>
-                <li>Fahrrad Inspektion</li>
-                <li>City- &amp; Trekkingräder</li>
-              </ul>
-            </div>
-            <div className="hero__shots">
-              <figure className="hero__figure">
-                <div className="hero__photo-wrap hero__photo-wrap--mechaniker">
-                  <img
-                    className="hero__photo hero__photo--mechaniker"
-                    src="/images/hero-mechaniker.png"
-                    width={1200}
-                    height={800}
-                    alt="Fixbike Service: E-Bike-Reparatur am CUBE Stereo Hybrid"
-                    fetchPriority="high"
-                    decoding="async"
-                  />
-                </div>
-                <figcaption className="visually-hidden">
-                  Service: professionelle Fahrrad- und E-Bike-Reparatur bei
-                  Fixbike
-                </figcaption>
-              </figure>
-              <aside className="hero__panel" aria-label="Kurzinfo">
-                <div className="hero__stat">
-                  <span className="hero__stat-label">Schwerpunkt</span>
-                  <span className="hero__stat-value">
-                    Service &amp; Sicherheit
-                  </span>
-                </div>
-                <p className="hero__panel-text">
-                  Ob <strong>Zweirad Service</strong> für den Arbeitsweg oder
-                  Vorbereitung auf die Saison — wir kümmern uns um Schaltung,
-                  Bremsen, Reifen und Antrieb, damit Sie wieder zuverlässig
-                  unterwegs sind.
+            </header>
+
+            <div className="hero__editorial">
+              <div className="hero__column hero__column--copy">
+                <p className="hero__lead">
+                  Professionelle <strong>Fahrrad Reparatur Neu-Wied</strong> für
+                  klassische Bikes und <strong>E-Bike Service Neuwied</strong>,
+                  transparenter <strong>Fahrradverleih</strong> und ausgewählter{" "}
+                  <strong>Fahrradverkauf</strong>. Schnelle Hilfe, ehrliche
+                  Beratung — Ihr <strong>Fahrradservice Neu-Wied</strong>.
                 </p>
-                <a className="hero__panel-link" href="#services">
-                  Leistungen ansehen →
-                </a>
-              </aside>
+                <div className="hero__actions">
+                  <a className="btn btn--primary btn--lg" href="#contact">
+                    Service-Termin
+                  </a>
+                  <a
+                    className="btn btn--whatsapp btn--lg"
+                    href={CONTACT.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    WhatsApp
+                  </a>
+                  <a className="btn btn--ghost btn--lg" href="#ebike-vermietung">
+                    E-Bike mieten
+                  </a>
+                </div>
+                <ul className="hero__badges" aria-label="Schwerpunkte">
+                  <li>E-Bike Diagnose</li>
+                  <li>Fahrrad Inspektion</li>
+                  <li>City- &amp; Trekkingräder</li>
+                </ul>
+              </div>
+
+              <div className="hero__column hero__column--visual">
+                <div className="hero__visual-stack">
+                  <figure className="hero__figure">
+                    <div className="hero__photo-wrap hero__photo-wrap--mechaniker">
+                      <img
+                        className="hero__photo hero__photo--mechaniker"
+                        src="/images/hero-mechaniker.png"
+                        width={1200}
+                        height={800}
+                        alt="Fixbike Service: E-Bike-Reparatur am CUBE Stereo Hybrid"
+                        fetchPriority="high"
+                        decoding="async"
+                      />
+                    </div>
+                    <figcaption className="visually-hidden">
+                      Service: professionelle Fahrrad- und E-Bike-Reparatur bei
+                      Fixbike
+                    </figcaption>
+                  </figure>
+                  <aside className="hero__panel" aria-label="Kurzinfo">
+                    <div className="hero__stat">
+                      <span className="hero__stat-label">Schwerpunkt</span>
+                      <span className="hero__stat-value">
+                        Service &amp; Sicherheit
+                      </span>
+                    </div>
+                    <p className="hero__panel-text">
+                      Ob <strong>Zweirad Service</strong> für den Arbeitsweg oder
+                      Vorbereitung auf die Saison — wir kümmern uns um Schaltung,
+                      Bremsen, Reifen und Antrieb, damit Sie wieder zuverlässig
+                      unterwegs sind.
+                    </p>
+                    <a className="hero__panel-link" href="#services">
+                      Leistungen ansehen →
+                    </a>
+                  </aside>
+                </div>
+              </div>
             </div>
           </div>
         </section>
@@ -225,8 +234,11 @@ function App() {
           className="section section--ebike-showcase"
           aria-labelledby="ebike-rental-heading"
         >
-          <div className="container">
-            <header className="section__head section__head--ebike">
+          <div className="container container--wide ebike__shell">
+            <span className="section__index" aria-hidden="true">
+              01
+            </span>
+            <header className="section__head section__head--ebike ebike__head">
               <p className="ebike-showcase__eyebrow">E-Bike Vermietung</p>
               <h2 id="ebike-rental-heading">
                 E-Bike Vermietung Neuwied — elektrische Fahrräder mieten
@@ -241,7 +253,7 @@ function App() {
                 Telefon, WhatsApp oder E-Mail.
               </p>
             </header>
-            <div className="ebike-showcase__grid">
+            <div className="ebike-showcase__grid ebike-showcase__grid--editorial">
               {rentalEBikes.map((bike) => (
                 <article key={bike.title} className="ebike-card">
                   <div className="ebike-card__media">
@@ -277,11 +289,14 @@ function App() {
 
         <section
           id="services"
-          className="section section--surface"
+          className="section section--surface section--services"
           aria-labelledby="services-heading"
         >
-          <div className="container">
-            <header className="section__head">
+          <div className="container container--wide services__shell">
+            <span className="section__index section__index--alt" aria-hidden="true">
+              02
+            </span>
+            <header className="section__head section__head--split-intro">
               <h2 id="services-heading">
                 Unsere Services - Fahrradservice Neu-Wied
               </h2>
@@ -291,9 +306,14 @@ function App() {
                 und erklären, was Ihr Bike wirklich braucht.
               </p>
             </header>
-            <ul className="cards">
-              {serviceBlocks.map((s) => (
-                <li key={s.title} className="card">
+            <ul className="cards cards--bento">
+              {serviceBlocks.map((s, i) => (
+                <li
+                  key={s.title}
+                  className={
+                    i === 0 ? "card card--bento-lead" : "card card--bento"
+                  }
+                >
                   <div className="card__media">
                     <img
                       src={s.image}
@@ -316,11 +336,14 @@ function App() {
 
         <section
           id="warum-fixbike"
-          className="section"
+          className="section section--why"
           aria-labelledby="warum-heading"
         >
-          <div className="container">
-            <header className="section__head">
+          <div className="container container--wide why__shell">
+            <span className="section__index" aria-hidden="true">
+              03
+            </span>
+            <header className="section__head section__head--why">
               <h2 id="warum-heading">Warum FixBike in Neu-Wied?</h2>
               <p>
                 Ihr <strong>Fahrradservice Neu-Wied</strong> mit Fokus auf
@@ -329,7 +352,7 @@ function App() {
                 <strong>E-Bike Service</strong>.
               </p>
             </header>
-            <div className="why-grid">
+            <div className="why-grid why-grid--mosaic">
               <article className="why-card">
                 <h3>Fahrradservice Neu-Wied — lokal &amp; persönlich</h3>
                 <p>
@@ -356,9 +379,9 @@ function App() {
           </div>
         </section>
 
-        <section id="verleih" className="section">
-          <div className="container split">
-            <figure className="split__figure split__figure--lift">
+        <section id="verleih" className="section section--editorial-split">
+          <div className="container container--wide split split--bleed-end">
+            <figure className="split__figure split__figure--lift split__figure--bleed">
               <div className="media-frame">
                 <img
                   src="/images/verleih.jpg"
@@ -402,9 +425,9 @@ function App() {
           </div>
         </section>
 
-        <section id="verkauf" className="section section--surface">
-          <div className="container split split--reverse">
-            <figure className="split__figure split__figure--lift">
+        <section id="verkauf" className="section section--surface section--editorial-split">
+          <div className="container container--wide split split--reverse split--bleed-start">
+            <figure className="split__figure split__figure--lift split__figure--bleed">
               <div className="media-frame media-frame--soft">
                 <img
                   src="/images/verkauf.jpg"
@@ -452,8 +475,11 @@ function App() {
           className="section section--contact"
           aria-labelledby="contact-heading"
         >
-          <div className="container">
-            <header className="section__head section__head--tight">
+          <div className="container container--wide contact__shell">
+            <span className="section__index section__index--alt" aria-hidden="true">
+              04
+            </span>
+            <header className="section__head section__head--contact">
               <h2 id="contact-heading">Kontakt &amp; Anfahrt</h2>
               <p>
                 <strong>Fahrradservice Neu-Wied</strong> — Rufen Sie an,
@@ -463,20 +489,21 @@ function App() {
               </p>
             </header>
 
-            <div className="contact-map" aria-label="Karte: Anfahrt FixBike">
-              <iframe
-                title="Google Maps: FixBike, Wagenhallenweg 8, 56566 Neuwied"
-                className="contact-map__iframe"
-                src={MAPS_EMBED_URL}
-                width={600}
-                height={380}
-                loading="lazy"
-                referrerPolicy="no-referrer-when-downgrade"
-                allowFullScreen
-              />
-            </div>
+            <div className="contact__stage">
+              <div className="contact-map" aria-label="Karte: Anfahrt FixBike">
+                <iframe
+                  title="Google Maps: FixBike, Wagenhallenweg 8, 56566 Neuwied"
+                  className="contact-map__iframe"
+                  src={MAPS_EMBED_URL}
+                  width={600}
+                  height={380}
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  allowFullScreen
+                />
+              </div>
 
-            <div className="contact-grid">
+              <div className="contact-grid contact-grid--stack">
               <address className="contact-card">
                 <h3>Adresse &amp; Erreichbarkeit</h3>
                 <p>
@@ -546,11 +573,12 @@ function App() {
                 </p>
               </div>
             </div>
+            </div>
           </div>
         </section>
 
         <footer className="footer">
-          <div className="container footer__grid">
+          <div className="container container--wide footer__grid">
             <div>
               <p className="footer__brand">Fixbike</p>
               <p className="footer__tagline">
@@ -570,7 +598,7 @@ function App() {
             </nav>
           </div>
 
-          <div id="impressum" className="legal container">
+          <div id="impressum" className="legal container container--wide">
             <h2>Impressum</h2>
             <p className="muted small">
               <strong>Hinweis:</strong> Diese Angaben sind Platzhalter und müssen
@@ -607,7 +635,7 @@ function App() {
             </p>
           </div>
 
-          <div id="datenschutz" className="legal container">
+          <div id="datenschutz" className="legal container container--wide">
             <h2>Datenschutz</h2>
             <p className="muted small">
               <strong>Hinweis:</strong> Erstellen Sie eine vollständige
@@ -624,7 +652,7 @@ function App() {
             </p>
           </div>
 
-          <div className="footer__bottom container">
+          <div className="footer__bottom container container--wide">
             <div className="footer__bottom-row">
               <p>© {new Date().getFullYear()} Fixbike · fixbike.online</p>
               <p className="footer__designer-credit">

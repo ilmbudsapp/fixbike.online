@@ -113,8 +113,8 @@ function App() {
               className="brand__logo"
               src="/images/fixbike-logo.png"
               alt="FixBike"
-              width={188}
-              height={100}
+              width={220}
+              height={117}
               decoding="async"
             />
             <span className="brand__lockup">

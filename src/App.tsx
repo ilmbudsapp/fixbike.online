@@ -92,7 +92,7 @@ function App() {
         href={CONTACT.whatsapp}
         target="_blank"
         rel="noopener noreferrer"
-        aria-label="Fixbike per WhatsApp Business kontaktieren"
+        aria-label="FixBike per WhatsApp Business kontaktieren"
       >
         <span className="float-wa__icon" aria-hidden="true">
           <svg viewBox="0 0 24 24" width="28" height="28" fill="currentColor">
@@ -143,7 +143,7 @@ function App() {
       <main id="main">
         <div id="top" className="hero-anchor" aria-hidden="true" />
 
-        <section className="hero" aria-labelledby="hero-heading">
+        <section className="hero hero--asymmetric" aria-labelledby="hero-heading">
           <div className="hero__frame" aria-hidden="true" />
           <div className="hero__noise" aria-hidden="true" />
           <div className="container container--wide hero__shell">
@@ -196,14 +196,14 @@ function App() {
                         src="/images/hero-mechaniker.png"
                         width={1200}
                         height={800}
-                        alt="Fixbike Service: E-Bike-Reparatur am CUBE Stereo Hybrid"
+                        alt="FixBike Service: E-Bike-Reparatur am CUBE Stereo Hybrid"
                         fetchPriority="high"
                         decoding="async"
                       />
                     </div>
                     <figcaption className="visually-hidden">
                       Service: professionelle Fahrrad- und E-Bike-Reparatur bei
-                      Fixbike
+                      FixBike
                     </figcaption>
                   </figure>
                   <aside className="hero__panel" aria-label="Kurzinfo">
@@ -231,7 +231,7 @@ function App() {
 
         <section
           id="ebike-vermietung"
-          className="section section--ebike-showcase"
+          className="section section--ebike-showcase section--rhythm-deep"
           aria-labelledby="ebike-rental-heading"
         >
           <div className="container container--wide ebike__shell">
@@ -289,7 +289,7 @@ function App() {
 
         <section
           id="services"
-          className="section section--surface section--services"
+          className="section section--surface section--services section--rhythm-standard"
           aria-labelledby="services-heading"
         >
           <div className="container container--wide services__shell">
@@ -311,7 +311,11 @@ function App() {
                 <li
                   key={s.title}
                   className={
-                    i === 0 ? "card card--bento-lead" : "card card--bento"
+                    i === 0
+                      ? "card card--bento-lead"
+                      : i === 1
+                        ? "card card--bento card--bento-mid"
+                        : "card card--bento card--bento-overlap"
                   }
                 >
                   <div className="card__media">
@@ -336,7 +340,7 @@ function App() {
 
         <section
           id="warum-fixbike"
-          className="section section--why"
+          className="section section--why section--rhythm-deep"
           aria-labelledby="warum-heading"
         >
           <div className="container container--wide why__shell">
@@ -379,7 +383,10 @@ function App() {
           </div>
         </section>
 
-        <section id="verleih" className="section section--editorial-split">
+        <section
+          id="verleih"
+          className="section section--editorial-split section--rhythm-tight"
+        >
           <div className="container container--wide split split--bleed-end">
             <figure className="split__figure split__figure--lift split__figure--bleed">
               <div className="media-frame">
@@ -425,7 +432,10 @@ function App() {
           </div>
         </section>
 
-        <section id="verkauf" className="section section--surface section--editorial-split">
+        <section
+          id="verkauf"
+          className="section section--surface section--editorial-split section--rhythm-standard"
+        >
           <div className="container container--wide split split--reverse split--bleed-start">
             <figure className="split__figure split__figure--lift split__figure--bleed">
               <div className="media-frame media-frame--soft">
@@ -472,7 +482,7 @@ function App() {
 
         <section
           id="contact"
-          className="section section--contact"
+          className="section section--contact section--rhythm-wide"
           aria-labelledby="contact-heading"
         >
           <div className="container container--wide contact__shell">
@@ -580,7 +590,7 @@ function App() {
         <footer className="footer">
           <div className="container container--wide footer__grid">
             <div>
-              <p className="footer__brand">Fixbike</p>
+              <p className="footer__brand">FixBike</p>
               <p className="footer__tagline">
                 Fahrradservice · E-Bike Reparatur · Fahrradverleih ·
                 Fahrradverkauf
@@ -606,7 +616,7 @@ function App() {
               Betriebs ersetzt werden (§ 5 TMG / DDG).
             </p>
             <p>
-              <strong>Fixbike</strong>
+              <strong>FixBike</strong>
               <br />
               Adem Osmani
               <br />
@@ -644,7 +654,7 @@ function App() {
               Rechtsberatung.
             </p>
             <p>
-              Verantwortliche Stelle: Fixbike, Adem Osmani, Wagenhallenweg 8,
+              Verantwortliche Stelle: FixBike, Adem Osmani, Wagenhallenweg 8,
               56566 Neuwied, Deutschland — Kontakt:{" "}
               <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>. Diese
               Website kann technisch notwendige Daten verarbeiten (z. B.
@@ -654,7 +664,7 @@ function App() {
 
           <div className="footer__bottom container container--wide">
             <div className="footer__bottom-row">
-              <p>© {new Date().getFullYear()} Fixbike · fixbike.online</p>
+              <p>© {new Date().getFullYear()} FixBike · fixbike.online</p>
               <p className="footer__designer-credit">
                 <a
                   href="https://agrmultimedia.eu/"
@@ -663,7 +673,8 @@ function App() {
                 >
                   AGRMULTIMEDIA
                 </a>
-                -Web Designer Agron Osmani
+                {" "}
+                — Web Design Agron Osmani
               </p>
             </div>
             <p className="footer__photos">

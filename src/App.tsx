@@ -9,7 +9,10 @@ const MAPS_EMBED_URL =
   "https://maps.google.com/maps?q=" +
   encodeURIComponent("Wagenhallenweg 8, 56566 Neuwied, Deutschland") +
   "&hl=de&z=15&ie=UTF8&iwloc=B&output=embed";
-const RENTAL_FORM_ENDPOINT = "https://formsubmit.co/ajax/fixbike2025@gmail.com";
+const EMAILJS_ENDPOINT = "https://api.emailjs.com/api/v1.0/email/send";
+const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID ?? "";
+const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID ?? "";
+const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY ?? "";
 
 const CONTACT = {
   phoneDisplay: "+49 163 7046825",
@@ -141,23 +144,31 @@ function App() {
     setBookingStatus("loading");
 
     try {
-      const response = await fetch(RENTAL_FORM_ENDPOINT, {
+      if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
+        throw new Error("Missing EmailJS configuration");
+      }
+
+      const response = await fetch(EMAILJS_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
-          Accept: "application/json",
         },
         body: JSON.stringify({
-          _subject: `Mietanfrage: ${selectedBike.title} (${selectedBike.size})`,
-          _captcha: "false",
-          bike_model: selectedBike.title,
-          bike_size: selectedBike.size,
-          name: bookingName,
-          email: bookingEmail,
-          phone_whatsapp: bookingPhone,
-          pickup_date: pickupDate,
-          return_date: returnDate,
-          rental_price_info: "Vermietung für eine Woche zum Preis von 210,00 €.",
+          service_id: EMAILJS_SERVICE_ID,
+          template_id: EMAILJS_TEMPLATE_ID,
+          user_id: EMAILJS_PUBLIC_KEY,
+          template_params: {
+            subject: `Mietanfrage: ${selectedBike.title} (${selectedBike.size})`,
+            bike_model: selectedBike.title,
+            bike_size: selectedBike.size,
+            customer_name: bookingName,
+            customer_email: bookingEmail,
+            customer_phone_whatsapp: bookingPhone,
+            pickup_date: pickupDate,
+            return_date: returnDate,
+            rental_price_info:
+              "Vermietung für eine Woche zum Preis von 210,00 €.",
+          },
         }),
       });
 

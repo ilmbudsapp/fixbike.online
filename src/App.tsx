@@ -38,12 +38,20 @@ const rentalEBikes: {
   {
     title: "CUBE Touring Hybrid",
     size: "Größe M",
-    availability: "2 Stück verfügbar — beide in Weiß.",
     countNote:
-      "Zwei identische E-Bikes dieses Modells — ideal für Paare oder Gruppen.",
+      "Komfortables Trekking-E-Bike für Alltag, Touren und längere Strecken.",
     image: "/images/cube-touring-hybrid-m.png",
     imageAlt:
       "CUBE Touring Hybrid E-Bike in Weiß, Größe M — Trekking und Alltag",
+  },
+  {
+    title: "CUBE Touring Hybrid",
+    size: "Größe L",
+    countNote:
+      "Dasselbe Modell in Größe L für größere Fahrerinnen und Fahrer mit komfortabler Sitzposition.",
+    image: "/images/cube-touring-hybrid-l.png",
+    imageAlt:
+      "CUBE Touring Hybrid E-Bike in Weiß, Größe L — Trekking und Alltag",
   },
   {
     title: "CUBE Stereo Hybrid",

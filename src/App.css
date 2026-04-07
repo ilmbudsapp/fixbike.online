@@ -517,23 +517,9 @@ strong {
 
 @media (min-width: 860px) {
   .ebike-showcase__grid {
-    grid-template-columns: 1fr 1fr;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
     gap: 2rem;
     align-items: stretch;
-  }
-
-  .ebike-showcase__grid--editorial {
-    align-items: start;
-  }
-
-  .ebike-showcase__grid--editorial .ebike-card:nth-child(1) {
-    transform: translateY(0.35rem);
-    z-index: 1;
-  }
-
-  .ebike-showcase__grid--editorial .ebike-card:nth-child(2) {
-    transform: translateY(3.35rem) translateX(-0.65rem);
-    z-index: 2;
   }
 }
 

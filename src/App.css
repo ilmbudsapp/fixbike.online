@@ -739,7 +739,7 @@ strong {
 @media (min-width: 900px) {
   .hero__editorial {
     grid-template-columns: minmax(0, 0.4fr) minmax(0, 1fr);
-    gap: 2rem 4rem;
+    gap: 2.5rem 5.25rem;
     align-items: end;
   }
 
@@ -793,14 +793,14 @@ strong {
 
 @media (min-width: 900px) {
   .hero__photo-wrap {
-    transform: translateX(4%) rotate(-0.35deg);
-    max-width: 72%;
+    transform: translateX(14%) translateY(3%) rotate(-0.3deg);
+    max-width: 66%;
     margin-left: auto;
   }
 
   .hero--asymmetric .hero__photo-wrap {
-    transform: translateX(8%) translateY(1.5%) rotate(-0.65deg);
-    max-width: 68%;
+    transform: translateX(22%) translateY(5.5%) rotate(-0.45deg);
+    max-width: 62%;
   }
 }
 
@@ -924,7 +924,7 @@ strong {
   }
 
   .hero--asymmetric .hero__column--visual {
-    padding-left: 4%;
+    padding-left: 10%;
   }
 }
 

@@ -628,6 +628,89 @@ strong {
   border-color: var(--accent);
 }
 
+.ebike-card__cta-btn {
+  margin-top: 1.15rem;
+  align-self: flex-start;
+}
+
+.booking-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 120;
+  display: grid;
+  place-items: center;
+  padding: 1rem;
+}
+
+.booking-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(40, 37, 29, 0.5);
+  backdrop-filter: blur(4px);
+}
+
+.booking-modal__panel {
+  position: relative;
+  z-index: 1;
+  width: min(540px, 100%);
+  background: rgba(255, 255, 255, 0.94);
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-md);
+  padding: 1.25rem 1.25rem 1.35rem;
+}
+
+.booking-modal__close {
+  position: absolute;
+  right: 0.6rem;
+  top: 0.45rem;
+  border: 0;
+  background: transparent;
+  color: var(--muted);
+  font-size: 1.6rem;
+  line-height: 1;
+  cursor: pointer;
+}
+
+.booking-modal__panel h3 {
+  margin: 0 0 0.3rem;
+}
+
+.booking-modal__meta {
+  margin: 0 0 0.95rem;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+.booking-modal__success {
+  margin: 0 0 0.95rem;
+  color: var(--accent);
+  font-weight: 700;
+}
+
+.booking-form {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.booking-form label {
+  display: grid;
+  gap: 0.35rem;
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--ink-soft);
+}
+
+.booking-form input {
+  width: 100%;
+  border: 1px solid var(--line-strong);
+  border-radius: var(--radius-sm);
+  padding: 0.62rem 0.7rem;
+  font: inherit;
+  color: var(--ink);
+  background: #fff;
+}
+
 /* —— Hero — editorial layout —— */
 .hero-anchor {
   position: relative;

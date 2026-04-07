@@ -1,3 +1,5 @@
+import { useEffect, useState, type FormEvent } from "react";
+
 const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=" +
   encodeURIComponent("Wagenhallenweg 8, 56566 Neuwied");
@@ -89,6 +91,66 @@ const serviceBlocks = [
 ] as const;
 
 function App() {
+  const [selectedBike, setSelectedBike] = useState<{
+    title: string;
+    size: string;
+  } | null>(null);
+  const [bookingName, setBookingName] = useState("");
+  const [bookingEmail, setBookingEmail] = useState("");
+  const [bookingPhone, setBookingPhone] = useState("");
+  const [pickupDate, setPickupDate] = useState("");
+  const [returnDate, setReturnDate] = useState("");
+  const [bookingSubmitted, setBookingSubmitted] = useState(false);
+
+  useEffect(() => {
+    if (!pickupDate) {
+      setReturnDate("");
+      return;
+    }
+
+    const start = new Date(`${pickupDate}T12:00:00`);
+    start.setDate(start.getDate() + 7);
+    const yyyy = start.getFullYear();
+    const mm = String(start.getMonth() + 1).padStart(2, "0");
+    const dd = String(start.getDate()).padStart(2, "0");
+    setReturnDate(`${yyyy}-${mm}-${dd}`);
+  }, [pickupDate]);
+
+  const openBookingModal = (bike: { title: string; size: string }) => {
+    setSelectedBike(bike);
+    setBookingSubmitted(false);
+    setBookingName("");
+    setBookingEmail("");
+    setBookingPhone("");
+    setPickupDate("");
+    setReturnDate("");
+  };
+
+  const closeBookingModal = () => {
+    setSelectedBike(null);
+    setBookingSubmitted(false);
+  };
+
+  const handleBookingSubmit = (event: FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    if (!selectedBike) return;
+
+    const subject = `Mietanfrage: ${selectedBike.title} (${selectedBike.size})`;
+    const body = [
+      `Fahrrad: ${selectedBike.title}`,
+      `Größe: ${selectedBike.size}`,
+      "",
+      `Name: ${bookingName}`,
+      `E-Mail: ${bookingEmail}`,
+      `Telefon/WhatsApp: ${bookingPhone}`,
+      `Abholung: ${pickupDate}`,
+      `Rückgabe (automatisch +7 Tage): ${returnDate}`,
+    ].join("\n");
+
+    setBookingSubmitted(true);
+    window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  };
+
   return (
     <>
       <a className="skip-link" href="#main">
@@ -263,7 +325,7 @@ function App() {
             </header>
             <div className="ebike-showcase__grid ebike-showcase__grid--editorial">
               {rentalEBikes.map((bike) => (
-                <article key={bike.title} className="ebike-card">
+                <article key={`${bike.title}-${bike.size}`} className="ebike-card">
                   <div className="ebike-card__media">
                     <img
                       src={bike.image}
@@ -288,9 +350,15 @@ function App() {
                     <p className="ebike-card__note">
                       Vermietung für eine Woche zum Preis von 210,00 €.
                     </p>
-                    <a className="ebike-card__cta" href="#contact">
-                      Miete anfragen →
-                    </a>
+                    <button
+                      type="button"
+                      className="btn btn--primary ebike-card__cta-btn"
+                      onClick={() =>
+                        openBookingModal({ title: bike.title, size: bike.size })
+                      }
+                    >
+                      Miete anfragen
+                    </button>
                   </div>
                 </article>
               ))}
@@ -702,6 +770,81 @@ function App() {
           </div>
         </footer>
       </main>
+
+      {selectedBike ? (
+        <div
+          className="booking-modal"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="booking-modal-title"
+        >
+          <div className="booking-modal__backdrop" onClick={closeBookingModal} />
+          <div className="booking-modal__panel">
+            <button
+              type="button"
+              className="booking-modal__close"
+              onClick={closeBookingModal}
+              aria-label="Modal schließen"
+            >
+              ×
+            </button>
+            <h3 id="booking-modal-title">Mietanfrage — {selectedBike.title}</h3>
+            <p className="booking-modal__meta">{selectedBike.size}</p>
+
+            {bookingSubmitted ? (
+              <p className="booking-modal__success">
+                Danke! Kontaktieren Sie uns bald.
+              </p>
+            ) : null}
+
+            <form className="booking-form" onSubmit={handleBookingSubmit}>
+              <label>
+                Name
+                <input
+                  type="text"
+                  required
+                  value={bookingName}
+                  onChange={(e) => setBookingName(e.target.value)}
+                />
+              </label>
+              <label>
+                Email
+                <input
+                  type="email"
+                  required
+                  value={bookingEmail}
+                  onChange={(e) => setBookingEmail(e.target.value)}
+                />
+              </label>
+              <label>
+                Phone/WhatsApp
+                <input
+                  type="text"
+                  required
+                  value={bookingPhone}
+                  onChange={(e) => setBookingPhone(e.target.value)}
+                />
+              </label>
+              <label>
+                Pickup date
+                <input
+                  type="date"
+                  required
+                  value={pickupDate}
+                  onChange={(e) => setPickupDate(e.target.value)}
+                />
+              </label>
+              <label>
+                Return date
+                <input type="date" value={returnDate} readOnly />
+              </label>
+              <button type="submit" className="btn btn--primary">
+                Anfrage senden
+              </button>
+            </form>
+          </div>
+        </div>
+      ) : null}
     </>
   );
 }

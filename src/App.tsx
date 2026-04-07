@@ -285,6 +285,9 @@ function App() {
                       </p>
                     ) : null}
                     <p className="ebike-card__note">{bike.countNote}</p>
+                    <p className="ebike-card__note">
+                      Vermietung für eine Woche zum Preis von 210,00 €.
+                    </p>
                     <a className="ebike-card__cta" href="#contact">
                       Miete anfragen →
                     </a>

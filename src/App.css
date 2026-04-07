@@ -1,39 +1,38 @@
-/* FixBike — premium dark theme (2026, bicycle brand direction) */
+/* FixBike — premium light theme (2026 direction) */
 :root {
-  --void: #000000;
-  --bg-deep: #050508;
-  --bg-raised: #0c0c10;
-  --bg-card: #111116;
-  --bg-card-hover: #16161e;
-  --ink: #fafafa;
-  --ink-soft: #e4e4e7;
-  --muted: #a1a1aa;
-  --muted-dim: #71717a;
-  --line: rgba(255, 255, 255, 0.08);
-  --line-strong: rgba(255, 255, 255, 0.14);
-  --accent: #2dd4bf;
-  --accent-dim: #14b8a6;
-  --accent-soft: rgba(45, 212, 191, 0.12);
-  --accent-glow: rgba(45, 212, 191, 0.25);
-  --surface: #111116;
+  --void: #f9f8f5;
+  --bg-deep: #f5f2eb;
+  --bg-raised: #f2efe8;
+  --bg-card: #ffffff;
+  --bg-card-hover: #fcfbf8;
+  --ink: #28251d;
+  --ink-soft: #3b372d;
+  --muted: #7a7974;
+  --muted-dim: #94928c;
+  --line: rgba(40, 37, 29, 0.1);
+  --line-strong: rgba(40, 37, 29, 0.18);
+  --accent: #01696f;
+  --accent-dim: #0b7f86;
+  --accent-soft: rgba(1, 105, 111, 0.12);
+  --accent-glow: rgba(1, 105, 111, 0.18);
+  --surface: #ffffff;
   --radius-sm: 3px;
   --radius-md: 6px;
   --radius-lg: 10px;
-  --shadow-sm: 0 8px 32px rgba(0, 0, 0, 0.45);
-  --shadow-md: 0 24px 64px rgba(0, 0, 0, 0.55);
-  --shadow-glow: 0 0 80px rgba(45, 212, 191, 0.06);
+  --shadow-sm: 0 10px 24px rgba(40, 37, 29, 0.08);
+  --shadow-md: 0 24px 52px rgba(40, 37, 29, 0.14);
+  --shadow-glow: 0 0 56px rgba(1, 105, 111, 0.08);
   --font: "DM Sans", system-ui, -apple-system, sans-serif;
   --font-display: "Outfit", var(--font);
   --header-h: 78px;
   --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
   --t-fast: 0.2s;
   --t-med: 0.35s;
-  /* Frosted glass surfaces (dark UI) */
-  --glass-bg: rgba(255, 255, 255, 0.1);
-  --glass-bg-strong: rgba(255, 255, 255, 0.12);
-  --text-on-dark: #e4e4e7;
-  --text-on-dark-heading: #fafafa;
-  --text-on-light: #09090b;
+  --glass-bg: rgba(255, 255, 255, 0.68);
+  --glass-bg-strong: rgba(255, 255, 255, 0.82);
+  --text-on-dark: #28251d;
+  --text-on-dark-heading: #28251d;
+  --text-on-light: #28251d;
 }
 
 *,
@@ -158,7 +157,7 @@ strong {
   font-weight: 800;
   line-height: 0.78;
   letter-spacing: -0.07em;
-  color: rgba(255, 255, 255, 0.045);
+  color: rgba(40, 37, 29, 0.06);
   margin: 0;
   user-select: none;
   pointer-events: none;
@@ -166,7 +165,7 @@ strong {
 }
 
 .section__index--alt {
-  color: rgba(255, 255, 255, 0.06);
+  color: rgba(40, 37, 29, 0.09);
 }
 
 .ebike__shell,
@@ -225,7 +224,7 @@ strong {
   z-index: 50;
   height: var(--header-h);
   border-bottom: 1px solid var(--line);
-  background: rgba(5, 5, 8, 0.78);
+  background: rgba(249, 248, 245, 0.9);
   backdrop-filter: blur(16px) saturate(1.2);
   transition: border-color var(--t-med) var(--ease-out);
 }
@@ -272,7 +271,7 @@ strong {
   object-position: left center;
   flex-shrink: 0;
   background: transparent;
-  filter: drop-shadow(0 4px 20px rgba(0, 0, 0, 0.35));
+  filter: drop-shadow(0 6px 16px rgba(40, 37, 29, 0.12));
 }
 
 .brand__lockup {
@@ -334,7 +333,7 @@ strong {
   bottom: 0;
   width: 100%;
   height: 1px;
-  background: var(--ink);
+  background: var(--accent);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform var(--t-med) var(--ease-out);
@@ -397,61 +396,61 @@ strong {
 }
 
 .btn--primary {
-  background: #f4f4f5;
-  color: var(--text-on-light) !important;
-  border-color: #f4f4f5;
-  box-shadow: 0 4px 24px rgba(250, 250, 250, 0.12);
-  -webkit-text-fill-color: var(--text-on-light);
+  background: var(--accent);
+  color: #ffffff !important;
+  border-color: var(--accent);
+  box-shadow: 0 10px 24px rgba(1, 105, 111, 0.25);
+  -webkit-text-fill-color: #ffffff;
 }
 
 .btn--primary:hover {
-  background: #e4e4e7;
-  color: var(--text-on-light) !important;
-  border-color: #e4e4e7;
+  background: #01565b;
+  color: #ffffff !important;
+  border-color: #01565b;
   transform: translateY(-1px);
-  box-shadow: 0 8px 32px rgba(250, 250, 250, 0.18);
-  -webkit-text-fill-color: var(--text-on-light);
+  box-shadow: 0 12px 32px rgba(1, 105, 111, 0.3);
+  -webkit-text-fill-color: #ffffff;
 }
 
 .btn--primary:focus-visible {
-  color: var(--text-on-light) !important;
-  -webkit-text-fill-color: var(--text-on-light);
+  color: #ffffff !important;
+  -webkit-text-fill-color: #ffffff;
 }
 
 .btn--secondary {
   background: transparent;
-  color: var(--text-on-dark-heading) !important;
+  color: var(--ink) !important;
   border-color: var(--line-strong);
   box-shadow: none;
-  -webkit-text-fill-color: var(--text-on-dark-heading);
+  -webkit-text-fill-color: var(--ink);
 }
 
 .btn--secondary:hover {
-  border-color: var(--text-on-dark-heading);
-  color: var(--text-on-dark-heading) !important;
-  background: rgba(255, 255, 255, 0.06);
-  -webkit-text-fill-color: var(--text-on-dark-heading);
+  border-color: var(--ink);
+  color: var(--ink) !important;
+  background: rgba(40, 37, 29, 0.04);
+  -webkit-text-fill-color: var(--ink);
 }
 
 .btn--ghost {
   background: transparent;
-  color: var(--text-on-dark-heading) !important;
+  color: var(--ink) !important;
   border-color: var(--line-strong);
-  -webkit-text-fill-color: var(--text-on-dark-heading);
+  -webkit-text-fill-color: var(--ink);
 }
 
 .btn--ghost:hover {
-  background: rgba(255, 255, 255, 0.06);
-  color: var(--text-on-dark-heading) !important;
-  border-color: rgba(255, 255, 255, 0.22);
-  -webkit-text-fill-color: var(--text-on-dark-heading);
+  background: rgba(40, 37, 29, 0.04);
+  color: var(--ink) !important;
+  border-color: var(--line-strong);
+  -webkit-text-fill-color: var(--ink);
 }
 
 /* —— E-Bike showcase —— */
 .section--ebike-showcase {
   position: relative;
   padding: clamp(3.5rem, 8vw, 5.5rem) 0 clamp(3rem, 6vw, 4.5rem);
-  background: linear-gradient(180deg, var(--void) 0%, var(--bg-deep) 45%, #0a0a0f 100%);
+  background: linear-gradient(180deg, var(--void) 0%, var(--bg-deep) 45%, #f7f4ed 100%);
   border-bottom: 1px solid var(--line);
   scroll-margin-top: calc(var(--header-h) + 1rem);
 }
@@ -466,7 +465,7 @@ strong {
   inset: 0;
   background: radial-gradient(
     ellipse 90% 50% at 50% 0%,
-    rgba(45, 212, 191, 0.06) 0%,
+    rgba(1, 105, 111, 0.08) 0%,
     transparent 55%
   );
   pointer-events: none;
@@ -562,7 +561,7 @@ strong {
 
 .ebike-card__media {
   aspect-ratio: 4 / 3;
-  background: #18181f;
+  background: #ece8df;
   overflow: hidden;
 }
 
@@ -664,12 +663,12 @@ strong {
   inset: 0;
   background: radial-gradient(
       ellipse 90% 70% at 92% 8%,
-      rgba(45, 212, 191, 0.08) 0%,
+      rgba(1, 105, 111, 0.1) 0%,
       transparent 42%
     ),
     radial-gradient(
       ellipse 55% 45% at 5% 95%,
-      rgba(255, 255, 255, 0.035) 0%,
+      rgba(1, 105, 111, 0.04) 0%,
       transparent 50%
     );
   pointer-events: none;
@@ -684,9 +683,9 @@ strong {
   background: linear-gradient(
     180deg,
     transparent 0%,
-    rgba(255, 255, 255, 0.14) 35%,
-    rgba(45, 212, 191, 0.35) 50%,
-    rgba(255, 255, 255, 0.1) 75%,
+    rgba(40, 37, 29, 0.18) 35%,
+    rgba(1, 105, 111, 0.4) 50%,
+    rgba(40, 37, 29, 0.12) 75%,
     transparent 100%
   );
   opacity: 0.85;
@@ -702,7 +701,7 @@ strong {
 .hero__noise {
   position: absolute;
   inset: 0;
-  opacity: 0.035;
+  opacity: 0.02;
   pointer-events: none;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
 }
@@ -719,7 +718,7 @@ strong {
 
 .hero__title {
   color: var(--ink);
-  text-shadow: 0 4px 60px rgba(0, 0, 0, 0.45);
+  text-shadow: 0 10px 36px rgba(40, 37, 29, 0.12);
 }
 
 .hero__eyebrow {
@@ -876,7 +875,7 @@ strong {
   text-transform: uppercase;
   padding: 0.5rem 0.9rem;
   border-radius: var(--radius-sm);
-  background: rgba(255, 255, 255, 0.03);
+  background: rgba(255, 255, 255, 0.62);
   border: 1px solid var(--line);
   color: var(--muted);
   transition:
@@ -885,8 +884,8 @@ strong {
 }
 
 .hero__badges li:hover {
-  border-color: rgba(45, 212, 191, 0.4);
-  color: var(--ink-soft);
+  border-color: rgba(1, 105, 111, 0.35);
+  color: var(--ink);
 }
 
 .hero__panel {
@@ -926,7 +925,7 @@ strong {
 }
 
 .hero__panel:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(40, 37, 29, 0.2);
 }
 
 .hero__stat {
@@ -978,8 +977,8 @@ strong {
 }
 
 .hero__panel-link:hover {
-  color: #5eead4;
-  border-color: rgba(94, 234, 212, 0.5);
+  color: #01565b;
+  border-color: rgba(1, 105, 111, 0.35);
 }
 
 /* —— Sections —— */
@@ -1072,7 +1071,7 @@ strong {
 }
 
 .section--why {
-  background: linear-gradient(180deg, var(--void) 0%, #060609 50%, var(--void) 100%);
+  background: linear-gradient(180deg, #f6f3ec 0%, #fbfaf7 50%, var(--void) 100%);
 }
 
 .cards {
@@ -1143,14 +1142,14 @@ strong {
 }
 
 .card:hover {
-  border-color: rgba(45, 212, 191, 0.22);
-  box-shadow: var(--shadow-md), 0 0 48px rgba(45, 212, 191, 0.05);
+  border-color: rgba(1, 105, 111, 0.22);
+  box-shadow: var(--shadow-md), 0 0 48px rgba(1, 105, 111, 0.05);
 }
 
 .card__media {
   aspect-ratio: 16 / 10;
   overflow: hidden;
-  background: #18181f;
+  background: #ece8df;
 }
 
 .card__media img {
@@ -1265,7 +1264,7 @@ strong {
 }
 
 .media-frame:hover {
-  border-color: rgba(255, 255, 255, 0.18);
+  border-color: rgba(40, 37, 29, 0.22);
 }
 
 .media-frame img {
@@ -1341,14 +1340,14 @@ strong {
 .callout--accent {
   background: linear-gradient(
       145deg,
-      rgba(45, 212, 191, 0.14) 0%,
-      rgba(255, 255, 255, 0.06) 50%,
-      rgba(255, 255, 255, 0.08) 100%
+      rgba(1, 105, 111, 0.12) 0%,
+      rgba(255, 255, 255, 0.64) 50%,
+      rgba(255, 255, 255, 0.82) 100%
     ),
     var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border-color: rgba(45, 212, 191, 0.2);
+  border-color: rgba(1, 105, 111, 0.2);
 }
 
 .callout__title {
@@ -1406,7 +1405,7 @@ strong {
     padding-top: 1.5rem;
     margin-top: -0.5rem;
     z-index: 3;
-    box-shadow: var(--shadow-md);
+    box-shadow: var(--shadow-sm);
   }
 
   .why-grid--mosaic .why-card:nth-child(3) {
@@ -1497,7 +1496,7 @@ strong {
   overflow: hidden;
   border: 1px solid var(--line-strong);
   box-shadow: var(--shadow-sm);
-  background: #0a0a0c;
+  background: #f1ede4;
   aspect-ratio: 16 / 10;
   max-height: 440px;
 }
@@ -1583,7 +1582,7 @@ strong {
 
 .contact-card__maps:hover {
   color: var(--accent);
-  border-color: rgba(45, 212, 191, 0.4);
+  border-color: rgba(1, 105, 111, 0.35);
 }
 
 .contact-card__actions {
@@ -1610,7 +1609,7 @@ strong {
 .btn--maps:hover {
   border-color: var(--ink);
   color: var(--ink);
-  background: rgba(255, 255, 255, 0.05);
+  background: rgba(40, 37, 29, 0.04);
 }
 
 .btn--whatsapp {
@@ -1629,12 +1628,12 @@ strong {
 }
 
 .contact-card--highlight {
-  border-color: rgba(45, 212, 191, 0.22);
+  border-color: rgba(1, 105, 111, 0.22);
   background: linear-gradient(
       160deg,
-      rgba(45, 212, 191, 0.12) 0%,
-      rgba(255, 255, 255, 0.06) 55%,
-      rgba(255, 255, 255, 0.09) 100%
+      rgba(1, 105, 111, 0.1) 0%,
+      rgba(255, 255, 255, 0.64) 55%,
+      rgba(255, 255, 255, 0.8) 100%
     ),
     var(--glass-bg);
   backdrop-filter: blur(12px);
@@ -1659,8 +1658,8 @@ strong {
   letter-spacing: 0.04em;
   text-transform: uppercase;
   text-decoration: none;
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  box-shadow: 0 12px 40px rgba(0, 0, 0, 0.5);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  box-shadow: 0 12px 32px rgba(10, 72, 28, 0.28);
   transition:
     transform var(--t-fast) var(--ease-out),
     box-shadow var(--t-fast) var(--ease-out);
@@ -1669,7 +1668,7 @@ strong {
 .float-wa:hover {
   color: #fff;
   transform: translateY(-3px);
-  box-shadow: 0 16px 48px rgba(0, 0, 0, 0.55);
+  box-shadow: 0 18px 42px rgba(10, 72, 28, 0.32);
 }
 
 .float-wa__icon {

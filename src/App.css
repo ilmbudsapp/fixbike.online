@@ -794,13 +794,13 @@ strong {
 @media (min-width: 900px) {
   .hero__photo-wrap {
     transform: translateX(18%) translateY(4%) rotate(-0.3deg);
-    max-width: 68%;
+    max-width: 72%;
     margin-left: auto;
   }
 
   .hero--asymmetric .hero__photo-wrap {
     transform: translateX(28%) translateY(7%) rotate(-0.45deg);
-    max-width: 64%;
+    max-width: 68%;
   }
 }
 

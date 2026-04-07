@@ -688,6 +688,12 @@ strong {
   font-weight: 700;
 }
 
+.booking-modal__error {
+  margin: 0 0 0.95rem;
+  color: #b42318;
+  font-weight: 700;
+}
+
 .booking-form {
   display: grid;
   gap: 0.75rem;
@@ -709,6 +715,11 @@ strong {
   font: inherit;
   color: var(--ink);
   background: #fff;
+}
+
+.booking-form .btn[disabled] {
+  opacity: 0.72;
+  cursor: not-allowed;
 }
 
 /* —— Hero — editorial layout —— */

@@ -9,6 +9,7 @@ const MAPS_EMBED_URL =
   "https://maps.google.com/maps?q=" +
   encodeURIComponent("Wagenhallenweg 8, 56566 Neuwied, Deutschland") +
   "&hl=de&z=15&ie=UTF8&iwloc=B&output=embed";
+const RENTAL_FORM_ENDPOINT = "https://formsubmit.co/ajax/fixbike2025@gmail.com";
 
 const CONTACT = {
   phoneDisplay: "+49 163 7046825",
@@ -100,7 +101,9 @@ function App() {
   const [bookingPhone, setBookingPhone] = useState("");
   const [pickupDate, setPickupDate] = useState("");
   const [returnDate, setReturnDate] = useState("");
-  const [bookingSubmitted, setBookingSubmitted] = useState(false);
+  const [bookingStatus, setBookingStatus] = useState<
+    "idle" | "loading" | "success" | "error"
+  >("idle");
 
   useEffect(() => {
     if (!pickupDate) {
@@ -118,7 +121,7 @@ function App() {
 
   const openBookingModal = (bike: { title: string; size: string }) => {
     setSelectedBike(bike);
-    setBookingSubmitted(false);
+    setBookingStatus("idle");
     setBookingName("");
     setBookingEmail("");
     setBookingPhone("");
@@ -128,27 +131,49 @@ function App() {
 
   const closeBookingModal = () => {
     setSelectedBike(null);
-    setBookingSubmitted(false);
+    setBookingStatus("idle");
   };
 
-  const handleBookingSubmit = (event: FormEvent<HTMLFormElement>) => {
+  const handleBookingSubmit = async (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    if (!selectedBike) return;
+    if (!selectedBike || bookingStatus === "loading") return;
 
-    const subject = `Mietanfrage: ${selectedBike.title} (${selectedBike.size})`;
-    const body = [
-      `Fahrrad: ${selectedBike.title}`,
-      `Größe: ${selectedBike.size}`,
-      "",
-      `Name: ${bookingName}`,
-      `E-Mail: ${bookingEmail}`,
-      `Telefon/WhatsApp: ${bookingPhone}`,
-      `Abholung: ${pickupDate}`,
-      `Rückgabe (automatisch +7 Tage): ${returnDate}`,
-    ].join("\n");
+    setBookingStatus("loading");
 
-    setBookingSubmitted(true);
-    window.location.href = `mailto:${CONTACT.email}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+    try {
+      const response = await fetch(RENTAL_FORM_ENDPOINT, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+          Accept: "application/json",
+        },
+        body: JSON.stringify({
+          _subject: `Mietanfrage: ${selectedBike.title} (${selectedBike.size})`,
+          _captcha: "false",
+          bike_model: selectedBike.title,
+          bike_size: selectedBike.size,
+          name: bookingName,
+          email: bookingEmail,
+          phone_whatsapp: bookingPhone,
+          pickup_date: pickupDate,
+          return_date: returnDate,
+          rental_price_info: "Vermietung für eine Woche zum Preis von 210,00 €.",
+        }),
+      });
+
+      if (!response.ok) {
+        throw new Error("Request failed");
+      }
+
+      setBookingStatus("success");
+      setBookingName("");
+      setBookingEmail("");
+      setBookingPhone("");
+      setPickupDate("");
+      setReturnDate("");
+    } catch {
+      setBookingStatus("error");
+    }
   };
 
   return (
@@ -791,9 +816,15 @@ function App() {
             <h3 id="booking-modal-title">Mietanfrage — {selectedBike.title}</h3>
             <p className="booking-modal__meta">{selectedBike.size}</p>
 
-            {bookingSubmitted ? (
+            {bookingStatus === "success" ? (
               <p className="booking-modal__success">
-                Danke! Kontaktieren Sie uns bald.
+                Danke! Ihre Anfrage wurde gesendet. Wir melden uns bald per
+                E-Mail oder Telefon.
+              </p>
+            ) : null}
+            {bookingStatus === "error" ? (
+              <p className="booking-modal__error">
+                Senden fehlgeschlagen. Bitte versuchen Sie es erneut.
               </p>
             ) : null}
 
@@ -838,8 +869,12 @@ function App() {
                 Return date
                 <input type="date" value={returnDate} readOnly />
               </label>
-              <button type="submit" className="btn btn--primary">
-                Anfrage senden
+              <button
+                type="submit"
+                className="btn btn--primary"
+                disabled={bookingStatus === "loading"}
+              >
+                {bookingStatus === "loading" ? "Wird gesendet..." : "Anfrage senden"}
               </button>
             </form>
           </div>

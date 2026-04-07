@@ -532,7 +532,9 @@ strong {
   border: 1px solid var(--line);
   border-radius: var(--radius-md);
   overflow: hidden;
-  box-shadow: var(--shadow-sm);
+  box-shadow:
+    0 10px 24px rgba(40, 37, 29, 0.08),
+    0 2px 8px rgba(40, 37, 29, 0.04);
   color: var(--text-on-dark);
   transition:
     border-color var(--t-med) var(--ease-out),
@@ -542,7 +544,10 @@ strong {
 
 .ebike-card:hover {
   border-color: var(--line-strong);
-  box-shadow: var(--shadow-md), var(--shadow-glow);
+  box-shadow:
+    0 20px 40px rgba(40, 37, 29, 0.14),
+    0 8px 20px rgba(1, 105, 111, 0.12),
+    0 0 0 1px rgba(255, 255, 255, 0.4);
 }
 
 .ebike-card__media {

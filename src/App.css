@@ -1605,12 +1605,25 @@ strong {
   filter: grayscale(0.15) contrast(1.05);
 }
 
-.contact-card__h3-secondary {
+.contact-card__appointment-lead {
   margin-top: 1.2rem;
-  margin-bottom: 0.5rem;
-  font-size: 0.95rem;
-  font-weight: 800;
+  margin-bottom: 0.55rem;
+  font-weight: 700;
   color: var(--ink-soft);
+  line-height: 1.55;
+}
+
+.contact-card__appointment-contact {
+  margin: 0 0 0.55rem;
+  font-size: 0.95rem;
+  line-height: 1.55;
+}
+
+.contact-card__appointment-community {
+  margin: 0 0 0.85rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.55;
 }
 
 .contact-grid {

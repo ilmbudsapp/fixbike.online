@@ -615,9 +615,10 @@ function App() {
             <header className="section__head section__head--contact">
               <h2 id="contact-heading">Kontakt &amp; Anfahrt</h2>
               <p>
-                <strong>Fahrradservice Neuwied</strong> — Rufen Sie an,
-                schreiben Sie per WhatsApp oder E-Mail. Wir vereinbaren einen
-                Termin für <strong>Fahrrad Reparatur</strong>,{" "}
+                <strong>Fahrradservice Neuwied</strong> — wir arbeiten nur nach
+                Bestellung und Terminvereinbarung. Kontaktieren Sie uns per
+                WhatsApp oder E-Mail für{" "}
+                <strong>Fahrrad Reparatur</strong>,{" "}
                 <strong>E-Bike Service Neuwied</strong>, Verleih oder Beratung.
               </p>
             </header>
@@ -662,15 +663,23 @@ function App() {
                   <br />
                   <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
                 </p>
-                <h3 className="contact-card__h3-secondary">
-                  Öffnungszeiten (Erreichbarkeit)
-                </h3>
-                <p>
-                  Telefonisch und per WhatsApp sind wir typischerweise{" "}
-                  <strong>Montag–Freitag 9:00–18:00</strong> und{" "}
-                  <strong>Samstag 9:00–14:00</strong> erreichbar. Der Service am
-                  Rad erfolgt <strong>nach Terminvereinbarung</strong> — bitte
-                  vorher anrufen oder schreiben.
+                <p className="contact-card__appointment-lead">
+                  Wir arbeiten nach Bestellung und Terminvereinbarung.
+                </p>
+                <p className="contact-card__appointment-contact">
+                  Kontakt: WhatsApp{" "}
+                  <a
+                    href={CONTACT.whatsapp}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    {CONTACT.phoneDisplay}
+                  </a>{" "}
+                  | E-Mail{" "}
+                  <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
+                </p>
+                <p className="contact-card__appointment-community">
+                  Flexibel für Kunden aus Balkan-Community in Deutschland.
                 </p>
                 <p className="contact-card__actions">
                   <a
@@ -694,15 +703,15 @@ function App() {
               <div className="contact-card contact-card--highlight">
                 <h3>Termin — Fahrrad Reparatur &amp; E-Bike Service</h3>
                 <p>
-                  Wir arbeiten <strong>nach vorheriger Absprache</strong>: Sie
-                  melden sich per Telefon, WhatsApp oder E-Mail — wir
-                  vereinbaren einen Termin für Reparatur, Inspektion,{" "}
-                  <strong>E-Bike Service Neuwied</strong> oder Verleih.
+                  Service und Übergabe erfolgen{" "}
+                  <strong>nur nach Vereinbarung</strong>. Sie melden sich per
+                  Telefon, WhatsApp oder E-Mail — wir planen Reparatur,
+                  Inspektion, <strong>E-Bike Service Neuwied</strong> oder
+                  Verleih individuell mit Ihnen.
                 </p>
                 <p className="muted small">
-                  So bleibt Ihr <strong>Fahrradservice Neuwied</strong>{" "}
-                  flexibel, und wir können uns die nötige Zeit für Ihr Rad
-                  nehmen.
+                  Keine festen Schalterzeiten — wir nehmen uns Zeit für Ihr
+                  Rad, wenn es passt.
                 </p>
               </div>
             </div>

@@ -86,6 +86,7 @@ h1 {
 
 /* Hero H1 is sized via .hero__title */
 .hero__title {
+  font-family: var(--font);
   font-size: clamp(1.8rem, 4.9vw, 3.25rem);
   line-height: 1;
   letter-spacing: -0.045em;

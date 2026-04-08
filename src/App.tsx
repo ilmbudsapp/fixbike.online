@@ -9,10 +9,8 @@ const MAPS_EMBED_URL =
   "https://maps.google.com/maps?q=" +
   encodeURIComponent("Wagenhallenweg 8, 56566 Neuwied, Deutschland") +
   "&hl=de&z=15&ie=UTF8&iwloc=B&output=embed";
-const EMAILJS_ENDPOINT = "https://api.emailjs.com/api/v1.0/email/send";
-const EMAILJS_SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID ?? "";
-const EMAILJS_TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID ?? "";
-const EMAILJS_PUBLIC_KEY = import.meta.env.VITE_EMAILJS_PUBLIC_KEY ?? "";
+const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
+const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "";
 
 const CONTACT = {
   phoneDisplay: "+49 163 7046825",
@@ -144,36 +142,42 @@ function App() {
     setBookingStatus("loading");
 
     try {
-      if (!EMAILJS_SERVICE_ID || !EMAILJS_TEMPLATE_ID || !EMAILJS_PUBLIC_KEY) {
-        throw new Error("Missing EmailJS configuration");
+      if (!WEB3FORMS_ACCESS_KEY) {
+        throw new Error("Missing Web3Forms configuration");
       }
 
-      const response = await fetch(EMAILJS_ENDPOINT, {
+      const messageBody = [
+        `Fahrrad: ${selectedBike.title}`,
+        `Größe: ${selectedBike.size}`,
+        "",
+        `Name: ${bookingName}`,
+        `E-Mail: ${bookingEmail}`,
+        `Telefon/WhatsApp: ${bookingPhone}`,
+        `Abholung: ${pickupDate}`,
+        `Rückgabe (+7 Tage): ${returnDate}`,
+        "",
+        `Preis: Vermietung für eine Woche zum Preis von 210,00 €.`,
+      ].join("\n");
+
+      const response = await fetch(WEB3FORMS_ENDPOINT, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
+          Accept: "application/json",
         },
         body: JSON.stringify({
-          service_id: EMAILJS_SERVICE_ID,
-          template_id: EMAILJS_TEMPLATE_ID,
-          user_id: EMAILJS_PUBLIC_KEY,
-          template_params: {
-            subject: `Mietanfrage: ${selectedBike.title} (${selectedBike.size})`,
-            bike_model: selectedBike.title,
-            bike_size: selectedBike.size,
-            customer_name: bookingName,
-            customer_email: bookingEmail,
-            customer_phone_whatsapp: bookingPhone,
-            pickup_date: pickupDate,
-            return_date: returnDate,
-            rental_price_info:
-              "Vermietung für eine Woche zum Preis von 210,00 €.",
-          },
+          access_key: WEB3FORMS_ACCESS_KEY,
+          subject: `Mietanfrage: ${selectedBike.title} (${selectedBike.size})`,
+          name: bookingName,
+          email: bookingEmail,
+          message: messageBody,
         }),
       });
 
-      if (!response.ok) {
-        throw new Error("Request failed");
+      const data = (await response.json()) as { success?: boolean; message?: string };
+
+      if (!response.ok || !data.success) {
+        throw new Error(data.message ?? "Request failed");
       }
 
       setBookingStatus("success");

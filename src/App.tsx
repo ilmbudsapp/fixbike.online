@@ -23,11 +23,8 @@ const CONTACT = {
 } as const;
 
 const nav = [
-  { href: "#ebike-vermietung", label: "E-Bike Vermietung" },
-  { href: "#services", label: "Services" },
-  { href: "#warum-fixbike", label: "Warum FixBike" },
-  { href: "#verleih", label: "Fahrradverleih" },
-  { href: "#verkauf", label: "Fahrradverkauf" },
+  { href: "#leistungen", label: "Leistungen" },
+  { href: "#ueber-uns", label: "Über uns" },
   { href: "#contact", label: "Kontakt" },
 ];
 
@@ -235,7 +232,7 @@ function App() {
           </a>
 
           <nav className="nav nav--header" aria-label="Hauptnavigation">
-            <ul className="nav__list">
+            <ul className="nav__list nav__list--compact">
               {nav.map((item) => (
                 <li key={item.href}>
                   <a href={item.href}>{item.label}</a>
@@ -333,7 +330,7 @@ function App() {
                       Bremsen, Reifen und Antrieb, damit Sie wieder zuverlässig
                       unterwegs sind.
                     </p>
-                    <a className="hero__panel-link" href="#services">
+                    <a className="hero__panel-link" href="#leistungen">
                       Leistungen ansehen →
                     </a>
                   </aside>
@@ -344,13 +341,43 @@ function App() {
         </section>
 
         <section
+          id="ueber-uns"
+          className="section section--about section--surface section--rhythm-standard"
+          aria-labelledby="ueber-uns-heading"
+        >
+          <div className="container container--wide about__shell">
+            <span className="section__index" aria-hidden="true">
+              01
+            </span>
+            <header className="section__head section__head--about">
+              <h2 id="ueber-uns-heading">Über uns</h2>
+              <div className="about__prose">
+                <p>
+                  Ich heiße Adem Osmani. Fahrräder sind für mich nicht nur ein
+                  Beruf, sondern eine echte Leidenschaft. Durch meine
+                  langjährige Erfahrung in der Arbeit mit Fahrrädern ist aus
+                  Interesse mit der Zeit eine echte Begeisterung geworden. Ich
+                  lege großen Wert auf saubere Arbeit, persönliche Beratung und
+                  zuverlässigen Service. Jeder Auftrag wird individuell geplant
+                  – nach Bestellung und Terminvereinbarung.
+                </p>
+                <p className="about__tagline muted">
+                  Nur nach Terminvereinbarung und Bestellung.{" "}
+                  <span className="about__tagline-strong">Termine nach Vereinbarung.</span>
+                </p>
+              </div>
+            </header>
+          </div>
+        </section>
+
+        <section
           id="ebike-vermietung"
           className="section section--ebike-showcase section--rhythm-deep"
           aria-labelledby="ebike-rental-heading"
         >
           <div className="container container--wide ebike__shell">
             <span className="section__index" aria-hidden="true">
-              01
+              02
             </span>
             <header className="section__head section__head--ebike ebike__head">
               <p className="ebike-showcase__eyebrow">E-Bike Vermietung</p>
@@ -364,7 +391,8 @@ function App() {
                 Hochwertige <strong>CUBE</strong> E-Bikes in{" "}
                 <strong>Größe M</strong> — Abholung nach Terminvereinbarung im{" "}
                 <strong>Fahrradservice Neuwied</strong>. Reservierung per
-                Telefon, WhatsApp oder E-Mail.
+                Telefon, WhatsApp oder E-Mail.{" "}
+                <strong>Termine nach Vereinbarung.</strong>
               </p>
             </header>
             <div className="ebike-showcase__grid ebike-showcase__grid--editorial">
@@ -411,22 +439,23 @@ function App() {
         </section>
 
         <section
-          id="services"
+          id="leistungen"
           className="section section--surface section--services section--rhythm-standard"
-          aria-labelledby="services-heading"
+          aria-labelledby="leistungen-heading"
         >
           <div className="container container--wide services__shell">
             <span className="section__index section__index--alt" aria-hidden="true">
-              02
+              03
             </span>
             <header className="section__head section__head--split-intro">
-              <h2 id="services-heading">
-                Unsere Services - Fahrradservice Neuwied
+              <h2 id="leistungen-heading">
+                Leistungen — Fahrradservice Neuwied
               </h2>
               <p>
                 Von der <strong>Fahrrad Reparatur Neuwied</strong> bis zum{" "}
                 <strong>E-Bike Service Neuwied</strong> — wir arbeiten präzise
-                und erklären, was Ihr Bike wirklich braucht.
+                und erklären, was Ihr Bike wirklich braucht.{" "}
+                <strong>Nur nach Terminvereinbarung und Bestellung.</strong>
               </p>
             </header>
             <ul className="cards cards--bento">
@@ -468,7 +497,7 @@ function App() {
         >
           <div className="container container--wide why__shell">
             <span className="section__index" aria-hidden="true">
-              03
+              04
             </span>
             <header className="section__head section__head--why">
               <h2 id="warum-heading">Warum FixBike in Neuwied?</h2>
@@ -610,14 +639,15 @@ function App() {
         >
           <div className="container container--wide contact__shell">
             <span className="section__index section__index--alt" aria-hidden="true">
-              04
+              05
             </span>
             <header className="section__head section__head--contact">
               <h2 id="contact-heading">Kontakt &amp; Anfahrt</h2>
               <p>
-                <strong>Fahrradservice Neuwied</strong> — wir arbeiten nur nach
-                Bestellung und Terminvereinbarung. Kontaktieren Sie uns per
-                WhatsApp oder E-Mail für{" "}
+                <strong>Fahrradservice Neuwied</strong> —{" "}
+                <strong>Nur nach Terminvereinbarung und Bestellung.</strong>{" "}
+                <strong>Termine nach Vereinbarung.</strong> Kontaktieren Sie uns
+                per WhatsApp oder E-Mail für{" "}
                 <strong>Fahrrad Reparatur</strong>,{" "}
                 <strong>E-Bike Service Neuwied</strong>, Verleih oder Beratung.
               </p>
@@ -664,7 +694,8 @@ function App() {
                   <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
                 </p>
                 <p className="contact-card__appointment-lead">
-                  Wir arbeiten nach Bestellung und Terminvereinbarung.
+                  Nur nach Terminvereinbarung und Bestellung. Termine nach
+                  Vereinbarung.
                 </p>
                 <p className="contact-card__appointment-contact">
                   Kontakt: WhatsApp{" "}
@@ -710,8 +741,8 @@ function App() {
                   Verleih individuell mit Ihnen.
                 </p>
                 <p className="muted small">
-                  Keine festen Schalterzeiten — wir nehmen uns Zeit für Ihr
-                  Rad, wenn es passt.
+                  Termine nach Vereinbarung — wir nehmen uns Zeit für Ihr Rad,
+                  wenn es passt.
                 </p>
               </div>
             </div>

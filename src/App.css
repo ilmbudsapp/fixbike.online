@@ -1545,29 +1545,22 @@ strong {
 
 @media (min-width: 900px) {
   .why-grid--mosaic {
-    grid-template-columns: 1fr 1.12fr 0.95fr;
-    gap: 1.25rem 1.85rem;
-    align-items: start;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem 1.65rem;
+    align-items: stretch;
   }
 
-  .why-grid--mosaic .why-card:nth-child(1) {
-    transform: translateY(1.5rem);
-    margin-right: -0.75rem;
-    z-index: 1;
+  .why-grid--mosaic .why-card:nth-child(1),
+  .why-grid--mosaic .why-card:nth-child(3) {
+    transform: none;
+    margin: 0;
   }
 
   .why-grid--mosaic .why-card:nth-child(2) {
     border-top: 2px solid var(--accent);
     padding-top: 1.5rem;
-    margin-top: -0.5rem;
-    z-index: 3;
+    margin: 0;
     box-shadow: var(--shadow-sm);
-  }
-
-  .why-grid--mosaic .why-card:nth-child(3) {
-    transform: translateY(3.75rem);
-    margin-left: -1rem;
-    z-index: 2;
   }
 }
 

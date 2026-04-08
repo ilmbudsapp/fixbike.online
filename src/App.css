@@ -1248,7 +1248,7 @@ strong {
   .cards--bento {
     grid-template-columns: 1.05fr 1fr;
     grid-template-rows: auto auto;
-    gap: 1.35rem 1.5rem;
+    gap: 1.75rem 1.5rem;
     align-items: stretch;
   }
 
@@ -1270,14 +1270,18 @@ strong {
     padding: 1.5rem 1.55rem 1.6rem;
   }
 
+  /* Keine Verschiebung: Karten bündig und ohne Überlappung (rechte Spalte) */
+  .card--bento-mid,
+  .card--bento-overlap {
+    transform: none;
+  }
+
   .card--bento-mid {
-    transform: translate(0.75rem, 0.5rem);
     z-index: 2;
   }
 
   .card--bento-overlap {
-    transform: translate(-0.95rem, -1.85rem);
-    z-index: 3;
+    z-index: 1;
   }
 
   .cards--bento .card__media {

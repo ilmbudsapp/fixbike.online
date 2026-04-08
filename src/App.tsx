@@ -69,23 +69,23 @@ const serviceBlocks = [
   {
     title: "Fahrrad Reparatur",
     text: "Fahrrad Reparatur Neuwied: Bremsen, Schaltung, Reifen und Gangschaltung — von der Pannenhilfe bis zur kompletten Überholung für Trekkingrad, MTB und Alltagsbike im Fahrradservice Neuwied.",
-    image: "/images/service-reparatur.jpg",
+    image: "/images/service-reparatur.png",
     imageAlt:
-      "Fahrradwerkstatt und Fahrradladen — Reparatur in Neuwied",
+      "Werkstatt: Mechaniker am CUBE E-Bike — Fahrrad Reparatur Neuwied",
   },
   {
     title: "E-Bike Service Neuwied",
     text: "E-Bike Service Neuwied mit Batterie-Check, Software-Update, Motor-Service und Systemdiagnose — damit Ihr Pedelec sicher fährt und zuverlässige Reichweite liefert.",
-    image: "/images/ebike.jpg",
+    image: "/images/leistung-ebike-weiss.png",
     imageAlt:
-      "E-Bike und Pedelec — Service Neuwied",
+      "CUBE E-Bike in Weiß — E-Bike Service Neuwied",
   },
   {
     title: "Saison Wartung",
     text: "Saison Wartung im Fahrradservice Neuwied: Jahresinspektion, Winter-Check und Sommer-Service — Lager, Schaltung, Bremsen und Sicherheit, damit Ihr Rad fit in die Saison startet.",
-    image: "/images/zubehoer.jpg",
+    image: "/images/leistung-ebike-mtb.png",
     imageAlt:
-      "E-Bike — Saisoncheck und Wartung in Neuwied",
+      "CUBE E-MTB — Saison Wartung und Inspektion Neuwied",
   },
 ] as const;
 

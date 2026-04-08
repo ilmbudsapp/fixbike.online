@@ -256,9 +256,12 @@ function App() {
             <header className="hero__masthead">
               <p className="hero__eyebrow">Fahrradservice · E-Bike Service</p>
               <h1 id="hero-heading" className="hero__title">
-                Fahrradservice &amp; <span className="no-break">E-Bike</span>{" "}
-                Service Neuwied | Schnelle
-                Reparatur
+                <span className="hero__title-line">
+                  Fahrradservice &amp; <span className="no-break">E-Bike</span>
+                </span>
+                <span className="hero__title-line">
+                  Service Neuwied I Schnelle Reparatur
+                </span>
               </h1>
             </header>
 

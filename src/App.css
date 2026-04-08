@@ -122,6 +122,10 @@ p:last-child {
   margin-bottom: 0;
 }
 
+.no-break {
+  white-space: nowrap;
+}
+
 a {
   color: var(--accent);
   text-decoration-thickness: 1px;

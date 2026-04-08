@@ -86,7 +86,7 @@ h1 {
 
 /* Hero H1 is sized via .hero__title */
 .hero__title {
-  font-size: clamp(2.05rem, 5.8vw, 3.9rem);
+  font-size: clamp(1.8rem, 4.9vw, 3.25rem);
   line-height: 1;
   letter-spacing: -0.045em;
   font-weight: 800;
@@ -96,7 +96,7 @@ h1 {
 
 @media (min-width: 900px) {
   .hero__title {
-    font-size: clamp(2.45rem, 4.2vw, 4.25rem);
+    font-size: clamp(2.1rem, 3.4vw, 3.4rem);
     max-width: none;
   }
 }

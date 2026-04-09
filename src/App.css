@@ -1939,6 +1939,128 @@ strong {
   color: var(--accent);
 }
 
+.legal-extra {
+  padding: 2.25rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.legal-extra__heading {
+  margin: 0 0 1rem;
+  color: var(--ink);
+  font-size: 1.12rem;
+  font-weight: 800;
+}
+
+.legal-accordion {
+  display: grid;
+  gap: 0.7rem;
+}
+
+.legal-accordion__item {
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  background: #fff;
+  overflow: hidden;
+}
+
+.legal-accordion__trigger {
+  width: 100%;
+  background: transparent;
+  border: 0;
+  color: #171717;
+  font: inherit;
+  font-weight: 700;
+  text-align: left;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 1rem;
+  cursor: pointer;
+  padding: 0.9rem 1rem;
+}
+
+.legal-accordion__icon {
+  color: #626262;
+  font-size: 1.05rem;
+  line-height: 1;
+}
+
+.legal-accordion__panel {
+  max-height: 0;
+  opacity: 0;
+  transition: max-height 200ms ease, opacity 200ms ease;
+}
+
+.legal-accordion__panel.is-open {
+  max-height: 520px;
+  opacity: 1;
+}
+
+.legal-accordion__panel-inner {
+  border-top: 1px solid #ececec;
+  padding: 0.9rem 1rem 1rem;
+}
+
+.legal-accordion__panel-inner p {
+  margin: 0 0 0.8rem;
+  color: #575757;
+  font-size: 0.9rem;
+  line-height: 1.6;
+  max-width: 68rem;
+}
+
+.legal-accordion__panel-inner p:last-child {
+  margin-bottom: 0;
+}
+
+.payment-icons {
+  margin-top: 1.35rem;
+}
+
+.payment-icons__label {
+  margin: 0 0 0.65rem;
+  text-align: center;
+  color: var(--muted-dim);
+  font-size: 0.78rem;
+}
+
+.payment-icons__row {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+}
+
+.payment-icons__pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 32px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #e0e0e0;
+  background: #fff;
+}
+
+.payment-icons__pill img {
+  height: 32px;
+  width: auto;
+  filter: grayscale(1);
+  opacity: 0.6;
+  transition: filter 200ms ease, opacity 200ms ease;
+}
+
+.payment-icons__pill:hover img {
+  filter: grayscale(0);
+  opacity: 1;
+}
+
+.payment-icons__pill--text {
+  font-size: 0.85rem;
+  color: #5a5a5a;
+  font-weight: 600;
+}
+
 .footer__bottom {
   padding: 1.5rem 0 2.5rem;
 }

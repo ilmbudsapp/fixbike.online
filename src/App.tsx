@@ -162,7 +162,7 @@ function App() {
             />
             <span className="brand__lockup">
               <span className="brand__seo-line">
-                E-Bike &amp; Fahrradverleih Neuwied · Fahrradwerkstatt
+                E-Bike &amp; Fahrradverleih Neuwied · Fahrrad-Servis
               </span>
             </span>
           </a>
@@ -192,7 +192,7 @@ function App() {
           <div className="container container--wide hero__shell">
             <header className="hero__masthead">
               <p className="hero__eyebrow">
-                E-Bike &amp; Fahrradverleih Neuwied · Fahrradwerkstatt
+                E-Bike &amp; Fahrradverleih Neuwied · Fahrrad-Servis
               </p>
               <h1 id="hero-heading" className="hero__title">
                 <span className="hero__title-line">
@@ -210,7 +210,7 @@ function App() {
                   <strong>Fahrradverleih Neuwied</strong> und günstig{" "}
                   <strong>Fahrrad mieten in Deutschland</strong> (CUBE
                   E-Bikes) — plus <strong>Fahrradreparatur Neuwied</strong> in
-                  unserer <strong>Fahrradwerkstatt</strong>. Transparenter
+                  unserem <strong>Fahrrad-Servis</strong>. Transparenter
                   Service, ehrliche Beratung, Abholung nach Termin.
                 </p>
                 <p className="hero__price-ribbon" role="note">
@@ -230,8 +230,8 @@ function App() {
                   >
                     WhatsApp
                   </a>
-                  <a className="btn btn--ghost btn--lg" href="#werkstatt">
-                    Werkstatt &amp; Reparatur
+                  <a className="btn btn--ghost btn--lg" href="#servis">
+                    Servis &amp; Reparatur
                   </a>
                 </div>
                 <ul className="hero__badges" aria-label="Schwerpunkte">
@@ -268,11 +268,11 @@ function App() {
                     </div>
                     <p className="hero__panel-text">
                       <strong>E-Bike mieten Neuwied</strong> oder klassisches Rad
-                      — und parallel <strong>Fahrradreparatur</strong> in der
-                      Werkstatt. Saison-Check, Bremsen, Schaltung, Akku-Diagnose.
+                      — und parallel <strong>Fahrradreparatur</strong> im
+                      Fahrrad-Servis. Saison-Check, Bremsen, Schaltung, Akku-Diagnose.
                     </p>
-                    <a className="hero__panel-link" href="#werkstatt">
-                      Zur Fahrradwerkstatt →
+                    <a className="hero__panel-link" href="#servis">
+                      Zum Fahrrad-Servis →
                     </a>
                   </aside>
                 </div>
@@ -447,17 +447,17 @@ function App() {
         </section>
 
         <section
-          id="werkstatt"
+          id="servis"
           className="section section--surface section--services section--rhythm-standard"
-          aria-labelledby="werkstatt-heading"
+          aria-labelledby="servis-heading"
         >
           <div className="container container--wide services__shell">
             <span className="section__index section__index--alt" aria-hidden="true">
               03
             </span>
             <header className="section__head section__head--split-intro">
-              <h2 id="werkstatt-heading">
-                Fahrradwerkstatt Neuwied — Fahrradreparatur &amp; E-Bike Service
+              <h2 id="servis-heading">
+                Fahrrad-Servis Neuwied — Fahrradreparatur &amp; E-Bike Service
               </h2>
               <p>
                 Von der <strong>Fahrrad Reparatur Neuwied</strong> bis zum{" "}
@@ -513,7 +513,7 @@ function App() {
               <p>
                 Ihr <strong>Fahrradservice Neuwied</strong> mit Schwerpunkt{" "}
                 <strong>Fahrradverleih</strong>, <strong>E-Bike mieten</strong>{" "}
-                und <strong>Fahrradwerkstatt</strong> — plus schnelle Hilfe bei{" "}
+                und <strong>Fahrrad-Servis</strong> — plus schnelle Hilfe bei{" "}
                 <strong>Fahrrad Reparatur</strong> und{" "}
                 <strong>E-Bike Service</strong>.
               </p>
@@ -614,7 +614,7 @@ function App() {
                 <strong>Fahrradreparatur Neuwied</strong> —{" "}
                 <strong>Nur nach Terminvereinbarung und Bestellung.</strong>{" "}
                 <strong>Termine nach Vereinbarung.</strong> Kontaktieren Sie uns
-                per WhatsApp oder E-Mail für Verleih, Werkstatt oder Beratung.
+                per WhatsApp oder E-Mail für Verleih, Servis oder Beratung.
               </p>
             </header>
 

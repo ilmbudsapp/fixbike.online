@@ -75,7 +75,7 @@ export default function SiteFooter() {
         <div>
           <p className="footer__brand">FixBike</p>
           <p className="footer__tagline">
-            Fahrradverleih Neuwied · Fahrradwerkstatt · E-Bike Service · Verkauf
+            Fahrradverleih Neuwied · Fahrrad-Servis · E-Bike Service · Verkauf
           </p>
         </div>
         <nav aria-label="Fußnavigation">

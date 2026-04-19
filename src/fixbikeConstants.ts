@@ -21,7 +21,7 @@ export const CONTACT = {
 
 export const nav = [
   { href: "#ebike-vermietung", label: "Verleih" },
-  { href: "#werkstatt", label: "Werkstatt" },
+  { href: "#servis", label: "Servis" },
   { href: "#ueber-uns", label: "Über uns" },
   { href: "#contact", label: "Kontakt" },
 ] as const;
@@ -63,7 +63,7 @@ export const rentalEBikes: {
 export const serviceBlocks = [
   {
     title: "Fahrrad Reparatur",
-    text: "Fahrradreparatur Neuwied: Bremsen, Schaltung, Reifen und Gangschaltung — von der Pannenhilfe bis zur kompletten Überholung für Trekkingrad, MTB und Alltagsbike in unserer Fahrradwerkstatt.",
+    text: "Fahrradreparatur Neuwied: Bremsen, Schaltung, Reifen und Gangschaltung — von der Pannenhilfe bis zur kompletten Überholung für Trekkingrad, MTB und Alltagsbike in unserem Fahrrad-Servis.",
     image: "/images/service-reparatur.webp",
     imageAlt: "Fahrradverleih FixBike — E-Bike Mieten Neuwied",
   },
@@ -75,7 +75,7 @@ export const serviceBlocks = [
   },
   {
     title: "Saison Wartung",
-    text: "Saison Wartung in der Fahrradwerkstatt Neuwied: Jahresinspektion, Winter-Check und Sommer-Service — Lager, Schaltung, Bremsen und Sicherheit, damit Ihr Rad fit in die Saison startet.",
+    text: "Saison Wartung im Fahrrad-Servis Neuwied: Jahresinspektion, Winter-Check und Sommer-Service — Lager, Schaltung, Bremsen und Sicherheit, damit Ihr Rad fit in die Saison startet.",
     image: "/images/leistung-ebike-mtb.webp",
     imageAlt: "Fahrradverleih FixBike — E-Bike Mieten Neuwied",
   },

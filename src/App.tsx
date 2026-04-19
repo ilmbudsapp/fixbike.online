@@ -15,6 +15,12 @@ import {
   rentalEBikes,
   serviceBlocks,
 } from "./fixbikeConstants";
+import {
+  HERO_MECHANIKER_FALLBACK,
+  HERO_MECHANIKER_WEBP,
+  webpToRasterPng,
+} from "./imagePaths";
+import WebpPicture from "./WebpPicture";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "";
@@ -144,19 +150,19 @@ function App() {
           <a
             className="brand"
             href="https://fixbike.online/"
-            aria-label="FixBike Fahrradservice Neuwied — E-Bike Service und Fahrrad Reparatur. Zur Startseite."
+            aria-label="FixBike — E-Bike & Fahrradverleih Neuwied. Zur Startseite."
           >
             <img
               className="brand__logo"
               src="/images/fixbike-logo.png"
-              alt="FixBike"
+              alt="Fahrradverleih FixBike — E-Bike Mieten Neuwied"
               width={220}
               height={117}
               decoding="async"
             />
             <span className="brand__lockup">
               <span className="brand__seo-line">
-                Fahrradverleih Neuwied · Fahrradwerkstatt · E-Bike mieten
+                E-Bike &amp; Fahrradverleih Neuwied · Fahrradwerkstatt
               </span>
             </span>
           </a>
@@ -185,13 +191,15 @@ function App() {
           <div className="hero__noise" aria-hidden="true" />
           <div className="container container--wide hero__shell">
             <header className="hero__masthead">
-              <p className="hero__eyebrow">Fahrradverleih Neuwied · Fahrradwerkstatt</p>
+              <p className="hero__eyebrow">
+                E-Bike &amp; Fahrradverleih Neuwied · Fahrradwerkstatt
+              </p>
               <h1 id="hero-heading" className="hero__title">
                 <span className="hero__title-line">
-                  <span className="no-break">E-Bike mieten</span> &amp; Fahrrad
+                  E-Bike &amp; Fahrradverleih Neuwied
                 </span>
-                <span className="hero__title-line">
-                  Fahrradreparatur in Neuwied
+                <span className="hero__title-line hero__title-line--tagline">
+                  Mieten Sie Ihr E-Bike für nur 210&nbsp;€ pro Woche
                 </span>
               </h1>
             </header>
@@ -237,12 +245,13 @@ function App() {
                 <div className="hero__visual-stack">
                   <figure className="hero__figure">
                     <div className="hero__photo-wrap hero__photo-wrap--mechaniker">
-                      <img
-                        className="hero__photo hero__photo--mechaniker"
-                        src="/images/hero-mechaniker.png"
+                      <WebpPicture
+                        webpSrc={HERO_MECHANIKER_WEBP}
+                        fallbackSrc={HERO_MECHANIKER_FALLBACK}
+                        alt="E-Bike Mieten Neuwied — Fahrradverleih FixBike"
                         width={1200}
                         height={800}
-                        alt="FixBike Service: E-Bike-Reparatur am CUBE Stereo Hybrid"
+                        imgClassName="hero__photo hero__photo--mechaniker"
                         fetchPriority="high"
                         decoding="async"
                       />
@@ -367,8 +376,9 @@ function App() {
               {rentalEBikes.map((bike) => (
                 <article key={`${bike.title}-${bike.size}`} className="ebike-card">
                   <div className="ebike-card__media">
-                    <img
-                      src={bike.image}
+                    <WebpPicture
+                      webpSrc={bike.image}
+                      fallbackSrc={webpToRasterPng(bike.image)}
                       alt={bike.imageAlt}
                       width={900}
                       height={675}
@@ -469,8 +479,9 @@ function App() {
                   }
                 >
                   <div className="card__media">
-                    <img
-                      src={s.image}
+                    <WebpPicture
+                      webpSrc={s.image}
+                      fallbackSrc={webpToRasterPng(s.image)}
                       alt={s.imageAlt}
                       width={640}
                       height={400}
@@ -544,9 +555,10 @@ function App() {
           <div className="container container--wide split split--reverse split--bleed-start">
             <figure className="split__figure split__figure--lift split__figure--bleed">
               <div className="media-frame media-frame--soft">
-                <img
-                  src="/images/verkauf.jpg"
-                  alt="Fahrräder im Geschäft — Fahrradverkauf und Beratung"
+                <WebpPicture
+                  webpSrc="/images/verkauf.webp"
+                  fallbackSrc="/images/verkauf.jpg"
+                  alt="Fahrradverleih FixBike — E-Bike Mieten Neuwied"
                   width={800}
                   height={1000}
                   loading="lazy"

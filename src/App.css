@@ -855,14 +855,21 @@ strong {
     align-items: end;
   }
 
+  /* Positive gap under H1 — negative margin pulled copy into the headline on desktop */
   .hero__masthead {
-    margin-bottom: -1.5rem;
+    margin-bottom: clamp(1.35rem, 2.8vw, 2.25rem);
     position: relative;
     z-index: 4;
   }
 
   .hero__title {
     max-width: 15ch;
+    line-height: 1.1;
+    letter-spacing: -0.042em;
+  }
+
+  .hero__column--copy {
+    padding-top: 0.35rem;
   }
 }
 

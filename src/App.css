@@ -1682,13 +1682,6 @@ strong {
   line-height: 1.55;
 }
 
-.contact-card__appointment-community {
-  margin: 0 0 0.85rem;
-  font-size: 0.95rem;
-  color: var(--muted);
-  line-height: 1.55;
-}
-
 .contact-grid {
   display: grid;
   gap: 1.35rem;

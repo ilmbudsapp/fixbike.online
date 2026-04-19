@@ -662,9 +662,6 @@ function App() {
                   | E-Mail{" "}
                   <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
                 </p>
-                <p className="contact-card__appointment-community">
-                  Flexibel für Kunden aus Balkan-Community in Deutschland.
-                </p>
                 <p className="contact-card__actions">
                   <a
                     className="btn btn--maps"

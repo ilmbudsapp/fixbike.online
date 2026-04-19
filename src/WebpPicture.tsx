@@ -1,5 +1,6 @@
 /**
- * Prefer WebP with raster fallback (PNG/JPG) until .webp assets exist in /public/images.
+ * Raster images (PNG/JPG). Optional `webpSrc` is kept for future `<picture>` when .webp
+ * files exist on the host — serving a missing .webp via `<source>` breaks some browsers.
  */
 
 type WebpPictureProps = {
@@ -27,19 +28,20 @@ export default function WebpPicture({
   decoding,
   fetchPriority,
 }: WebpPictureProps) {
+  void webpSrc;
+  const mergedClass =
+    [className, imgClassName].filter(Boolean).join(" ").trim() || undefined;
+
   return (
-    <picture className={className}>
-      <source srcSet={webpSrc} type="image/webp" />
-      <img
-        src={fallbackSrc}
-        alt={alt}
-        width={width}
-        height={height}
-        className={imgClassName}
-        loading={loading}
-        decoding={decoding}
-        fetchPriority={fetchPriority}
-      />
-    </picture>
+    <img
+      src={fallbackSrc}
+      alt={alt}
+      width={width}
+      height={height}
+      className={mergedClass}
+      loading={loading}
+      decoding={decoding}
+      fetchPriority={fetchPriority}
+    />
   );
 }

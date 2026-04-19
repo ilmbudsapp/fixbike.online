@@ -180,7 +180,8 @@ strong {
 .ebike__shell,
 .services__shell,
 .why__shell,
-.contact__shell {
+.contact__shell,
+.about__shell {
   position: relative;
   z-index: 1;
 }
@@ -188,7 +189,8 @@ strong {
 .ebike__shell > :not(.section__index),
 .services__shell > :not(.section__index),
 .why__shell > :not(.section__index),
-.contact__shell > :not(.section__index) {
+.contact__shell > :not(.section__index),
+.about__shell > :not(.section__index) {
   position: relative;
   z-index: 1;
 }
@@ -2119,6 +2121,178 @@ strong {
 
 .footer__photos a:hover {
   color: var(--accent);
+}
+
+/* —— Hero price ribbon & pricing spotlight —— */
+.hero__price-ribbon {
+  margin: 0 0 1.25rem;
+  padding: 0.65rem 1rem;
+  max-width: 38rem;
+  font-size: 0.98rem;
+  line-height: 1.45;
+  color: var(--ink-soft);
+  background: linear-gradient(
+    135deg,
+    rgba(1, 105, 111, 0.09),
+    rgba(40, 37, 29, 0.04)
+  );
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+.hero__price-ribbon strong {
+  color: var(--ink);
+}
+
+.pricing-spotlight {
+  position: relative;
+  background: linear-gradient(
+    180deg,
+    rgba(1, 105, 111, 0.06),
+    transparent 58%
+  );
+  border-block: 1px solid var(--line);
+}
+
+.pricing-spotlight__inner {
+  display: grid;
+  gap: 1rem 1.5rem;
+  align-items: center;
+  text-align: center;
+  padding-block: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.pricing-spotlight__heading {
+  margin: 0;
+  font-size: clamp(1.35rem, 3.2vw, 1.85rem);
+  letter-spacing: -0.04em;
+}
+
+.pricing-spotlight__lead {
+  margin: 0 auto;
+  max-width: 46rem;
+  font-size: 1.02rem;
+  color: var(--ink-soft);
+}
+
+.pricing-spotlight__pricebox {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  justify-content: center;
+  gap: 0.35rem 0.65rem;
+  margin-inline: auto;
+  padding: 0.85rem 1.35rem;
+  border-radius: var(--radius-lg);
+  background: var(--surface);
+  border: 1px solid var(--line-strong);
+  box-shadow: var(--shadow-md);
+}
+
+.pricing-spotlight__amount {
+  font-family: var(--font-display);
+  font-weight: 800;
+  font-size: clamp(2.2rem, 7vw, 3rem);
+  letter-spacing: -0.06em;
+  color: var(--accent);
+}
+
+.pricing-spotlight__period {
+  font-size: 1.05rem;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.pricing-spotlight__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  justify-content: center;
+}
+
+/* —— Rental pricing table (mobile-friendly scroll) —— */
+.pricing-table-wrap {
+  margin-top: clamp(1.75rem, 4vw, 2.75rem);
+}
+
+.pricing-table__title {
+  margin: 0 0 0.85rem;
+  font-size: clamp(1.05rem, 2.2vw, 1.25rem);
+  font-weight: 700;
+  color: var(--ink);
+}
+
+.pricing-table-scroll {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  border-radius: var(--radius-md);
+  border: 1px solid var(--line);
+  background: var(--surface);
+  box-shadow: var(--shadow-sm);
+}
+
+.pricing-table {
+  width: 100%;
+  min-width: 280px;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.pricing-table th,
+.pricing-table td {
+  padding: 0.85rem 1rem;
+  text-align: left;
+  border-bottom: 1px solid var(--line);
+}
+
+.pricing-table thead th {
+  font-size: 0.78rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--muted);
+  background: var(--bg-raised);
+}
+
+.pricing-table tbody tr:last-child th,
+.pricing-table tbody tr:last-child td {
+  border-bottom: none;
+}
+
+.pricing-table tbody th {
+  font-weight: 600;
+  color: var(--ink);
+}
+
+.pricing-table tbody td {
+  font-variant-numeric: tabular-nums;
+  font-weight: 700;
+  color: var(--accent);
+  white-space: nowrap;
+}
+
+.section--deemphasize {
+  opacity: 0.92;
+}
+
+.section--deemphasize .split__lead,
+.section--deemphasize .split__subheading {
+  color: var(--ink-soft);
+}
+
+@media (max-width: 639px) {
+  .pricing-spotlight__inner {
+    text-align: left;
+  }
+
+  .pricing-spotlight__actions {
+    justify-content: flex-start;
+  }
+
+  .pricing-spotlight__pricebox {
+    justify-content: flex-start;
+    width: 100%;
+  }
 }
 
 /* —— Mobile nav —— */

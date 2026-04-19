@@ -1,93 +1,23 @@
-import { useEffect, useState, type FormEvent, type ReactNode } from "react";
+import {
+  lazy,
+  Suspense,
+  useEffect,
+  useState,
+  type FormEvent,
+} from "react";
 
-const MAPS_URL =
-  "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent("Wagenhallenweg 8, 56566 Neuwied");
+const SiteFooter = lazy(() => import("./SiteFooter"));
+import {
+  CONTACT,
+  MAPS_EMBED_URL,
+  MAPS_URL,
+  nav,
+  rentalEBikes,
+  serviceBlocks,
+} from "./fixbikeConstants";
 
-/** Google Maps Embed (ohne API-Key) — Standort: Wagenhallenweg 8, Neuwied */
-const MAPS_EMBED_URL =
-  "https://maps.google.com/maps?q=" +
-  encodeURIComponent("Wagenhallenweg 8, 56566 Neuwied, Deutschland") +
-  "&hl=de&z=15&ie=UTF8&iwloc=B&output=embed";
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "";
-
-const CONTACT = {
-  phoneDisplay: "+49 163 7046825",
-  phoneTel: "+491637046825",
-  whatsapp: "https://wa.me/491637046825",
-  email: "fixbike2025@gmail.com",
-  steuernummer: "32/125/57407",
-  street: "Wagenhallenweg 8",
-  zipCity: "56566 Neuwied",
-} as const;
-
-const nav = [
-  { href: "#leistungen", label: "Leistungen" },
-  { href: "#ueber-uns", label: "Über uns" },
-  { href: "#contact", label: "Kontakt" },
-];
-
-const rentalEBikes: {
-  title: string;
-  size: string;
-  availability?: string;
-  countNote: string;
-  image: string;
-  imageAlt: string;
-}[] = [
-  {
-    title: "CUBE Touring Hybrid",
-    size: "Größe M",
-    countNote:
-      "Komfortables Trekking-E-Bike für Alltag, Touren und längere Strecken.",
-    image: "/images/cube-touring-hybrid-m.png",
-    imageAlt:
-      "CUBE Touring Hybrid E-Bike in Weiß, Größe M — Trekking und Alltag",
-  },
-  {
-    title: "CUBE Touring Hybrid",
-    size: "Größe L",
-    countNote:
-      "Dasselbe Modell in Größe L für größere Fahrerinnen und Fahrer mit komfortabler Sitzposition.",
-    image: "/images/cube-touring-hybrid-l.png",
-    imageAlt:
-      "CUBE Touring Hybrid E-Bike in Weiß, Größe L — Trekking und Alltag",
-  },
-  {
-    title: "CUBE Stereo Hybrid",
-    size: "Größe M",
-    countNote:
-      "E-Mountainbike mit Vollfederung — komfortabel und kräftig für anspruchsvolleres Gelände.",
-    image: "/images/cube-stereo-hybrid-m.png",
-    imageAlt:
-      "CUBE Stereo Hybrid E-MTB in Dunkelgrau, Größe M — Full-Suspension",
-  },
-];
-
-const serviceBlocks = [
-  {
-    title: "Fahrrad Reparatur",
-    text: "Fahrrad Reparatur Neuwied: Bremsen, Schaltung, Reifen und Gangschaltung — von der Pannenhilfe bis zur kompletten Überholung für Trekkingrad, MTB und Alltagsbike im Fahrradservice Neuwied.",
-    image: "/images/service-reparatur.png",
-    imageAlt:
-      "Werkstatt: Mechaniker am CUBE E-Bike — Fahrrad Reparatur Neuwied",
-  },
-  {
-    title: "E-Bike Service Neuwied",
-    text: "E-Bike Service Neuwied mit Batterie-Check, Software-Update, Motor-Service und Systemdiagnose — damit Ihr Pedelec sicher fährt und zuverlässige Reichweite liefert.",
-    image: "/images/leistung-ebike-weiss.png",
-    imageAlt:
-      "CUBE E-Bike in Weiß — E-Bike Service Neuwied",
-  },
-  {
-    title: "Saison Wartung",
-    text: "Saison Wartung im Fahrradservice Neuwied: Jahresinspektion, Winter-Check und Sommer-Service — Lager, Schaltung, Bremsen und Sicherheit, damit Ihr Rad fit in die Saison startet.",
-    image: "/images/leistung-ebike-mtb.png",
-    imageAlt:
-      "CUBE E-MTB — Saison Wartung und Inspektion Neuwied",
-  },
-] as const;
 
 function App() {
   const [selectedBike, setSelectedBike] = useState<{
@@ -102,72 +32,6 @@ function App() {
   const [bookingStatus, setBookingStatus] = useState<
     "idle" | "loading" | "success" | "error"
   >("idle");
-  const [openLegalItem, setOpenLegalItem] = useState<string | null>(null);
-
-  const legalItems: { id: string; title: string; content: ReactNode }[] = [
-    {
-      id: "agb",
-      title: "AGB (Allgemeine Geschaftsbedingungen)",
-      content: (
-        <p>
-          Diese AGB gelten fur alle Auftrage zwischen FixBike und dem Kunden.
-          Alle Preise verstehen sich inklusive der gesetzlichen Mehrwertsteuer.
-          Gewahrleistungsanspruche richten sich nach den gesetzlichen
-          Bestimmungen. Anderungen und Erganzungen bedurfen der Schriftform.
-        </p>
-      ),
-    },
-    {
-      id: "widerruf",
-      title: "Widerrufsbelehrung",
-      content: (
-        <p>
-          Verbrauchern steht ein 14-tagiges Widerrufsrecht zu. Der Widerruf ist
-          zu richten an: FixBike, [Adresse]. Bei bereits begonnener
-          Dienstleistung mit ausdrucklicher Zustimmung des Verbrauchers erlischt
-          das Widerrufsrecht nach vollstandiger Erbringung der Leistung.
-        </p>
-      ),
-    },
-    {
-      id: "kleinunternehmer",
-      title: "Kleinunternehmerregelung (§19 UStG)",
-      content: (
-        <p>
-          Gemas § 19 UStG wird keine Umsatzsteuer berechnet. Es wird daher keine
-          Umsatzsteuer ausgewiesen.
-        </p>
-      ),
-    },
-    {
-      id: "faq",
-      title: "FAQ (Haufig gestellte Fragen)",
-      content: (
-        <>
-          <p>
-            <strong>F:</strong> Wie lange dauert eine Reparatur?
-            <br />
-            <strong>A:</strong> Einfache Reparaturen werden meist am gleichen Tag
-            erledigt. Aufwendigere Arbeiten konnen 1-3 Werktage in Anspruch
-            nehmen.
-          </p>
-          <p>
-            <strong>F:</strong> Muss ich einen Termin vereinbaren?
-            <br />
-            <strong>A:</strong> Fur großere Reparaturen empfehlen wir eine
-            vorherige Kontaktaufnahme per E-Mail:{" "}
-            <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
-          </p>
-          <p>
-            <strong>F:</strong> Welche Zahlungsmethoden werden akzeptiert?
-            <br />
-            <strong>A:</strong> Wir akzeptieren Barzahlung, Uberweisung per IBAN
-            sowie Zahlung per PayPal, Visa und Mastercard.
-          </p>
-        </>
-      ),
-    },
-  ];
 
   useEffect(() => {
     if (!pickupDate) {
@@ -292,7 +156,7 @@ function App() {
             />
             <span className="brand__lockup">
               <span className="brand__seo-line">
-                E-Bike Service · Fahrradvermietung &amp; Reparatur · Neuwied
+                Fahrradverleih Neuwied · Fahrradwerkstatt · E-Bike mieten
               </span>
             </span>
           </a>
@@ -307,8 +171,8 @@ function App() {
             </ul>
           </nav>
 
-          <a className="btn btn--primary header__cta" href="#contact">
-            Termin anfragen
+          <a className="btn btn--primary header__cta" href="#ebike-vermietung">
+            E-Bike mieten
           </a>
         </div>
       </header>
@@ -321,13 +185,13 @@ function App() {
           <div className="hero__noise" aria-hidden="true" />
           <div className="container container--wide hero__shell">
             <header className="hero__masthead">
-              <p className="hero__eyebrow">Fahrradservice · E-Bike Service</p>
+              <p className="hero__eyebrow">Fahrradverleih Neuwied · Fahrradwerkstatt</p>
               <h1 id="hero-heading" className="hero__title">
                 <span className="hero__title-line">
-                  Fahrradservice &amp; <span className="no-break">E-Bike</span>
+                  <span className="no-break">E-Bike mieten</span> &amp; Fahrrad
                 </span>
                 <span className="hero__title-line">
-                  Service Neuwied I Schnelle Reparatur
+                  Fahrradreparatur in Neuwied
                 </span>
               </h1>
             </header>
@@ -335,15 +199,20 @@ function App() {
             <div className="hero__editorial">
               <div className="hero__column hero__column--copy">
                 <p className="hero__lead">
-                  Professionelle <strong>Fahrrad Reparatur Neuwied</strong> für
-                  klassische Bikes und <strong>E-Bike Service Neuwied</strong>,
-                  transparenter <strong>Fahrradverleih</strong> und ausgewählter{" "}
-                  <strong>Fahrradverkauf</strong>. Schnelle Hilfe, ehrliche
-                  Beratung — Ihr <strong>Fahrradservice Neuwied</strong>.
+                  <strong>Fahrradverleih Neuwied</strong> und günstig{" "}
+                  <strong>Fahrrad mieten in Deutschland</strong> (CUBE
+                  E-Bikes) — plus <strong>Fahrradreparatur Neuwied</strong> in
+                  unserer <strong>Fahrradwerkstatt</strong>. Transparenter
+                  Service, ehrliche Beratung, Abholung nach Termin.
+                </p>
+                <p className="hero__price-ribbon" role="note">
+                  <strong>E-Bike / Fahrrad mieten: ab 210&nbsp;€ für 7 Tage</strong>
+                  {" — "}
+                  <span className="muted">FixBike Fahrradverleih Neuwied</span>
                 </p>
                 <div className="hero__actions">
-                  <a className="btn btn--primary btn--lg" href="#contact">
-                    Service-Termin
+                  <a className="btn btn--primary btn--lg" href="#ebike-vermietung">
+                    Jetzt mieten (210&nbsp;€ / 7 Tage)
                   </a>
                   <a
                     className="btn btn--whatsapp btn--lg"
@@ -353,14 +222,14 @@ function App() {
                   >
                     WhatsApp
                   </a>
-                  <a className="btn btn--ghost btn--lg" href="#ebike-vermietung">
-                    E-Bike mieten
+                  <a className="btn btn--ghost btn--lg" href="#werkstatt">
+                    Werkstatt &amp; Reparatur
                   </a>
                 </div>
                 <ul className="hero__badges" aria-label="Schwerpunkte">
-                  <li>E-Bike Diagnose</li>
-                  <li>Fahrrad Inspektion</li>
-                  <li>City- &amp; Trekkingräder</li>
+                  <li>Fahrradverleih Neuwied</li>
+                  <li>E-Bike mieten</li>
+                  <li>Fahrradreparatur</li>
                 </ul>
               </div>
 
@@ -385,19 +254,16 @@ function App() {
                   </figure>
                   <aside className="hero__panel" aria-label="Kurzinfo">
                     <div className="hero__stat">
-                      <span className="hero__stat-label">Schwerpunkt</span>
-                      <span className="hero__stat-value">
-                        Service &amp; Sicherheit
-                      </span>
+                      <span className="hero__stat-label">7-Tage-Miete</span>
+                      <span className="hero__stat-value">210&nbsp;€</span>
                     </div>
                     <p className="hero__panel-text">
-                      Ob <strong>Zweirad Service</strong> für den Arbeitsweg oder
-                      Vorbereitung auf die Saison — wir kümmern uns um Schaltung,
-                      Bremsen, Reifen und Antrieb, damit Sie wieder zuverlässig
-                      unterwegs sind.
+                      <strong>E-Bike mieten Neuwied</strong> oder klassisches Rad
+                      — und parallel <strong>Fahrradreparatur</strong> in der
+                      Werkstatt. Saison-Check, Bremsen, Schaltung, Akku-Diagnose.
                     </p>
-                    <a className="hero__panel-link" href="#leistungen">
-                      Leistungen ansehen →
+                    <a className="hero__panel-link" href="#werkstatt">
+                      Zur Fahrradwerkstatt →
                     </a>
                   </aside>
                 </div>
@@ -407,32 +273,29 @@ function App() {
         </section>
 
         <section
-          id="ueber-uns"
-          className="section section--about section--surface section--rhythm-standard"
-          aria-labelledby="ueber-uns-heading"
+          className="pricing-spotlight section--rhythm-tight"
+          aria-labelledby="preis-spotlight-heading"
         >
-          <div className="container container--wide about__shell">
-            <span className="section__index" aria-hidden="true">
-              01
-            </span>
-            <header className="section__head section__head--about">
-              <h2 id="ueber-uns-heading">Über uns</h2>
-              <div className="about__prose">
-                <p>
-                  Ich heiße Adem Osmani. Fahrräder sind für mich nicht nur ein
-                  Beruf, sondern eine echte Leidenschaft. Durch meine
-                  langjährige Erfahrung in der Arbeit mit Fahrrädern ist aus
-                  Interesse mit der Zeit eine echte Begeisterung geworden. Ich
-                  lege großen Wert auf saubere Arbeit, persönliche Beratung und
-                  zuverlässigen Service. Jeder Auftrag wird individuell geplant
-                  – nach Bestellung und Terminvereinbarung.
-                </p>
-                <p className="about__tagline muted">
-                  Nur nach Terminvereinbarung und Bestellung.{" "}
-                  <span className="about__tagline-strong">Termine nach Vereinbarung.</span>
-                </p>
-              </div>
-            </header>
+          <div className="container container--wide pricing-spotlight__inner">
+            <h2 id="preis-spotlight-heading" className="pricing-spotlight__heading">
+              Günstig Fahrrad mieten · Fahrradverleih Neuwied
+            </h2>
+            <p className="pricing-spotlight__lead">
+              <strong>E-Bike / Fahrrad mieten ab 210&nbsp;€ für 7 Tage</strong> — transparent,
+              mit CUBE-Qualität. Ideal für Touren, Pendeln und Gäste in der Region Neuwied.
+            </p>
+            <div className="pricing-spotlight__pricebox" role="group" aria-label="Wochenpreis">
+              <span className="pricing-spotlight__amount">210&nbsp;€</span>
+              <span className="pricing-spotlight__period">/ 7 Tage</span>
+            </div>
+            <div className="pricing-spotlight__actions">
+              <a className="btn btn--primary btn--lg" href="#ebike-vermietung">
+                Modelle &amp; Buchung
+              </a>
+              <a className="btn btn--ghost btn--lg" href="#contact">
+                Fragen? Kontakt
+              </a>
+            </div>
           </div>
         </section>
 
@@ -443,24 +306,63 @@ function App() {
         >
           <div className="container container--wide ebike__shell">
             <span className="section__index" aria-hidden="true">
-              02
+              01
             </span>
             <header className="section__head section__head--ebike ebike__head">
-              <p className="ebike-showcase__eyebrow">E-Bike Vermietung</p>
+              <p className="ebike-showcase__eyebrow">Fahrradverleih Neuwied</p>
               <h2 id="ebike-rental-heading">
-                E-Bike Vermietung Neuwied — elektrische Fahrräder mieten
+                E-Bike mieten Neuwied — Fahrradverleih &amp; Pedelecs
               </h2>
               <h3 className="ebike-showcase__subheading">
-                E-Bike Service Neuwied: CUBE Pedelecs zur Miete
+                Günstig Fahrrad mieten in Deutschland — CUBE E-Bikes (M &amp; L) &amp; MTB
               </h3>
               <p className="section__head-lead">
-                Hochwertige <strong>CUBE</strong> E-Bikes in{" "}
-                <strong>Größe M</strong> — Abholung nach Terminvereinbarung im{" "}
-                <strong>Fahrradservice Neuwied</strong>. Reservierung per
+                <strong>Fahrradverleih Neuwied</strong> mit hochwertigen{" "}
+                <strong>CUBE</strong>-E-Bikes. Abholung nach Terminvereinbarung — Reservierung per
                 Telefon, WhatsApp oder E-Mail.{" "}
                 <strong>Termine nach Vereinbarung.</strong>
               </p>
             </header>
+
+            <div className="pricing-table-wrap" aria-labelledby="mietpreise-heading">
+              <h3 id="mietpreise-heading" className="pricing-table__title">
+                Mietpreise — Fahrradverleih Neuwied
+              </h3>
+              <div className="pricing-table-scroll">
+                <table className="pricing-table">
+                  <caption className="visually-hidden">
+                    Übersicht E-Bike mieten Neuwied — Wochenpauschale
+                  </caption>
+                  <thead>
+                    <tr>
+                      <th scope="col">Angebot</th>
+                      <th scope="col">Preis</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr className="pricing-table__featured">
+                      <td>
+                        <strong>E-Bike / Fahrrad — 7 Tage Miete</strong>
+                        <br />
+                        <span className="muted small">
+                          FixBike Fahrradverleih — günstig Fahrrad mieten (Deutschland)
+                        </span>
+                      </td>
+                      <td>
+                        <strong className="pricing-table__eur">210,00&nbsp;€</strong>
+                      </td>
+                    </tr>
+                    <tr>
+                      <td colSpan={2} className="pricing-table__note">
+                        Inkl. Beratung zur Radgröße · Übergabe nach Termin ·{" "}
+                        <a href="#contact">Kontakt für Verfügbarkeit</a>
+                      </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </div>
+
             <div className="ebike-showcase__grid ebike-showcase__grid--editorial">
               {rentalEBikes.map((bike) => (
                 <article key={`${bike.title}-${bike.size}`} className="ebike-card">
@@ -505,17 +407,47 @@ function App() {
         </section>
 
         <section
-          id="leistungen"
+          id="ueber-uns"
+          className="section section--about section--surface section--rhythm-standard"
+          aria-labelledby="ueber-uns-heading"
+        >
+          <div className="container container--wide about__shell">
+            <span className="section__index" aria-hidden="true">
+              02
+            </span>
+            <header className="section__head section__head--about">
+              <h2 id="ueber-uns-heading">Über uns</h2>
+              <div className="about__prose">
+                <p>
+                  Ich heiße Adem Osmani. Fahrräder sind für mich nicht nur ein
+                  Beruf, sondern eine echte Leidenschaft. Durch meine
+                  langjährige Erfahrung in der Arbeit mit Fahrrädern ist aus
+                  Interesse mit der Zeit eine echte Begeisterung geworden. Ich
+                  lege großen Wert auf saubere Arbeit, persönliche Beratung und
+                  zuverlässigen Service. Jeder Auftrag wird individuell geplant
+                  – nach Bestellung und Terminvereinbarung.
+                </p>
+                <p className="about__tagline muted">
+                  Nur nach Terminvereinbarung und Bestellung.{" "}
+                  <span className="about__tagline-strong">Termine nach Vereinbarung.</span>
+                </p>
+              </div>
+            </header>
+          </div>
+        </section>
+
+        <section
+          id="werkstatt"
           className="section section--surface section--services section--rhythm-standard"
-          aria-labelledby="leistungen-heading"
+          aria-labelledby="werkstatt-heading"
         >
           <div className="container container--wide services__shell">
             <span className="section__index section__index--alt" aria-hidden="true">
               03
             </span>
             <header className="section__head section__head--split-intro">
-              <h2 id="leistungen-heading">
-                Leistungen — Fahrradservice Neuwied
+              <h2 id="werkstatt-heading">
+                Fahrradwerkstatt Neuwied — Fahrradreparatur &amp; E-Bike Service
               </h2>
               <p>
                 Von der <strong>Fahrrad Reparatur Neuwied</strong> bis zum{" "}
@@ -568,8 +500,9 @@ function App() {
             <header className="section__head section__head--why">
               <h2 id="warum-heading">Warum FixBike in Neuwied?</h2>
               <p>
-                Ihr <strong>Fahrradservice Neuwied</strong> mit Fokus auf
-                Qualität, Transparenz und schnelle Hilfe bei{" "}
+                Ihr <strong>Fahrradservice Neuwied</strong> mit Schwerpunkt{" "}
+                <strong>Fahrradverleih</strong>, <strong>E-Bike mieten</strong>{" "}
+                und <strong>Fahrradwerkstatt</strong> — plus schnelle Hilfe bei{" "}
                 <strong>Fahrrad Reparatur</strong> und{" "}
                 <strong>E-Bike Service</strong>.
               </p>
@@ -602,58 +535,12 @@ function App() {
         </section>
 
         <section
-          id="verleih"
-          className="section section--editorial-split section--rhythm-tight"
-        >
-          <div className="container container--wide split split--bleed-end">
-            <figure className="split__figure split__figure--lift split__figure--bleed">
-              <div className="media-frame">
-                <img
-                  src="/images/verleih.jpg"
-                  alt="Fahrradverleih Neuwied — flexible Mobilität und Ausleihe"
-                  width={800}
-                  height={1000}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </figure>
-            <div className="split__content">
-              <h2>Fahrradverleih Neuwied — flexibel mobil</h2>
-              <h3 className="split__subheading">
-                Fahrrad Reparatur Neuwied während Ihr Ersatzrad rollt
-              </h3>
-              <p className="split__lead">
-                <strong>Fahrrad mieten</strong> für Gäste, Events oder den
-                schnellen Ersatz, wenn Ihr eigenes Rad bei uns im{" "}
-                <strong>Fahrradservice</strong> ist. Reservierung und Details
-                folgen hier in Kürze — sprechen Sie uns gern direkt an.
-              </p>
-              <ul className="checklist">
-                <li>Cityräder &amp; Alltagsbikes</li>
-                <li>E-Bikes auf Anfrage</li>
-                <li>Klare Mietbedingungen &amp; Übergabe</li>
-              </ul>
-              <div className="split__callout">
-                <div className="callout">
-                  <h3 className="callout__title">Verleih-Anfrage</h3>
-                  <p>
-                    Nennen Sie Zeitraum, Radtyp und Körpergröße — wir melden uns
-                    mit Verfügbarkeit und Preis.
-                  </p>
-                  <a className="btn btn--secondary" href="#contact">
-                    Jetzt anfragen
-                  </a>
-                </div>
-              </div>
-            </div>
-          </div>
-        </section>
-
-        <section
           id="verkauf"
-          className="section section--surface section--editorial-split section--rhythm-standard"
+          className="section section--surface section--editorial-split section--rhythm-standard section--deemphasize"
         >
+          <span className="section__index section__index--alt" aria-hidden="true">
+            05
+          </span>
           <div className="container container--wide split split--reverse split--bleed-start">
             <figure className="split__figure split__figure--lift split__figure--bleed">
               <div className="media-frame media-frame--soft">
@@ -705,17 +592,17 @@ function App() {
         >
           <div className="container container--wide contact__shell">
             <span className="section__index section__index--alt" aria-hidden="true">
-              05
+              06
             </span>
             <header className="section__head section__head--contact">
               <h2 id="contact-heading">Kontakt &amp; Anfahrt</h2>
               <p>
-                <strong>Fahrradservice Neuwied</strong> —{" "}
+                <strong>Fahrradverleih Neuwied</strong>,{" "}
+                <strong>E-Bike mieten Neuwied</strong> und{" "}
+                <strong>Fahrradreparatur Neuwied</strong> —{" "}
                 <strong>Nur nach Terminvereinbarung und Bestellung.</strong>{" "}
                 <strong>Termine nach Vereinbarung.</strong> Kontaktieren Sie uns
-                per WhatsApp oder E-Mail für{" "}
-                <strong>Fahrrad Reparatur</strong>,{" "}
-                <strong>E-Bike Service Neuwied</strong>, Verleih oder Beratung.
+                per WhatsApp oder E-Mail für Verleih, Werkstatt oder Beratung.
               </p>
             </header>
 
@@ -816,173 +703,9 @@ function App() {
           </div>
         </section>
 
-        <footer className="footer">
-          <div className="container container--wide footer__grid">
-            <div>
-              <p className="footer__brand">FixBike</p>
-              <p className="footer__tagline">
-                Fahrradservice · E-Bike Reparatur · Fahrradverleih ·
-                Fahrradverkauf
-              </p>
-            </div>
-            <nav aria-label="Fußnavigation">
-              <ul className="footer__links">
-                <li>
-                  <a href="#impressum">Impressum</a>
-                </li>
-                <li>
-                  <a href="#datenschutz">Datenschutz</a>
-                </li>
-              </ul>
-            </nav>
-          </div>
-
-          <div id="impressum" className="legal container container--wide">
-            <h2>Impressum</h2>
-            <p className="muted small">
-              <strong>Hinweis:</strong> Diese Angaben sind Platzhalter und müssen
-              durch die vollständigen, rechtskonformen Impressumsdaten Ihres
-              Betriebs ersetzt werden (§ 5 TMG / DDG).
-            </p>
-            <p>
-              <strong>FixBike</strong>
-              <br />
-              Adem Osmani
-              <br />
-              Wagenhallenweg 8
-              <br />
-              56566 Neuwied
-              <br />
-              Deutschland
-            </p>
-            <p>
-              <strong>Kontakt:</strong>
-              <br />
-              E-Mail:{" "}
-              <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
-              <br />
-              Telefon:{" "}
-              <a href={`tel:${CONTACT.phoneTel}`}>{CONTACT.phoneDisplay}</a>
-            </p>
-            <p>
-              <strong>Steuernummer:</strong> {CONTACT.steuernummer}
-              <br />
-              <span className="muted small">
-                (Eine <strong>USt-IdNr.</strong> im Format DE… erteilt das
-                Finanzamt gesondert — bitte ergänzen, sobald vorliegend.)
-              </span>
-            </p>
-          </div>
-
-          <div id="datenschutz" className="legal container container--wide">
-            <h2>Datenschutz</h2>
-            <p className="muted small">
-              <strong>Hinweis:</strong> Erstellen Sie eine vollständige
-              Datenschutzerklärung (DSGVO) passend zu Formularen, Cookies,
-              Analytics und Zahlungsanbietern — idealerweise mit
-              Rechtsberatung.
-            </p>
-            <p>
-              Verantwortliche Stelle: FixBike, Adem Osmani, Wagenhallenweg 8,
-              56566 Neuwied, Deutschland — Kontakt:{" "}
-              <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>. Diese
-              Website kann technisch notwendige Daten verarbeiten (z. B.
-              Server-Logs beim Hosting-Anbieter).
-            </p>
-          </div>
-
-          <div className="legal-extra container container--wide" id="rechtliches">
-            <h2 className="legal-extra__heading">Rechtliches</h2>
-            <div className="legal-accordion" role="region" aria-label="Rechtliches">
-              {legalItems.map((item) => {
-                const isOpen = openLegalItem === item.id;
-                return (
-                  <section className="legal-accordion__item" key={item.id}>
-                    <button
-                      type="button"
-                      className="legal-accordion__trigger"
-                      aria-expanded={isOpen}
-                      aria-controls={`legal-panel-${item.id}`}
-                      onClick={() =>
-                        setOpenLegalItem((prev) => (prev === item.id ? null : item.id))
-                      }
-                    >
-                      <span>{item.title}</span>
-                      <span className="legal-accordion__icon" aria-hidden="true">
-                        {isOpen ? "−" : "+"}
-                      </span>
-                    </button>
-                    <div
-                      id={`legal-panel-${item.id}`}
-                      className={`legal-accordion__panel ${isOpen ? "is-open" : ""}`}
-                    >
-                      <div className="legal-accordion__panel-inner">{item.content}</div>
-                    </div>
-                  </section>
-                );
-              })}
-            </div>
-
-            <div className="payment-icons" aria-label="Zahlungsarten">
-              <p className="payment-icons__label">Zahlungsarten:</p>
-              <div className="payment-icons__row">
-                <span className="payment-icons__pill" aria-label="Visa">
-                  <img
-                    src="https://cdn.simpleicons.org/visa"
-                    alt="Visa"
-                    loading="lazy"
-                  />
-                </span>
-                <span className="payment-icons__pill" aria-label="Mastercard">
-                  <img
-                    src="https://cdn.simpleicons.org/mastercard"
-                    alt="Mastercard"
-                    loading="lazy"
-                  />
-                </span>
-                <span className="payment-icons__pill" aria-label="PayPal">
-                  <img
-                    src="https://cdn.simpleicons.org/paypal"
-                    alt="PayPal"
-                    loading="lazy"
-                  />
-                </span>
-                <span className="payment-icons__pill payment-icons__pill--text">
-                  SEPA Lastschrift
-                </span>
-              </div>
-            </div>
-          </div>
-
-          <div className="footer__bottom container container--wide">
-            <div className="footer__bottom-row">
-              <p>© {new Date().getFullYear()} FixBike · fixbike.online</p>
-              <p className="footer__designer-credit">
-                Web Design{" "}
-                <a
-                  href="https://agrmultimedia.eu/"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  AGRMULTIMEDIA
-                </a>
-                {" "}
-                Agron Osmani
-              </p>
-            </div>
-            <p className="footer__photos">
-              Symbolfotos über{" "}
-              <a
-                href="https://www.pexels.com/license/"
-                target="_blank"
-                rel="noopener noreferrer"
-              >
-                Pexels
-              </a>{" "}
-              — kann durch eigene Betriebsfotos ersetzt werden.
-            </p>
-          </div>
-        </footer>
+        <Suspense fallback={null}>
+          <SiteFooter />
+        </Suspense>
       </main>
 
       {selectedBike ? (

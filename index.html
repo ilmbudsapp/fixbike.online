@@ -7,11 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="Schnelle Fahrrad & E-Bike Reparatur in Neuwied. Bremsen, Schaltung, Inspektion, E-Bike Service. Jetzt Termin buchen!"
+      content="Fahrradverleih Neuwied & Fahrradwerkstatt: E-Bike mieten ab 210 € / 7 Tage (CUBE). Günstig Fahrrad mieten, Fahrradreparatur Neuwied. Nur nach Terminvereinbarung."
     />
     <meta
       name="keywords"
-      content="Fahrradservice Neuwied, Fahrrad Reparatur Neuwied, E-Bike Service Neuwied, Fahrradservice Neuwied, E-Bike Reparatur, FixBike, Wagenhallenweg"
+      content="Fahrradverleih Neuwied, E-Bike mieten Neuwied, Günstig Fahrrad mieten Deutschland, Fahrradreparatur Neuwied, Fahrradwerkstatt Neuwied, Fahrradservice Neuwied, FixBike, Wagenhallenweg"
     />
     <meta name="author" content="FixBike" />
     <meta name="robots" content="index, follow" />
@@ -27,11 +27,11 @@
     <meta property="og:url" content="https://fixbike.online/" />
     <meta
       property="og:title"
-      content="Fahrradservice Neuwied - E-Bike Reparatur & Wartung | FixBike"
+      content="Fahrradverleih Neuwied | E-Bike mieten 210 € / 7 Tage · Fahrradwerkstatt | FixBike"
     />
     <meta
       property="og:description"
-      content="Schnelle Fahrrad & E-Bike Reparatur in Neuwied. Bremsen, Schaltung, Inspektion, E-Bike Service. Jetzt Termin buchen!"
+      content="Fahrradverleih Neuwied & Fahrradwerkstatt: E-Bike mieten ab 210 € für 7 Tage. Fahrradreparatur Neuwied, transparenter Service. Termin nach Vereinbarung."
     />
     <meta property="og:site_name" content="FixBike" />
     <meta
@@ -42,7 +42,7 @@
     <meta property="og:image:height" content="800" />
     <meta
       property="og:image:alt"
-      content="FixBike Fahrradservice Neuwied — E-Bike Reparatur und Service"
+      content="FixBike Neuwied — Fahrradverleih, E-Bike mieten und Fahrradwerkstatt"
     />
 
     <meta name="twitter:card" content="summary_large_image" />
@@ -52,11 +52,11 @@
     />
     <meta
       name="twitter:title"
-      content="Fahrradservice Neuwied - E-Bike Reparatur & Wartung | FixBike"
+      content="Fahrradverleih Neuwied | E-Bike mieten 210 € / 7 Tage · Fahrradwerkstatt | FixBike"
     />
     <meta
       name="twitter:description"
-      content="Schnelle Fahrrad & E-Bike Reparatur in Neuwied. Bremsen, Schaltung, Inspektion, E-Bike Service. Jetzt Termin buchen!"
+      content="Fahrradverleih Neuwied & Fahrradwerkstatt: E-Bike mieten ab 210 € für 7 Tage. Fahrradreparatur Neuwied. Termin nach Vereinbarung."
     />
 
     <meta name="theme-color" content="#050508" />
@@ -68,7 +68,7 @@
       rel="stylesheet"
     />
 
-    <title>Fahrradservice Neuwied - E-Bike Reparatur &amp; Wartung | FixBike</title>
+    <title>Fahrradverleih Neuwied | E-Bike mieten 210 € / 7 Tage · Fahrradwerkstatt | FixBike</title>
   </head>
   <body>
     <div id="root"></div>
@@ -76,20 +76,54 @@
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
-        "@type": "LocalBusiness",
-        "name": "FixBike Neuwied Fahrradservice",
-        "url": "https://fixbike.online",
-        "telephone": "+49 163 7046825",
-        "email": "fixbike2025@gmail.com",
-        "description": "Nur nach Bestellung und Terminvereinbarung — ohne feste Öffnungszeiten.",
-        "address": {
-          "@type": "PostalAddress",
-          "streetAddress": "Wagenhallenweg 8",
-          "postalCode": "56566",
-          "addressLocality": "Neuwied",
-          "addressRegion": "Rheinland-Pfalz",
-          "addressCountry": "DE"
-        }
+        "@graph": [
+          {
+            "@type": ["LocalBusiness", "BicycleStore"],
+            "@id": "https://fixbike.online/#business",
+            "name": "FixBike Neuwied",
+            "alternateName": "FixBike Fahrradservice Neuwied",
+            "url": "https://fixbike.online/",
+            "telephone": "+49 163 7046825",
+            "email": "fixbike2025@gmail.com",
+            "description": "Fahrradverleih Neuwied, E-Bike mieten ab 210 EUR fuer 7 Tage, Fahrradwerkstatt und Fahrradreparatur. Nur nach Terminvereinbarung.",
+            "address": {
+              "@type": "PostalAddress",
+              "streetAddress": "Wagenhallenweg 8",
+              "postalCode": "56566",
+              "addressLocality": "Neuwied",
+              "addressRegion": "Rheinland-Pfalz",
+              "addressCountry": "DE"
+            },
+            "areaServed": {
+              "@type": "City",
+              "name": "Neuwied"
+            },
+            "sameAs": ["https://fixbike.online/"]
+          },
+          {
+            "@type": "Service",
+            "@id": "https://fixbike.online/#fahrradverleih",
+            "name": "Fahrradverleih Neuwied — E-Bike mieten",
+            "serviceType": "Bicycle rental",
+            "provider": { "@id": "https://fixbike.online/#business" },
+            "areaServed": { "@type": "City", "name": "Neuwied" },
+            "offers": {
+              "@type": "Offer",
+              "price": "210",
+              "priceCurrency": "EUR",
+              "description": "E-Bike / Fahrradmiete fuer 7 Tage",
+              "eligibleRegion": { "@type": "Country", "name": "DE" }
+            }
+          },
+          {
+            "@type": "Service",
+            "@id": "https://fixbike.online/#fahrradwerkstatt",
+            "name": "Fahrradreparatur Neuwied — Fahrradwerkstatt",
+            "serviceType": "Bicycle repair",
+            "provider": { "@id": "https://fixbike.online/#business" },
+            "areaServed": { "@type": "City", "name": "Neuwied" }
+          }
+        ]
       }
     </script>
   </body>

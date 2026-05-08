@@ -17,6 +17,7 @@ import {
 } from "./fixbikeConstants";
 import {
   HERO_MECHANIKER_FALLBACK,
+  HERO_MECHANIKER_WEBP,
   webpToRasterPng,
 } from "./imagePaths";
 import WebpPicture from "./WebpPicture";
@@ -246,19 +247,26 @@ function App() {
                 <div className="hero__visual-stack">
                   <figure className="hero__figure">
                     <div className="hero__photo-wrap hero__photo-wrap--mechaniker">
-                      {/* Native img (no lazy wrapper): guarantees LCP — eager + high priority */}
-                      <img
-                        src={HERO_MECHANIKER_FALLBACK}
-                        srcSet={`${HERO_MECHANIKER_FALLBACK} 480w, ${HERO_MECHANIKER_FALLBACK} 768w, ${HERO_MECHANIKER_FALLBACK} 1200w`}
-                        sizes="(max-width: 768px) 100vw, 55vw"
-                        alt="E-Bike Mieten Neuwied — Fahrradverleih FixBike"
-                        width={1200}
-                        height={800}
-                        className="hero__photo hero__photo--mechaniker"
-                        loading="eager"
-                        fetchPriority="high"
-                        decoding="async"
-                      />
+                      {/* WebP first + PNG fallback; eager + high priority for LCP */}
+                      <picture>
+                        <source
+                          type="image/webp"
+                          srcSet={`${HERO_MECHANIKER_WEBP} 480w, ${HERO_MECHANIKER_WEBP} 768w, ${HERO_MECHANIKER_WEBP} 1200w`}
+                          sizes="(max-width: 768px) 100vw, 55vw"
+                        />
+                        <img
+                          src={HERO_MECHANIKER_FALLBACK}
+                          srcSet={`${HERO_MECHANIKER_FALLBACK} 480w, ${HERO_MECHANIKER_FALLBACK} 768w, ${HERO_MECHANIKER_FALLBACK} 1200w`}
+                          sizes="(max-width: 768px) 100vw, 55vw"
+                          alt="E-Bike Mieten Neuwied — Fahrradverleih FixBike"
+                          width={1200}
+                          height={800}
+                          className="hero__photo hero__photo--mechaniker"
+                          loading="eager"
+                          fetchPriority="high"
+                          decoding="async"
+                        />
+                      </picture>
                     </div>
                     <figcaption className="visually-hidden">
                       Service: professionelle Fahrrad- und E-Bike-Reparatur bei
@@ -722,6 +730,95 @@ function App() {
                 </p>
               </div>
             </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="fixbike-brojke"
+          className="section section--surface section--rhythm-standard"
+          aria-labelledby="brojke-heading"
+        >
+          <div className="container container--wide">
+            <h2 id="brojke-heading">FixBike u brojkama — Kennzahlen</h2>
+            <p className="section__head-lead">
+              Mi kao tim javno navodimo merljive obaveze: <strong>20 god.</strong> iskustva u servisu,{" "}
+              <strong>15+</strong> tipova e-bicikala, <strong>500+</strong> zadovoljnih klijenata u regionu,{" "}
+              <strong>24 h</strong> tipičan rok za standardne popravke kad su delovi dostupni,{" "}
+              <strong>100&nbsp;%</strong> originalnih delova po dogovoru i <strong>24/7</strong> kanali za upite.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="partner-cert"
+          className="section section--rhythm-tight"
+          aria-labelledby="partner-heading"
+        >
+          <div className="container container--wide">
+            <h2 id="partner-heading">Partneri i standardi</h2>
+            <p>
+              Naš servis prati procedure koje preporučuju{" "}
+              <a href="https://www.bosch-ebike.com/" target="_blank" rel="noopener noreferrer">
+                Bosch eBike Systems
+              </a>{" "}
+              i{" "}
+              <a href="https://bike.shimano.com/" target="_blank" rel="noopener noreferrer">
+                Shimano
+              </a>
+              . Ja dodatno pratim{" "}
+              <a
+                href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                Google Search Central
+              </a>{" "}
+              radi jasne strukture stranice.
+            </p>
+          </div>
+        </section>
+
+        <section
+          id="werkstatt-video"
+          className="section section--surface section--rhythm-standard"
+          aria-labelledby="werkstatt-video-heading"
+        >
+          <div className="container container--wide">
+            <h2 id="werkstatt-video-heading">Video — osnovno održavanje lanca</h2>
+            <p className="muted small">
+              Park Tool primer (YouTube). Mi ga koristimo kao edukativni dodatak uz naš{" "}
+              <a href="#servis">E-Bike Service Neuwied</a>.
+            </p>
+            <div
+              style={{
+                position: "relative",
+                paddingBottom: "56.25%",
+                height: 0,
+                overflow: "hidden",
+                maxWidth: 960,
+                margin: "1rem auto 0",
+                border: "1px solid rgba(255,255,255,0.12)",
+                borderRadius: 12,
+              }}
+            >
+              <iframe
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  width: "100%",
+                  height: "100%",
+                  border: 0,
+                  borderRadius: 12,
+                }}
+                src="https://www.youtube-nocookie.com/embed/MuwS_nSevy4"
+                title="Park Tool — Kettenreinigung"
+                loading="lazy"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                referrerPolicy="strict-origin-when-cross-origin"
+                allowFullScreen
+              />
             </div>
           </div>
         </section>

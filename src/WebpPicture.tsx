@@ -47,6 +47,7 @@ export default function WebpPicture({
       loading={loading}
       decoding={decoding}
       fetchPriority={fetchPriority}
+      referrerPolicy="strict-origin-when-cross-origin"
     />
   );
 }

@@ -433,13 +433,14 @@ function App() {
               <h2 id="ueber-uns-heading">Über uns</h2>
               <div className="about__prose">
                 <p>
-                  Ich heiße Adem Osmani. Fahrräder sind für mich nicht nur ein
-                  Beruf, sondern eine echte Leidenschaft. Durch meine
-                  langjährige Erfahrung in der Arbeit mit Fahrrädern ist aus
-                  Interesse mit der Zeit eine echte Begeisterung geworden. Ich
-                  lege großen Wert auf saubere Arbeit, persönliche Beratung und
-                  zuverlässigen Service. Jeder Auftrag wird individuell geplant
-                  – nach Bestellung und Terminvereinbarung.
+                  Ich heiße Adem Osmani, Certified E-Bike Specialist. Fahrräder
+                  sind für mich nicht nur ein Beruf, sondern eine echte
+                  Leidenschaft. Durch meine langjährige Erfahrung in der Arbeit
+                  mit Fahrrädern ist aus Interesse mit der Zeit eine echte
+                  Begeisterung geworden. Ich lege großen Wert auf saubere
+                  Arbeit, persönliche Beratung und zuverlässigen Service. Jeder
+                  Auftrag wird individuell geplant – nach Bestellung und
+                  Terminvereinbarung.
                 </p>
                 <p>
                   Wir arbeiten direkt mit Ihnen, stoga bleibt jeder Schritt

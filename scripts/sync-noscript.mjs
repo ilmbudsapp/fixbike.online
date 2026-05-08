@@ -33,15 +33,17 @@ if (maxWords < 1073) {
   );
 }
 
-const internal =
+const absoluteInternal =
   (html.match(/href="https:\/\/fixbike\.online\/#/g) || []).length;
-if (internal < 20) {
+const rootRelativeInternal = (html.match(/href="\/#/g) || []).length;
+const internal = absoluteInternal + rootRelativeInternal;
+if (internal < 40 || absoluteInternal < 25) {
   throw new Error(
-    `Expected at least 20 fixbike.online internal fragment links, found ${internal}.`
+    `Expected internal fragment links (absolute ≥25, total ≥40): absolute=${absoluteInternal}, root-relative=${rootRelativeInternal}, total=${internal}.`
   );
 }
 
 await writeFile(indexPath, html, "utf8");
 console.log(
-  `Noscript mirroring synced in index.html (${maxWords} words, ${internal} internal links).`
+  `Noscript mirroring synced in index.html (${maxWords} words, ${internal} internal links: ${absoluteInternal} absolute + ${rootRelativeInternal} /#).`
 );

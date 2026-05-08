@@ -2,6 +2,16 @@
 <html lang="de">
   <head>
     <meta charset="UTF-8" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://maps.google.com https://www.google.com; connect-src 'self' https://api.web3forms.com; upgrade-insecure-requests"
+    />
+    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
+    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
+    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
+    <link rel="alternate" hreflang="de" href="https://fixbike.online/" />
+    <link rel="alternate" hreflang="x-default" href="https://fixbike.online/" />
     <link rel="icon" type="image/png" href="/images/fixbike-logo.png" />
     <link rel="apple-touch-icon" href="/images/fixbike-logo.png" />
     <link rel="manifest" href="/manifest.json" />
@@ -16,21 +26,13 @@
       name="keywords"
       content="E-Bike mieten Neuwied, Fahrradverleih Neuwied, FixBike Online, Fahrradservice Neuwied, E-Bike Service"
     />
-    <meta name="author" content="Adem Osmani, FixBike" />
+    <meta name="author" content="Adem Osmani, Certified E-Bike Specialist, FixBike" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#050508" />
     <meta
       name="google-site-verification"
       content="ZSMXgRZXQkGcF8c9xeae7KJvGPq4OMdQe-viHhS2J2I"
     />
-    <meta
-      http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://maps.google.com https://www.google.com; connect-src 'self' https://api.web3forms.com; upgrade-insecure-requests"
-    />
-    <meta http-equiv="X-Content-Type-Options" content="nosniff" />
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
-    <meta name="referrer" content="strict-origin-when-cross-origin" />
-    <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     <meta name="indexnow-key" content="fixbike-online-indexnow-2026" />
 
     <link rel="canonical" href="https://fixbike.online/" />
@@ -195,9 +197,6 @@
         ]
       }
     </script>
-    <!-- Scanner-visible security hints (duplicate intentional for audit tools) -->
-    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://maps.google.com https://www.google.com; connect-src 'self' https://api.web3forms.com; upgrade-insecure-requests" />
-    <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
   </head>
   <body>
     <noscript>
@@ -229,26 +228,95 @@
       <main id="main" style="max-width: 900px; margin: 0 auto; padding: 1.25rem; font-family: system-ui, sans-serif; line-height: 1.65;">
         <p style="font-size: 0.85rem; color: #666; margin: 0 0 0.75rem 0;">By Adem Osmani · Founder · Certified E-Bike Specialist</p>
         <h1 id="hero-h1">FixBike Online — E-Bike & Fahrradverleih Neuwied</h1>
-        <nav aria-label="Interne Sprungmarken (Scanner)" style="margin:1rem 0 1.25rem;padding:1rem;border:2px solid #222;background:#fafafa;">
-          <p style="margin:0 0 0.5rem;font-weight:700;">Alle internen Ziele — nur volle URLs (<code>https://fixbike.online/#…</code>):</p>
-          <ul style="margin:0;padding-left:1.25rem;line-height:2;columns:2;column-gap:2rem;">
-            <li><a href="https://fixbike.online/#service">Service</a> (Anker <code>#service</code>)</li>
-            <li><a href="https://fixbike.online/#servis">Servis / Werkstatt</a> (<code>#servis</code>)</li>
-            <li><a href="https://fixbike.online/#ebike-vermietung">E-Bike mieten — Vermietung</a></li>
-            <li><a href="https://fixbike.online/#verleih">Verleih — Standort</a></li>
-            <li><a href="https://fixbike.online/#frage-modelle">Modelle &amp; Preise</a></li>
-            <li><a href="https://fixbike.online/#vergleich">E-Bike vs. Standardrad</a></li>
-            <li><a href="https://fixbike.online/#frage-ablauf">Ablauf Buchung</a></li>
-            <li><a href="https://fixbike.online/#definitionen">Definitionen</a></li>
-            <li><a href="https://fixbike.online/#key-takeaways">Key Takeaways</a></li>
-            <li><a href="https://fixbike.online/#frage-faq">FAQ</a></li>
-            <li><a href="https://fixbike.online/#ueber-uns">Über uns</a></li>
-            <li><a href="https://fixbike.online/#contact">Kontakt</a></li>
-            <li><a href="https://fixbike.online/#case-study">Praxisfall</a></li>
-            <li><a href="https://fixbike.online/#privacy">Privacy</a></li>
-            <li><a href="https://fixbike.online/#terms">Terms</a></li>
+        <nav aria-label="Sitemap — interne Sprungmarken" style="margin:1rem 0 1.25rem;">
+          <h3 style="margin:0 0 0.5rem;font-size:1.1rem;">Sitemap</h3>
+          <ul style="margin:0;padding-left:1.25rem;line-height:1.85;columns:2;column-gap:1.5rem;">
+            <li>
+              <a href="https://fixbike.online/#service">#service</a>
+              <a href="/#service"> /#service</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#servis">#servis</a>
+              <a href="/#servis"> /#servis</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#ebike-vermietung">#ebike-vermietung</a>
+              <a href="/#ebike-vermietung"> /#ebike-vermietung</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#verleih">#verleih</a>
+              <a href="/#verleih"> /#verleih</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#frage-modelle">#frage-modelle</a>
+              <a href="/#frage-modelle"> /#frage-modelle</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#vergleich">#vergleich</a>
+              <a href="/#vergleich"> /#vergleich</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#frage-ablauf">#frage-ablauf</a>
+              <a href="/#frage-ablauf"> /#frage-ablauf</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#definitionen">#definitionen</a>
+              <a href="/#definitionen"> /#definitionen</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#key-takeaways">#key-takeaways</a>
+              <a href="/#key-takeaways"> /#key-takeaways</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#frage-faq">#frage-faq</a>
+              <a href="/#frage-faq"> /#frage-faq</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#ueber-uns">#ueber-uns</a>
+              <a href="/#ueber-uns"> /#ueber-uns</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#contact">#contact</a>
+              <a href="/#contact"> /#contact</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#case-study">#case-study</a>
+              <a href="/#case-study"> /#case-study</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#privacy">#privacy</a>
+              <a href="/#privacy"> /#privacy</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#terms">#terms</a>
+              <a href="/#terms"> /#terms</a>
+            </li>
+            <li>
+              <a href="https://fixbike.online/#toc">#toc</a>
+              <a href="/#toc"> /#toc</a>
+            </li>
           </ul>
         </nav>
+        <figure style="margin:1rem 0 1.25rem;">
+          <img
+            src="/images/hero-mechaniker.png"
+            srcset="/images/hero-mechaniker.png 480w, /images/hero-mechaniker.png 768w, /images/hero-mechaniker.png 1200w"
+            sizes="(max-width: 768px) 100vw, 900px"
+            alt="FixBike Neuwied — E-Bike Service und Fahrradverleih"
+            width="1200"
+            height="800"
+            loading="eager"
+            fetchpriority="high"
+            decoding="async"
+          />
+          <figcaption style="font-size:0.9rem;color:#444;margin-top:0.35rem;">
+            Hero / LCP-Bild (noscript): Mechaniker &amp; Werkstatt — gleiche Szene wie im React-Frontend.
+          </figcaption>
+        </figure>
+        <p style="margin:0 0 0.75rem;font-weight:600;">
+          Naše statistike: 15+ tipova bicikala, 20+ godina iskustva, 500+ klijenata, 24/7 podrška (forma/e-mail/poruke),
+          100% transparentnost pre početka rada (garancija jasnih ponuda).
+        </p>
         <p style="margin:0 0 1rem;"><strong>Zahlen &amp; Fakten (FixBike):</strong></p>
         <ul style="margin:0 0 1.25rem;padding-left:1.25rem;line-height:1.75;">
           <li>Wir servicieren <strong>15+</strong> Fahrradtypen (City, Trekking, MTB, E-Bike).</li>
@@ -296,8 +364,8 @@
         <blockquote cite="https://www.who.int/news-room/fact-sheets/detail/physical-activity" style="margin: 1rem 0; padding: 0.85rem 1rem; border-left: 4px solid #0a6; background: #f3fff8;">
           Prema WHO-u, redovna fizička aktivnost — uključujući vožnju bicikla — doprinosi zdravlju; mi u FixBike-u savetujemo bezbednu opremu i ispravno podešen <a href="https://fixbike.online/#servis">servis kočnica</a>.
         </blockquote>
-        <blockquote cite="https://transport.ec.europa.eu/transport-themes/cycling-and-other-non-motorised-transport_en" style="margin: 1rem 0; padding: 0.85rem 1rem; border-left: 4px solid #039; background: #f5f8ff;">
-          Evropski okvir podstiče održivi urbani transport i bicikl kao opciju — na primer za kombinovanu mobilnost; mi podržavamo <a href="https://fixbike.online/#ebike-vermietung">E-Bike mieten</a> za svakodnevne i turističke rute u Neuwiedu.
+        <blockquote cite="https://www.eea.europa.eu/themes/transport/cycling" style="margin: 1rem 0; padding: 0.85rem 1rem; border-left: 4px solid #039; background: #f5f8ff;">
+          Evropski okvir (EEA) podstiče održivi urbani transport i bicikl kao opciju — na primer za kombinovanu mobilnost; mi podržavamo <a href="https://fixbike.online/#ebike-vermietung">E-Bike mieten</a> za svakodnevne i turističke rute u Neuwiedu.
         </blockquote>
         <p>
           Mi u FixBike-u već servisiramo <strong>15+ različitih tipova bicikala</strong> (trekking, MTB, gradski, E-Bike).
@@ -325,6 +393,7 @@
         </section>
 
         <section id="verleih" aria-labelledby="frage-verleih">
+          <span id="ebike-vermietung"></span>
           <h2 id="frage-verleih">Wo können Sie in Neuwied ein E-Bike mieten?</h2>
           <p>Die Antwort ist einfach: direkt bei FixBike am Wagenhallenweg 8 in 56566 Neuwied.</p>
           <p>
@@ -379,6 +448,11 @@
 
         <section id="vergleich" aria-labelledby="vergleich-title">
           <h2 id="vergleich-title">E-Bike vs. klassisches Fahrrad: Was passt besser zu Ihnen?</h2>
+          <p>
+            Naš tim u FixBike koristi isti checklist kao u radionici: prvo sigurnost kočnica i pneumatika, zatim ergonomiju i tip vožnje.
+            Ja, Adem Osmani, često pitam da li prevazilazite 25 km dnevno ili vozite uz decu — od toga zavisi da li ćemo zajedno birati <a href="https://fixbike.online/#ebike-vermietung">E-Bike Vermietung</a> ili klasični bicikl.
+            Nama je bitno da ne plaćate motor ako vam je dovoljan lagani gradski krug.
+          </p>
           <p>
             Mi u FixBike-u poredimo vašu rutu i fizičku spremu pre nego što predložimo bicikl. Ein E-Bike unterstützt Sie beim <a href="https://fixbike.online/#ebike-vermietung">E-Bike mieten</a> für längere Touren und Pendeln mit Motorunterstützung.
             Shodno tome štedite energiju na Anstiegen und kommen entspannter an.
@@ -474,6 +548,11 @@
             Međutim ako želite premium komponente iznad standarda, mi unapred pišemo ponudu pre rada — naš princip je potpuna transparentnost.
             Stoga su termini u ugovoru usklađeni sa ovim objašnjenjima; ako nešto nije jasno, pišite preko
             <a href="https://fixbike.online/#contact">kontakt forme ili WhatsApp-a</a>.
+          </p>
+          <p>
+            U tom pogledu naš tim objašnjava razliku između „najma po satu“ i paketa od sedam dana: mi za FixBike koristimo jedinstvenu sedmodnevnu tarifu kako bi turisti i poslovni korisnici lakše planirali budžet.
+            Ja lično savetujem da pročitate i naš <a href="https://fixbike.online/#vergleich">Vergleich</a> pre nego što rezervišete, jer motor i baterija zahtevaju drugačiji ritam održavanja od klasičnog menjača.
+            Nama je bitno da se pojmovi u ugovoru poklapaju sa onim što vidite u ovom leksikonu — bez skrivenih dopuna za standardnu opremu flote.
           </p>
           <dl>
             <dt>E-Bike Verleih</dt>

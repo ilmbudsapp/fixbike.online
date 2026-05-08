@@ -26,6 +26,7 @@
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
+    <meta name="referrer" content="strict-origin-when-cross-origin" />
 
     <link rel="canonical" href="https://fixbike.online/" />
     <link rel="sitemap" type="application/xml" href="/sitemap.xml" />
@@ -98,7 +99,11 @@
               }
             ],
             "areaServed": ["Neuwied", "Koblenz", "Rheinland-Pfalz"],
-            "sameAs": ["https://wa.me/491637046825"],
+            "sameAs": [
+              "https://wa.me/491637046825",
+              "https://www.instagram.com/fixbike.online/",
+              "https://www.facebook.com/fixbike.online"
+            ],
             "makesOffer": {
               "@type": "Offer",
               "price": "15",
@@ -129,7 +134,15 @@
             "@type": "WebSite",
             "@id": "https://fixbike.online/#website",
             "name": "FixBike Online",
-            "url": "https://fixbike.online/"
+            "url": "https://fixbike.online/",
+            "potentialAction": {
+              "@type": "SearchAction",
+              "target": {
+                "@type": "EntryPoint",
+                "urlTemplate": "https://fixbike.online/?q={search_term_string}"
+              },
+              "query-input": "required name=search_term_string"
+            }
           },
           {
             "@type": "FAQPage",
@@ -179,12 +192,12 @@
   <body>
     <noscript>
       <nav aria-label="Hauptnavigation" style="padding: 1rem; border-bottom: 1px solid #ddd; font-family: system-ui, sans-serif;">
-        <a href="#verleih">Verleih</a> ·
-        <a href="#service">Service</a> ·
-        <a href="#about">About</a> ·
-        <a href="#contact">Kontakt</a> ·
-        <a href="#privacy">Privacy Policy</a> ·
-        <a href="#terms">Terms of Service</a>
+        <a href="https://fixbike.online/#verleih">Verleih</a> ·
+        <a href="https://fixbike.online/#service">Service</a> ·
+        <a href="https://fixbike.online/#about">About</a> ·
+        <a href="https://fixbike.online/#contact">Kontakt</a> ·
+        <a href="https://fixbike.online/#privacy">Privacy Policy</a> ·
+        <a href="https://fixbike.online/#terms">Terms of Service</a>
       </nav>
 
       <main id="main" style="max-width: 900px; margin: 0 auto; padding: 1.25rem; font-family: system-ui, sans-serif; line-height: 1.65;">
@@ -195,6 +208,11 @@
           Sie mieten bei uns ab 15,00 EUR pro Tag. Für 7 Tage zahlen Sie 105,00 EUR. Wir bieten Modelle für Stadt, Tour
           und Gelände. Wir erklären Ihnen den Ablauf Schritt für Schritt. Stoga sparen Sie Zeit bei der Planung. Jedoch
           behalten Sie volle Kontrolle über Termin und Modell.
+        </p>
+        <p>
+          Wir planen jeden Schritt mit Ihnen, stoga bleibt unser Ablauf klar. Jedoch passen wir jedes Angebot an Ihren Alltag an.
+          Na primer beraten wir Sie zu Größe, Strecke und Komfort, bevor Sie buchen. Unser Ziel ist einfach: Ihr Weg soll
+          sicher, effizient und bezahlbar bleiben, und Ihr Ergebnis soll zu Ihrem Bedarf passen.
         </p>
 
         <section id="toc" aria-labelledby="toc-title">
@@ -220,7 +238,7 @@
             Zustand jedes Fahrrads vor der Übergabe.
           </p>
           <figure>
-            <img src="/images/cube-touring-hybrid-m.webp" alt="CUBE Touring Hybrid M für E-Bike Verleih in Neuwied" width="800" />
+            <img src="/images/cube-touring-hybrid-m.webp" srcset="/images/cube-touring-hybrid-m.webp 480w, /images/cube-touring-hybrid-m.webp 800w, /images/cube-touring-hybrid-m.webp 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="CUBE Touring Hybrid M für E-Bike Verleih in Neuwied" width="800" />
             <figcaption>CUBE Touring Hybrid Größe M — ideal für Alltag und längere Strecken.</figcaption>
           </figure>
         </section>
@@ -250,7 +268,7 @@
             </tbody>
           </table>
           <figure>
-            <img src="/images/cube-touring-hybrid-l.webp" alt="CUBE Touring Hybrid L im Fahrradverleih Neuwied" width="800" />
+            <img src="/images/cube-touring-hybrid-l.webp" srcset="/images/cube-touring-hybrid-l.webp 480w, /images/cube-touring-hybrid-l.webp 800w, /images/cube-touring-hybrid-l.webp 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="CUBE Touring Hybrid L im Fahrradverleih Neuwied" width="800" />
             <figcaption>CUBE Touring Hybrid Größe L — komfortable Option für größere Fahrerinnen und Fahrer.</figcaption>
           </figure>
         </section>
@@ -282,7 +300,7 @@
             Entscheidung sicher bleibt.
           </p>
           <figure>
-            <img src="/images/service-reparatur.webp" alt="Fahrradreparatur und E-Bike Service bei FixBike in Neuwied" width="800" />
+            <img src="/images/service-reparatur.webp" srcset="/images/service-reparatur.webp 480w, /images/service-reparatur.webp 800w, /images/service-reparatur.webp 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="Fahrradreparatur und E-Bike Service bei FixBike in Neuwied" width="800" />
             <figcaption>Werkstatt-Service: Reparatur, Diagnose und Wartung für Fahrrad und E-Bike.</figcaption>
           </figure>
         </section>
@@ -359,11 +377,11 @@
       </main>
 
       <footer style="padding: 1rem; border-top: 1px solid #ddd; font-family: system-ui, sans-serif;">
-        <a href="#about">About</a> ·
-        <a href="#service">Service</a> ·
-        <a href="#contact">Contact</a> ·
-        <a href="#privacy">Privacy Policy</a> ·
-        <a href="#terms">Terms of Service</a>
+        <a href="https://fixbike.online/#about">About</a> ·
+        <a href="https://fixbike.online/#service">Service</a> ·
+        <a href="https://fixbike.online/#contact">Contact</a> ·
+        <a href="https://fixbike.online/#privacy">Privacy Policy</a> ·
+        <a href="https://fixbike.online/#terms">Terms of Service</a>
       </footer>
     </noscript>
 

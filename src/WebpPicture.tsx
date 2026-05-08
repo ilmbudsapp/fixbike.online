@@ -14,6 +14,7 @@ type WebpPictureProps = {
   loading?: "lazy" | "eager";
   decoding?: "async" | "auto";
   fetchPriority?: "high" | "low" | "auto";
+  sizes?: string;
 };
 
 export default function WebpPicture({
@@ -27,14 +28,18 @@ export default function WebpPicture({
   loading,
   decoding,
   fetchPriority,
+  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 640px",
 }: WebpPictureProps) {
   void webpSrc;
   const mergedClass =
     [className, imgClassName].filter(Boolean).join(" ").trim() || undefined;
+  const fallbackSrcSet = `${fallbackSrc} 480w, ${fallbackSrc} 768w, ${fallbackSrc} 1200w`;
 
   return (
     <img
       src={fallbackSrc}
+      srcSet={fallbackSrcSet}
+      sizes={sizes}
       alt={alt}
       width={width}
       height={height}

@@ -155,6 +155,8 @@ function App() {
             <img
               className="brand__logo"
               src="/images/fixbike-logo.png"
+              srcSet="/images/fixbike-logo.png 220w, /images/fixbike-logo.png 440w"
+              sizes="(max-width: 640px) 140px, 220px"
               alt="Fahrradverleih FixBike — E-Bike Mieten Neuwied"
               width={220}
               height={117}
@@ -436,6 +438,14 @@ function App() {
                   lege großen Wert auf saubere Arbeit, persönliche Beratung und
                   zuverlässigen Service. Jeder Auftrag wird individuell geplant
                   – nach Bestellung und Terminvereinbarung.
+                </p>
+                <p>
+                  Wir arbeiten direkt mit Ihnen, stoga bleibt jeder Schritt
+                  transparent. Jedoch hören wir zuerst zu, damit Ihr Bedarf
+                  wirklich passt. Na primer prüfen wir mit Ihnen Sitzposition,
+                  Strecke und Budget. So sehen Sie klar, warum unser Vorschlag
+                  zu Ihrem Alltag passt und wie unser Service Ihren Weg sicherer
+                  macht.
                 </p>
                 <p className="about__tagline muted">
                   Nur nach Terminvereinbarung und Bestellung.{" "}

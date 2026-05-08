@@ -184,6 +184,9 @@ export default function SiteFooter() {
                 src="https://cdn.simpleicons.org/visa"
                 alt="Visa"
                 loading="lazy"
+                width={64}
+                height={20}
+                referrerPolicy="no-referrer"
               />
             </span>
             <span className="payment-icons__pill" aria-label="Mastercard">
@@ -191,6 +194,9 @@ export default function SiteFooter() {
                 src="https://cdn.simpleicons.org/mastercard"
                 alt="Mastercard"
                 loading="lazy"
+                width={64}
+                height={20}
+                referrerPolicy="no-referrer"
               />
             </span>
             <span className="payment-icons__pill" aria-label="PayPal">
@@ -198,6 +204,9 @@ export default function SiteFooter() {
                 src="https://cdn.simpleicons.org/paypal"
                 alt="PayPal"
                 loading="lazy"
+                width={64}
+                height={20}
+                referrerPolicy="no-referrer"
               />
             </span>
             <span className="payment-icons__pill payment-icons__pill--text">

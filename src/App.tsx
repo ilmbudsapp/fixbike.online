@@ -89,7 +89,7 @@ function App() {
         `Abholung: ${pickupDate}`,
         `Rückgabe (+7 Tage): ${returnDate}`,
         "",
-        `Preis: Vermietung für eine Woche zum Preis von 210,00 €.`,
+        `Preis: Vermietung für eine Woche zum Preis von 105,00 € (15,00 € pro Tag).`,
       ].join("\n");
 
       const response = await fetch(WEB3FORMS_ENDPOINT, {
@@ -199,7 +199,7 @@ function App() {
                   E-Bike &amp; Fahrradverleih Neuwied
                 </span>
                 <span className="hero__title-line hero__title-line--tagline">
-                  Mieten Sie Ihr E-Bike für nur 210&nbsp;€ pro Woche
+                  Mieten Sie Ihr E-Bike für nur 15&nbsp;€ pro Tag
                 </span>
               </h1>
             </header>
@@ -214,13 +214,13 @@ function App() {
                   Service, ehrliche Beratung, Abholung nach Termin.
                 </p>
                 <p className="hero__price-ribbon" role="note">
-                  <strong>E-Bike / Fahrrad mieten: ab 210&nbsp;€ für 7 Tage</strong>
+                  <strong>E-Bike / Fahrrad mieten: ab 15&nbsp;€ pro Tag (105&nbsp;€ für 7 Tage)</strong>
                   {" — "}
                   <span className="muted">FixBike Fahrradverleih Neuwied</span>
                 </p>
                 <div className="hero__actions">
                   <a className="btn btn--primary btn--lg" href="#ebike-vermietung">
-                    Jetzt mieten (210&nbsp;€ / 7 Tage)
+                    Jetzt mieten (15&nbsp;€ / Tag · 105&nbsp;€ / 7 Tage)
                   </a>
                   <a
                     className="btn btn--whatsapp btn--lg"
@@ -264,7 +264,7 @@ function App() {
                   <aside className="hero__panel" aria-label="Kurzinfo">
                     <div className="hero__stat">
                       <span className="hero__stat-label">7-Tage-Miete</span>
-                      <span className="hero__stat-value">210&nbsp;€</span>
+                      <span className="hero__stat-value">15&nbsp;€ / Tag</span>
                     </div>
                     <p className="hero__panel-text">
                       <strong>E-Bike mieten Neuwied</strong> oder klassisches Rad
@@ -290,12 +290,12 @@ function App() {
               Günstig Fahrrad mieten · Fahrradverleih Neuwied
             </h2>
             <p className="pricing-spotlight__lead">
-              <strong>E-Bike / Fahrrad mieten ab 210&nbsp;€ für 7 Tage</strong> — transparent,
+              <strong>E-Bike / Fahrrad mieten ab 15&nbsp;€ pro Tag (105&nbsp;€ für 7 Tage)</strong> — transparent,
               mit CUBE-Qualität. Ideal für Touren, Pendeln und Gäste in der Region Neuwied.
             </p>
             <div className="pricing-spotlight__pricebox" role="group" aria-label="Wochenpreis">
-              <span className="pricing-spotlight__amount">210&nbsp;€</span>
-              <span className="pricing-spotlight__period">/ 7 Tage</span>
+              <span className="pricing-spotlight__amount">15&nbsp;€</span>
+              <span className="pricing-spotlight__period">/ Tag</span>
             </div>
             <div className="pricing-spotlight__actions">
               <a className="btn btn--primary btn--lg" href="#ebike-vermietung">
@@ -358,7 +358,7 @@ function App() {
                         </span>
                       </td>
                       <td>
-                        <strong className="pricing-table__eur">210,00&nbsp;€</strong>
+                        <strong className="pricing-table__eur">105,00&nbsp;€</strong>
                       </td>
                     </tr>
                     <tr>
@@ -398,7 +398,7 @@ function App() {
                     ) : null}
                     <p className="ebike-card__note">{bike.countNote}</p>
                     <p className="ebike-card__note">
-                      Vermietung für eine Woche zum Preis von 210,00 €.
+                      Vermietung für eine Woche zum Preis von 105,00 € (15,00 € pro Tag).
                     </p>
                     <button
                       type="button"

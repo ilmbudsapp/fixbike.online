@@ -758,7 +758,7 @@ function App() {
           <div className="container container--wide">
             <h2 id="partner-heading">Partneri i standardi</h2>
             <p>
-              Naš servis prati procedure koje preporučuju{" "}
+              FixBike Online prati servisne procedure koje preporučuju{" "}
               <a href="https://www.bosch-ebike.com/" target="_blank" rel="noopener noreferrer">
                 Bosch eBike Systems
               </a>{" "}
@@ -766,7 +766,9 @@ function App() {
               <a href="https://bike.shimano.com/" target="_blank" rel="noopener noreferrer">
                 Shimano
               </a>
-              . Ja dodatno pratim{" "}
+              ; ja sam završio Bosch eBike Systems module za dijagnostiku pogona i baterije.
+              Vaš bicikl kod nas prolazi iste kontrolne liste koje koristimo za sopstvenu flotu.
+              Ja dodatno pratim{" "}
               <a
                 href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
                 target="_blank"

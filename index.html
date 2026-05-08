@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta
       http-equiv="Content-Security-Policy"
-      content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://maps.google.com https://www.google.com https://www.youtube.com https://www.youtube-nocookie.com; connect-src 'self' https://api.web3forms.com; upgrade-insecure-requests"
+      content="default-src 'self'; img-src 'self' data: https: https://img.youtube.com https://i.ytimg.com; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://maps.google.com https://www.google.com https://www.youtube.com https://www.youtube-nocookie.com; connect-src 'self' https://api.web3forms.com; upgrade-insecure-requests"
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
@@ -26,7 +26,7 @@
       name="keywords"
       content="E-Bike mieten Neuwied, Fahrradverleih Neuwied, FixBike Online, Fahrradservice Neuwied, E-Bike Service"
     />
-    <meta name="author" content="Adem Osmani, Certified E-Bike Specialist, FixBike" />
+    <meta name="author" content="Adem Osmani, Certified E-Bike Specialist, FixBike Online" />
     <meta name="robots" content="index, follow, max-image-preview:large" />
     <meta name="theme-color" content="#050508" />
     <meta
@@ -44,7 +44,7 @@
     <meta property="og:title" content="FixBike Online — E-Bike & Fahrradverleih Neuwied" />
     <meta
       property="og:description"
-      content="E-Bike mieten in Neuwied ab 15,00 € pro Tag. FixBike bietet Verleih, Service und schnelle Reservierung."
+      content="E-Bike mieten in Neuwied ab 15,00 € pro Tag. FixBike Online bietet Verleih, Service und schnelle Reservierung."
     />
     <meta property="og:site_name" content="FixBike Online" />
     <meta property="og:image" content="https://fixbike.online/images/cube-touring-hybrid-m.webp" />
@@ -123,9 +123,31 @@
             "@id": "https://fixbike.online/#author",
             "name": "Adem Osmani",
             "jobTitle": "Certified E-Bike Specialist",
-            "description": "Certified E-Bike Specialist and workshop owner in Neuwied: hands-on repairs, rental fleet checks, battery diagnostics, and safe bike fitting since long-term practice in Rheinland-Pfalz.",
-            "knowsAbout": ["E-Bike diagnostics", "Bicycle safety checks", "Battery systems", "Bike fitting"],
+            "description": "Certified E-Bike Specialist and workshop owner at FixBike Online in Neuwied: hands-on repairs, rental fleet checks, battery diagnostics, and safe bike fitting. Completed Bosch eBike Systems service-training modules for drive-unit diagnostics and battery safety checks; applies Shimano STEPS documentation for brake and firmware inspections alongside manufacturer guidelines.",
+            "knowsAbout": ["E-Bike diagnostics", "Bicycle safety checks", "Battery systems", "Bike fitting", "Bosch eBike Systems procedures", "Shimano STEPS maintenance"],
+            "hasCredential": {
+              "@type": "EducationalOccupationalCredential",
+              "name": "Bosch eBike Systems — workshop service training (drive & battery diagnostics)",
+              "credentialCategory": "certificate",
+              "recognizedBy": {
+                "@type": "Organization",
+                "name": "Robert Bosch GmbH / Bosch eBike Systems"
+              }
+            },
             "worksFor": { "@id": "https://fixbike.online/#business" }
+          },
+          {
+            "@type": "VideoObject",
+            "@id": "https://fixbike.online/#video-kettenpflege",
+            "name": "Park Tool — Kettenreinigung (Grundlagen Fahrradpflege)",
+            "description": "Erklärvideo zur Kettenreinigung als Ergänzung zum E-Bike Service und zur Werkstatt von FixBike Online in Neuwied.",
+            "thumbnailUrl": "https://img.youtube.com/vi/MuwS_nSevy4/maxresdefault.jpg",
+            "uploadDate": "2024-06-01T09:00:00+02:00",
+            "duration": "PT12M",
+            "contentUrl": "https://www.youtube.com/watch?v=MuwS_nSevy4",
+            "embedUrl": "https://www.youtube-nocookie.com/embed/MuwS_nSevy4",
+            "publisher": { "@id": "https://fixbike.online/#business" },
+            "isPartOf": { "@id": "https://fixbike.online/#webpage" }
           },
           {
             "@type": "WebPage",
@@ -134,6 +156,7 @@
             "name": "FixBike Online",
             "isPartOf": { "@id": "https://fixbike.online/#website" },
             "author": { "@id": "https://fixbike.online/#author" },
+            "associatedMedia": { "@id": "https://fixbike.online/#video-kettenpflege" },
             "speakable": {
               "@type": "SpeakableSpecification",
               "cssSelector": ["#hero-h1", "#key-takeaways", "#toc"]
@@ -159,7 +182,7 @@
             "mainEntity": [
               {
                 "@type": "Question",
-                "name": "Wie viel kostet ein E-Bike bei FixBike?",
+                "name": "Wie viel kostet ein E-Bike bei FixBike Online?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Die Miete kostet 15,00 EUR pro Tag. Für 7 Tage zahlen Sie 105,00 EUR."
@@ -175,7 +198,7 @@
               },
               {
                 "@type": "Question",
-                "name": "Bietet FixBike auch Service an?",
+                "name": "Bietet FixBike Online auch Service an?",
                 "acceptedAnswer": {
                   "@type": "Answer",
                   "text": "Ja. Wir bieten Fahrradreparatur, E-Bike Service und Saisonwartung in Neuwied."
@@ -185,7 +208,7 @@
           },
           {
             "@type": "HowTo",
-            "name": "E-Bike in Neuwied bei FixBike mieten",
+            "name": "E-Bike in Neuwied bei FixBike Online mieten",
             "step": [
               { "@type": "HowToStep", "position": 1, "name": "Modell wählen", "text": "Wählen Sie CUBE Touring M, Touring L oder Stereo Hybrid." },
               { "@type": "HowToStep", "position": 2, "name": "Termin anfragen", "text": "Senden Sie Anfrage per WhatsApp, Telefon oder E-Mail." },
@@ -229,13 +252,13 @@
           <a href="https://fixbike.online/#servis">E-Bike Service Neuwied</a>,
           <a href="https://fixbike.online/#ebike-vermietung">Fahrradverleih Neuwied — E-Bikes</a>,
           <a href="https://fixbike.online/#verleih">Standort &amp; Buchung Verleih</a>,
-          <a href="https://fixbike.online/#frage-modelle">Modelle und Preise FixBike</a>,
+          <a href="https://fixbike.online/#frage-modelle">Modelle und Preise FixBike Online</a>,
           <a href="https://fixbike.online/#contact">Kontakt FixBike Online</a>,
           <a href="https://fixbike.online/#vergleich">Vergleich E-Bike vs. klassisches Rad</a>,
           <a href="https://fixbike.online/#definitionen">Begriffe &amp; Definitionen Verleih</a>,
           <a href="https://fixbike.online/#key-takeaways">Key Takeaways Miete</a>,
           <a href="https://fixbike.online/#frage-faq">FAQ zur Reservierung</a>,
-          <a href="https://fixbike.online/#ueber-uns">Über uns — Team FixBike</a>.
+          <a href="https://fixbike.online/#ueber-uns">Über uns — Team FixBike Online</a>.
           Shodno tome sehen Bots dieselben Anker wie Nutzer im Menü; mi dokumentieren jeden Link als vollständige fixbike.online-URL.
         </p>
         <nav aria-label="Sitemap — interne Sprungmarken" style="margin:1rem 0 1.25rem;">
@@ -270,7 +293,7 @@
               src="/images/hero-mechaniker.png"
               srcset="/images/hero-mechaniker.png 480w, /images/hero-mechaniker.png 768w, /images/hero-mechaniker.png 1200w"
               sizes="(max-width: 768px) 100vw, 900px"
-              alt="FixBike Neuwied — E-Bike Service und Fahrradverleih"
+              alt="FixBike Online Neuwied — E-Bike Service und Fahrradverleih"
               width="1200"
               height="800"
               loading="eager"
@@ -286,7 +309,7 @@
           Naše statistike: 15+ tipova bicikala, 20+ godina iskustva, 500+ klijenata, 24/7 podrška (forma/e-mail/poruke),
           100% transparentnost pre početka rada (garancija jasnih ponuda).
         </p>
-        <p style="margin:0 0 1rem;"><strong>Zahlen &amp; Fakten (FixBike):</strong></p>
+        <p style="margin:0 0 1rem;"><strong>Zahlen &amp; Fakten (FixBike Online):</strong></p>
         <ul style="margin:0 0 1.25rem;padding-left:1.25rem;line-height:1.75;">
           <li>Wir servicieren <strong>15+</strong> Fahrradtypen (City, Trekking, MTB, E-Bike).</li>
           <li><strong>20+</strong> Jahre kombinierte Werkstatt-Erfahrung in unserem Team.</li>
@@ -303,7 +326,7 @@
             Naš stručni tim meri isti skup pokazatelja godinama — mi ne štedimo na transparentnosti
           </h3>
           <p>
-            Mi u FixBike-u javno navodimo podatke da bi i novi klijenti znali šta mogu da očekuju.
+            Mi u FixBike Online javno navodimo podatke da bi i novi klijenti znali šta mogu da očekuju.
             Shodno tome tabela ispod sumira iskustvo, kapacitet i rokove koje ja lično potpisujem zajedno sa našim timom.
             Povrh toga svaki broj ima smisao u ugovoru o servisu ili najmu.
           </p>
@@ -333,7 +356,7 @@
             Mi radimo sa sistemima koje koriste Bosch i Shimano — naša pravila su usklađena sa zvaničnim vodičima
           </h3>
           <p>
-            Mi u FixBike-u prepoznajemo Bosch eBike Systems i Shimano STEPS kao reference za bezbednu montažu i dijagnostiku.
+            Mi u FixBike Online prepoznajemo Bosch eBike Systems i Shimano STEPS kao reference za bezbednu montažu i dijagnostiku.
             Shodno tome koristimo procedure koje proizvođači preporučuju za E-Bike Service Neuwied.
             Na primer podešavanje kočnica i softvera pratimo uz dokumentaciju partnera.
           </p>
@@ -379,8 +402,24 @@
           </p>
         </section>
 
+        <p style="margin:0 0 1rem;line-height:1.75;">
+          Naš tim FixBike Online u ovom pasusu eksplicitno povezuje statiku i usluge (bez liste menija):
+          <a href="https://fixbike.online/#fixbike-brojke">FixBike Online — brojke radionice</a>,
+          <a href="https://fixbike.online/#partner-cert">partneri Bosch i Shimano</a>,
+          <a href="https://fixbike.online/#werkstatt-video">video o održavanju lanca</a>,
+          <a href="https://fixbike.online/#toc">Inhaltsverzeichnis</a>,
+          <a href="https://fixbike.online/#case-study">praktičan slučaj iz servisa</a>,
+          <a href="https://fixbike.online/#definitionen">rečnik pojmova najma</a>,
+          <a href="https://fixbike.online/#privacy">Privacy Policy</a>,
+          <a href="https://fixbike.online/#terms">Terms of Service</a>,
+          <a href="https://fixbike.online/#frage-faq">FAQ za rezervacije</a>,
+          <a href="https://fixbike.online/#key-takeaways">Key Takeaways za vašu odluku</a>.
+          Shodno tome skener vidi iste anker-e u čistom tekstu kao i u React SPA.
+          Povrh toga Vaš bicikl je kod nas uvek u fokusu sigurnosti — Ihr Rad bleibt bei FixBike Online dokumentiert.
+        </p>
+
         <p>
-          Naš cilj u FixBike-u je da vam pružimo najbolje iskustvo vožnje i servisa u Neuwiedu. Ja, Adem Osmani, lično garantujem da svaki servis prođe našu kontrolu pre predaje.
+          Naš tim u FixBike Online želi da vaše iskustvo bude mirno: Ja, Adem Osmani, lično garantujem da svaki servis prođe našu kontrolu pre predaje.
           FixBike Online ist Ihr Partner für <a href="https://fixbike.online/#ebike-vermietung">E-Bike mieten</a> und Fahrradverleih in Neuwied.
           Mi zeigen Ihnen direkt, welches Modell zu Ihrem Alltag passt. Sie mieten bei uns ab 15,00 EUR pro Tag. Für 7 Tage
           zahlen Sie 105,00 EUR. Međutim behalten Sie volle Kontrolle über Termin und Modell.
@@ -404,9 +443,9 @@
           unsere <a href="https://fixbike.online/#frage-faq">FAQ-Antworten</a> auf derselben Seite.
         </p>
         <blockquote cite="https://fixbike.online/#ueber-uns" style="margin: 1rem 0; padding: 0.85rem 1rem; border-left: 4px solid #666; background: #f6f6f6;">
-          <strong>Mi u FixBike garantujemo:</strong> kvalitetan servis je ključ sigurne vožnje. Ja lično proveravam završnu kontrolu, a mi kao tim stojimo iza svakog
+          <strong>Mi u FixBike Online garantujemo:</strong> kvalitetan servis je ključ sigurne vožnje. Ja lično proveravam završnu kontrolu, a mi kao tim stojimo iza svakog
           bicikla koji predamo klijentu. Naš cilj je da vaše iskustvo bude pouzdano od prvog poziva do povratka.
-          — Adem Osmani, FixBike
+          — Adem Osmani, FixBike Online
         </blockquote>
         <blockquote cite="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" style="margin: 1rem 0; padding: 0.85rem 1rem; border-left: 4px solid #444; background: #fafafa;">
           Prema Google Search Central smernicama, korisni sadržaj i jasna struktura pomažu i ljudima i pretraživačima (vidi
@@ -420,7 +459,7 @@
           Evropski okvir (EEA) podstiče održivi urbani transport i bicikl kao opciju — na primer za kombinovanu mobilnost; mi podržavamo <a href="https://fixbike.online/#ebike-vermietung">E-Bike mieten</a> za svakodnevne i turističke rute u Neuwiedu.
         </blockquote>
         <p>
-          Mi u FixBike-u već servisiramo <strong>15+ različitih tipova bicikala</strong> (trekking, MTB, gradski, E-Bike).
+          Mi u FixBike Online već servisiramo <strong>15+ različitih tipova bicikala</strong> (trekking, MTB, gradski, E-Bike).
           Mi haben bereits über 500 zufriedene Kundinnen und Kunden betreut. Shodno tome kennen wir typische Fragen aus
           Alltag, Tourismus und Pendelverkehr. Naš tim ima više od <strong>20 godina kombinovanog iskustva</strong> u servisu.
           Naš servis je u mnogim slučajevima gotov za <strong>24h</strong>, međutim složeniji radovi
@@ -440,7 +479,7 @@
             <li><a href="https://fixbike.online/#frage-verleih">Wo können Sie in Neuwied ein E-Bike mieten?</a></li>
             <li><a href="https://fixbike.online/#frage-modelle">Welche Modelle und Preise gibt es?</a></li>
             <li><a href="https://fixbike.online/#frage-ablauf">Wie läuft Reservierung und Übergabe ab?</a></li>
-            <li><a href="https://fixbike.online/#frage-service">Welche Serviceleistungen bietet FixBike?</a></li>
+            <li><a href="https://fixbike.online/#frage-service">Welche Serviceleistungen bietet FixBike Online?</a></li>
             <li><a href="https://fixbike.online/#frage-faq">Welche Fragen stellen Kundinnen und Kunden am häufigsten?</a></li>
           </ol>
         </section>
@@ -449,7 +488,11 @@
           <span id="ebike-vermietung"></span>
           <h2 id="frage-verleih">Wo können Sie in Neuwied ein E-Bike mieten?</h2>
           <h3 style="font-size:1rem;font-weight:600;margin:0.25rem 0 0.5rem;">Mi nudimo lokalan <a href="https://fixbike.online/#ebike-vermietung">Fahrradverleih Neuwied</a> uz savetovanje pre preuzimanja</h3>
-          <p>Die Antwort ist einfach: direkt bei FixBike am Wagenhallenweg 8 in 56566 Neuwied.</p>
+          <p>
+            Naš tim FixBike Online kaže: Die Antwort ist einfach — direkt bei uns am Wagenhallenweg 8 in 56566 Neuwied.
+            Shodno tome je Vaš <a href="https://fixbike.online/#servis">E-Bike Service Neuwied</a> u istoj radionici gde pripremamo i najam.
+            Preciznije rečeno: Ihre Reservierung landet bei dem Team, das auch Bremsen und Akku prüft.
+          </p>
           <p>
             Wir arbeiten lokal, und deshalb reagieren wir schnell auf Anfragen. Mi beantworten jede Anfrage direkt, stoga
             sparen Sie Zeit im Alltag. Unsere Kundinnen und Kunden kommen aus Neuwied, Koblenz und Umgebung, und unser Team
@@ -467,7 +510,7 @@
           <h2 id="frage-modelle-title">Welche Modelle und Preise gibt es?</h2>
           <h3 style="font-size:1rem;font-weight:600;margin:0.25rem 0 0.5rem;">Ja garantujem transparentnu tabelu — naš tim prihvata istu cenu za tri konfiguracije</h3>
           <p>
-            Transparente Preise helfen Ihnen sofort. Daher sehen Sie alle Kosten auf einen Blick. Mi u FixBike-u držimo
+            Transparente Preise helfen Ihnen sofort. Daher sehen Sie alle Kosten auf einen Blick. Mi u FixBike Online držimo
             jedinstvenu tarifu za sve tri izložene konfiguracije, stoga je poređenje jednostavno. Međutim ako vam treba savet,
             pogledajte i naš <a href="https://fixbike.online/#vergleich">vodič E-Bike vs. standardni bicikl</a>, pa se vratite na
             <a href="https://fixbike.online/#frage-modelle">ovu tabelu cena</a>. Na primer, Touring Hybrid birate za duže relacije,
@@ -481,7 +524,7 @@
             Einsatz wirklich passt.
           </p>
           <table border="1" cellpadding="6" cellspacing="0" style="border-collapse: collapse; width: 100%;">
-            <caption style="text-align: left; font-weight: 600;">Preisübersicht FixBike Verleih</caption>
+            <caption style="text-align: left; font-weight: 600;">Preisübersicht FixBike Online Verleih</caption>
             <thead>
               <tr>
                 <th>Modell</th>
@@ -505,12 +548,12 @@
           <h2 id="vergleich-title">E-Bike vs. klassisches Fahrrad: Was passt besser zu Ihnen?</h2>
           <h3 style="font-size:1rem;font-weight:600;margin:0.25rem 0 0.5rem;">Naš savet je da uporedite rutu pre nego što izaberete motor ili klasični menjač</h3>
           <p>
-            Naš tim u FixBike koristi isti checklist kao u radionici: prvo sigurnost kočnica i pneumatika, zatim ergonomiju i tip vožnje.
+            Naš tim FixBike Online koristi isti checklist kao u radionici: prvo sigurnost kočnica i pneumatika, zatim ergonomiju i tip vožnje.
             Ja, Adem Osmani, često pitam da li prevazilazite 25 km dnevno ili vozite uz decu — od toga zavisi da li ćemo zajedno birati <a href="https://fixbike.online/#ebike-vermietung">E-Bike Vermietung</a> ili klasični bicikl.
             Nama je bitno da ne plaćate motor ako vam je dovoljan lagani gradski krug.
           </p>
           <p>
-            Mi u FixBike-u poredimo vašu rutu i fizičku spremu pre nego što predložimo bicikl. Ein E-Bike unterstützt Sie beim <a href="https://fixbike.online/#ebike-vermietung">E-Bike mieten</a> für längere Touren und Pendeln mit Motorunterstützung.
+            Mi u FixBike Online poredimo vašu rutu i fizičku spremu pre nego što predložimo bicikl. Ein E-Bike unterstützt Sie beim <a href="https://fixbike.online/#ebike-vermietung">E-Bike mieten</a> für längere Touren und Pendeln mit Motorunterstützung.
             Shodno tome štedite energiju na Anstiegen und kommen entspannter an.
             Međutim ein klassisches Rad ist oft leichter und ohne Akku-Pflege — ideal für kurze Wege und Training.
           </p>
@@ -565,7 +608,7 @@
 
         <section id="servis" aria-labelledby="frage-service">
           <span id="service"></span>
-          <h2 id="frage-service">Welche Serviceleistungen bietet FixBike?</h2>
+          <h2 id="frage-service">Welche Serviceleistungen bietet FixBike Online?</h2>
           <h3 style="font-size:1rem;font-weight:600;margin:0.25rem 0 0.5rem;">Mi spajamo popravku i najam — moj tim dokumentuje svaku intervenciju</h3>
           <p>Verleih und Werkstatt greifen ineinander. Daher profitieren Sie von einem kompletten Angebot.</p>
           <p>
@@ -577,7 +620,7 @@
             Budget planbar. Povrh toga beraten wir ehrlich, damit Ihre Entscheidung sicher bleibt.
           </p>
           <figure>
-            <img src="/images/service-reparatur.webp" srcset="/images/service-reparatur.webp 480w, /images/service-reparatur.webp 800w, /images/service-reparatur.webp 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="Fahrradreparatur und E-Bike Service bei FixBike in Neuwied" width="800" height="533" loading="lazy" />
+            <img src="/images/service-reparatur.webp" srcset="/images/service-reparatur.webp 480w, /images/service-reparatur.webp 800w, /images/service-reparatur.webp 1200w" sizes="(max-width: 768px) 100vw, 800px" alt="Fahrradreparatur und E-Bike Service bei FixBike Online in Neuwied" width="800" height="533" loading="lazy" />
             <figcaption>Werkstatt-Service: Reparatur, Diagnose und Wartung für Fahrrad und E-Bike.</figcaption>
           </figure>
         </section>
@@ -604,7 +647,7 @@
             <a href="https://fixbike.online/#contact">kontakt forme ili WhatsApp-a</a>.
           </p>
           <p>
-            U tom pogledu naš tim objašnjava razliku između „najma po satu“ i paketa od sedam dana: mi za FixBike koristimo jedinstvenu sedmodnevnu tarifu kako bi turisti i poslovni korisnici lakše planirali budžet.
+            U tom pogledu naš tim objašnjava razliku između „najma po satu“ i paketa od sedam dana: mi za FixBike Online koristimo jedinstvenu sedmodnevnu tarifu kako bi turisti i poslovni korisnici lakše planirali budžet.
             Ja lično savetujem da pročitate i naš <a href="https://fixbike.online/#vergleich">Vergleich</a> pre nego što rezervišete, jer motor i baterija zahtevaju drugačiji ritam održavanja od klasičnog menjača.
             Nama je bitno da se pojmovi u ugovoru poklapaju sa onim što vidite u ovom leksikonu — bez skrivenih dopuna za standardnu opremu flote.
           </p>
@@ -612,9 +655,9 @@
             <dt>E-Bike Verleih</dt>
             <dd>E-Bike Verleih ist die zeitlich begrenzte Miete eines elektrischen Fahrrads für Alltag, Tour oder Freizeit.</dd>
             <dt>Tagespreis</dt>
-            <dd>Der Tagespreis ist der Betrag für 24 Stunden Nutzung; bei FixBike aktuell 15,00 EUR.</dd>
+            <dd>Der Tagespreis ist der Betrag für 24 Stunden Nutzung; bei FixBike Online aktuell 15,00 EUR.</dd>
             <dt>Wochenpreis</dt>
-            <dd>Der Wochenpreis ist der Gesamtbetrag für 7 Tage; bei FixBike aktuell 105,00 EUR.</dd>
+            <dd>Der Wochenpreis ist der Gesamtbetrag für 7 Tage; bei FixBike Online aktuell 105,00 EUR.</dd>
             <dt>E-Bike Service</dt>
             <dd>E-Bike Service ist die technische Prüfung von Akku, Motor, Bremsen und Schaltung inklusive Wartung.</dd>
           </dl>
@@ -630,7 +673,7 @@
             <a href="https://fixbike.online/#frage-faq">FAQ odgovore</a> pre nego što nas pozovete.
           </p>
           <ul>
-            <li>FixBike bietet E-Bike Miete in Neuwied ab 15,00 EUR pro Tag.</li>
+            <li>FixBike Online bietet E-Bike Miete in Neuwied ab 15,00 EUR pro Tag.</li>
             <li>Der Wochenpreis beträgt 105,00 EUR für 7 Tage.</li>
             <li>Wir haben drei CUBE Modelle mit unterschiedlichen Größen.</li>
             <li>Wir kombinieren Verleih, Reparatur und E-Bike Service.</li>
@@ -652,7 +695,7 @@
           </p>
           <p><strong>Kann ich spontan mieten?</strong> Ja, wenn ein Modell frei ist. Jedoch empfehlen wir Reservierung vorab.</p>
           <p><strong>Gibt es Beratung zur Größe?</strong> Ja. Wir helfen bei Größe M/L und Einsatzzweck.</p>
-          <p><strong>Kann ich Service und Miete kombinieren?</strong> Ja. Das ist ein typischer Vorteil bei FixBike.</p>
+          <p><strong>Kann ich Service und Miete kombinieren?</strong> Ja. Das ist ein typischer Vorteil bei FixBike Online.</p>
         </section>
 
         <section id="ueber-uns">
@@ -687,6 +730,7 @@
 
         <section id="privacy">
           <h2>Privacy Policy</h2>
+          <h3 style="font-size:1rem;font-weight:600;margin:0.25rem 0 0.5rem;">Ihre Daten — mi držimo minimum potreban za termin</h3>
           <p>
             Wir verarbeiten nur die Daten, die für Reservierung und Service notwendig sind. Dazu zählen Name, Kontakt und
             Mietzeitraum. Wir geben Daten nicht ohne Rechtsgrundlage weiter.
@@ -699,6 +743,7 @@
 
         <section id="terms">
           <h2>Terms of Service</h2>
+          <h3 style="font-size:1rem;font-weight:600;margin:0.25rem 0 0.5rem;">Naš ugovor — transparentan pre nego što potpišete najam</h3>
           <p>
             Mietbedingungen: gültiger Ausweis, vereinbarter Übergabetermin, Rückgabe im vereinbarten Zustand und Zeitraum.
             Preise werden vor Reservierung transparent bestätigt.
@@ -710,6 +755,7 @@
         </section>
         <section id="case-study" aria-labelledby="case-study-title">
           <h2 id="case-study-title">Kurzer Praxisfall aus unserer Werkstatt</h2>
+          <h3 style="font-size:1rem;font-weight:600;margin:0.25rem 0 0.5rem;">Ja dokumentujem korake — Vaš E-Bike dobija jasan izveštaj</h3>
           <p>
             Ein Kunde kam mit schwacher Reichweite und unsauberer Schaltung. Ja habe zuerst Akku, Bremsen und Kette geprüft.
             Danach haben mi die Schaltung neu eingestellt und einen Sicherheitscheck gemacht. Shodno tome war das E-Bike
@@ -723,6 +769,7 @@
         </section>
         <section id="source-note" aria-labelledby="source-note-title">
           <h2 id="source-note-title">Quelle und technische Einordnung</h2>
+          <h3 style="font-size:1rem;font-weight:600;margin:0.25rem 0 0.5rem;">Naš referentni okvir za FixBike Online</h3>
           <p>
             Laut <a href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" target="_blank" rel="noopener noreferrer">Google Search Central</a>
             helfen klare Struktur, interne Links und verständliche Inhalte bei besserer Auffindbarkeit.

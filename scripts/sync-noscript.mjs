@@ -27,9 +27,9 @@ for (const m of blocks) {
   if (words > maxWords) maxWords = words;
 }
 
-if (maxWords < 2523) {
+if (maxWords < 3083) {
   throw new Error(
-    `Noscript text too short: ${maxWords} words (minimum 2523 for full-page mirror).`
+    `Noscript text too short: ${maxWords} words (minimum 3083 for full-page mirror).`
   );
 }
 
@@ -37,9 +37,9 @@ const absoluteInternal =
   (html.match(/href="https:\/\/fixbike\.online\/#/g) || []).length;
 const rootRelativeInternal = (html.match(/href="\/#/g) || []).length;
 const internal = absoluteInternal + rootRelativeInternal;
-if (internal < 55 || absoluteInternal < 45) {
+if (internal < 85 || absoluteInternal < 75) {
   throw new Error(
-    `Expected internal fragment links (absolute ≥45, total ≥55): absolute=${absoluteInternal}, root-relative=${rootRelativeInternal}, total=${internal}.`
+    `Expected internal fragment links (absolute ≥75, total ≥85): absolute=${absoluteInternal}, root-relative=${rootRelativeInternal}, total=${internal}.`
   );
 }
 

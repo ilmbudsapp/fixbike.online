@@ -198,7 +198,7 @@ function App() {
               </p>
               <h1 id="hero-heading" className="hero__title">
                 <span className="hero__title-line">
-                  E-Bike &amp; Fahrradverleih Neuwied
+                  FixBike Online — E-Bike &amp; Fahrradverleih Neuwied
                 </span>
                 <span className="hero__title-line hero__title-line--tagline">
                   Mieten Sie Ihr E-Bike für nur 15,00&nbsp;€ / Tag · 105,00&nbsp;€ / 7 Tage
@@ -254,6 +254,7 @@ function App() {
                         width={1200}
                         height={800}
                         imgClassName="hero__photo hero__photo--mechaniker"
+                        loading="eager"
                         fetchPriority="high"
                         decoding="async"
                       />

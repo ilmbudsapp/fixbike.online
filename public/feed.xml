@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0">
+  <channel>
+    <title>FixBike Online Updates</title>
+    <link>https://fixbike.online/</link>
+    <description>Neuigkeiten zu E-Bike Verleih, Service und Wartung in Neuwied.</description>
+    <language>de-DE</language>
+    <item>
+      <title>FixBike Preise und Verleihmodelle 2026</title>
+      <link>https://fixbike.online/#frage-modelle</link>
+      <guid>https://fixbike.online/#frage-modelle</guid>
+      <description>Aktuelle Preise: 15,00 EUR pro Tag und 105,00 EUR pro Woche.</description>
+    </item>
+  </channel>
+</rss>

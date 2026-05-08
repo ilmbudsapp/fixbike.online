@@ -1,0 +1,21 @@
+{
+  "name": "FixBike Online",
+  "short_name": "FixBike",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#050508",
+  "theme_color": "#050508",
+  "description": "E-Bike und Fahrradverleih in Neuwied mit Service und schneller Reservierung.",
+  "icons": [
+    {
+      "src": "/images/fixbike-logo.png",
+      "sizes": "192x192",
+      "type": "image/png"
+    },
+    {
+      "src": "/images/fixbike-logo.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    }
+  ]
+}

@@ -451,9 +451,9 @@ function App() {
                   Terminvereinbarung.
                 </p>
                 <p>
-                  Wir arbeiten direkt mit Ihnen, stoga bleibt jeder Schritt
+                  Wir arbeiten direkt mit Ihnen, daher bleibt jeder Schritt
                   transparent. Jedoch hören wir zuerst zu, damit Ihr Bedarf
-                  wirklich passt. Na primer prüfen wir mit Ihnen Sitzposition,
+                  wirklich passt. Zum Beispiel prüfen wir mit Ihnen Sitzposition,
                   Strecke und Budget. So sehen Sie klar, warum unser Vorschlag
                   zu Ihrem Alltag passt und wie unser Service Ihren Weg sicherer
                   macht.
@@ -740,12 +740,12 @@ function App() {
           aria-labelledby="brojke-heading"
         >
           <div className="container container--wide">
-            <h2 id="brojke-heading">FixBike u brojkama — Kennzahlen</h2>
+            <h2 id="brojke-heading">FixBike Online in Zahlen — Kennzahlen</h2>
             <p className="section__head-lead">
-              Mi kao tim javno navodimo merljive obaveze: <strong>20 god.</strong> iskustva u servisu,{" "}
-              <strong>15+</strong> tipova e-bicikala, <strong>500+</strong> zadovoljnih klijenata u regionu,{" "}
-              <strong>24 h</strong> tipičan rok za standardne popravke kad su delovi dostupni,{" "}
-              <strong>100&nbsp;%</strong> originalnih delova po dogovoru i <strong>24/7</strong> kanali za upite.
+              Als Team nennen wir messbare Zusagen: <strong>20 Jahre</strong> Erfahrung im Service,{" "}
+              <strong>15+</strong> Fahrradtypen, <strong>500+</strong> zufriedene Kundinnen und Kunden in der Region,{" "}
+              <strong>24 h</strong> typischer Rahmen für Standard-Reparaturen, wenn Teile verfügbar sind,{" "}
+              <strong>100&nbsp;%</strong> Originalteile nach Vereinbarung und <strong>24/7</strong> Kanäle für Anfragen.
             </p>
           </div>
         </section>
@@ -756,19 +756,19 @@ function App() {
           aria-labelledby="partner-heading"
         >
           <div className="container container--wide">
-            <h2 id="partner-heading">Partneri i standardi</h2>
+            <h2 id="partner-heading">Partner &amp; Standards</h2>
             <p>
-              FixBike Online prati servisne procedure koje preporučuju{" "}
+              FixBike Online folgt Service-Prozessen von{" "}
               <a href="https://www.bosch-ebike.com/" target="_blank" rel="noopener noreferrer">
                 Bosch eBike Systems
               </a>{" "}
-              i{" "}
+              und{" "}
               <a href="https://bike.shimano.com/" target="_blank" rel="noopener noreferrer">
                 Shimano
               </a>
-              ; ja sam završio Bosch eBike Systems module za dijagnostiku pogona i baterije.
-              Vaš bicikl kod nas prolazi iste kontrolne liste koje koristimo za sopstvenu flotu.
-              Ja dodatno pratim{" "}
+              ; ich habe Bosch-eBike-Module zur Diagnose von Antrieb und Akku absolviert.
+              Ihr Fahrrad durchläuft dieselben Checklisten wie unsere eigene Flotte.
+              Zusätzlich orientiere ich mich an{" "}
               <a
                 href="https://developers.google.com/search/docs/fundamentals/seo-starter-guide"
                 target="_blank"
@@ -776,7 +776,7 @@ function App() {
               >
                 Google Search Central
               </a>{" "}
-              radi jasne strukture stranice.
+              für eine klare Seitenstruktur.
             </p>
           </div>
         </section>
@@ -787,9 +787,9 @@ function App() {
           aria-labelledby="werkstatt-video-heading"
         >
           <div className="container container--wide">
-            <h2 id="werkstatt-video-heading">Video — osnovno održavanje lanca</h2>
+            <h2 id="werkstatt-video-heading">Video — Grundlagen zur Kettenpflege</h2>
             <p className="muted small">
-              Park Tool primer (YouTube). Mi ga koristimo kao edukativni dodatak uz naš{" "}
+              Park Tool auf YouTube. Wir nutzen das Video als ergänzende Einleitung zu unserem{" "}
               <a href="#servis">E-Bike Service Neuwied</a>.
             </p>
             <div

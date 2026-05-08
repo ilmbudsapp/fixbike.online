@@ -17,7 +17,6 @@ import {
 } from "./fixbikeConstants";
 import {
   HERO_MECHANIKER_FALLBACK,
-  HERO_MECHANIKER_WEBP,
   webpToRasterPng,
 } from "./imagePaths";
 import WebpPicture from "./WebpPicture";
@@ -247,13 +246,15 @@ function App() {
                 <div className="hero__visual-stack">
                   <figure className="hero__figure">
                     <div className="hero__photo-wrap hero__photo-wrap--mechaniker">
-                      <WebpPicture
-                        webpSrc={HERO_MECHANIKER_WEBP}
-                        fallbackSrc={HERO_MECHANIKER_FALLBACK}
+                      {/* Native img (no lazy wrapper): guarantees LCP — eager + high priority */}
+                      <img
+                        src={HERO_MECHANIKER_FALLBACK}
+                        srcSet={`${HERO_MECHANIKER_FALLBACK} 480w, ${HERO_MECHANIKER_FALLBACK} 768w, ${HERO_MECHANIKER_FALLBACK} 1200w`}
+                        sizes="(max-width: 768px) 100vw, 55vw"
                         alt="E-Bike Mieten Neuwied — Fahrradverleih FixBike"
                         width={1200}
                         height={800}
-                        imgClassName="hero__photo hero__photo--mechaniker"
+                        className="hero__photo hero__photo--mechaniker"
                         loading="eager"
                         fetchPriority="high"
                         decoding="async"
@@ -462,6 +463,7 @@ function App() {
           className="section section--surface section--services section--rhythm-standard"
           aria-labelledby="servis-heading"
         >
+          <span id="service" className="visually-hidden" />
           <div className="container container--wide services__shell">
             <span className="section__index section__index--alt" aria-hidden="true">
               03

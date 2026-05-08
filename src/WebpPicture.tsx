@@ -34,6 +34,8 @@ export default function WebpPicture({
   const mergedClass =
     [className, imgClassName].filter(Boolean).join(" ").trim() || undefined;
   const fallbackSrcSet = `${fallbackSrc} 480w, ${fallbackSrc} 768w, ${fallbackSrc} 1200w`;
+  const resolvedLoading =
+    fetchPriority === "high" ? "eager" : loading ?? "lazy";
 
   return (
     <img
@@ -44,7 +46,7 @@ export default function WebpPicture({
       width={width}
       height={height}
       className={mergedClass}
-      loading={loading}
+      loading={resolvedLoading}
       decoding={decoding}
       fetchPriority={fetchPriority}
       referrerPolicy="strict-origin-when-cross-origin"

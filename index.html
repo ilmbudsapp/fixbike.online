@@ -24,7 +24,7 @@
     />
     <meta
       http-equiv="Content-Security-Policy"
-      content="upgrade-insecure-requests"
+      content="default-src 'self'; img-src 'self' data: https:; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; script-src 'self' 'unsafe-inline'; frame-src https://maps.google.com https://www.google.com; connect-src 'self' https://api.web3forms.com; upgrade-insecure-requests"
     />
     <meta http-equiv="X-Content-Type-Options" content="nosniff" />
     <meta http-equiv="X-Frame-Options" content="SAMEORIGIN" />
@@ -198,12 +198,28 @@
   <body>
     <noscript>
       <nav aria-label="Hauptnavigation" style="padding: 1rem; border-bottom: 1px solid #ddd; font-family: system-ui, sans-serif;">
-        <a href="https://fixbike.online/#verleih">Verleih</a> ·
-        <a href="https://fixbike.online/#service">Service</a> ·
-        <a href="https://fixbike.online/#about">About</a> ·
-        <a href="https://fixbike.online/#contact">Kontakt</a> ·
-        <a href="https://fixbike.online/#privacy">Privacy Policy</a> ·
-        <a href="https://fixbike.online/#terms">Terms of Service</a>
+        <p style="margin:0 0 0.5rem 0;font-weight:600;">Navigation (interne Links)</p>
+        <ul style="margin:0;padding-left:1.25rem;line-height:1.8;">
+          <li><a href="https://fixbike.online/#verleih">Verleih — Standort &amp; Buchung</a></li>
+          <li><a href="https://fixbike.online/#ebike-vermietung">E-Bike Vermietung</a></li>
+          <li><a href="https://fixbike.online/#servis">Service / Fahrrad-Servis</a></li>
+          <li><a href="https://fixbike.online/#ueber-uns">Über uns</a></li>
+          <li><a href="https://fixbike.online/#contact">Kontakt</a></li>
+          <li><a href="https://fixbike.online/#vergleich">E-Bike vs. Standardrad</a></li>
+          <li><a href="https://fixbike.online/#definitionen">Begriffe &amp; Definitionen</a></li>
+          <li><a href="https://fixbike.online/#key-takeaways">Key Takeaways</a></li>
+          <li><a href="https://fixbike.online/#case-study">Praxisfall</a></li>
+          <li><a href="https://fixbike.online/#privacy">Privacy Policy</a></li>
+          <li><a href="https://fixbike.online/#terms">Terms of Service</a></li>
+        </ul>
+        <p style="margin:0.75rem 0 0 0;">
+          <a href="https://fixbike.online/#verleih">Verleih</a> ·
+          <a href="https://fixbike.online/#servis">Service</a> ·
+          <a href="https://fixbike.online/#ueber-uns">About</a> ·
+          <a href="https://fixbike.online/#contact">Kontakt</a> ·
+          <a href="https://fixbike.online/#privacy">Privacy</a> ·
+          <a href="https://fixbike.online/#terms">AGB</a>
+        </p>
       </nav>
 
       <main id="main" style="max-width: 900px; margin: 0 auto; padding: 1.25rem; font-family: system-ui, sans-serif; line-height: 1.65;">
@@ -232,15 +248,24 @@
           die <a href="https://fixbike.online/#key-takeaways">wichtigsten Punkte</a> und
           unsere <a href="https://fixbike.online/#frage-faq">FAQ-Antworten</a> auf derselben Seite.
         </p>
-        <blockquote cite="https://fixbike.online/#about" style="margin: 1rem 0; padding: 0.85rem 1rem; border-left: 4px solid #666; background: #f6f6f6;">
-          "Kvalitetan servis je ključ sigurne vožnje. Ja lično proveravam završnu kontrolu, a mi kao tim stojimo iza svakog
-          bicikla koji predamo klijentu." — Adem Osmani, FixBike
+        <blockquote cite="https://fixbike.online/#ueber-uns" style="margin: 1rem 0; padding: 0.85rem 1rem; border-left: 4px solid #666; background: #f6f6f6;">
+          <strong>Mi u FixBike garantujemo:</strong> kvalitetan servis je ključ sigurne vožnje. Ja lično proveravam završnu kontrolu, a mi kao tim stojimo iza svakog
+          bicikla koji predamo klijentu. Naš cilj je da vaše iskustvo bude pouzdano od prvog poziva do povratka.
+          — Adem Osmani, FixBike
+        </blockquote>
+        <blockquote cite="https://developers.google.com/search/docs/fundamentals/seo-starter-guide" style="margin: 1rem 0; padding: 0.85rem 1rem; border-left: 4px solid #444; background: #fafafa;">
+          Prema smernicama Google Search Central-a, jasna struktura stranice i korisni sadržaj pomažu korisnicima i pretraživačima.
+          Zato mi u našem tekstu koristimo pregledan meni, naslove i interne linkove ka sekcijama kao što su
+          <a href="https://fixbike.online/#ebike-vermietung">ponuda E-Bike modela</a> i
+          <a href="https://fixbike.online/#contact">kontakt</a>.
         </blockquote>
         <p>
+          Mi u FixBike-u već servisiramo <strong>15+ različitih tipova bicikala</strong> (trekking, MTB, gradski, E-Bike).
           Mi haben bereits über 500 zufriedene Kundinnen und Kunden betreut. Shodno tome kennen wir typische Fragen aus
-          Alltag, Tourismus und Pendelverkehr. Naš servis je u mnogim slučajevima gotov za 24h, međutim složeniji radovi
+          Alltag, Tourismus und Pendelverkehr. Naš tim ima više od <strong>20 godina kombinovanog iskustva</strong> u servisu.
+          Naš servis je u mnogim slučajevima gotov za <strong>24h</strong>, međutim složeniji radovi
           zahtevaju dodatnu proveru da vaše vozilo ostane bezbedno. Moje iskustvo pokazuje da ova dodatna provera sprečava
-          kasnije kvarove.
+          kasnije kvarove. Preciznije rečeno, mi držimo <strong>100% transparentnost</strong> oko cena pre početka rada.
         </p>
 
         <section id="toc" aria-labelledby="toc-title">
@@ -277,7 +302,13 @@
 
         <section id="frage-modelle" aria-labelledby="frage-modelle-title">
           <h2 id="frage-modelle-title">Welche Modelle und Preise gibt es?</h2>
-          <p>Transparente Preise helfen Ihnen sofort. Daher sehen Sie alle Kosten auf einen Blick.</p>
+          <p>
+            Transparente Preise helfen Ihnen sofort. Daher sehen Sie alle Kosten auf einen Blick. Mi u FixBike-u držimo
+            jedinstvenu tarifu za sve tri izložene konfiguracije, stoga je poređenje jednostavno. Međutim ako vam treba savet,
+            pogledajte i naš <a href="https://fixbike.online/#vergleich">vodič E-Bike vs. standardni bicikl</a>, pa se vratite na
+            <a href="https://fixbike.online/#frage-modelle">ovu tabelu cena</a>. Na primer, Touring Hybrid birate za duže relacije,
+            a Stereo Hybrid kada vam treba više kontrole na neravnom terenu.
+          </p>
           <p>
             Wir bieten CUBE Touring Hybrid in Größe M und L sowie CUBE Stereo Hybrid in Größe M. Der Tagespreis liegt bei
             15,00 EUR. Der Wochenpreis liegt bei 105,00 EUR. Es gibt keine versteckten Überraschungen. Mi nennen Ihnen den
@@ -315,11 +346,26 @@
             klassische Räder für kurze Wege oft ausreichen. Preciznije rečeno: Wir prüfen gemeinsam Strecke, Häufigkeit und
             Komfortanspruch, bevor wir Ihnen ein Modell empfehlen.
           </p>
+          <p>
+            Za održavanje: mi preporučujemo da proverite pritisak u gumama pre svake duže vožnje; na primer jednom mesečno i
+            kontrolu kočnica shodno tome posle kišnih dana. Povrh toga, kod E-Bike-a pratite nivo baterije i ne ostavljajte je
+            potpuno praznu mesecima — naš servis može uraditi dijagnostiku ako primetite pad autonomije.
+          </p>
+          <p>
+            Direktlinkovi: <a href="https://fixbike.online/#ebike-vermietung">naša ponuda E-Bike modela</a>,
+            <a href="https://fixbike.online/#servis">servis i popravke</a>,
+            <a href="https://fixbike.online/#contact">ovde je naš kontakt</a>.
+          </p>
         </section>
 
         <section id="frage-ablauf" aria-labelledby="frage-ablauf-title">
           <h2 id="frage-ablauf-title">Wie läuft Reservierung und Übergabe ab?</h2>
-          <p>Der Ablauf ist klar strukturiert. Somit ist Ihre Reservierung schnell abgeschlossen.</p>
+          <p>
+            Der Ablauf ist klar strukturiert. Somit ist Ihre Reservierung schnell abgeschlossen. Mi šaljemo vam kratku potvrdu
+            sa terminom i adresom preuzimanja. Međutim molimo vas da provjerite veličinu okvira unapred — na primer ako ste između
+            dve veličine, mi predlažemo probu na licu mesta. Shodno tome izbegavate loše podešavanje sedišta i bolove u leđima.
+            Preciznije rečeno: naš cilj je da prvih 10 minuta vožnje budete sigurni i udobni.
+          </p>
           <p>
             Schritt 1: Sie senden uns Datum, Modell und Größe. Schritt 2: Wir bestätigen Verfügbarkeit. Schritt 3: Wir
             vereinbaren Termin für Übergabe. Schritt 4: Sie holen das E-Bike ab und erhalten eine kurze Einweisung.
@@ -352,7 +398,14 @@
 
         <section id="definitionen" aria-labelledby="definitions-title">
           <h2 id="definitions-title">Was bedeuten wichtige Begriffe beim E-Bike Verleih?</h2>
-          <p>Kurze Definitionen helfen Ihnen. Deshalb erklären wir die wichtigsten Begriffe direkt.</p>
+          <p>
+            Kurze Definitionen helfen Ihnen. Deshalb erklären wir die wichtigsten Begriffe direkt. Mi koristimo jednostavan jezik,
+            jer je naš cilj da brzo razumete šta plaćate i šta dobijate. Stoga su termini ispod usklađeni sa našim ugovorom o najmu.
+            Međutim ako nešto nije jasno, pišite nam preko
+            <a href="https://fixbike.online/#contact">kontakt forme ili WhatsApp-a</a>.
+            Na primer, mnogi pitaju razliku između dnevne i sedmodnevne tarife — ta razlika je uvek jasno navedena u sekciji
+            <a href="https://fixbike.online/#frage-modelle">modeli i cene</a>.
+          </p>
           <dl>
             <dt>E-Bike Verleih</dt>
             <dd>E-Bike Verleih ist die zeitlich begrenzte Miete eines elektrischen Fahrrads für Alltag, Tour oder Freizeit.</dd>
@@ -367,7 +420,12 @@
 
         <section id="key-takeaways" aria-labelledby="takeaways-title">
           <h2 id="takeaways-title">Glavni zaključci / Key Takeaways</h2>
-          <p>Kurz und klar: Das sind die wichtigsten Punkte für Ihre Entscheidung.</p>
+          <p>
+            Kurz und klar: Das sind die wichtigsten Punkte für Ihre Entscheidung. Mi smo lokalni tim koji kombinuje iznajmljivanje i
+            servis na jednom mestu. Shodno tome štedite vreme: jedna adresa za savet i podršku. Preciznije rečeno, naš fokus je sigurnost,
+            transparentne cene i brza komunikacija. Povrh toga možete koristiti i
+            <a href="https://fixbike.online/#frage-faq">FAQ odgovore</a> pre nego što nas pozovete.
+          </p>
           <ul>
             <li>FixBike bietet E-Bike Miete in Neuwied ab 15,00 EUR pro Tag.</li>
             <li>Der Wochenpreis beträgt 105,00 EUR für 7 Tage.</li>
@@ -382,14 +440,19 @@
 
         <section id="frage-faq" aria-labelledby="faq-title">
           <h2 id="faq-title">Welche Fragen stellen Kundinnen und Kunden am häufigsten?</h2>
-          <p>FAQ-Antworten sparen Zeit. Somit haben Sie direkt Klarheit vor der Buchung.</p>
+          <p>
+            FAQ-Antworten sparen Zeit. Somit haben Sie direkt Klarheit vor der Buchung. Mi objavljujemo odgovore koji se ponavljaju
+            kako bi naši klijenti brže planirali izlet ili servis. Međutim specifični slučajevi uvek idu direktno nama —
+            na primer nestandardna veličana ramova ili hitna kočnica. Na primer, ako tražite
+            <a href="https://fixbike.online/#servis">hitnu dijagnostiku</a>, koristite kontakt i opišite simptome.
+          </p>
           <p><strong>Kann ich spontan mieten?</strong> Ja, wenn ein Modell frei ist. Jedoch empfehlen wir Reservierung vorab.</p>
           <p><strong>Gibt es Beratung zur Größe?</strong> Ja. Wir helfen bei Größe M/L und Einsatzzweck.</p>
           <p><strong>Kann ich Service und Miete kombinieren?</strong> Ja. Das ist ein typischer Vorteil bei FixBike.</p>
         </section>
 
-        <section id="about">
-          <h2>About</h2>
+        <section id="ueber-uns">
+          <h2>Über uns / About</h2>
           <p>
             Wir sind ein lokales Team aus Neuwied. Unser Fokus liegt auf einfacher Kommunikation, fairen Preisen und
             zuverlässiger Technik. Mi und unser Team glauben: Ihr Fahrrad muss im Alltag funktionieren, nicht nur gut
@@ -446,6 +509,11 @@
             Danach haben mi die Schaltung neu eingestellt und einen Sicherheitscheck gemacht. Shodno tome war das E-Bike
             noch am selben Tag wieder einsatzbereit, und der Kunde konnte die Wochenmiete wie geplant nutzen.
           </p>
+          <p>
+            Ovaj primer pokazuje zašto mi preporučujemo redovan pregled nakon 200 km u težim uslovima. Međutim za gradske rute,
+            na primer dva puta nedeljno, interval može biti duži. Vi birate ritam — mi dajemo jasne preporuke u našem
+            <a href="https://fixbike.online/#servis">servis delu</a>.
+          </p>
         </section>
         <section id="source-note" aria-labelledby="source-note-title">
           <h2 id="source-note-title">Quelle und technische Einordnung</h2>
@@ -463,11 +531,23 @@
       </main>
 
       <footer style="padding: 1rem; border-top: 1px solid #ddd; font-family: system-ui, sans-serif;">
-        <a href="https://fixbike.online/#about">About</a> ·
-        <a href="https://fixbike.online/#service">Service</a> ·
-        <a href="https://fixbike.online/#contact">Contact</a> ·
-        <a href="https://fixbike.online/#privacy">Privacy Policy</a> ·
-        <a href="https://fixbike.online/#terms">Terms of Service</a>
+        <nav aria-label="Fußnavigation">
+          <ul style="margin:0;padding-left:1.25rem;line-height:1.8;">
+            <li><a href="https://fixbike.online/#ebike-vermietung">E-Bike Modelle</a></li>
+            <li><a href="https://fixbike.online/#servis">Service</a></li>
+            <li><a href="https://fixbike.online/#ueber-uns">Über uns</a></li>
+            <li><a href="https://fixbike.online/#contact">Kontakt</a></li>
+            <li><a href="https://fixbike.online/#privacy">Datenschutz / Privacy</a></li>
+            <li><a href="https://fixbike.online/#terms">AGB / Terms</a></li>
+          </ul>
+        </nav>
+        <p style="margin:0.75rem 0 0 0;">
+          <a href="https://fixbike.online/#ueber-uns">About</a> ·
+          <a href="https://fixbike.online/#servis">Service</a> ·
+          <a href="https://fixbike.online/#contact">Contact</a> ·
+          <a href="https://fixbike.online/#privacy">Privacy Policy</a> ·
+          <a href="https://fixbike.online/#terms">Terms of Service</a>
+        </p>
       </footer>
     </noscript>
 

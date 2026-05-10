@@ -26,6 +26,44 @@ const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "";
 
 function App() {
+  useEffect(() => {
+    document.documentElement.classList.add("page-loaded");
+  }, []);
+
+  useEffect(() => {
+    const onScroll = () => {
+      document.documentElement.classList.toggle("scrolled", window.scrollY > 16);
+    };
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
+  useEffect(() => {
+    const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reduced) {
+      document.querySelectorAll(".reveal-scroll").forEach((el) => {
+        el.classList.add("is-revealed");
+      });
+      return;
+    }
+    const els = document.querySelectorAll(".reveal-scroll");
+    if (els.length === 0) return;
+    const obs = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("is-revealed");
+            obs.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.06, rootMargin: "0px 0px -6% 0px" },
+    );
+    els.forEach((el) => obs.observe(el));
+    return () => obs.disconnect();
+  }, []);
+
   const [selectedBike, setSelectedBike] = useState<{
     title: string;
     size: string;
@@ -192,7 +230,7 @@ function App() {
           <div className="hero__frame" aria-hidden="true" />
           <div className="hero__noise" aria-hidden="true" />
           <div className="container container--wide hero__shell">
-            <header className="hero__masthead">
+            <header className="hero__masthead reveal-scroll">
               <p className="hero__eyebrow">
                 E-Bike &amp; Fahrradverleih Neuwied · Fahrrad-Servis
               </p>
@@ -207,7 +245,7 @@ function App() {
             </header>
 
             <div className="hero__editorial">
-              <div className="hero__column hero__column--copy">
+              <div className="hero__column hero__column--copy reveal-scroll">
                 <p className="hero__lead">
                   <strong>Fahrradverleih Neuwied</strong> und günstig{" "}
                   <strong>Fahrrad mieten in Deutschland</strong> (CUBE
@@ -294,7 +332,7 @@ function App() {
         </section>
 
         <section
-          className="pricing-spotlight section--rhythm-tight"
+          className="pricing-spotlight section--rhythm-tight reveal-scroll"
           aria-labelledby="preis-spotlight-heading"
         >
           <div className="container container--wide pricing-spotlight__inner">
@@ -322,7 +360,7 @@ function App() {
 
         <section
           id="ebike-vermietung"
-          className="section section--ebike-showcase section--rhythm-deep"
+          className="section section--ebike-showcase section--rhythm-deep reveal-scroll"
           aria-labelledby="ebike-rental-heading"
         >
           <div className="container container--wide ebike__shell">
@@ -430,7 +468,7 @@ function App() {
 
         <section
           id="ueber-uns"
-          className="section section--about section--surface section--rhythm-standard"
+          className="section section--about section--surface section--rhythm-standard reveal-scroll"
           aria-labelledby="ueber-uns-heading"
         >
           <div className="container container--wide about__shell">
@@ -469,7 +507,7 @@ function App() {
 
         <section
           id="servis"
-          className="section section--surface section--services section--rhythm-standard"
+          className="section section--surface section--services section--rhythm-standard reveal-scroll"
           aria-labelledby="servis-heading"
         >
           <span id="service" className="visually-hidden" />
@@ -523,7 +561,7 @@ function App() {
 
         <section
           id="warum-fixbike"
-          className="section section--why section--rhythm-deep"
+          className="section section--why section--rhythm-deep reveal-scroll"
           aria-labelledby="warum-heading"
         >
           <div className="container container--wide why__shell">
@@ -569,7 +607,7 @@ function App() {
 
         <section
           id="verkauf"
-          className="section section--surface section--editorial-split section--rhythm-standard section--deemphasize"
+          className="section section--surface section--editorial-split section--rhythm-standard section--deemphasize reveal-scroll"
         >
           <span className="section__index section__index--alt" aria-hidden="true">
             05
@@ -621,7 +659,7 @@ function App() {
 
         <section
           id="contact"
-          className="section section--contact section--rhythm-wide"
+          className="section section--contact section--rhythm-wide reveal-scroll"
           aria-labelledby="contact-heading"
         >
           <div className="container container--wide contact__shell">
@@ -736,7 +774,7 @@ function App() {
 
         <section
           id="fixbike-brojke"
-          className="section section--surface section--rhythm-standard"
+          className="section section--surface section--rhythm-standard reveal-scroll"
           aria-labelledby="brojke-heading"
         >
           <div className="container container--wide">
@@ -752,7 +790,7 @@ function App() {
 
         <section
           id="partner-cert"
-          className="section section--rhythm-tight"
+          className="section section--rhythm-tight reveal-scroll"
           aria-labelledby="partner-heading"
         >
           <div className="container container--wide">
@@ -783,7 +821,7 @@ function App() {
 
         <section
           id="werkstatt-video"
-          className="section section--surface section--rhythm-standard"
+          className="section section--surface section--rhythm-standard reveal-scroll"
           aria-labelledby="werkstatt-video-heading"
         >
           <div className="container container--wide">

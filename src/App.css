@@ -64,8 +64,22 @@ body {
   font-size: 1.05rem;
   line-height: 1.65;
   color: var(--ink-soft);
-  background: var(--void);
+  background-color: var(--void);
+  /* Mesh-style ambient gradients (subtle, fixed tone palette) */
+  background-image:
+    radial-gradient(ellipse 118% 88% at 91% -14%, rgba(1, 105, 111, 0.14), transparent 58%),
+    radial-gradient(ellipse 95% 80% at -7% 104%, rgba(1, 105, 111, 0.1), transparent 56%),
+    radial-gradient(ellipse 74% 62% at 56% 44%, rgba(214, 176, 124, 0.078), transparent 60%),
+    radial-gradient(ellipse 58% 50% at 12% 26%, rgba(115, 132, 178, 0.068), transparent 54%);
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
   -webkit-font-smoothing: antialiased;
+}
+
+@media (min-width: 900px) {
+  body {
+    background-attachment: fixed;
+  }
 }
 
 h1,
@@ -1326,6 +1340,7 @@ strong {
 }
 
 .card {
+  position: relative;
   background: var(--glass-bg);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
@@ -1340,12 +1355,58 @@ strong {
   color: var(--text-on-dark);
   transition:
     border-color var(--t-med) var(--ease-out),
-    box-shadow var(--t-med) var(--ease-out);
+    box-shadow var(--t-med) var(--ease-out),
+    transform var(--t-med) var(--ease-out);
 }
 
 .card:hover {
   border-color: rgba(1, 105, 111, 0.22);
   box-shadow: var(--shadow-md), 0 0 48px rgba(1, 105, 111, 0.05);
+}
+
+/* Servis (bento): stronger lift, accent edge, focus parity */
+.cards--bento .card::after {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 100%;
+  height: 3px;
+  background: linear-gradient(
+    90deg,
+    var(--accent) 0%,
+    rgba(1, 105, 111, 0.35) 55%,
+    rgba(1, 105, 111, 0) 100%
+  );
+  opacity: 0;
+  transition: opacity var(--t-med) var(--ease-out);
+  pointer-events: none;
+  z-index: 3;
+}
+
+.cards--bento .card:hover,
+.cards--bento .card:focus-within {
+  transform: translate3d(0, -6px, 0);
+  border-color: rgba(1, 105, 111, 0.32);
+  box-shadow:
+    0 32px 64px rgba(40, 37, 29, 0.14),
+    0 0 0 1px rgba(1, 105, 111, 0.1),
+    0 0 72px rgba(1, 105, 111, 0.1);
+}
+
+.cards--bento .card:hover::after,
+.cards--bento .card:focus-within::after {
+  opacity: 1;
+}
+
+.cards--bento .card:focus-within .card__body h3 {
+  color: var(--accent);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .cards--bento .card:hover,
+  .cards--bento .card:focus-within {
+    transform: none;
+  }
 }
 
 .card__media {

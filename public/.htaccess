@@ -1,0 +1,26 @@
+# fixbike.online — serve sitemap/robots as static files; SPA fallback for app routes
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # Crawler and static endpoints must not fall through to index.html
+  RewriteRule ^(sitemap\.xml|robots\.txt|feed\.xml|indexnow-key\.txt|manifest\.json)$ - [L]
+
+  # Existing files and directories
+  RewriteCond %{REQUEST_FILENAME} -f [OR]
+  RewriteCond %{REQUEST_FILENAME} -d
+  RewriteRule ^ - [L]
+
+  # React SPA (single-page app)
+  RewriteRule ^ index.html [L]
+</IfModule>
+
+<IfModule mod_mime.c>
+  AddType application/xml .xml
+</IfModule>
+
+<IfModule mod_headers.c>
+  <FilesMatch "^(sitemap\.xml|feed\.xml)$">
+    Header set Content-Type "application/xml; charset=UTF-8"
+  </FilesMatch>
+</IfModule>

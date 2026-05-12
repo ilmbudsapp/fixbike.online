@@ -261,11 +261,24 @@ function App() {
             <div className="hero__editorial">
               <div className="hero__column hero__column--copy reveal-scroll">
                 <p className="hero__lead">
-                  <strong>Fahrradverleih Neuwied</strong> und günstig{" "}
-                  <strong>Fahrrad mieten in Deutschland</strong> (CUBE
-                  E-Bikes) — plus <strong>Fahrradreparatur Neuwied</strong> in
-                  unserem <strong>Fahrrad-Servis</strong>. Transparenter
-                  Service, ehrliche Beratung, Abholung nach Termin.
+                  <strong>Wir bei FixBike</strong> bieten{" "}
+                  <strong>
+                    <a href="/verleih">Fahrradverleih Neuwied</a>
+                  </strong>{" "}
+                  und günstig{" "}
+                  <strong>
+                    <a href="/verleih">Fahrrad mieten in Deutschland</a>
+                  </strong>{" "}
+                  (CUBE E-Bikes) — plus{" "}
+                  <strong>
+                    <a href="/werkstatt">Fahrradreparatur Neuwied</a>
+                  </strong>{" "}
+                  in unserem{" "}
+                  <strong>
+                    <a href="/werkstatt">Fahrrad-Servis</a>
+                  </strong>
+                  . Transparenter Service, ehrliche Beratung, Abholung nach Termin —{" "}
+                  <a href="/kontakt">so erreichen Sie uns</a>.
                 </p>
                 <p className="hero__price-ribbon" role="note">
                   <strong>E-Bike / Fahrrad mieten: ab 15,00&nbsp;€ / Tag · 105,00&nbsp;€ / 7 Tage</strong>
@@ -289,9 +302,15 @@ function App() {
                   </a>
                 </div>
                 <ul className="hero__badges" aria-label="Schwerpunkte">
-                  <li>Fahrradverleih Neuwied</li>
-                  <li>E-Bike mieten</li>
-                  <li>Fahrradreparatur</li>
+                  <li>
+                    <a href="/verleih">Fahrradverleih Neuwied</a>
+                  </li>
+                  <li>
+                    <a href="/verleih">E-Bike mieten</a>
+                  </li>
+                  <li>
+                    <a href="/werkstatt">Fahrradreparatur</a>
+                  </li>
                 </ul>
               </div>
 
@@ -332,8 +351,11 @@ function App() {
                     </div>
                     <p className="hero__panel-text">
                       <strong>E-Bike mieten Neuwied</strong> oder klassisches Rad
-                      — und parallel <strong>Fahrradreparatur</strong> im
-                      Fahrrad-Servis. Saison-Check, Bremsen, Schaltung, Akku-Diagnose.
+                      — parallel kümmern wir uns in unserer{" "}
+                      <strong>
+                        <a href="/werkstatt">Werkstatt</a>
+                      </strong>{" "}
+                      um <strong>Fahrradreparatur</strong>: Saison-Check, Bremsen, Schaltung, Akku-Diagnose.
                     </p>
                     <a className="hero__panel-link" href="#servis">
                       Zum Fahrrad-Servis →
@@ -354,8 +376,10 @@ function App() {
               Günstig Fahrrad mieten · Fahrradverleih Neuwied
             </h2>
             <p className="pricing-spotlight__lead">
-              <strong>E-Bike / Fahrrad mieten ab 15,00&nbsp;€ / Tag · 105,00&nbsp;€ / 7 Tage</strong> — transparent,
-              mit CUBE-Qualität. Ideal für Touren, Pendeln und Gäste in der Region Neuwied.
+              <strong>E-Bike / Fahrrad mieten ab 15,00&nbsp;€ / Tag · 105,00&nbsp;€ / 7 Tage</strong> — bei uns
+              transparent, mit CUBE-Qualität. Ideal für Touren, Pendeln und Gäste in der Region Neuwied —{" "}
+              <a href="/verleih">zur Modellübersicht und Buchung</a> oder{" "}
+              <a href="/kontakt">direkt Kontakt</a>.
             </p>
             <div className="pricing-spotlight__pricebox" role="group" aria-label="Tagespreis und Wochenpreis">
               <span className="pricing-spotlight__amount">15,00&nbsp;€</span>
@@ -390,9 +414,11 @@ function App() {
                 Günstig Fahrrad mieten in Deutschland — CUBE E-Bikes (M &amp; L) &amp; MTB
               </h3>
               <p className="section__head-lead">
-                <strong>Fahrradverleih Neuwied</strong> mit hochwertigen{" "}
+                <strong>Unser Fahrradverleih in Neuwied</strong> mit hochwertigen{" "}
                 <strong>CUBE</strong>-E-Bikes. Abholung nach Terminvereinbarung — Reservierung per
-                Telefon, WhatsApp oder E-Mail.{" "}
+                Telefon, WhatsApp oder{" "}
+                <a href="/kontakt">E-Mail über unsere Kontaktseite</a>. Wenn Sie zwischendurch Service brauchen:{" "}
+                <a href="/werkstatt">unsere Werkstatt</a>.{" "}
                 <strong>Termine nach Vereinbarung.</strong>
               </p>
             </header>
@@ -428,7 +454,8 @@ function App() {
                     <tr>
                       <td colSpan={2} className="pricing-table__note">
                         Inkl. Beratung zur Radgröße · Übergabe nach Termin ·{" "}
-                        <a href="#contact">Kontakt für Verfügbarkeit</a>
+                        <a href="/kontakt">Kontakt für Verfügbarkeit</a> ·{" "}
+                        <a href="/werkstatt">Werkstatt &amp; Service</a>
                       </td>
                     </tr>
                   </tbody>
@@ -461,7 +488,15 @@ function App() {
                       </p>
                     ) : null}
                     <p className="ebike-card__note">{bike.countNote}</p>
-                    <p className="ebike-card__note">
+                    <dl className="ebike-card__specs" aria-label="Technische Eckdaten">
+                      {bike.specs.map((row) => (
+                        <div key={row.label} className="ebike-card__spec-row">
+                          <dt>{row.label}:</dt>
+                          <dd>{row.value}</dd>
+                        </div>
+                      ))}
+                    </dl>
+                    <p className="ebike-card__note ebike-card__note--spacer">
                       Vermietung für eine Woche zum Preis von 105,00 € (15,00 € pro Tag).
                     </p>
                     <button
@@ -534,9 +569,14 @@ function App() {
                 Fahrrad-Servis Neuwied — Fahrradreparatur &amp; E-Bike Service
               </h2>
               <p>
-                Von der <strong>Fahrrad Reparatur Neuwied</strong> bis zum{" "}
-                <strong>E-Bike Service Neuwied</strong> — wir arbeiten präzise
-                und erklären, was Ihr Bike wirklich braucht.{" "}
+                Von der <strong>
+                  <a href="/werkstatt">Fahrrad Reparatur Neuwied</a>
+                </strong> bis zum{" "}
+                <strong>
+                  <a href="/werkstatt">E-Bike Service Neuwied</a>
+                </strong> — wir arbeiten präzise
+                und erklären, was Ihr Bike wirklich braucht. Mieten Sie parallel ein Rad? Dann schauen Sie in unseren{" "}
+                <a href="/verleih">Verleih</a>.{" "}
                 <strong>Nur nach Terminvereinbarung und Bestellung.</strong>
               </p>
             </header>
@@ -586,33 +626,44 @@ function App() {
               <h2 id="warum-heading">Warum FixBike in Neuwied?</h2>
               <p>
                 Ihr <strong>Fahrradservice Neuwied</strong> mit Schwerpunkt{" "}
-                <strong>Fahrradverleih</strong>, <strong>E-Bike mieten</strong>{" "}
+                <strong>
+                  <a href="/verleih">Fahrradverleih</a>
+                </strong>,{" "}
+                <strong>
+                  <a href="/verleih">E-Bike mieten</a>
+                </strong>{" "}
                 und <strong>Fahrrad-Servis</strong> — plus schnelle Hilfe bei{" "}
-                <strong>Fahrrad Reparatur</strong> und{" "}
-                <strong>E-Bike Service</strong>.
+                <strong>
+                  <a href="/werkstatt">Fahrrad Reparatur</a>
+                </strong> und{" "}
+                <strong>
+                  <a href="/werkstatt">E-Bike Service</a>
+                </strong>.{" "}
+                <a href="/kontakt">Kontakt &amp; Anfahrt</a> finden Sie hier.
               </p>
             </header>
             <div className="why-grid why-grid--mosaic">
               <article className="why-card">
                 <h3>Fahrradservice Neuwied — lokal &amp; persönlich</h3>
                 <p>
-                  Kurze Wege in der Region Neuwied, direkter Draht zum Service
-                  und keine anonyme Kette.
+                  Wir sind keine anonyme Kette: kurze Wege in der Region Neuwied und direkter Draht zu mir und unserem Team —{" "}
+                  <a href="/kontakt">so erreichen Sie uns</a>.
                 </p>
               </article>
               <article className="why-card">
                 <h3>Schnelle Fahrrad Reparatur Neuwied</h3>
                 <p>
-                  Pannen und sicherheitsrelevante Themen priorisieren wir — Sie
-                  wissen, woran Sie sind.
+                  Pannen und sicherheitsrelevante Themen priorisieren wir gemeinsam mit Ihnen — Sie wissen, woran Sie sind.{" "}
+                  <a href="/werkstatt">Zur Werkstatt</a>.
                 </p>
               </article>
               <article className="why-card">
                 <h3>Faire Preise &amp; Ersatzteile</h3>
                 <p>
-                  Qualitätskomponenten von Herstellern wie{" "}
+                  Wir verbauen Qualitätskomponenten von{" "}
                   <strong>Shimano</strong> und <strong>SRAM</strong>, abgestimmt
-                  auf Ihr Rad und Ihre Nutzung.
+                  auf Ihr Rad und Ihre Nutzung — passend zu unserem{" "}
+                  <a href="/verleih">Verleih-Angebot</a>.
                 </p>
               </article>
             </div>
@@ -646,10 +697,12 @@ function App() {
                 Fahrradservice Neuwied prüft jedes Rad vor dem Verkauf
               </h3>
               <p className="split__lead">
-                Ausgewählte Modelle und Gebrauchräder mit Check durch unseren
-                Service. Beim <strong>Fahrrad kaufen</strong> zählen
+                Ausgewählte Modelle und Gebrauchräder prüfen wir in unserer Werkstatt vor dem Verkauf. Beim{" "}
+                <strong>Fahrrad kaufen</strong> zählen
                 Sitzposition, Komponenten und Wartungsfreundlichkeit — wir
-                beraten sachlich und ohne Schnickschnack.
+                beraten sachlich und ohne Schnickschnack. Service vorab:{" "}
+                <a href="/werkstatt">Werkstatt &amp; Inspektion</a>, Miete zum Ausprobieren:{" "}
+                <a href="/verleih">E-Bike-Verleih</a>.
               </p>
               <p className="muted">
                 Online-Shop und Zahlungsoptionen werden ergänzt — bis dahin
@@ -683,12 +736,18 @@ function App() {
             <header className="section__head section__head--contact">
               <h2 id="contact-heading">Kontakt &amp; Anfahrt</h2>
               <p>
-                <strong>Fahrradverleih Neuwied</strong>,{" "}
-                <strong>E-Bike mieten Neuwied</strong> und{" "}
-                <strong>Fahrradreparatur Neuwied</strong> —{" "}
+                <strong>
+                  <a href="/verleih">Fahrradverleih Neuwied</a>
+                </strong>,{" "}
+                <strong>
+                  <a href="/verleih">E-Bike mieten Neuwied</a>
+                </strong> und{" "}
+                <strong>
+                  <a href="/werkstatt">Fahrradreparatur Neuwied</a>
+                </strong> —{" "}
                 <strong>Nur nach Terminvereinbarung und Bestellung.</strong>{" "}
-                <strong>Termine nach Vereinbarung.</strong> Kontaktieren Sie uns
-                per WhatsApp oder E-Mail für Verleih, Servis oder Beratung.
+                <strong>Termine nach Vereinbarung.</strong> Schreiben Sie uns per WhatsApp oder E-Mail —{" "}
+                <a href="/kontakt">alle Kontaktwege</a>.
               </p>
             </header>
 

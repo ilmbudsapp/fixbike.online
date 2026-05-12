@@ -661,6 +661,43 @@ strong {
   font-size: 0.95rem;
   color: var(--muted);
   line-height: 1.58;
+}
+
+.ebike-card__specs {
+  margin: 0.65rem 0 0;
+  padding: 0.65rem 0.75rem;
+  border-radius: var(--radius-sm);
+  border: 1px solid var(--line);
+  background: rgba(255, 255, 255, 0.55);
+  font-size: 0.86rem;
+  line-height: 1.45;
+}
+
+.ebike-card__spec-row {
+  display: grid;
+  grid-template-columns: minmax(0, 7.5rem) minmax(0, 1fr);
+  gap: 0.35rem 0.75rem;
+  padding: 0.2rem 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.ebike-card__spec-row:last-child {
+  border-bottom: 0;
+  padding-bottom: 0;
+}
+
+.ebike-card__spec-row dt {
+  margin: 0;
+  font-weight: 700;
+  color: var(--ink-soft);
+}
+
+.ebike-card__spec-row dd {
+  margin: 0;
+  color: var(--muted);
+}
+
+.ebike-card__note--spacer {
   flex: 1;
 }
 
@@ -2177,6 +2214,12 @@ strong {
   margin: 0;
   font-size: 0.82rem;
   color: var(--muted-dim);
+}
+
+.footer__page-meta {
+  font-size: 0.78rem !important;
+  color: var(--muted) !important;
+  font-weight: 600;
 }
 
 .footer__designer-credit {

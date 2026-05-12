@@ -75,7 +75,9 @@ export default function SiteFooter() {
         <div>
           <p className="footer__brand">FixBike</p>
           <p className="footer__tagline">
-            Fahrradverleih Neuwied · Fahrrad-Servis · E-Bike Service · Verkauf
+            Fahrradverleih Neuwied · Fahrrad-Servis · E-Bike Service · Verkauf —{" "}
+            <a href="/verleih">Verleih</a> · <a href="/werkstatt">Werkstatt</a> ·{" "}
+            <a href="/kontakt">Kontakt</a>
           </p>
         </div>
         <nav aria-label="Fußnavigation">
@@ -219,6 +221,9 @@ export default function SiteFooter() {
       <div className="footer__bottom container container--wide">
         <div className="footer__bottom-row">
           <p>© {new Date().getFullYear()} FixBike · fixbike.online</p>
+          <p className="footer__page-meta" lang="de">
+            Zuletzt aktualisiert: Mai 2026
+          </p>
           <p className="footer__designer-credit">
             Web Design{" "}
             <a

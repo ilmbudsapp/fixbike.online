@@ -1,26 +1,48 @@
-# fixbike.online — serve sitemap/robots as static files; SPA fallback for app routes
+# fixbike.online — crawler files as static XML/text; SPA fallback for app routes
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  # Crawler and static endpoints must not fall through to index.html
-  RewriteRule ^(sitemap\.xml|robots\.txt|feed\.xml|indexnow-key\.txt|manifest\.json)$ - [L]
+  RewriteRule ^sitemap\.xml$ - [L]
+  RewriteRule ^robots\.txt$ - [L]
+  RewriteRule ^feed\.xml$ - [L]
+  RewriteRule ^indexnow-key\.txt$ - [L]
+  RewriteRule ^manifest\.json$ - [L]
 
-  # Existing files and directories
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
   RewriteRule ^ - [L]
 
-  # React SPA (single-page app)
   RewriteRule ^ index.html [L]
+</IfModule>
+
+<IfModule mod_authz_core.c>
+  <FilesMatch "^(sitemap\.xml|robots\.txt|feed\.xml)$">
+    Require all granted
+  </FilesMatch>
 </IfModule>
 
 <IfModule mod_mime.c>
   AddType application/xml .xml
+  <Files "sitemap.xml">
+    ForceType application/xml
+  </Files>
+  <Files "feed.xml">
+    ForceType application/xml
+  </Files>
 </IfModule>
 
 <IfModule mod_headers.c>
-  <FilesMatch "^(sitemap\.xml|feed\.xml)$">
+  <Files "sitemap.xml">
     Header set Content-Type "application/xml; charset=UTF-8"
-  </FilesMatch>
+    Header unset X-Robots-Tag
+  </Files>
+  <Files "robots.txt">
+    Header set Content-Type "text/plain; charset=UTF-8"
+    Header unset X-Robots-Tag
+  </Files>
+  <Files "feed.xml">
+    Header set Content-Type "application/xml; charset=UTF-8"
+    Header unset X-Robots-Tag
+  </Files>
 </IfModule>

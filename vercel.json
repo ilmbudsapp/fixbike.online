@@ -1,22 +1,24 @@
 {
   "rewrites": [
-    {
-      "source": "/((?!sitemap\\.xml|robots\\.txt|feed\\.xml|indexnow-key\\.txt|manifest\\.json).*)",
-      "destination": "/index.html"
-    }
+    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
+    { "source": "/robots.txt", "destination": "/robots.txt" },
+    { "source": "/feed.xml", "destination": "/feed.xml" },
+    { "source": "/indexnow-key.txt", "destination": "/indexnow-key.txt" },
+    { "source": "/manifest.json", "destination": "/manifest.json" },
+    { "source": "/(.*)", "destination": "/index.html" }
   ],
   "headers": [
     {
       "source": "/sitemap.xml",
       "headers": [
-        { "key": "Content-Type", "value": "application/xml; charset=utf-8" },
+        { "key": "Content-Type", "value": "application/xml; charset=UTF-8" },
         { "key": "Cache-Control", "value": "public, max-age=3600" }
       ]
     },
     {
       "source": "/robots.txt",
       "headers": [
-        { "key": "Content-Type", "value": "text/plain; charset=utf-8" }
+        { "key": "Content-Type", "value": "text/plain; charset=UTF-8" }
       ]
     }
   ]

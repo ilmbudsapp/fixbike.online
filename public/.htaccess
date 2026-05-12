@@ -1,15 +1,15 @@
-# fixbike.online — static sitemap/robots; no SPA rewrite; no compression on XML
+# fixbike.online — direct bypass for crawler files; SPA fallback only after
 Options -MultiViews
 
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  RewriteRule ^sitemap\.xml$ - [END]
-  RewriteRule ^robots\.txt$ - [END]
-  RewriteRule ^feed\.xml$ - [END]
-  RewriteRule ^indexnow-key\.txt$ - [END]
-  RewriteRule ^manifest\.json$ - [END]
+  RewriteRule ^sitemap\.xml$ - [L,NC]
+  RewriteRule ^robots\.txt$ - [L,NC]
+  RewriteRule ^feed\.xml$ - [L,NC]
+  RewriteRule ^indexnow-key\.txt$ - [L,NC]
+  RewriteRule ^manifest\.json$ - [L,NC]
 
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d

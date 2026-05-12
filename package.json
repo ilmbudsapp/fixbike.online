@@ -10,6 +10,7 @@
     "logo:transparent": "node scripts/knockout-black-bg.mjs",
     "qr:generate": "node scripts/generate-qr.mjs",
     "indexnow:ping": "node scripts/ping-indexnow.mjs",
+    "check:sitemap": "node scripts/check-sitemap-access.mjs",
     "noscript:sync": "node scripts/sync-noscript.mjs"
   },
   "dependencies": {

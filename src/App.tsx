@@ -64,6 +64,20 @@ function App() {
     return () => obs.disconnect();
   }, []);
 
+  useEffect(() => {
+    const pathToSection: Record<string, string> = {
+      "/werkstatt": "servis",
+      "/verleih": "ebike-vermietung",
+      "/kontakt": "contact",
+    };
+    const sectionId = pathToSection[window.location.pathname];
+    if (!sectionId) return;
+    const t = window.setTimeout(() => {
+      document.getElementById(sectionId)?.scrollIntoView({ behavior: "smooth" });
+    }, 0);
+    return () => window.clearTimeout(t);
+  }, []);
+
   const [selectedBike, setSelectedBike] = useState<{
     title: string;
     size: string;

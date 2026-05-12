@@ -1,13 +1,15 @@
-# fixbike.online — crawler files as static XML/text; SPA fallback for app routes
+# fixbike.online — static sitemap/robots; no SPA rewrite; no compression on XML
+Options -MultiViews
+
 <IfModule mod_rewrite.c>
   RewriteEngine On
   RewriteBase /
 
-  RewriteRule ^sitemap\.xml$ - [L]
-  RewriteRule ^robots\.txt$ - [L]
-  RewriteRule ^feed\.xml$ - [L]
-  RewriteRule ^indexnow-key\.txt$ - [L]
-  RewriteRule ^manifest\.json$ - [L]
+  RewriteRule ^sitemap\.xml$ - [END]
+  RewriteRule ^robots\.txt$ - [END]
+  RewriteRule ^feed\.xml$ - [END]
+  RewriteRule ^indexnow-key\.txt$ - [END]
+  RewriteRule ^manifest\.json$ - [END]
 
   RewriteCond %{REQUEST_FILENAME} -f [OR]
   RewriteCond %{REQUEST_FILENAME} -d
@@ -23,7 +25,6 @@
 </IfModule>
 
 <IfModule mod_mime.c>
-  AddType application/xml .xml
   <Files "sitemap.xml">
     ForceType application/xml
   </Files>
@@ -32,17 +33,32 @@
   </Files>
 </IfModule>
 
+<IfModule mod_deflate.c>
+  <FilesMatch "^(sitemap\.xml|feed\.xml)$">
+    SetEnv no-gzip 1
+    SetEnv dont-vary 1
+  </FilesMatch>
+</IfModule>
+
+<IfModule mod_brotli.c>
+  <FilesMatch "^(sitemap\.xml|feed\.xml)$">
+    SetEnv no-brotli 1
+  </FilesMatch>
+</IfModule>
+
 <IfModule mod_headers.c>
   <Files "sitemap.xml">
-    Header set Content-Type "application/xml; charset=UTF-8"
-    Header unset X-Robots-Tag
+    Header always unset Content-Encoding
+    Header always unset X-Robots-Tag
+    Header always set Content-Type "application/xml; charset=UTF-8"
   </Files>
   <Files "robots.txt">
-    Header set Content-Type "text/plain; charset=UTF-8"
-    Header unset X-Robots-Tag
+    Header always unset X-Robots-Tag
+    Header always set Content-Type "text/plain; charset=UTF-8"
   </Files>
   <Files "feed.xml">
-    Header set Content-Type "application/xml; charset=UTF-8"
-    Header unset X-Robots-Tag
+    Header always unset Content-Encoding
+    Header always unset X-Robots-Tag
+    Header always set Content-Type "application/xml; charset=UTF-8"
   </Files>
 </IfModule>

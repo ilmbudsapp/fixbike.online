@@ -13,6 +13,9 @@ dist-ssr
 *.local
 .env
 
+# Generated from root sitemap.xml during build
+public/sitemap.xml
+
 # Editor directories and files
 .vscode/*
 !.vscode/extensions.json

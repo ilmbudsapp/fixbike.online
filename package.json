@@ -14,6 +14,8 @@
     "noscript:sync": "node scripts/sync-noscript.mjs"
   },
   "dependencies": {
+    "@fontsource/dm-sans": "^5.2.8",
+    "@fontsource/outfit": "^5.2.8",
     "react": "^19.2.0",
     "react-dom": "^19.2.0"
   },

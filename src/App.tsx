@@ -7,6 +7,7 @@ import {
 } from "react";
 
 const SiteFooter = lazy(() => import("./SiteFooter"));
+import CookieConsent, { ConsentGate } from "./CookieConsent";
 import {
   CONTACT,
   MAPS_EMBED_URL,
@@ -753,16 +754,27 @@ function App() {
 
             <div className="contact__stage">
               <div className="contact-map" aria-label="Karte: Anfahrt FixBike">
-                <iframe
-                  title="Google Maps: FixBike, Wagenhallenweg 8, 56566 Neuwied"
-                  className="contact-map__iframe"
-                  src={MAPS_EMBED_URL}
-                  width={600}
-                  height={380}
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  allowFullScreen
-                />
+                <ConsentGate
+                  fallback={
+                    <div className="consent-placeholder">
+                      <p>Karte wird nur nach Cookie-Einwilligung geladen.</p>
+                      <a className="btn btn--maps" href={MAPS_URL} target="_blank" rel="noopener noreferrer">
+                        In Google Maps öffnen
+                      </a>
+                    </div>
+                  }
+                >
+                  <iframe
+                    title="Google Maps: FixBike, Wagenhallenweg 8, 56566 Neuwied"
+                    className="contact-map__iframe"
+                    src={MAPS_EMBED_URL}
+                    width={600}
+                    height={380}
+                    loading="lazy"
+                    referrerPolicy="no-referrer-when-downgrade"
+                    allowFullScreen
+                  />
+                </ConsentGate>
               </div>
 
               <div className="contact-grid contact-grid--stack">
@@ -903,36 +915,52 @@ function App() {
               Park Tool auf YouTube. Wir nutzen das Video als ergänzende Einleitung zu unserem{" "}
               <a href="#servis">E-Bike Service Neuwied</a>.
             </p>
-            <div
-              style={{
-                position: "relative",
-                paddingBottom: "56.25%",
-                height: 0,
-                overflow: "hidden",
-                maxWidth: 960,
-                margin: "1rem auto 0",
-                border: "1px solid rgba(255,255,255,0.12)",
-                borderRadius: 12,
-              }}
+            <ConsentGate
+              fallback={
+                <div className="consent-placeholder consent-placeholder--video">
+                  <p>YouTube-Video wird nur nach Cookie-Einwilligung geladen.</p>
+                  <a
+                    className="btn btn--secondary"
+                    href="https://www.youtube.com/watch?v=MuwS_nSevy4"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    Video auf YouTube öffnen
+                  </a>
+                </div>
+              }
             >
-              <iframe
+              <div
                 style={{
-                  position: "absolute",
-                  top: 0,
-                  left: 0,
-                  width: "100%",
-                  height: "100%",
-                  border: 0,
+                  position: "relative",
+                  paddingBottom: "56.25%",
+                  height: 0,
+                  overflow: "hidden",
+                  maxWidth: 960,
+                  margin: "1rem auto 0",
+                  border: "1px solid rgba(255,255,255,0.12)",
                   borderRadius: 12,
                 }}
-                src="https://www.youtube-nocookie.com/embed/MuwS_nSevy4"
-                title="Park Tool — Kettenreinigung"
-                loading="lazy"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                referrerPolicy="strict-origin-when-cross-origin"
-                allowFullScreen
-              />
-            </div>
+              >
+                <iframe
+                  style={{
+                    position: "absolute",
+                    top: 0,
+                    left: 0,
+                    width: "100%",
+                    height: "100%",
+                    border: 0,
+                    borderRadius: 12,
+                  }}
+                  src="https://www.youtube-nocookie.com/embed/MuwS_nSevy4"
+                  title="Park Tool — Kettenreinigung"
+                  loading="lazy"
+                  allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                  referrerPolicy="strict-origin-when-cross-origin"
+                  allowFullScreen
+                />
+              </div>
+            </ConsentGate>
           </div>
         </section>
 
@@ -1025,6 +1053,7 @@ function App() {
           </div>
         </div>
       ) : null}
+      <CookieConsent />
     </>
   );
 }

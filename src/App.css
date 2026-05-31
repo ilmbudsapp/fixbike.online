@@ -2560,3 +2560,92 @@ html.scrolled .site-header {
     transform: translate3d(0, 0, 0) scale(1);
   }
 }
+
+/* —— Cookie consent (DSGVO) —— */
+.cookie-consent {
+  position: fixed;
+  inset: auto 0 0 0;
+  z-index: 9999;
+  padding: 1rem;
+  pointer-events: none;
+}
+
+.cookie-consent__panel {
+  pointer-events: auto;
+  max-width: 42rem;
+  margin: 0 auto;
+  padding: 1.25rem 1.5rem;
+  border-radius: var(--radius-lg);
+  border: 1px solid var(--line-strong);
+  background: var(--glass-bg-strong);
+  backdrop-filter: blur(12px);
+  box-shadow: var(--shadow-md);
+}
+
+.cookie-consent__title {
+  margin: 0 0 0.5rem;
+  font-family: var(--font-display);
+  font-size: 1.15rem;
+  color: var(--ink);
+}
+
+.cookie-consent__body {
+  margin: 0 0 1rem;
+  font-size: 0.95rem;
+  color: var(--muted);
+  line-height: 1.6;
+}
+
+.cookie-consent__body a {
+  color: var(--accent);
+}
+
+.cookie-consent__actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.consent-placeholder {
+  display: grid;
+  place-items: center;
+  gap: 1rem;
+  min-height: 280px;
+  padding: 1.5rem;
+  text-align: center;
+  border: 1px dashed var(--line-strong);
+  border-radius: var(--radius-md);
+  background: var(--bg-raised);
+  color: var(--muted);
+}
+
+.consent-placeholder--video {
+  min-height: 220px;
+  max-width: 960px;
+  margin: 1rem auto 0;
+}
+
+.legal__subtitle {
+  margin-bottom: 1.25rem;
+}
+
+.legal__sections {
+  display: grid;
+  gap: 1.5rem;
+}
+
+.legal__section h3 {
+  font-family: var(--font-display);
+  font-size: 1.05rem;
+  margin: 0 0 0.65rem;
+  color: var(--ink);
+}
+
+.legal__paragraph {
+  margin: 0 0 0.75rem;
+  line-height: 1.65;
+}
+
+.legal__paragraph:last-child {
+  margin-bottom: 0;
+}

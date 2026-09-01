@@ -12,15 +12,16 @@
     <meta http-equiv="Referrer-Policy" content="strict-origin-when-cross-origin" />
     <link rel="alternate" hreflang="de" href="https://fixbike.online/" />
     <link rel="alternate" hreflang="x-default" href="https://fixbike.online/" />
-    <link rel="icon" type="image/png" href="/images/fixbike-logo.png" />
-    <link rel="apple-touch-icon" href="/images/fixbike-logo.png" />
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="apple-touch-icon" sizes="180x180" href="/images/fixbike-logo.png" />
     <link rel="manifest" href="/manifest.json" />
     <link rel="alternate" type="application/rss+xml" title="FixBike Online RSS Feed" href="/feed.xml" />
     <link rel="preload" as="image" href="/images/hero-mechaniker.webp" type="image/webp" fetchpriority="high" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta
       name="description"
-      content="FixBike Online in Neuwied: E-Bike und Fahrradverleih ab 15,00 € pro Tag. Reservierung, Service und Kontakt in wenigen Klicks."
+      content="E-Bike Verleih in Neuwied: CUBE E-Bikes ab 15€/Tag oder 105€/Woche. Fahrrad-Reparatur, E-Bike-Service & Verkauf. Zertifizierter Fachmann — Termine nach Vereinbarung."
     />
     <meta
       name="keywords"
@@ -41,10 +42,10 @@
     <meta property="og:type" content="website" />
     <meta property="og:locale" content="de_DE" />
     <meta property="og:url" content="https://fixbike.online/" />
-    <meta property="og:title" content="FixBike Online — E-Bike & Fahrradverleih Neuwied" />
+    <meta property="og:title" content="FixBike Neuwied — E-Bike mieten & Fahrrad-Reparatur | Ab 15€/Tag" />
     <meta
       property="og:description"
-      content="E-Bike mieten in Neuwied ab 15,00 € pro Tag. FixBike Online bietet Verleih, Service und schnelle Reservierung."
+      content="E-Bike Verleih in Neuwied: CUBE E-Bikes ab 15€/Tag oder 105€/Woche. Fahrrad-Reparatur, E-Bike-Service & Verkauf. Zertifizierter Fachmann."
     />
     <meta property="og:site_name" content="FixBike Online" />
     <meta property="og:image" content="https://fixbike.online/images/cube-touring-hybrid-m.webp" />
@@ -53,14 +54,14 @@
     <meta property="og:image:alt" content="E-Bike mieten in Neuwied bei FixBike Online" />
 
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="FixBike Online — E-Bike & Fahrradverleih Neuwied" />
+    <meta name="twitter:title" content="FixBike Neuwied — E-Bike mieten & Fahrrad-Reparatur | Ab 15€/Tag" />
     <meta
       name="twitter:description"
-      content="E-Bike und Fahrradverleih in Neuwied ab 15,00 € pro Tag. Modelle, Service und Kontakt."
+      content="E-Bike Verleih in Neuwied: CUBE E-Bikes ab 15€/Tag oder 105€/Woche. Fahrrad-Reparatur, E-Bike-Service & Verkauf."
     />
     <meta name="twitter:image" content="https://fixbike.online/images/cube-touring-hybrid-m.webp" />
 
-    <title>FixBike Online — E-Bike & Fahrradverleih Neuwied</title>
+    <title>FixBike Neuwied — E-Bike mieten & Fahrrad-Reparatur | Ab 15€/Tag</title>
 
     <script type="application/ld+json">
       {
@@ -96,12 +97,78 @@
               "https://www.instagram.com/fixbike.online/",
               "https://www.facebook.com/fixbike.online"
             ],
-            "makesOffer": {
-              "@type": "Offer",
-              "price": "15",
-              "priceCurrency": "EUR",
-              "description": "E-Bike Miete pro Tag; Wochenpreis 105 EUR"
-            }
+            "makesOffer": [
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "E-Bike Verleih Neuwied",
+                  "description": "CUBE E-Bike mieten für einen Tag oder eine Woche",
+                  "provider": {
+                    "@id": "https://fixbike.online/#business"
+                  }
+                },
+                "price": "15.00",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "15.00",
+                  "priceCurrency": "EUR",
+                  "unitText": "Tag"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "E-Bike Wochenmiete Neuwied",
+                  "description": "CUBE E-Bike mieten für 7 Tage",
+                  "provider": {
+                    "@id": "https://fixbike.online/#business"
+                  }
+                },
+                "price": "105.00",
+                "priceCurrency": "EUR",
+                "priceSpecification": {
+                  "@type": "UnitPriceSpecification",
+                  "price": "105.00",
+                  "priceCurrency": "EUR",
+                  "unitText": "7 Tage"
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "Fahrradreparatur Neuwied",
+                  "description": "Professioneller Fahrrad- und E-Bike-Service: Bremsen, Schaltung, Akku-Diagnose, Saisonwartung",
+                  "provider": {
+                    "@id": "https://fixbike.online/#business"
+                  }
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "priceCurrency": "EUR",
+                  "valueAddedTaxIncluded": true
+                }
+              },
+              {
+                "@type": "Offer",
+                "itemOffered": {
+                  "@type": "Service",
+                  "name": "E-Bike Service Neuwied",
+                  "description": "Zertifizierter E-Bike Service mit Bosch und Shimano STEPS Expertise",
+                  "provider": {
+                    "@id": "https://fixbike.online/#business"
+                  }
+                },
+                "priceSpecification": {
+                  "@type": "PriceSpecification",
+                  "priceCurrency": "EUR",
+                  "valueAddedTaxIncluded": true
+                }
+              }
+            ]
           },
           {
             "@type": "Person",
@@ -232,6 +299,69 @@
               { "@type": "HowToStep", "position": 4, "name": "E-Bike übernehmen", "text": "Sie holen das E-Bike am vereinbarten Termin in Neuwied ab." },
               { "@type": "HowToStep", "position": 5, "name": "Rückgabe", "text": "Nach 7 Tagen geben Sie das Rad zurück oder verlängern." }
             ]
+          },
+          {
+            "@type": "Product",
+            "@id": "https://fixbike.online/#product-cube-touring-m",
+            "name": "CUBE Touring Hybrid E-Bike Größe M - Verleih",
+            "description": "CUBE Touring Hybrid E-Bike Größe M zur Miete in Neuwied. Ideal für Touren und Pendeln.",
+            "brand": {
+              "@type": "Brand",
+              "name": "CUBE"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "15.00",
+              "priceCurrency": "EUR",
+              "priceValidUntil": "2027-12-31",
+              "availability": "https://schema.org/InStock",
+              "url": "https://fixbike.online/#ebike-vermietung",
+              "seller": {
+                "@id": "https://fixbike.online/#business"
+              }
+            }
+          },
+          {
+            "@type": "Product",
+            "@id": "https://fixbike.online/#product-cube-touring-l",
+            "name": "CUBE Touring Hybrid E-Bike Größe L - Verleih",
+            "description": "CUBE Touring Hybrid E-Bike Größe L zur Miete in Neuwied. Komfortabel für größere Fahrerinnen und Fahrer.",
+            "brand": {
+              "@type": "Brand",
+              "name": "CUBE"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "15.00",
+              "priceCurrency": "EUR",
+              "priceValidUntil": "2027-12-31",
+              "availability": "https://schema.org/InStock",
+              "url": "https://fixbike.online/#ebike-vermietung",
+              "seller": {
+                "@id": "https://fixbike.online/#business"
+              }
+            }
+          },
+          {
+            "@type": "Product",
+            "@id": "https://fixbike.online/#product-cube-stereo-m",
+            "name": "CUBE Stereo Hybrid E-Bike Größe M - Verleih",
+            "description": "CUBE Stereo Hybrid MTB E-Bike Größe M zur Miete in Neuwied. Perfekt für Gelände und Mixed-Terrain.",
+            "brand": {
+              "@type": "Brand",
+              "name": "CUBE"
+            },
+            "offers": {
+              "@type": "Offer",
+              "price": "15.00",
+              "priceCurrency": "EUR",
+              "priceValidUntil": "2027-12-31",
+              "availability": "https://schema.org/InStock",
+              "url": "https://fixbike.online/#ebike-vermietung",
+              "seller": {
+                "@id": "https://fixbike.online/#business"
+              }
+            }
           }
         ]
       }
@@ -273,7 +403,7 @@
           <strong>Volltext ohne JavaScript (noscript):</strong> Dieser Block ist ein 1:1 statischer Spiegel der Seiteninhalte für Crawler und Tools,
           unabhängig von der React-SPA. Dieselben Anker (<code>#servis</code>, <code>#ebike-vermietung</code>, …) gelten auch nach dem Laden der App.
         </p>
-        <h1 id="hero-h1">FixBike Online — E-Bike & Fahrradverleih Neuwied</h1>
+        <h1 id="hero-h1">FixBike — E-Bike Verleih & Fahrradservice Neuwied</h1>
         <p style="margin:0 0 1rem;line-height:1.75;">
           Crawler-freundliche Sprungmarken im Fließtext (volle URLs):
           <a href="https://fixbike.online/#servis">E-Bike Service Neuwied</a>,

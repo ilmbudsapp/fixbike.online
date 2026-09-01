@@ -205,12 +205,12 @@ function App() {
             href="https://fixbike.online/"
             aria-label="FixBike — E-Bike & Fahrradverleih Neuwied. Zur Startseite."
           >
-            <img
+              <img
               className="brand__logo"
               src="/images/fixbike-logo.png"
               srcSet="/images/fixbike-logo.png 220w, /images/fixbike-logo.png 440w"
               sizes="(max-width: 640px) 140px, 220px"
-              alt="Fahrradverleih FixBike — E-Bike Mieten Neuwied"
+              alt="FixBike Neuwied Logo - E-Bike Verleih und Fahrradservice"
               width={220}
               height={117}
               decoding="async"
@@ -251,7 +251,7 @@ function App() {
               </p>
               <h1 id="hero-heading" className="hero__title">
                 <span className="hero__title-line">
-                  FixBike Online — E-Bike &amp; Fahrradverleih Neuwied
+                  FixBike — E-Bike Verleih &amp; Fahrradservice Neuwied
                 </span>
                 <span className="hero__title-line hero__title-line--tagline">
                   Mieten Sie Ihr E-Bike für nur 15,00&nbsp;€ / Tag · 105,00&nbsp;€ / 7 Tage
@@ -292,11 +292,11 @@ function App() {
                   </a>
                   <a
                     className="btn btn--whatsapp btn--lg"
-                    href={CONTACT.whatsapp}
+                    href={CONTACT.whatsappRental}
                     target="_blank"
                     rel="noopener noreferrer"
                   >
-                    WhatsApp
+                    WhatsApp — Miete anfragen
                   </a>
                   <a className="btn btn--ghost btn--lg" href="#servis">
                     Servis &amp; Reparatur
@@ -330,7 +330,7 @@ function App() {
                           src={HERO_MECHANIKER_FALLBACK}
                           srcSet={`${HERO_MECHANIKER_FALLBACK} 480w, ${HERO_MECHANIKER_FALLBACK} 768w, ${HERO_MECHANIKER_FALLBACK} 1200w`}
                           sizes="(max-width: 768px) 100vw, 55vw"
-                          alt="E-Bike Mieten Neuwied — Fahrradverleih FixBike"
+                          alt="FixBike Neuwied - E-Bike Verleih und Fahrradservice - Zertifizierter E-Bike Mechaniker"
                           width={1200}
                           height={800}
                           className="hero__photo hero__photo--mechaniker"
@@ -390,8 +390,11 @@ function App() {
               <a className="btn btn--primary btn--lg" href="#ebike-vermietung">
                 Modelle &amp; Buchung
               </a>
+              <a className="btn btn--whatsapp btn--lg" href={CONTACT.whatsappRental} target="_blank" rel="noopener noreferrer">
+                WhatsApp anfragen
+              </a>
               <a className="btn btn--ghost btn--lg" href="#contact">
-                Fragen? Kontakt
+                Kontakt
               </a>
             </div>
           </div>
@@ -416,8 +419,8 @@ function App() {
               </h3>
               <p className="section__head-lead">
                 <strong>Unser Fahrradverleih in Neuwied</strong> mit hochwertigen{" "}
-                <strong>CUBE</strong>-E-Bikes. Abholung nach Terminvereinbarung — Reservierung per
-                Telefon, WhatsApp oder{" "}
+                <strong>CUBE</strong>-E-Bikes ab <strong>15€/Tag oder 105€/Woche</strong>. Abholung nach Terminvereinbarung — Reservierung per
+                Telefon, <a href={CONTACT.whatsappRental} target="_blank" rel="noopener noreferrer"><strong>WhatsApp</strong></a> oder{" "}
                 <a href="/kontakt">E-Mail über unsere Kontaktseite</a>. Wenn Sie zwischendurch Service brauchen:{" "}
                 <a href="/werkstatt">unsere Werkstatt</a>.{" "}
                 <strong>Termine nach Vereinbarung.</strong>
@@ -500,15 +503,25 @@ function App() {
                     <p className="ebike-card__note ebike-card__note--spacer">
                       Vermietung für eine Woche zum Preis von 105,00 € (15,00 € pro Tag).
                     </p>
-                    <button
-                      type="button"
-                      className="btn btn--primary ebike-card__cta-btn"
-                      onClick={() =>
-                        openBookingModal({ title: bike.title, size: bike.size })
-                      }
-                    >
-                      Miete anfragen
-                    </button>
+                    <div style={{ display: "flex", gap: "0.5rem", flexWrap: "wrap" }}>
+                      <button
+                        type="button"
+                        className="btn btn--primary ebike-card__cta-btn"
+                        onClick={() =>
+                          openBookingModal({ title: bike.title, size: bike.size })
+                        }
+                      >
+                        Jetzt anfragen
+                      </button>
+                      <a
+                        className="btn btn--whatsapp ebike-card__cta-btn"
+                        href={CONTACT.whatsappRental}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        WhatsApp
+                      </a>
+                    </div>
                   </div>
                 </article>
               ))}
@@ -684,7 +697,7 @@ function App() {
                 <WebpPicture
                   webpSrc="/images/verkauf.webp"
                   fallbackSrc="/images/verkauf.jpg"
-                  alt="Fahrradverleih FixBike — E-Bike Mieten Neuwied"
+                  alt="Fahrradverkauf Neuwied - Geprüfte E-Bikes und Fahrräder bei FixBike"
                   width={800}
                   height={1000}
                   loading="lazy"

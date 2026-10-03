@@ -293,6 +293,66 @@ strong {
   letter-spacing: 0.02em;
 }
 
+.campaign-poster {
+  background: #050505;
+  padding: clamp(0.5rem, 2vw, 1.5rem) 0;
+}
+
+.campaign-poster img {
+  display: block;
+  width: min(100%, 1080px);
+  height: auto;
+  margin: 0 auto;
+}
+
+.brand-ribbon {
+  background: #050505;
+}
+
+.brand-ribbon img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+
+.brand-ribbon--logo {
+  padding: clamp(1.5rem, 4vw, 3rem) clamp(1rem, 5vw, 4rem);
+}
+
+.brand-ribbon--logo img {
+  width: min(100%, 920px);
+  margin: 0 auto;
+}
+
+.about__shell--split {
+  display: grid;
+  gap: 1.75rem 2.5rem;
+}
+
+.about__photo {
+  margin: 0;
+}
+
+.about__photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-md);
+  object-fit: cover;
+  box-shadow: var(--shadow-md);
+}
+
+@media (min-width: 900px) {
+  .about__shell--split {
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+    align-items: center;
+  }
+
+  .about__shell--split .section__index {
+    grid-column: 1 / -1;
+  }
+}
+
 .top-stack .site-header {
   position: relative;
 }
@@ -2038,10 +2098,22 @@ strong {
 
 /* —— Footer —— */
 .footer {
-  background: var(--void);
-  color: var(--muted);
-  padding-top: 3rem;
-  border-top: 1px solid var(--line);
+  background: #050505;
+  color: rgba(255, 255, 255, 0.72);
+  padding-top: 0;
+  border-top: 0;
+}
+
+.footer__banner {
+  background: #000;
+  padding: 1.5rem 1.25rem 0.5rem;
+}
+
+.footer__banner img {
+  display: block;
+  width: min(100%, 820px);
+  height: auto;
+  margin: 0 auto;
 }
 
 .footer__grid {
@@ -2050,8 +2122,9 @@ strong {
   gap: 1.75rem 2.5rem;
   justify-content: space-between;
   align-items: flex-start;
+  padding-top: 2rem;
   padding-bottom: 2.25rem;
-  border-bottom: 1px solid var(--line);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
 }
 
 .footer__brand {
@@ -2061,7 +2134,7 @@ strong {
   font-size: clamp(1.65rem, 3.5vw, 2.35rem);
   letter-spacing: -0.04em;
   line-height: 1;
-  color: var(--ink);
+  color: #fff;
 }
 
 .footer__tagline {

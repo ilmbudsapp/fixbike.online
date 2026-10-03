@@ -17,8 +17,12 @@ import {
   serviceBlocks,
 } from "./fixbikeConstants";
 import {
+  BANNER_CAMPAIGN,
+  BANNER_LOGO_WIDE,
+  BANNER_SERVICES_WIDE,
   HERO_MECHANIKER_FALLBACK,
   HERO_MECHANIKER_WEBP,
+  SERVICE_INTERIOR,
   webpToRasterPng,
 } from "./imagePaths";
 import WebpPicture from "./WebpPicture";
@@ -259,6 +263,17 @@ function App() {
           <p className="move-hero__address">
             Wallersheimer Weg 16, 56070 Koblenz
           </p>
+        </section>
+
+        <section className="campaign-poster" aria-label="FixBike Fahrrad Service">
+          <img
+            src={BANNER_CAMPAIGN}
+            alt="FixBike Fahrrad Service — Dein Fahrrad Spezialist. Service, Reparatur, Inspektion, Zubehör, E-Bike Diagnose, alle Marken."
+            width={1600}
+            height={1600}
+            loading="lazy"
+            decoding="async"
+          />
         </section>
 
         <section className="hero hero--asymmetric" aria-labelledby="hero-heading">
@@ -539,15 +554,36 @@ function App() {
           </div>
         </section>
 
+        <section className="brand-ribbon" aria-hidden="true">
+          <img
+            src={BANNER_SERVICES_WIDE}
+            alt=""
+            width={1920}
+            height={280}
+            loading="lazy"
+            decoding="async"
+          />
+        </section>
+
         <section
           id="ueber-uns"
           className="section section--about section--surface section--rhythm-standard reveal-scroll"
           aria-labelledby="ueber-uns-heading"
         >
-          <div className="container container--wide about__shell">
+          <div className="container container--wide about__shell about__shell--split">
             <span className="section__index" aria-hidden="true">
               02
             </span>
+            <figure className="about__photo">
+              <img
+                src={SERVICE_INTERIOR}
+                alt="FixBike Service — Blick in den Service mit FIXBIKE Banner"
+                width={1200}
+                height={800}
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
             <header className="section__head section__head--about">
               <h2 id="ueber-uns-heading">Über uns</h2>
               <div className="about__prose">
@@ -575,6 +611,17 @@ function App() {
               </div>
             </header>
           </div>
+        </section>
+
+        <section className="brand-ribbon brand-ribbon--logo" aria-label="FixBike Fahrrad Service">
+          <img
+            src={BANNER_LOGO_WIDE}
+            alt="FixBike Fahrrad Service"
+            width={1920}
+            height={400}
+            loading="lazy"
+            decoding="async"
+          />
         </section>
 
         <section

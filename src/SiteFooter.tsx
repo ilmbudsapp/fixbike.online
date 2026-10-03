@@ -221,6 +221,16 @@ export default function SiteFooter() {
   return (
 
     <footer className="footer">
+      <div className="footer__banner">
+        <img
+          src="/images/banner-logo-wide.jpg"
+          alt="FixBike Fahrrad Service"
+          width={1920}
+          height={400}
+          loading="lazy"
+          decoding="async"
+        />
+      </div>
 
       <div className="container container--wide footer__grid">
 

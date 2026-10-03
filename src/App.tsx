@@ -319,26 +319,18 @@ function App() {
                 <div className="hero__visual-stack">
                   <figure className="hero__figure">
                     <div className="hero__photo-wrap hero__photo-wrap--mechaniker">
-                      {/* WebP first + PNG fallback; eager + high priority for LCP */}
-                      <picture>
-                        <source
-                          type="image/webp"
-                          srcSet={`${HERO_MECHANIKER_WEBP} 480w, ${HERO_MECHANIKER_WEBP} 768w, ${HERO_MECHANIKER_WEBP} 1200w`}
-                          sizes="(max-width: 768px) 100vw, 55vw"
-                        />
-                        <img
-                          src={HERO_MECHANIKER_FALLBACK}
-                          srcSet={`${HERO_MECHANIKER_FALLBACK} 480w, ${HERO_MECHANIKER_FALLBACK} 768w, ${HERO_MECHANIKER_FALLBACK} 1200w`}
-                          sizes="(max-width: 768px) 100vw, 55vw"
-                          alt="FixBike Neuwied - E-Bike Verleih und Fahrradservice - Zertifizierter E-Bike Mechaniker"
-                          width={1200}
-                          height={800}
-                          className="hero__photo hero__photo--mechaniker"
-                          loading="eager"
-                          fetchPriority="high"
-                          decoding="async"
-                        />
-                      </picture>
+                      <WebpPicture
+                        webpSrc={HERO_MECHANIKER_WEBP}
+                        fallbackSrc={HERO_MECHANIKER_FALLBACK}
+                        alt="FixBike Neuwied - E-Bike Verleih und Fahrradservice - Zertifizierter E-Bike Mechaniker"
+                        width={1200}
+                        height={800}
+                        imgClassName="hero__photo hero__photo--mechaniker"
+                        loading="eager"
+                        fetchPriority="high"
+                        decoding="async"
+                        sizes="(max-width: 768px) 100vw, 55vw"
+                      />
                     </div>
                     <figcaption className="visually-hidden">
                       Service: professionelle Fahrrad- und E-Bike-Reparatur bei
@@ -419,11 +411,10 @@ function App() {
               </h3>
               <p className="section__head-lead">
                 <strong>Unser Fahrradverleih in Neuwied</strong> mit hochwertigen{" "}
-                <strong>CUBE</strong>-E-Bikes ab <strong>15€/Tag oder 105€/Woche</strong>. Abholung nach Terminvereinbarung — Reservierung per
+                <strong>CUBE</strong>-E-Bikes ab <strong>15€/Tag oder 105€/Woche</strong>. Reservierung per
                 Telefon, <a href={CONTACT.whatsappRental} target="_blank" rel="noopener noreferrer"><strong>WhatsApp</strong></a> oder{" "}
                 <a href="/kontakt">E-Mail über unsere Kontaktseite</a>. Wenn Sie zwischendurch Service brauchen:{" "}
-                <a href="/werkstatt">unsere Werkstatt</a>.{" "}
-                <strong>Termine nach Vereinbarung.</strong>
+                <a href="/werkstatt">unsere Werkstatt</a>.
               </p>
             </header>
 
@@ -560,8 +551,7 @@ function App() {
                   macht.
                 </p>
                 <p className="about__tagline muted">
-                  Nur nach Terminvereinbarung und Bestellung.{" "}
-                  <span className="about__tagline-strong">Termine nach Vereinbarung.</span>
+                  Werkstatt und Verleih <span className="about__tagline-strong">nur nach Terminvereinbarung</span>.
                 </p>
               </div>
             </header>
@@ -590,8 +580,7 @@ function App() {
                   <a href="/werkstatt">E-Bike Service Neuwied</a>
                 </strong> — wir arbeiten präzise
                 und erklären, was Ihr Bike wirklich braucht. Mieten Sie parallel ein Rad? Dann schauen Sie in unseren{" "}
-                <a href="/verleih">Verleih</a>.{" "}
-                <strong>Nur nach Terminvereinbarung und Bestellung.</strong>
+                <a href="/verleih">Verleih</a>.
               </p>
             </header>
             <ul className="cards cards--bento">
@@ -758,9 +747,7 @@ function App() {
                 </strong> und{" "}
                 <strong>
                   <a href="/werkstatt">Fahrradreparatur Neuwied</a>
-                </strong> —{" "}
-                <strong>Nur nach Terminvereinbarung und Bestellung.</strong>{" "}
-                <strong>Termine nach Vereinbarung.</strong> Schreiben Sie uns per WhatsApp oder E-Mail —{" "}
+                </strong> — Schreiben Sie uns per WhatsApp oder E-Mail —{" "}
                 <a href="/kontakt">alle Kontaktwege</a>.
               </p>
             </header>
@@ -817,8 +804,7 @@ function App() {
                   <a href={`mailto:${CONTACT.email}`}>{CONTACT.email}</a>
                 </p>
                 <p className="contact-card__appointment-lead">
-                  Nur nach Terminvereinbarung und Bestellung. Termine nach
-                  Vereinbarung.
+                  Nur nach Terminvereinbarung. Mo–Fr 9:00–18:00, Sa 9:00–14:00.
                 </p>
                 <p className="contact-card__appointment-contact">
                   Kontakt: WhatsApp{" "}
@@ -861,8 +847,7 @@ function App() {
                   Verleih individuell mit Ihnen.
                 </p>
                 <p className="muted small">
-                  Termine nach Vereinbarung — wir nehmen uns Zeit für Ihr Rad,
-                  wenn es passt.
+                  Wir nehmen uns Zeit für Ihr Rad, wenn der Termin passt.
                 </p>
               </div>
             </div>
@@ -881,7 +866,7 @@ function App() {
               Als Team nennen wir messbare Zusagen: <strong>20 Jahre</strong> Erfahrung im Service,{" "}
               <strong>15+</strong> Fahrradtypen, <strong>500+</strong> zufriedene Kundinnen und Kunden in der Region,{" "}
               <strong>24 h</strong> typischer Rahmen für Standard-Reparaturen, wenn Teile verfügbar sind,{" "}
-              <strong>100&nbsp;%</strong> Originalteile nach Vereinbarung und <strong>24/7</strong> Kanäle für Anfragen.
+              <strong>100&nbsp;%</strong> Originalteile nach Vereinbarung und Anfragen per WhatsApp, E-Mail und Formular.
             </p>
           </div>
         </section>
@@ -1025,7 +1010,7 @@ function App() {
                 />
               </label>
               <label>
-                Email
+                E-Mail
                 <input
                   type="email"
                   required
@@ -1034,7 +1019,7 @@ function App() {
                 />
               </label>
               <label>
-                Phone/WhatsApp
+                Telefon / WhatsApp
                 <input
                   type="text"
                   required
@@ -1043,7 +1028,7 @@ function App() {
                 />
               </label>
               <label>
-                Pickup date
+                Abholdatum
                 <input
                   type="date"
                   required
@@ -1052,7 +1037,7 @@ function App() {
                 />
               </label>
               <label>
-                Return date
+                Rückgabedatum
                 <input type="date" value={returnDate} readOnly />
               </label>
               <button

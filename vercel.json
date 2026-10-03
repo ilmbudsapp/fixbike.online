@@ -4,12 +4,10 @@
   "installCommand": "npm install",
   "framework": null,
   "rewrites": [
-    { "source": "/sitemap.xml", "destination": "/sitemap.xml" },
-    { "source": "/robots.txt", "destination": "/robots.txt" },
-    { "source": "/feed.xml", "destination": "/feed.xml" },
-    { "source": "/indexnow-key.txt", "destination": "/indexnow-key.txt" },
-    { "source": "/manifest.json", "destination": "/manifest.json" },
-    { "source": "/(.*)", "destination": "/index.html" }
+    {
+      "source": "/((?!sitemap\\.xml$|robots\\.txt$|feed\\.xml$|indexnow-key\\.txt$|manifest\\.json$).*)",
+      "destination": "/index.html"
+    }
   ],
   "headers": [
     {

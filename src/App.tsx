@@ -68,6 +68,7 @@ function App() {
   useEffect(() => {
     const pathToSection: Record<string, string> = {
       "/werkstatt": "servis",
+      "/service": "servis",
       "/verleih": "ebike-vermietung",
       "/kontakt": "contact",
     };
@@ -285,11 +286,11 @@ function App() {
                   </strong>{" "}
                   (CUBE E-Bikes) — plus{" "}
                   <strong>
-                    <a href="/werkstatt">Fahrradreparatur Neuwied</a>
+                    <a href="/service">Fahrradreparatur Neuwied</a>
                   </strong>{" "}
                   in unserem{" "}
                   <strong>
-                    <a href="/werkstatt">Fahrrad-Servis</a>
+                    <a href="/service">Fahrrad-Servis</a>
                   </strong>
                   . Transparenter Service, ehrliche Beratung, Abholung nach Termin —{" "}
                   <a href="/kontakt">so erreichen Sie uns</a>.
@@ -323,7 +324,7 @@ function App() {
                     <a href="/verleih">E-Bike mieten</a>
                   </li>
                   <li>
-                    <a href="/werkstatt">Fahrradreparatur</a>
+                    <a href="/service">Fahrradreparatur</a>
                   </li>
                 </ul>
               </div>
@@ -359,7 +360,7 @@ function App() {
                       <strong>E-Bike mieten Neuwied</strong> oder klassisches Rad
                       — parallel kümmern wir uns in unserer{" "}
                       <strong>
-                        <a href="/werkstatt">Werkstatt</a>
+                        <a href="/service">Service</a>
                       </strong>{" "}
                       um <strong>Fahrradreparatur</strong>: Saison-Check, Bremsen, Schaltung, Akku-Diagnose.
                     </p>
@@ -427,7 +428,7 @@ function App() {
                 <strong>CUBE</strong>-E-Bikes ab <strong>15€/Tag oder 105€/Woche</strong>. Reservierung per
                 Telefon, <a href={CONTACT.whatsappRental} target="_blank" rel="noopener noreferrer"><strong>WhatsApp</strong></a> oder{" "}
                 <a href="/kontakt">E-Mail über unsere Kontaktseite</a>. Wenn Sie zwischendurch Service brauchen:{" "}
-                <a href="/werkstatt">unsere Werkstatt</a>.
+                <a href="/service">unseren Service</a>.
               </p>
             </header>
 
@@ -463,7 +464,7 @@ function App() {
                       <td colSpan={2} className="pricing-table__note">
                         Inkl. Beratung zur Radgröße · Übergabe nach Termin ·{" "}
                         <a href="/kontakt">Kontakt für Verfügbarkeit</a> ·{" "}
-                        <a href="/werkstatt">Werkstatt &amp; Service</a>
+                        <a href="/service">Service</a>
                       </td>
                     </tr>
                   </tbody>
@@ -564,7 +565,7 @@ function App() {
                   macht.
                 </p>
                 <p className="about__tagline muted">
-                  Werkstatt und Verleih <span className="about__tagline-strong">nur nach Terminvereinbarung</span>.
+                  Service und Verleih <span className="about__tagline-strong">nur nach Terminvereinbarung</span>.
                 </p>
               </div>
             </header>
@@ -587,10 +588,10 @@ function App() {
               </h2>
               <p>
                 Von der <strong>
-                  <a href="/werkstatt">Fahrrad Reparatur Neuwied</a>
+                  <a href="/service">Fahrrad Reparatur Neuwied</a>
                 </strong> bis zum{" "}
                 <strong>
-                  <a href="/werkstatt">E-Bike Service Neuwied</a>
+                  <a href="/service">E-Bike Service Neuwied</a>
                 </strong> — wir arbeiten präzise
                 und erklären, was Ihr Bike wirklich braucht. Mieten Sie parallel ein Rad? Dann schauen Sie in unseren{" "}
                 <a href="/verleih">Verleih</a>.
@@ -650,10 +651,10 @@ function App() {
                 </strong>{" "}
                 und <strong>Fahrrad-Servis</strong> — plus schnelle Hilfe bei{" "}
                 <strong>
-                  <a href="/werkstatt">Fahrrad Reparatur</a>
+                  <a href="/service">Fahrrad Reparatur</a>
                 </strong> und{" "}
                 <strong>
-                  <a href="/werkstatt">E-Bike Service</a>
+                  <a href="/service">E-Bike Service</a>
                 </strong>.{" "}
                 <a href="/kontakt">Kontakt &amp; Anfahrt</a> finden Sie hier.
               </p>
@@ -670,7 +671,7 @@ function App() {
                 <h3>Schnelle Fahrrad Reparatur Neuwied</h3>
                 <p>
                   Pannen und sicherheitsrelevante Themen priorisieren wir gemeinsam mit Ihnen — Sie wissen, woran Sie sind.{" "}
-                  <a href="/werkstatt">Zur Werkstatt</a>.
+                  <a href="/service">Zum Service</a>.
                 </p>
               </article>
               <article className="why-card">
@@ -713,11 +714,11 @@ function App() {
                 Fahrradservice Neuwied prüft jedes Rad vor dem Verkauf
               </h3>
               <p className="split__lead">
-                Ausgewählte Modelle und Gebrauchräder prüfen wir in unserer Werkstatt vor dem Verkauf. Beim{" "}
+                Ausgewählte Modelle und Gebrauchräder prüfen wir in unserem Service vor dem Verkauf. Beim{" "}
                 <strong>Fahrrad kaufen</strong> zählen
                 Sitzposition, Komponenten und Wartungsfreundlichkeit — wir
                 beraten sachlich und ohne Schnickschnack. Service vorab:{" "}
-                <a href="/werkstatt">Werkstatt &amp; Inspektion</a>, Miete zum Ausprobieren:{" "}
+                <a href="/service">Service &amp; Inspektion</a>, Miete zum Ausprobieren:{" "}
                 <a href="/verleih">E-Bike-Verleih</a>.
               </p>
               <p className="muted">
@@ -759,7 +760,7 @@ function App() {
                   <a href="/verleih">E-Bike mieten Neuwied</a>
                 </strong> und{" "}
                 <strong>
-                  <a href="/werkstatt">Fahrradreparatur Neuwied</a>
+                  <a href="/service">Fahrradreparatur Neuwied</a>
                 </strong> — Schreiben Sie uns per WhatsApp oder E-Mail —{" "}
                 <a href="/kontakt">alle Kontaktwege</a>.
               </p>
@@ -916,12 +917,13 @@ function App() {
         </section>
 
         <section
-          id="werkstatt-video"
+          id="service-video"
           className="section section--surface section--rhythm-standard reveal-scroll"
-          aria-labelledby="werkstatt-video-heading"
+          aria-labelledby="service-video-heading"
         >
+          <span id="werkstatt-video" className="visually-hidden" />
           <div className="container container--wide">
-            <h2 id="werkstatt-video-heading">Video — Grundlagen zur Kettenpflege</h2>
+            <h2 id="service-video-heading">Video — Grundlagen zur Kettenpflege</h2>
             <p className="muted small">
               Park Tool auf YouTube. Wir nutzen das Video als ergänzende Einleitung zu unserem{" "}
               <a href="#servis">E-Bike Service Neuwied</a>.

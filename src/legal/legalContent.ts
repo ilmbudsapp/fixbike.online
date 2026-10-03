@@ -170,7 +170,7 @@ export const impressum = {
       id: "profession",
       title: "Berufsbezeichnung",
       paragraphs: [
-        "Fahrrad- und E-Bike-Service, Verleih und Werkstatt",
+        "Fahrrad- und E-Bike-Service und Verleih",
         "Verliehen in: Bundesrepublik Deutschland",
       ],
     },

@@ -232,7 +232,7 @@ export default function SiteFooter() {
 
             Fahrradverleih Neuwied · Fahrrad-Service · E-Bike Service · Verkauf —{" "}
 
-            <a href="/verleih">Verleih</a> · <a href="/werkstatt">Werkstatt</a> ·{" "}
+            <a href="/verleih">Verleih</a> · <a href="/service">Service</a> ·{" "}
 
             <a href="/kontakt">Kontakt</a>
 

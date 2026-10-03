@@ -42,7 +42,7 @@
   - Homepage (priority: 1.0)
   - #ebike-vermietung (priority: 0.95)
   - #servis (priority: 0.95)
-  - /werkstatt, /verleih (priority: 0.9)
+  - /service, /verleih (priority: 0.9)
   - /kontakt, #contact (priority: 0.8)
   - #ueber-uns (priority: 0.7)
 - ✅ **robots.txt**: Već postojao i dobro konfigurisan

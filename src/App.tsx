@@ -199,18 +199,6 @@ function App() {
         <span className="float-wa__text">WhatsApp</span>
       </a>
 
-      <div className="top-stack">
-        <aside className="news-flash" role="status" aria-live="polite">
-          <p className="news-flash__inner">
-            <strong className="news-flash__headline">
-              BALD ZIEHEN WIR AN EINEN NEUEN STANDORT UM
-            </strong>
-            <span className="news-flash__copy">
-              Wallersheimer Weg 16, 56070 Koblenz
-            </span>
-          </p>
-        </aside>
-
       <header className="site-header">
         <div className="container container--wide header__inner">
           <a
@@ -250,10 +238,28 @@ function App() {
           </a>
         </div>
       </header>
-      </div>
 
       <main id="main">
         <div id="top" className="hero-anchor" aria-hidden="true" />
+
+        <section className="move-hero" aria-labelledby="move-heading">
+          <img
+            className="move-hero__photo"
+            src="/images/werkstatt-koblenz.jpg"
+            alt="FixBike Fahrrad Service — neuer Standort"
+            width={1600}
+            height={1200}
+            loading="eager"
+            fetchPriority="high"
+            decoding="async"
+          />
+          <h1 id="move-heading" className="move-hero__title">
+            BALD ZIEHEN WIR AN EINEN NEUEN STANDORT UM
+          </h1>
+          <p className="move-hero__address">
+            Wallersheimer Weg 16, 56070 Koblenz
+          </p>
+        </section>
 
         <section className="hero hero--asymmetric" aria-labelledby="hero-heading">
           <div className="hero__frame" aria-hidden="true" />
@@ -263,14 +269,14 @@ function App() {
               <p className="hero__eyebrow">
                 E-Bike &amp; Fahrradverleih Neuwied · Fahrrad-Servis
               </p>
-              <h1 id="hero-heading" className="hero__title">
+              <h2 id="hero-heading" className="hero__title">
                 <span className="hero__title-line">
                   FixBike — E-Bike Verleih &amp; Fahrradservice Neuwied
                 </span>
                 <span className="hero__title-line hero__title-line--tagline">
                   Mieten Sie Ihr E-Bike für nur 15,00&nbsp;€ / Tag · 105,00&nbsp;€ / 7 Tage
                 </span>
-              </h1>
+              </h2>
             </header>
 
             <div className="hero__editorial">
@@ -340,8 +346,7 @@ function App() {
                         width={1200}
                         height={800}
                         imgClassName="hero__photo hero__photo--mechaniker"
-                        loading="eager"
-                        fetchPriority="high"
+                        loading="lazy"
                         decoding="async"
                         sizes="(max-width: 768px) 100vw, 55vw"
                       />

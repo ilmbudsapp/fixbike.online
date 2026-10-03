@@ -17,8 +17,7 @@ import {
   serviceBlocks,
 } from "./fixbikeConstants";
 import {
-  HERO_MECHANIKER_FALLBACK,
-  HERO_MECHANIKER_WEBP,
+  HERO_WERKSTATT_JPG,
   webpToRasterPng,
 } from "./imagePaths";
 import WebpPicture from "./WebpPicture";
@@ -253,6 +252,9 @@ function App() {
                 <span className="hero__title-line">
                   FixBike — E-Bike Verleih &amp; Fahrradservice Neuwied
                 </span>
+                <span className="hero__title-line hero__title-line--news">
+                  Neu: Wir ziehen nach Koblenz um — Wallersheimer Weg 16, 56070 Koblenz
+                </span>
                 <span className="hero__title-line hero__title-line--tagline">
                   Mieten Sie Ihr E-Bike für nur 15,00&nbsp;€ / Tag · 105,00&nbsp;€ / 7 Tage
                 </span>
@@ -320,11 +322,11 @@ function App() {
                   <figure className="hero__figure">
                     <div className="hero__photo-wrap hero__photo-wrap--mechaniker">
                       <WebpPicture
-                        webpSrc={HERO_MECHANIKER_WEBP}
-                        fallbackSrc={HERO_MECHANIKER_FALLBACK}
-                        alt="FixBike Neuwied - E-Bike Verleih und Fahrradservice - Zertifizierter E-Bike Mechaniker"
-                        width={1200}
-                        height={800}
+                        webpSrc={HERO_WERKSTATT_JPG}
+                        fallbackSrc={HERO_WERKSTATT_JPG}
+                        alt="FixBike Werkstatt — neue Standortaufnahme"
+                        width={1600}
+                        height={1200}
                         imgClassName="hero__photo hero__photo--mechaniker"
                         loading="eager"
                         fetchPriority="high"

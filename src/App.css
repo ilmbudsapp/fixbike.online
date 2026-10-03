@@ -120,16 +120,6 @@ h1 {
   display: block;
 }
 
-.hero__title-line--news {
-  margin-top: 0.7rem;
-  font-size: clamp(1.2rem, 2.45vw, 1.62rem);
-  font-weight: 700;
-  line-height: 1.32;
-  letter-spacing: -0.028em;
-  color: var(--accent);
-  max-width: 46ch;
-}
-
 .hero__title-line--tagline {
   margin-top: 0.55rem;
   font-size: clamp(1.08rem, 2.25vw, 1.52rem);
@@ -260,6 +250,77 @@ strong {
   left: 0.75rem;
   outline: 2px solid var(--accent);
   outline-offset: 3px;
+}
+
+.top-stack {
+  position: sticky;
+  top: 0;
+  z-index: 60;
+}
+
+.news-flash {
+  background: #141210;
+  color: #fff;
+  border-bottom: 3px solid #f15a24;
+  padding: 0.7rem 1rem;
+}
+
+.news-flash__inner {
+  margin: 0 auto;
+  max-width: 72rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 0.45rem 0.75rem;
+  text-align: center;
+}
+
+.news-flash__badge {
+  display: inline-block;
+  background: #f15a24;
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  padding: 0.22rem 0.5rem;
+  border-radius: 3px;
+  animation: news-flash-pulse 1.8s ease-in-out infinite;
+}
+
+.news-flash__headline {
+  font-family: var(--font-display);
+  font-size: clamp(1.15rem, 2.6vw, 1.55rem);
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.2;
+}
+
+.news-flash__copy {
+  font-size: clamp(0.98rem, 1.8vw, 1.15rem);
+  font-weight: 600;
+  color: rgba(255, 255, 255, 0.92);
+}
+
+@keyframes news-flash-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.06);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .news-flash__badge {
+    animation: none;
+  }
+}
+
+.top-stack .site-header {
+  position: relative;
 }
 
 /* —— Header —— */
@@ -1011,7 +1072,7 @@ strong {
 }
 
 .hero__photo-wrap--mechaniker {
-  background: #e8e4dc url("/images/werkstatt-koblenz.jpg") center / cover no-repeat;
+  background: #e8e4dc url("/images/hero-mechaniker.png") center 35% / cover no-repeat;
   min-height: 220px;
 }
 

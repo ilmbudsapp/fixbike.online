@@ -201,10 +201,11 @@ function App() {
       <div className="top-stack">
         <aside className="news-flash" role="status" aria-live="polite">
           <p className="news-flash__inner">
-            <span className="news-flash__badge">Jetzt</span>
-            <strong className="news-flash__headline">Umzug nach Koblenz!</strong>
+            <strong className="news-flash__headline">
+              BALD ZIEHEN WIR AN EINEN NEUEN STANDORT UM
+            </strong>
             <span className="news-flash__copy">
-              Neue Adresse: Wallersheimer Weg 16, 56070 Koblenz
+              Wallersheimer Weg 16, 56070 Koblenz
             </span>
           </p>
         </aside>

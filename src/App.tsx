@@ -250,17 +250,20 @@ function App() {
             href="https://fixbike.online/"
             aria-label="FixBike — E-Bike Verleih und Fahrradverkauf Koblenz. Zur Startseite."
           >
-            <span className="brand__plate">
             <img
               className="brand__logo"
               src="/images/fixbike-logo.png"
               srcSet="/images/fixbike-logo.png 220w, /images/fixbike-logo.png 440w"
-              sizes="(max-width: 640px) 110px, 148px"
+              sizes="(max-width: 640px) 120px, 160px"
               alt="FixBike Logo"
-              width={148}
-              height={79}
+              width={160}
+              height={85}
               decoding="async"
             />
+            <span className="brand__lockup">
+              <span className="brand__seo-line">
+                E-Bike &amp; Fahrradverleih Koblenz · Verkauf
+              </span>
             </span>
           </a>
 

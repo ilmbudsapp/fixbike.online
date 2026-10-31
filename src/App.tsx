@@ -37,7 +37,7 @@ function App() {
 
   useEffect(() => {
     const onScroll = () => {
-      document.documentElement.classList.toggle("scrolled", window.scrollY > 12);
+      document.documentElement.classList.toggle("scrolled", window.scrollY > 24);
     };
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -46,27 +46,58 @@ function App() {
 
   useEffect(() => {
     const reduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
-    if (reduced) {
-      document.querySelectorAll(".reveal-scroll").forEach((el) => {
+    const revealAllIn = (root: ParentNode) => {
+      root.querySelectorAll(".reveal, .stagger, .media-reveal, .mask-title").forEach((el) => {
         el.classList.add("is-revealed");
       });
+    };
+    const revealHashTarget = () => {
+      const id = window.location.hash.replace("#", "");
+      const pathMap: Record<string, string> = {
+        "/werkstatt": "verkauf",
+        "/service": "verkauf",
+        "/verleih": "ebike-vermietung",
+        "/kontakt": "contact",
+        "/verkauf": "verkauf",
+        "/ersatzteile": "ersatzteile",
+      };
+      const sectionId = id || pathMap[window.location.pathname];
+      if (!sectionId) return;
+      const section = document.getElementById(sectionId);
+      if (section) revealAllIn(section);
+    };
+
+    if (reduced) {
+      revealAllIn(document);
       return;
     }
-    const els = document.querySelectorAll(".reveal-scroll");
-    if (els.length === 0) return;
+
+    document.documentElement.classList.add("motion-on");
+    const nodes = document.querySelectorAll(".reveal, .stagger, .media-reveal, .mask-title");
     const obs = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
-          if (entry.isIntersecting) {
-            entry.target.classList.add("is-revealed");
-            obs.unobserve(entry.target);
-          }
+          if (!entry.isIntersecting) return;
+          entry.target.classList.add("is-revealed");
+          obs.unobserve(entry.target);
         });
       },
-      { threshold: 0.08, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0.12, rootMargin: "0px 0px -10% 0px" },
     );
-    els.forEach((el) => obs.observe(el));
-    return () => obs.disconnect();
+    nodes.forEach((el) => {
+      const rect = el.getBoundingClientRect();
+      if (rect.top < window.innerHeight * 0.92 && rect.bottom > 0) {
+        el.classList.add("is-revealed");
+      } else {
+        obs.observe(el);
+      }
+    });
+    revealHashTarget();
+    window.addEventListener("hashchange", revealHashTarget);
+    return () => {
+      obs.disconnect();
+      window.removeEventListener("hashchange", revealHashTarget);
+    };
   }, []);
 
   useEffect(() => {
@@ -207,6 +238,7 @@ function App() {
         Zum Inhalt springen
       </a>
 
+      <div className="topbar">
       <div className="announce" role="note">
         In Koblenz · Wallersheimer Weg 16
       </div>
@@ -218,16 +250,18 @@ function App() {
             href="https://fixbike.online/"
             aria-label="FixBike — E-Bike Verleih und Fahrradverkauf Koblenz. Zur Startseite."
           >
+            <span className="brand__plate">
             <img
               className="brand__logo"
               src="/images/fixbike-logo.png"
               srcSet="/images/fixbike-logo.png 220w, /images/fixbike-logo.png 440w"
-              sizes="(max-width: 640px) 120px, 168px"
+              sizes="(max-width: 640px) 110px, 148px"
               alt="FixBike Logo"
-              width={168}
-              height={89}
+              width={148}
+              height={79}
               decoding="async"
             />
+            </span>
           </a>
 
           <nav className="nav nav--header" aria-label="Hauptnavigation">
@@ -278,55 +312,66 @@ function App() {
           </nav>
         </div>
       </header>
+      </div>
 
       <main id="main">
         <section className="hero" aria-labelledby="hero-heading">
-          <div className="container hero__grid">
-            <div className="hero__copy">
-              <h1 id="hero-heading">
-                <span className="hero__line">Dein nächster Weg.</span>
-                <span className="hero__line">Wird eine gute Fahrt.</span>
-                <span className="hero__seo">
+          <div className="hero__atmosphere" aria-hidden="true">
+            <span className="hero__glow hero__glow--main" />
+            <span className="hero__glow hero__glow--depth" />
+            <span className="hero__grain" />
+          </div>
+          <p className="hero__wordmark" aria-hidden="true">
+            FIXBIKE
+          </p>
+          <figure className="hero__stage">
+            <WebpPicture
+              webpSrc={HERO_BIKE.image}
+              fallbackSrc={webpToRasterPng(HERO_BIKE.image)}
+              alt={HERO_BIKE.imageAlt}
+              width={1600}
+              height={1200}
+              imgClassName="hero__bike"
+              loading="eager"
+              fetchPriority="high"
+              decoding="async"
+              sizes="100vw"
+            />
+            <span className="hero__veil" aria-hidden="true" />
+          </figure>
+          <div className="container hero__copy">
+            <h1 id="hero-heading">
+              <span className="mask-title__clip">
+                <span className="mask-title__inner">Dein nächster Weg.</span>
+              </span>
+              <span className="mask-title__clip">
+                <span className="mask-title__inner">Wird eine gute Fahrt.</span>
+              </span>
+              <span className="mask-title__clip hero__seo-clip">
+                <span className="mask-title__inner">
                   E-Bike Verleih und Fahrradverkauf in Koblenz
                 </span>
-              </h1>
-              <p className="hero__lead">
-                Hochwertige CUBE E-Bikes — 105&nbsp;€ / 7 Tage, entspricht 15&nbsp;€
-                pro Tag — mit persönlicher Beratung.
-              </p>
-              <p className="hero__price">
-                105&nbsp;€ / 7 Tage · entspricht 15&nbsp;€ pro Tag
-              </p>
-              <div className="hero__actions">
-                <a className="btn btn--primary btn--lg" href="#ebike-vermietung">
-                  E-Bike auswählen
-                </a>
-                <a className="btn btn--ghost btn--lg" href="#verkauf">
-                  Kaufberatung anfragen
-                </a>
-              </div>
+              </span>
+            </h1>
+            <p className="hero__lead">
+              Hochwertige CUBE E-Bikes mit persönlicher Beratung. Abholung nach
+              Termin.
+            </p>
+            <p className="hero__price">
+              105&nbsp;€ / 7 Tage · entspricht 15&nbsp;€ pro Tag
+            </p>
+            <div className="hero__actions">
+              <a className="btn btn--primary btn--lg" href="#ebike-vermietung">
+                E-Bike auswählen <span className="btn__arrow" aria-hidden="true">→</span>
+              </a>
+              <a className="btn btn--ghost btn--lg" href="#verkauf">
+                Kaufberatung anfragen
+              </a>
             </div>
-            <figure className="hero__visual">
-              <WebpPicture
-                webpSrc={HERO_BIKE.image}
-                fallbackSrc={webpToRasterPng(HERO_BIKE.image)}
-                alt={HERO_BIKE.imageAlt}
-                width={900}
-                height={675}
-                imgClassName="hero__bike"
-                loading="eager"
-                fetchPriority="high"
-                decoding="async"
-                sizes="(max-width: 900px) 92vw, 48vw"
-              />
-              <figcaption className="hero__caption">
-                {HERO_BIKE.title} · {HERO_BIKE.size}
-              </figcaption>
-            </figure>
           </div>
         </section>
 
-        <section className="facts reveal-scroll" aria-label="Kurzinfos">
+        <section className="facts stagger" aria-label="Kurzinfos">
           <div className="container facts__row">
             <p>CUBE E-Bikes</p>
             <p>Persönliche Beratung</p>
@@ -337,23 +382,27 @@ function App() {
 
         <section
           id="ebike-vermietung"
-          className="section reveal-scroll"
+          className="section section--catalog"
           aria-labelledby="ebike-rental-heading"
         >
           <span id="verleih" className="visually-hidden" />
           <div className="container">
-            <header className="section__head">
+            <header className="section__head reveal">
               <p className="eyebrow">Verleih</p>
-              <h2 id="ebike-rental-heading">CUBE E-Bikes mieten</h2>
+              <h2 id="ebike-rental-heading" className="mask-title">
+                <span className="mask-title__clip">
+                  <span className="mask-title__inner">CUBE E-Bikes mieten</span>
+                </span>
+              </h2>
               <p>
                 Drei Räder in der Flotte. Anfrage zur Verfügbarkeit — Übergabe nach
                 Termin in Koblenz.
               </p>
             </header>
-            <div className="bike-grid">
+            <div className="bike-grid stagger">
               {rentalEBikes.map((bike) => (
                 <article key={`${bike.title}-${bike.size}`} className="bike-card">
-                  <div className="bike-card__media">
+                  <div className="bike-card__media media-reveal">
                     <WebpPicture
                       webpSrc={bike.image}
                       fallbackSrc={webpToRasterPng(bike.image)}
@@ -386,7 +435,7 @@ function App() {
                         openBookingModal({ title: bike.title, size: bike.size })
                       }
                     >
-                      Verfügbarkeit anfragen
+                      Verfügbarkeit anfragen <span className="btn__arrow" aria-hidden="true">→</span>
                     </button>
                   </div>
                 </article>
@@ -395,13 +444,17 @@ function App() {
           </div>
         </section>
 
-        <section className="section section--alt reveal-scroll" aria-labelledby="ablauf-heading">
+        <section className="section section--steps" aria-labelledby="ablauf-heading">
           <div className="container">
-            <header className="section__head">
+            <header className="section__head reveal">
               <p className="eyebrow">Ablauf</p>
-              <h2 id="ablauf-heading">So funktioniert die Miete</h2>
+              <h2 id="ablauf-heading" className="mask-title">
+                <span className="mask-title__clip">
+                  <span className="mask-title__inner">So funktioniert die Miete</span>
+                </span>
+              </h2>
             </header>
-            <ol className="steps">
+            <ol className="steps stagger">
               <li>
                 <strong>Rad auswählen.</strong>
                 <span>Modell und Größe, die zu Ihrer Tour passen.</span>
@@ -418,50 +471,56 @@ function App() {
           </div>
         </section>
 
-        <section id="verkauf" className="section section--split reveal-scroll">
+        <section id="verkauf" className="photo-band">
           <span id="service" className="visually-hidden" />
-          <div className="container split">
-            <figure className="split__media">
-              <WebpPicture
-                webpSrc="/images/verkauf.webp"
-                fallbackSrc="/images/verkauf.jpg"
-                alt="Fahrradverkauf in Koblenz — klassische Räder und E-Bikes bei FixBike"
-                width={800}
-                height={1000}
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
-            <div>
-              <p className="eyebrow">Verkauf</p>
-              <h2>Fahrräder und E-Bikes kaufen</h2>
-              <p>
-                Klassische Fahrräder und elektrische Räder — mit Beratung zu
-                Sitzposition, Einsatz und Budget. Aktuelle Modelle nennen wir Ihnen
-                nach Anfrage.
-              </p>
-              <a className="btn btn--primary" href="#contact">
-                Kaufberatung anfragen
-              </a>
-            </div>
+          <div className="photo-band__media media-reveal">
+            <WebpPicture
+              webpSrc="/images/verkauf.webp"
+              fallbackSrc="/images/verkauf.jpg"
+              alt="Fahrradverkauf in Koblenz — klassische Räder und E-Bikes bei FixBike"
+              width={800}
+              height={1000}
+              loading="lazy"
+              decoding="async"
+            />
+          </div>
+          <div className="container photo-band__copy reveal">
+            <p className="eyebrow">Verkauf</p>
+            <h2 className="mask-title">
+              <span className="mask-title__clip">
+                <span className="mask-title__inner">Fahrräder und E-Bikes kaufen</span>
+              </span>
+            </h2>
+            <p>
+              Klassische Fahrräder und elektrische Räder — mit Beratung zu
+              Sitzposition, Einsatz und Budget. Aktuelle Modelle nennen wir Ihnen
+              nach Anfrage.
+            </p>
+            <a className="btn btn--primary" href="#contact">
+              Kaufberatung anfragen <span className="btn__arrow" aria-hidden="true">→</span>
+            </a>
           </div>
         </section>
 
         <section
           id="ersatzteile"
-          className="section section--alt reveal-scroll"
+          className="section section--parts"
           aria-labelledby="ersatzteile-heading"
         >
           <div className="container">
-            <header className="section__head">
+            <header className="section__head reveal">
               <p className="eyebrow">Teile</p>
-              <h2 id="ersatzteile-heading">Ersatzteile zum Wechseln</h2>
+              <h2 id="ersatzteile-heading" className="mask-title">
+                <span className="mask-title__clip">
+                  <span className="mask-title__inner">Ersatzteile zum Wechseln</span>
+                </span>
+              </h2>
               <p>
                 Verschleißteile, Antrieb, Bremsen und Reifen — nach Verfügbarkeit,
                 passend zu Marke und Modell.
               </p>
             </header>
-            <ul className="parts">
+            <ul className="parts stagger">
               <li>
                 <h3>Verschleiß</h3>
                 <p>Kette, Beläge, Schläuche, Reifen, Beleuchtung.</p>
@@ -486,11 +545,11 @@ function App() {
 
         <section
           id="ueber-uns"
-          className="section section--split reveal-scroll"
+          className="section section--story"
           aria-labelledby="ueber-uns-heading"
         >
           <div className="container split">
-            <figure className="split__media">
+            <figure className="story__media media-reveal">
               <img
                 src="/images/hero-mechaniker.png"
                 alt="Adem Osmani, Inhaber von FixBike in Koblenz"
@@ -500,9 +559,13 @@ function App() {
                 decoding="async"
               />
             </figure>
-            <div>
+            <div className="reveal">
               <p className="eyebrow">Über uns</p>
-              <h2 id="ueber-uns-heading">Adem Osmani</h2>
+              <h2 id="ueber-uns-heading" className="mask-title">
+                <span className="mask-title__clip">
+                  <span className="mask-title__inner">Adem Osmani</span>
+                </span>
+              </h2>
               <p>
                 Certified E-Bike Specialist. Fahrräder sind Beruf und Leidenschaft.
                 Ich lege Wert auf saubere Arbeit und persönliche Beratung — Kauf und
@@ -516,17 +579,21 @@ function App() {
           </div>
         </section>
 
-        <section className="section section--alt reveal-scroll" aria-labelledby="faq-heading">
+        <section className="section section--faq" aria-labelledby="faq-heading">
           <div className="container container--narrow">
-            <header className="section__head">
+            <header className="section__head reveal">
               <p className="eyebrow">FAQ</p>
-              <h2 id="faq-heading">Häufige Fragen</h2>
+              <h2 id="faq-heading" className="mask-title">
+                <span className="mask-title__clip">
+                  <span className="mask-title__inner">Häufige Fragen</span>
+                </span>
+              </h2>
             </header>
-            <div className="faq">
+            <div className="faq reveal">
               {faqItems.map((item, index) => {
                 const open = openFaq === index;
                 return (
-                  <div className="faq__item" key={item.q}>
+                  <div className={`faq__item ${open ? "is-open" : ""}`} key={item.q}>
                     <button
                       type="button"
                       className="faq__q"
@@ -535,7 +602,9 @@ function App() {
                     >
                       {item.q}
                     </button>
-                    {open ? <p className="faq__a">{item.a}</p> : null}
+                    <div className="faq__panel">
+                      <p className="faq__a">{item.a}</p>
+                    </div>
                   </div>
                 );
               })}
@@ -545,13 +614,17 @@ function App() {
 
         <section
           id="contact"
-          className="section reveal-scroll"
+          className="section section--contact"
           aria-labelledby="contact-heading"
         >
           <div className="container contact">
-            <header className="section__head">
+            <header className="section__head reveal">
               <p className="eyebrow">Kontakt</p>
-              <h2 id="contact-heading">Adresse &amp; Termin</h2>
+              <h2 id="contact-heading" className="mask-title">
+                <span className="mask-title__clip">
+                  <span className="mask-title__inner">Adresse &amp; Termin</span>
+                </span>
+              </h2>
               <p>Nur nach Vereinbarung. Mo–Fr 9:00–18:00, Sa 9:00–14:00.</p>
             </header>
             <div className="contact__grid">
@@ -613,7 +686,7 @@ function App() {
 
         <section
           id="kleine-reparaturen"
-          className="note reveal-scroll"
+          className="note reveal"
           aria-labelledby="kleine-reparaturen-heading"
         >
           <span id="servis" className="visually-hidden" />

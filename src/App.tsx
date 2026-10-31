@@ -14,15 +14,10 @@ import {
   MAPS_URL,
   nav,
   rentalEBikes,
-  serviceBlocks,
 } from "./fixbikeConstants";
 import {
-  BANNER_CAMPAIGN,
-  BANNER_LOGO_WIDE,
-  BANNER_SERVICES_WIDE,
   HERO_MECHANIKER_FALLBACK,
   HERO_MECHANIKER_WEBP,
-  SERVICE_INTERIOR,
   webpToRasterPng,
 } from "./imagePaths";
 import WebpPicture from "./WebpPicture";
@@ -71,10 +66,12 @@ function App() {
 
   useEffect(() => {
     const pathToSection: Record<string, string> = {
-      "/werkstatt": "servis",
-      "/service": "servis",
+      "/werkstatt": "verkauf",
+      "/service": "verkauf",
       "/verleih": "ebike-vermietung",
       "/kontakt": "contact",
+      "/verkauf": "verkauf",
+      "/ersatzteile": "ersatzteile",
     };
     const sectionId = pathToSection[window.location.pathname];
     if (!sectionId) return;
@@ -208,21 +205,21 @@ function App() {
           <a
             className="brand"
             href="https://fixbike.online/"
-            aria-label="FixBike — E-Bike & Fahrradverleih Neuwied. Zur Startseite."
+            aria-label="FixBike — E-Bike & Fahrradverleih Koblenz. Zur Startseite."
           >
               <img
               className="brand__logo"
               src="/images/fixbike-logo.png"
               srcSet="/images/fixbike-logo.png 220w, /images/fixbike-logo.png 440w"
               sizes="(max-width: 640px) 140px, 220px"
-              alt="FixBike Neuwied Logo - E-Bike Verleih und Fahrradservice"
+              alt="FixBike Koblenz Logo - E-Bike Verleih und Fahrradverkauf"
               width={220}
               height={117}
               decoding="async"
             />
             <span className="brand__lockup">
               <span className="brand__seo-line">
-                E-Bike &amp; Fahrradverleih Neuwied · Fahrrad-Servis
+                E-Bike &amp; Fahrradverleih Koblenz · Verkauf
               </span>
             </span>
           </a>
@@ -249,8 +246,8 @@ function App() {
         <section className="move-hero" aria-labelledby="move-heading">
           <img
             className="move-hero__photo"
-            src="/images/werkstatt-koblenz.jpg"
-            alt="FixBike Fahrrad Service — neuer Standort"
+            src={HERO_MECHANIKER_FALLBACK}
+            alt="FixBike Koblenz — E-Bike Verleih und Fahrradverkauf"
             width={1600}
             height={1200}
             loading="eager"
@@ -258,22 +255,11 @@ function App() {
             decoding="async"
           />
           <h1 id="move-heading" className="move-hero__title">
-            BALD ZIEHEN WIR AN EINEN NEUEN STANDORT UM
+            JETZT IN KOBLENZ
           </h1>
           <p className="move-hero__address">
             Wallersheimer Weg 16, 56070 Koblenz
           </p>
-        </section>
-
-        <section className="campaign-poster" aria-label="FixBike Fahrrad Service">
-          <img
-            src={BANNER_CAMPAIGN}
-            alt="FixBike Fahrrad Service — Dein Fahrrad Spezialist. Service, Reparatur, Inspektion, Zubehör, E-Bike Diagnose, alle Marken."
-            width={1600}
-            height={1600}
-            loading="lazy"
-            decoding="async"
-          />
         </section>
 
         <section className="hero hero--asymmetric" aria-labelledby="hero-heading">
@@ -282,11 +268,11 @@ function App() {
           <div className="container container--wide hero__shell">
             <header className="hero__masthead reveal-scroll">
               <p className="hero__eyebrow">
-                E-Bike &amp; Fahrradverleih Neuwied · Fahrrad-Servis
+                E-Bike &amp; Fahrradverleih Koblenz · Verkauf
               </p>
               <h2 id="hero-heading" className="hero__title">
                 <span className="hero__title-line">
-                  FixBike — E-Bike Verleih &amp; Fahrradservice Neuwied
+                  FixBike — E-Bike Verleih &amp; Fahrradverkauf Koblenz
                 </span>
                 <span className="hero__title-line hero__title-line--tagline">
                   Mieten Sie Ihr E-Bike für nur 15,00&nbsp;€ / Tag · 105,00&nbsp;€ / 7 Tage
@@ -299,27 +285,27 @@ function App() {
                 <p className="hero__lead">
                   <strong>Wir bei FixBike</strong> bieten{" "}
                   <strong>
-                    <a href="/verleih">Fahrradverleih Neuwied</a>
+                    <a href="/verleih">Fahrradverleih Koblenz</a>
                   </strong>{" "}
                   und günstig{" "}
                   <strong>
-                    <a href="/verleih">Fahrrad mieten in Deutschland</a>
+                    <a href="/verleih">Fahrrad mieten</a>
                   </strong>{" "}
                   (CUBE E-Bikes) — plus{" "}
                   <strong>
-                    <a href="/service">Fahrradreparatur Neuwied</a>
+                    <a href="/verkauf">Verkauf von Fahrrädern und E-Bikes</a>
                   </strong>{" "}
-                  in unserem{" "}
+                  sowie{" "}
                   <strong>
-                    <a href="/service">Fahrrad-Servis</a>
+                    <a href="/ersatzteile">Ersatzteile</a>
                   </strong>
-                  . Transparenter Service, ehrliche Beratung, Abholung nach Termin —{" "}
+                  . Ehrliche Beratung, Abholung nach Termin —{" "}
                   <a href="/kontakt">so erreichen Sie uns</a>.
                 </p>
                 <p className="hero__price-ribbon" role="note">
                   <strong>E-Bike / Fahrrad mieten: ab 15,00&nbsp;€ / Tag · 105,00&nbsp;€ / 7 Tage</strong>
                   {" — "}
-                  <span className="muted">FixBike Fahrradverleih Neuwied</span>
+                  <span className="muted">FixBike Fahrradverleih Koblenz</span>
                 </p>
                 <div className="hero__actions">
                   <a className="btn btn--primary btn--lg" href="#ebike-vermietung">
@@ -333,19 +319,19 @@ function App() {
                   >
                     WhatsApp — Miete anfragen
                   </a>
-                  <a className="btn btn--ghost btn--lg" href="#servis">
-                    Servis &amp; Reparatur
+                  <a className="btn btn--ghost btn--lg" href="#verkauf">
+                    Fahrräder kaufen
                   </a>
                 </div>
                 <ul className="hero__badges" aria-label="Schwerpunkte">
                   <li>
-                    <a href="/verleih">Fahrradverleih Neuwied</a>
+                    <a href="/verleih">Fahrradverleih Koblenz</a>
                   </li>
                   <li>
                     <a href="/verleih">E-Bike mieten</a>
                   </li>
                   <li>
-                    <a href="/service">Fahrradreparatur</a>
+                    <a href="/verkauf">Fahrradverkauf</a>
                   </li>
                 </ul>
               </div>
@@ -357,7 +343,7 @@ function App() {
                       <WebpPicture
                         webpSrc={HERO_MECHANIKER_WEBP}
                         fallbackSrc={HERO_MECHANIKER_FALLBACK}
-                        alt="FixBike Neuwied - E-Bike Verleih und Fahrradservice - Zertifizierter E-Bike Mechaniker"
+                        alt="FixBike Koblenz - E-Bike Verleih und Fahrradverkauf"
                         width={1200}
                         height={800}
                         imgClassName="hero__photo hero__photo--mechaniker"
@@ -367,8 +353,7 @@ function App() {
                       />
                     </div>
                     <figcaption className="visually-hidden">
-                      Service: professionelle Fahrrad- und E-Bike-Reparatur bei
-                      FixBike
+                      FixBike Koblenz: Verleih und Verkauf von Fahrrad und E-Bike
                     </figcaption>
                   </figure>
                   <aside className="hero__panel" aria-label="Kurzinfo">
@@ -377,15 +362,12 @@ function App() {
                       <span className="hero__stat-value">15,00&nbsp;€ / Tag</span>
                     </div>
                     <p className="hero__panel-text">
-                      <strong>E-Bike mieten Neuwied</strong> oder klassisches Rad
-                      — parallel kümmern wir uns in unserer{" "}
-                      <strong>
-                        <a href="/service">Service</a>
-                      </strong>{" "}
-                      um <strong>Fahrradreparatur</strong>: Saison-Check, Bremsen, Schaltung, Akku-Diagnose.
+                      <strong>E-Bike mieten Koblenz</strong> oder ein Rad kaufen:
+                      klassische Fahrräder und E-Bikes, plus Ersatzteile nach
+                      Bedarf.
                     </p>
-                    <a className="hero__panel-link" href="#servis">
-                      Zum Fahrrad-Servis →
+                    <a className="hero__panel-link" href="#verkauf">
+                      Zum Fahrradverkauf →
                     </a>
                   </aside>
                 </div>
@@ -400,11 +382,11 @@ function App() {
         >
           <div className="container container--wide pricing-spotlight__inner">
             <h2 id="preis-spotlight-heading" className="pricing-spotlight__heading">
-              Günstig Fahrrad mieten · Fahrradverleih Neuwied
+              Günstig Fahrrad mieten · Fahrradverleih Koblenz
             </h2>
             <p className="pricing-spotlight__lead">
               <strong>E-Bike / Fahrrad mieten ab 15,00&nbsp;€ / Tag · 105,00&nbsp;€ / 7 Tage</strong> — bei uns
-              transparent, mit CUBE-Qualität. Ideal für Touren, Pendeln und Gäste in der Region Neuwied —{" "}
+              transparent, mit CUBE-Qualität. Ideal für Touren, Pendeln und Gäste in der Region Koblenz —{" "}
               <a href="/verleih">zur Modellübersicht und Buchung</a> oder{" "}
               <a href="/kontakt">direkt Kontakt</a>.
             </p>
@@ -436,30 +418,30 @@ function App() {
               01
             </span>
             <header className="section__head section__head--ebike ebike__head">
-              <p className="ebike-showcase__eyebrow">Fahrradverleih Neuwied</p>
+              <p className="ebike-showcase__eyebrow">Fahrradverleih Koblenz</p>
               <h2 id="ebike-rental-heading">
-                E-Bike mieten Neuwied — Fahrradverleih &amp; Pedelecs
+                E-Bike mieten Koblenz — Fahrradverleih &amp; Pedelecs
               </h2>
               <h3 className="ebike-showcase__subheading">
                 Günstig Fahrrad mieten in Deutschland — CUBE E-Bikes (M &amp; L) &amp; MTB
               </h3>
               <p className="section__head-lead">
-                <strong>Unser Fahrradverleih in Neuwied</strong> mit hochwertigen{" "}
+                <strong>Unser Fahrradverleih in Koblenz</strong> mit hochwertigen{" "}
                 <strong>CUBE</strong>-E-Bikes ab <strong>15€/Tag oder 105€/Woche</strong>. Reservierung per
                 Telefon, <a href={CONTACT.whatsappRental} target="_blank" rel="noopener noreferrer"><strong>WhatsApp</strong></a> oder{" "}
-                <a href="/kontakt">E-Mail über unsere Kontaktseite</a>. Wenn Sie zwischendurch Service brauchen:{" "}
-                <a href="/service">unseren Service</a>.
+                <a href="/kontakt">E-Mail über unsere Kontaktseite</a>. Interesse am Kauf?{" "}
+                <a href="/verkauf">Fahrräder und E-Bikes kaufen</a>.
               </p>
             </header>
 
             <div className="pricing-table-wrap" aria-labelledby="mietpreise-heading">
               <h3 id="mietpreise-heading" className="pricing-table__title">
-                Mietpreise — Fahrradverleih Neuwied
+                Mietpreise — Fahrradverleih Koblenz
               </h3>
               <div className="pricing-table-scroll">
                 <table className="pricing-table">
                   <caption className="visually-hidden">
-                    Übersicht E-Bike mieten Neuwied — Wochenpauschale
+                    Übersicht E-Bike mieten Koblenz — Wochenpauschale
                   </caption>
                   <thead>
                     <tr>
@@ -484,7 +466,7 @@ function App() {
                       <td colSpan={2} className="pricing-table__note">
                         Inkl. Beratung zur Radgröße · Übergabe nach Termin ·{" "}
                         <a href="/kontakt">Kontakt für Verfügbarkeit</a> ·{" "}
-                        <a href="/service">Service</a>
+                        <a href="/verkauf">Verkauf</a>
                       </td>
                     </tr>
                   </tbody>
@@ -554,15 +536,123 @@ function App() {
           </div>
         </section>
 
-        <section className="brand-ribbon" aria-hidden="true">
-          <img
-            src={BANNER_SERVICES_WIDE}
-            alt=""
-            width={1920}
-            height={280}
-            loading="lazy"
-            decoding="async"
-          />
+        <section
+          id="verkauf"
+          className="section section--surface section--editorial-split section--rhythm-standard reveal-scroll"
+        >
+          <span id="service" className="visually-hidden" />
+          <span className="section__index section__index--alt" aria-hidden="true">
+            02
+          </span>
+          <div className="container container--wide split split--reverse split--bleed-start">
+            <figure className="split__figure split__figure--lift split__figure--bleed">
+              <div className="media-frame media-frame--soft">
+                <WebpPicture
+                  webpSrc="/images/verkauf.webp"
+                  fallbackSrc="/images/verkauf.jpg"
+                  alt="Fahrradverkauf Koblenz — Fahrräder und E-Bikes bei FixBike"
+                  width={800}
+                  height={1000}
+                  loading="lazy"
+                  decoding="async"
+                />
+              </div>
+            </figure>
+            <div className="split__content">
+              <h2>Fahrradverkauf Koblenz — klassisch und elektrisch</h2>
+              <h3 className="split__subheading">
+                Wir verkaufen Fahrräder und E-Bikes
+              </h3>
+              <p className="split__lead">
+                Bei FixBike kaufen Sie <strong>normale Fahrräder</strong> und{" "}
+                <strong>elektrische Fahrräder (E-Bikes)</strong>. Wir beraten zu
+                Sitzposition, Einsatz (Alltag, Tour, Stadt) und Budget — sachlich
+                und ohne Schnickschnack. Zum Ausprobieren:{" "}
+                <a href="/verleih">E-Bike-Verleih</a>.
+              </p>
+              <ul className="hero__badges" aria-label="Verkauf">
+                <li>City- und Trekkingräder</li>
+                <li>E-Bikes / Pedelecs</li>
+                <li>Beratung nach Termin</li>
+              </ul>
+              <p className="muted">
+                Aktuelle Modelle und Preise erfragen Sie telefonisch, per WhatsApp
+                oder E-Mail.
+              </p>
+              <div className="split__callout">
+                <div className="callout callout--accent">
+                  <h3 className="callout__title">Rad reservieren</h3>
+                  <p>
+                    Sagen Sie uns, ob Sie ein klassisches Fahrrad oder ein E-Bike
+                    suchen — wir nennen Ihnen verfügbare Modelle.
+                  </p>
+                  <a className="btn btn--primary" href="#contact">
+                    Kontakt aufnehmen
+                  </a>
+                  <a
+                    className="btn btn--whatsapp"
+                    href={CONTACT.whatsappSales}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{ marginLeft: "0.5rem" }}
+                  >
+                    WhatsApp
+                  </a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section
+          id="ersatzteile"
+          className="section section--surface section--rhythm-standard reveal-scroll"
+          aria-labelledby="ersatzteile-heading"
+        >
+          <div className="container container--wide">
+            <span className="section__index" aria-hidden="true">
+              03
+            </span>
+            <header className="section__head">
+              <h2 id="ersatzteile-heading">Ersatzteile zum Wechseln</h2>
+              <p>
+                Wir verkaufen <strong>Ersatzteile für Fahrrad und E-Bike</strong>:
+                Verschleißteile, Antrieb, Bremsen, Reifen und weiteres Zubehör —
+                nach Verfügbarkeit und passend zu Ihrem Rad.
+              </p>
+            </header>
+            <div className="why-grid why-grid--mosaic">
+              <article className="why-card">
+                <h3>Verschleißteile</h3>
+                <p>
+                  Kette, Kassette, Bremsbeläge, Schläuche, Reifen und Beleuchtung
+                  für Alltag und Tour.
+                </p>
+              </article>
+              <article className="why-card">
+                <h3>Antrieb &amp; Bremsen</h3>
+                <p>
+                  Komponenten von Marken wie <strong>Shimano</strong> und{" "}
+                  <strong>SRAM</strong>, abgestimmt auf Ihr Modell.
+                </p>
+              </article>
+              <article className="why-card">
+                <h3>Beratung vor dem Kauf</h3>
+                <p>
+                  Nennen Sie Marke und Modell — wir sagen Ihnen, welches Teil
+                  passt.{" "}
+                  <a
+                    href={CONTACT.whatsappParts}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    WhatsApp-Anfrage
+                  </a>
+                  .
+                </p>
+              </article>
+            </div>
+          </div>
         </section>
 
         <section
@@ -570,20 +660,10 @@ function App() {
           className="section section--about section--surface section--rhythm-standard reveal-scroll"
           aria-labelledby="ueber-uns-heading"
         >
-          <div className="container container--wide about__shell about__shell--split">
+          <div className="container container--wide about__shell">
             <span className="section__index" aria-hidden="true">
-              02
+              04
             </span>
-            <figure className="about__photo">
-              <img
-                src={SERVICE_INTERIOR}
-                alt="FixBike Service — Blick in den Service mit FIXBIKE Banner"
-                width={1200}
-                height={800}
-                loading="lazy"
-                decoding="async"
-              />
-            </figure>
             <header className="section__head section__head--about">
               <h2 id="ueber-uns-heading">Über uns</h2>
               <div className="about__prose">
@@ -593,92 +673,21 @@ function App() {
                   Leidenschaft. Durch meine langjährige Erfahrung in der Arbeit
                   mit Fahrrädern ist aus Interesse mit der Zeit eine echte
                   Begeisterung geworden. Ich lege großen Wert auf saubere
-                  Arbeit, persönliche Beratung und zuverlässigen Service. Jeder
-                  Auftrag wird individuell geplant – nach Bestellung und
-                  Terminvereinbarung.
+                  Arbeit und persönliche Beratung. Jeder Kauf und jede Miete wird
+                  individuell geplant – nach Bestellung und Terminvereinbarung.
                 </p>
                 <p>
                   Wir arbeiten direkt mit Ihnen, daher bleibt jeder Schritt
-                  transparent. Jedoch hören wir zuerst zu, damit Ihr Bedarf
-                  wirklich passt. Zum Beispiel prüfen wir mit Ihnen Sitzposition,
-                  Strecke und Budget. So sehen Sie klar, warum unser Vorschlag
-                  zu Ihrem Alltag passt und wie unser Service Ihren Weg sicherer
-                  macht.
+                  transparent. Zuerst hören wir zu, damit Ihr Bedarf wirklich
+                  passt: Sitzposition, Strecke und Budget. So sehen Sie klar,
+                  warum unser Vorschlag zu Ihrem Alltag passt.
                 </p>
                 <p className="about__tagline muted">
-                  Service und Verleih <span className="about__tagline-strong">nur nach Terminvereinbarung</span>.
+                  Verkauf und Verleih{" "}
+                  <span className="about__tagline-strong">nur nach Terminvereinbarung</span>.
                 </p>
               </div>
             </header>
-          </div>
-        </section>
-
-        <section className="brand-ribbon brand-ribbon--logo" aria-label="FixBike Fahrrad Service">
-          <img
-            src={BANNER_LOGO_WIDE}
-            alt="FixBike Fahrrad Service"
-            width={1920}
-            height={400}
-            loading="lazy"
-            decoding="async"
-          />
-        </section>
-
-        <section
-          id="servis"
-          className="section section--surface section--services section--rhythm-standard reveal-scroll"
-          aria-labelledby="servis-heading"
-        >
-          <span id="service" className="visually-hidden" />
-          <div className="container container--wide services__shell">
-            <span className="section__index section__index--alt" aria-hidden="true">
-              03
-            </span>
-            <header className="section__head section__head--split-intro">
-              <h2 id="servis-heading">
-                Fahrrad-Servis Neuwied — Fahrradreparatur &amp; E-Bike Service
-              </h2>
-              <p>
-                Von der <strong>
-                  <a href="/service">Fahrrad Reparatur Neuwied</a>
-                </strong> bis zum{" "}
-                <strong>
-                  <a href="/service">E-Bike Service Neuwied</a>
-                </strong> — wir arbeiten präzise
-                und erklären, was Ihr Bike wirklich braucht. Mieten Sie parallel ein Rad? Dann schauen Sie in unseren{" "}
-                <a href="/verleih">Verleih</a>.
-              </p>
-            </header>
-            <ul className="cards cards--bento">
-              {serviceBlocks.map((s, i) => (
-                <li
-                  key={s.title}
-                  className={
-                    i === 0
-                      ? "card card--bento-lead"
-                      : i === 1
-                        ? "card card--bento card--bento-mid"
-                        : "card card--bento card--bento-overlap"
-                  }
-                >
-                  <div className="card__media">
-                    <WebpPicture
-                      webpSrc={s.image}
-                      fallbackSrc={webpToRasterPng(s.image)}
-                      alt={s.imageAlt}
-                      width={640}
-                      height={400}
-                      loading="lazy"
-                      decoding="async"
-                    />
-                  </div>
-                  <div className="card__body">
-                    <h3>{s.title}</h3>
-                    <p>{s.text}</p>
-                  </div>
-                </li>
-              ))}
-            </ul>
           </div>
         </section>
 
@@ -689,106 +698,54 @@ function App() {
         >
           <div className="container container--wide why__shell">
             <span className="section__index" aria-hidden="true">
-              04
+              05
             </span>
             <header className="section__head section__head--why">
-              <h2 id="warum-heading">Warum FixBike in Neuwied?</h2>
+              <h2 id="warum-heading">Warum FixBike in Koblenz?</h2>
               <p>
-                Ihr <strong>Fahrradservice Neuwied</strong> mit Schwerpunkt{" "}
+                Ihr lokaler Partner für{" "}
                 <strong>
                   <a href="/verleih">Fahrradverleih</a>
-                </strong>,{" "}
+                </strong>
+                ,{" "}
                 <strong>
                   <a href="/verleih">E-Bike mieten</a>
+                </strong>
+                ,{" "}
+                <strong>
+                  <a href="/verkauf">Fahrrad- und E-Bike-Verkauf</a>
                 </strong>{" "}
-                und <strong>Fahrrad-Servis</strong> — plus schnelle Hilfe bei{" "}
+                und{" "}
                 <strong>
-                  <a href="/service">Fahrrad Reparatur</a>
-                </strong> und{" "}
-                <strong>
-                  <a href="/service">E-Bike Service</a>
-                </strong>.{" "}
+                  <a href="/ersatzteile">Ersatzteile</a>
+                </strong>
+                .{" "}
                 <a href="/kontakt">Kontakt &amp; Anfahrt</a> finden Sie hier.
               </p>
             </header>
             <div className="why-grid why-grid--mosaic">
               <article className="why-card">
-                <h3>Fahrradservice Neuwied — lokal &amp; persönlich</h3>
+                <h3>Lokal &amp; persönlich</h3>
                 <p>
-                  Wir sind keine anonyme Kette: kurze Wege in der Region Neuwied und direkter Draht zu mir und unserem Team —{" "}
+                  Kurze Wege in Koblenz und direkter Draht zu mir und unserem Team —{" "}
                   <a href="/kontakt">so erreichen Sie uns</a>.
                 </p>
               </article>
               <article className="why-card">
-                <h3>Schnelle Fahrrad Reparatur Neuwied</h3>
+                <h3>Fahrrad und E-Bike kaufen</h3>
                 <p>
-                  Pannen und sicherheitsrelevante Themen priorisieren wir gemeinsam mit Ihnen — Sie wissen, woran Sie sind.{" "}
-                  <a href="/service">Zum Service</a>.
+                  Klassische Räder und Pedelecs mit ehrlicher Beratung zu Größe,
+                  Einsatz und Preis.
                 </p>
               </article>
               <article className="why-card">
                 <h3>Faire Preise &amp; Ersatzteile</h3>
                 <p>
-                  Wir verbauen Qualitätskomponenten von{" "}
-                  <strong>Shimano</strong> und <strong>SRAM</strong>, abgestimmt
-                  auf Ihr Rad und Ihre Nutzung — passend zu unserem{" "}
+                  Qualitätskomponenten von <strong>Shimano</strong> und{" "}
+                  <strong>SRAM</strong>, passend zu Ihrem Rad und unserem{" "}
                   <a href="/verleih">Verleih-Angebot</a>.
                 </p>
               </article>
-            </div>
-          </div>
-        </section>
-
-        <section
-          id="verkauf"
-          className="section section--surface section--editorial-split section--rhythm-standard section--deemphasize reveal-scroll"
-        >
-          <span className="section__index section__index--alt" aria-hidden="true">
-            05
-          </span>
-          <div className="container container--wide split split--reverse split--bleed-start">
-            <figure className="split__figure split__figure--lift split__figure--bleed">
-              <div className="media-frame media-frame--soft">
-                <WebpPicture
-                  webpSrc="/images/verkauf.webp"
-                  fallbackSrc="/images/verkauf.jpg"
-                  alt="Fahrradverkauf Neuwied - Geprüfte E-Bikes und Fahrräder bei FixBike"
-                  width={800}
-                  height={1000}
-                  loading="lazy"
-                  decoding="async"
-                />
-              </div>
-            </figure>
-            <div className="split__content">
-              <h2>Fahrradverkauf Neuwied — passend beraten</h2>
-              <h3 className="split__subheading">
-                Fahrradservice Neuwied prüft jedes Rad vor dem Verkauf
-              </h3>
-              <p className="split__lead">
-                Ausgewählte Modelle und Gebrauchräder prüfen wir in unserem Service vor dem Verkauf. Beim{" "}
-                <strong>Fahrrad kaufen</strong> zählen
-                Sitzposition, Komponenten und Wartungsfreundlichkeit — wir
-                beraten sachlich und ohne Schnickschnack. Service vorab:{" "}
-                <a href="/service">Service &amp; Inspektion</a>, Miete zum Ausprobieren:{" "}
-                <a href="/verleih">E-Bike-Verleih</a>.
-              </p>
-              <p className="muted">
-                Online-Shop und Zahlungsoptionen werden ergänzt — bis dahin
-                erreichen Sie uns über die Kontaktwege unten.
-              </p>
-              <div className="split__callout">
-                <div className="callout callout--accent">
-                  <h3 className="callout__title">Stöbern &amp; reservieren</h3>
-                  <p>
-                    Aktuelle Räder und Preise können Sie telefonisch oder per
-                    E-Mail erfragen — wir halten Sie auf dem Laufenden.
-                  </p>
-                  <a className="btn btn--primary" href="#contact">
-                    Kontakt aufnehmen
-                  </a>
-                </div>
-              </div>
             </div>
           </div>
         </section>
@@ -806,14 +763,16 @@ function App() {
               <h2 id="contact-heading">Kontakt &amp; Anfahrt</h2>
               <p>
                 <strong>
-                  <a href="/verleih">Fahrradverleih Neuwied</a>
+                  <a href="/verleih">Fahrradverleih Koblenz</a>
                 </strong>,{" "}
                 <strong>
-                  <a href="/verleih">E-Bike mieten Neuwied</a>
-                </strong> und{" "}
+                  <a href="/verleih">E-Bike mieten Koblenz</a>
+                </strong>{" "}
+                und{" "}
                 <strong>
-                  <a href="/service">Fahrradreparatur Neuwied</a>
-                </strong> — Schreiben Sie uns per WhatsApp oder E-Mail —{" "}
+                  <a href="/verkauf">Fahrradverkauf Koblenz</a>
+                </strong>{" "}
+                — Schreiben Sie uns per WhatsApp oder E-Mail —{" "}
                 <a href="/kontakt">alle Kontaktwege</a>.
               </p>
             </header>
@@ -831,7 +790,7 @@ function App() {
                   }
                 >
                   <iframe
-                    title="Google Maps: FixBike, Wagenhallenweg 8, 56566 Neuwied"
+                    title="Google Maps: FixBike, Wallersheimer Weg 16, 56070 Koblenz"
                     className="contact-map__iframe"
                     src={MAPS_EMBED_URL}
                     width={600}
@@ -847,7 +806,7 @@ function App() {
               <address className="contact-card">
                 <h3>Adresse &amp; Erreichbarkeit</h3>
                 <p>
-                  <strong>FixBike Neuwied Fahrradservice</strong>
+                  <strong>FixBike Koblenz</strong>
                   <br />
                   <a
                     className="contact-card__maps"
@@ -904,13 +863,12 @@ function App() {
                 </p>
               </address>
               <div className="contact-card contact-card--highlight">
-                <h3>Termin — Fahrrad Reparatur &amp; E-Bike Service</h3>
+                <h3>Termin — Verleih, Verkauf &amp; Ersatzteile</h3>
                 <p>
-                  Service und Übergabe erfolgen{" "}
+                  Übergabe und Beratung erfolgen{" "}
                   <strong>nur nach Vereinbarung</strong>. Sie melden sich per
-                  Telefon, WhatsApp oder E-Mail — wir planen Reparatur,
-                  Inspektion, <strong>E-Bike Service Neuwied</strong> oder
-                  Verleih individuell mit Ihnen.
+                  Telefon, WhatsApp oder E-Mail — wir planen Miete, Kauf oder
+                  Ersatzteile individuell mit Ihnen.
                 </p>
                 <p className="muted small">
                   Wir nehmen uns Zeit für Ihr Rad, wenn der Termin passt.
@@ -922,6 +880,26 @@ function App() {
         </section>
 
         <section
+          id="kleine-reparaturen"
+          className="section section--surface section--rhythm-standard reveal-scroll"
+          aria-labelledby="kleine-reparaturen-heading"
+        >
+          <span id="servis" className="visually-hidden" />
+          <div className="container container--wide">
+            <h2 id="kleine-reparaturen-heading">Kleine Reparaturen und Teilewechsel</h2>
+            <p>
+              Nach Terminvereinbarung übernehmen wir <strong>kleine Reparaturen</strong>{" "}
+              an Fahrrädern und E-Bikes und wechseln <strong>Ersatzteile</strong> direkt
+              am Rad — zum Beispiel Schlauch, Beläge, Kette oder Schaltungseinstellung.
+            </p>
+            <p className="muted">
+              Größere Arbeiten bieten wir nicht an. Fragen Sie uns einfach per
+              WhatsApp oder E-Mail, ob Ihr Fall dazu gehört.
+            </p>
+          </div>
+        </section>
+
+        <section
           id="fixbike-brojke"
           className="section section--surface section--rhythm-standard reveal-scroll"
           aria-labelledby="brojke-heading"
@@ -929,9 +907,9 @@ function App() {
           <div className="container container--wide">
             <h2 id="brojke-heading">FixBike Online in Zahlen — Kennzahlen</h2>
             <p className="section__head-lead">
-              Als Team nennen wir messbare Zusagen: <strong>20 Jahre</strong> Erfahrung im Service,{" "}
+              Als Team nennen wir messbare Zusagen: <strong>20 Jahre</strong> Erfahrung am Fahrrad,{" "}
               <strong>15+</strong> Fahrradtypen, <strong>500+</strong> zufriedene Kundinnen und Kunden in der Region,{" "}
-              <strong>24 h</strong> typischer Rahmen für Standard-Reparaturen, wenn Teile verfügbar sind,{" "}
+              <strong>24 h</strong> typischer Rahmen für Übergabe und kleine Reparaturen, wenn Teile verfügbar sind,{" "}
               <strong>100&nbsp;%</strong> Originalteile nach Vereinbarung und Anfragen per WhatsApp, E-Mail und Formular.
             </p>
           </div>
@@ -945,7 +923,7 @@ function App() {
           <div className="container container--wide">
             <h2 id="partner-heading">Partner &amp; Standards</h2>
             <p>
-              FixBike Online folgt Service-Prozessen von{" "}
+              FixBike Online orientiert sich an Herstellerhinweisen von{" "}
               <a href="https://www.bosch-ebike.com/" target="_blank" rel="noopener noreferrer">
                 Bosch eBike Systems
               </a>{" "}
@@ -977,8 +955,8 @@ function App() {
           <div className="container container--wide">
             <h2 id="service-video-heading">Video — Grundlagen zur Kettenpflege</h2>
             <p className="muted small">
-              Park Tool auf YouTube. Wir nutzen das Video als ergänzende Einleitung zu unserem{" "}
-              <a href="#servis">E-Bike Service Neuwied</a>.
+              Park Tool auf YouTube. Ergänzung zur Fahrradpflege — unabhängig von Miete
+              und Verkauf.
             </p>
             <ConsentGate
               fallback={

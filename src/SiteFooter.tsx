@@ -170,15 +170,13 @@ export default function SiteFooter() {
 
           <p>
 
-            <strong>F:</strong> Wie lange dauert eine Reparatur?
+            <strong>F:</strong> Wie lange dauert eine kleine Reparatur?
 
             <br />
 
-            <strong>A:</strong> Einfache Reparaturen werden meist am gleichen Tag
+            <strong>A:</strong> Kleine Reparaturen und Teilewechsel werden meist am gleichen Tag
 
-            erledigt. Aufwendigere Arbeiten können 1–3 Werktage in Anspruch
-
-            nehmen.
+            erledigt. Umfangreichere Arbeiten bieten wir nicht an.
 
           </p>
 
@@ -188,7 +186,7 @@ export default function SiteFooter() {
 
             <br />
 
-            <strong>A:</strong> Für größere Reparaturen empfehlen wir eine
+            <strong>A:</strong> Für Beratung, Miete und kleine Reparaturen empfehlen wir eine
 
             vorherige Kontaktaufnahme per E-Mail:{" "}
 
@@ -221,17 +219,6 @@ export default function SiteFooter() {
   return (
 
     <footer className="footer">
-      <div className="footer__banner">
-        <img
-          src="/images/banner-logo-wide.jpg"
-          alt="FixBike Fahrrad Service"
-          width={1920}
-          height={400}
-          loading="lazy"
-          decoding="async"
-        />
-      </div>
-
       <div className="container container--wide footer__grid">
 
         <div>
@@ -240,9 +227,11 @@ export default function SiteFooter() {
 
           <p className="footer__tagline">
 
-            Fahrradverleih Neuwied · Fahrrad-Service · E-Bike Service · Verkauf —{" "}
+            Fahrradverleih Koblenz · Verkauf · Ersatzteile —{" "}
 
-            <a href="/verleih">Verleih</a> · <a href="/service">Service</a> ·{" "}
+            <a href="/verleih">Verleih</a> · <a href="/verkauf">Verkauf</a> ·{" "}
+
+            <a href="/ersatzteile">Ersatzteile</a> ·{" "}
 
             <a href="/kontakt">Kontakt</a>
 

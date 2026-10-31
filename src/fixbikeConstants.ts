@@ -42,8 +42,7 @@ export const rentalEBikes: {
   {
     title: "CUBE Touring Hybrid",
     size: "Größe M",
-    countNote:
-      "Wir stellen dieses komfortable Trekking-E-Bike für Alltag, Touren und längere Strecken bereit — bei uns mit persönlicher Übergabe in Koblenz.",
+    countNote: "Komfortables Trekking-E-Bike für Alltag, Pendeln und Touren.",
     image: "/images/cube-touring-hybrid-m.webp",
     imageAlt: "CUBE Touring Hybrid E-Bike Größe M - E-Bike mieten in Koblenz bei FixBike",
     specs: [
@@ -55,8 +54,7 @@ export const rentalEBikes: {
   {
     title: "CUBE Touring Hybrid",
     size: "Größe L",
-    countNote:
-      "Dasselbe Modell in Größe L — wir beraten Sie, ob die Geometrie zu Ihrer Körpergröße und Route passt.",
+    countNote: "Dieselbe Touring-Geometrie in Größe L — passend für größere Fahrerinnen und Fahrer.",
     image: "/images/cube-touring-hybrid-l.webp",
     imageAlt: "CUBE Touring Hybrid E-Bike Größe L - Fahrradverleih Koblenz bei FixBike",
     specs: [
@@ -68,8 +66,7 @@ export const rentalEBikes: {
   {
     title: "CUBE Stereo Hybrid",
     size: "Größe M",
-    countNote:
-      "Unser E-MTB mit Vollfederung — wir empfehlen es, wenn Sie mehr Gelände und Komfort wollen.",
+    countNote: "Vollgefedertes E-MTB für Wald, Trail und sportliche Touren.",
     image: "/images/cube-stereo-hybrid-m.webp",
     imageAlt: "CUBE Stereo Hybrid MTB E-Bike Größe M - E-Bike mieten in Koblenz bei FixBike",
     specs: [
@@ -79,3 +76,30 @@ export const rentalEBikes: {
     ],
   },
 ];
+
+export const faqItems = [
+  {
+    q: "Was kostet die E-Bike-Miete?",
+    a: "Die Miete gilt für sieben Tage: 105 €, das entspricht 15 € pro Tag. Eine kürzere Tagesmiete ist derzeit nicht das Standardangebot.",
+  },
+  {
+    q: "Welche Größen gibt es?",
+    a: "CUBE Touring Hybrid in Größe M und L sowie CUBE Stereo Hybrid in Größe M. Wir beraten Sie zur Passform vor der Übergabe.",
+  },
+  {
+    q: "Wie frage ich die Verfügbarkeit an?",
+    a: "Über das Formular am gewählten Rad, per WhatsApp, Telefon oder E-Mail. Wir bestätigen den Termin persönlich — es gibt keine sofortige Online-Buchung.",
+  },
+  {
+    q: "Wo hole ich das Rad ab?",
+    a: "Nach Vereinbarung bei uns in Koblenz, Wallersheimer Weg 16, 56070 Koblenz.",
+  },
+  {
+    q: "Brauche ich einen Termin?",
+    a: "Ja. Verleih, Verkauf, Ersatzteile und kleine Reparaturen nur nach Terminvereinbarung. Mo–Fr 9:00–18:00, Sa 9:00–14:00.",
+  },
+  {
+    q: "Wie erreiche ich FixBike?",
+    a: "Telefon oder WhatsApp +49 163 7046825, E-Mail fixbike2025@gmail.com.",
+  },
+] as const;

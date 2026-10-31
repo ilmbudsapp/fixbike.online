@@ -275,8 +275,6 @@ export default function SiteFooter() {
 
       />
 
-
-
       <LegalBlock
 
         id="datenschutz"

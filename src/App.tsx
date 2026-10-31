@@ -18,6 +18,7 @@ import {
   nav,
   rentalEBikes,
 } from "./fixbikeConstants";
+import ErsatzteileSection from "./ErsatzteileSection";
 import { webpToRasterPng } from "./imagePaths";
 import WebpPicture from "./WebpPicture";
 
@@ -59,7 +60,6 @@ function App() {
         "/verleih": "ebike-vermietung",
         "/kontakt": "contact",
         "/verkauf": "verkauf",
-        "/ersatzteile": "ersatzteile",
       };
       const sectionId = id || pathMap[window.location.pathname];
       if (!sectionId) return;
@@ -107,7 +107,6 @@ function App() {
       "/verleih": "ebike-vermietung",
       "/kontakt": "contact",
       "/verkauf": "verkauf",
-      "/ersatzteile": "ersatzteile",
     };
     const sectionId = pathToSection[window.location.pathname];
     if (!sectionId) return;
@@ -231,6 +230,13 @@ function App() {
   };
 
   const closeMenu = () => setMenuOpen(false);
+  const isErsatzteilePage =
+    window.location.pathname.replace(/\/+$/, "") === "/ersatzteile";
+  const navHref = (href: string) => {
+    if (!isErsatzteilePage) return href;
+    if (href === "#ersatzteile") return "/ersatzteile";
+    return `/${href}`;
+  };
 
   return (
     <>
@@ -271,13 +277,22 @@ function App() {
             <ul className="nav__list">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <a href={item.href}>{item.label}</a>
+                  <a
+                    href={navHref(item.href)}
+                    aria-current={
+                      item.href === "#ersatzteile" && isErsatzteilePage
+                        ? "page"
+                        : undefined
+                    }
+                  >
+                    {item.label}
+                  </a>
                 </li>
               ))}
             </ul>
           </nav>
 
-          <a className="btn btn--primary header__cta" href="#ebike-vermietung">
+          <a className="btn btn--primary header__cta" href={navHref("#ebike-vermietung")}>
             E-Bike mieten
           </a>
 
@@ -303,13 +318,13 @@ function App() {
             <ul className="nav-drawer__list">
               {nav.map((item) => (
                 <li key={item.href}>
-                  <a href={item.href} onClick={closeMenu}>
+                  <a href={navHref(item.href)} onClick={closeMenu}>
                     {item.label}
                   </a>
                 </li>
               ))}
             </ul>
-            <a className="btn btn--primary" href="#ebike-vermietung" onClick={closeMenu}>
+            <a className="btn btn--primary" href={navHref("#ebike-vermietung")} onClick={closeMenu}>
               E-Bike mieten
             </a>
           </nav>
@@ -318,6 +333,9 @@ function App() {
       </div>
 
       <main id="main">
+        {isErsatzteilePage ? <ErsatzteileSection variant="page" /> : null}
+        {isErsatzteilePage ? null : (
+          <>
         <section className="hero" aria-labelledby="hero-heading">
           <div className="hero__atmosphere" aria-hidden="true">
             <span className="hero__glow hero__glow--main" />
@@ -505,46 +523,7 @@ function App() {
           </div>
         </section>
 
-        <section
-          id="ersatzteile"
-          className="section section--parts"
-          aria-labelledby="ersatzteile-heading"
-        >
-          <div className="container">
-            <header className="section__head reveal">
-              <p className="eyebrow">Teile</p>
-              <h2 id="ersatzteile-heading" className="mask-title">
-                <span className="mask-title__clip">
-                  <span className="mask-title__inner">Ersatzteile zum Wechseln</span>
-                </span>
-              </h2>
-              <p>
-                Verschleißteile, Antrieb, Bremsen und Reifen — nach Verfügbarkeit,
-                passend zu Marke und Modell.
-              </p>
-            </header>
-            <ul className="parts stagger">
-              <li>
-                <h3>Verschleiß</h3>
-                <p>Kette, Beläge, Schläuche, Reifen, Beleuchtung.</p>
-              </li>
-              <li>
-                <h3>Antrieb &amp; Bremsen</h3>
-                <p>Komponenten von Shimano und SRAM, soweit lieferbar.</p>
-              </li>
-              <li>
-                <h3>Passform klären</h3>
-                <p>
-                  Nennen Sie Marke und Modell.{" "}
-                  <a href={CONTACT.whatsappParts} target="_blank" rel="noopener noreferrer">
-                    Anfrage per WhatsApp
-                  </a>
-                  .
-                </p>
-              </li>
-            </ul>
-          </div>
-        </section>
+        <ErsatzteileSection variant="home" />
 
         <section
           id="ueber-uns"
@@ -701,6 +680,8 @@ function App() {
             </p>
           </div>
         </section>
+          </>
+        )}
 
         <Suspense fallback={null}>
           <SiteFooter />
@@ -709,7 +690,7 @@ function App() {
 
       <div className="mobile-dock" aria-label="Schnellkontakt">
         <a href={`tel:${CONTACT.phoneTel}`}>Anrufen</a>
-        <a href="#ebike-vermietung">E-Bike mieten</a>
+        <a href={navHref("#ebike-vermietung")}>E-Bike mieten</a>
       </div>
 
       {selectedBike ? (

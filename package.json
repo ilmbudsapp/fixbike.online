@@ -12,7 +12,8 @@
     "favicon:generate": "node scripts/generate-favicon.mjs",
     "indexnow:ping": "node scripts/ping-indexnow.mjs",
     "check:sitemap": "node scripts/check-sitemap-access.mjs",
-    "noscript:sync": "node scripts/sync-noscript.mjs"
+    "noscript:sync": "node scripts/sync-noscript.mjs",
+    "images:parts": "node scripts/optimize-parts-images.mjs"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.2.8",

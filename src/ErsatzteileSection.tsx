@@ -73,10 +73,7 @@ export default function ErsatzteileSection({ variant }: { variant: Variant }) {
           <p className="eyebrow">Ersatzteile</p>
           <HeadingTag id="ersatzteile-heading" className="mask-title">
             <span className="mask-title__clip">
-              <span className="mask-title__inner">Das passende Teil.</span>
-            </span>
-            <span className="mask-title__clip">
-              <span className="mask-title__inner">Für dein Fahrrad.</span>
+              <span className="mask-title__inner">Ersatzteile für Fahrrad und E-Bike</span>
             </span>
           </HeadingTag>
           <p>

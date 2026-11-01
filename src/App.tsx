@@ -20,11 +20,11 @@ import {
 } from "./fixbikeConstants";
 import ErsatzteileSection from "./ErsatzteileSection";
 import { webpToRasterPng } from "./imagePaths";
+import ScenePhoto from "./ScenePhoto";
 import WebpPicture from "./WebpPicture";
 
 const WEB3FORMS_ENDPOINT = "https://api.web3forms.com/submit";
 const WEB3FORMS_ACCESS_KEY = import.meta.env.VITE_WEB3FORMS_ACCESS_KEY ?? "";
-const HERO_BIKE = rentalEBikes[0];
 
 function App() {
   const menuId = useId();
@@ -337,40 +337,32 @@ function App() {
         {isErsatzteilePage ? null : (
           <>
         <section className="hero" aria-labelledby="hero-heading">
-          <div className="hero__atmosphere" aria-hidden="true">
-            <span className="hero__glow hero__glow--main" />
-            <span className="hero__glow hero__glow--depth" />
-            <span className="hero__grain" />
-          </div>
-          <p className="hero__wordmark" aria-hidden="true">
-            FIXBIKE
-          </p>
           <figure className="hero__stage">
-            <WebpPicture
-              webpSrc={HERO_BIKE.image}
-              fallbackSrc={webpToRasterPng(HERO_BIKE.image)}
-              alt={HERO_BIKE.imageAlt}
-              width={1600}
-              height={1200}
-              imgClassName="hero__bike"
+            <ScenePhoto
+              srcBase="/images/hero/fixbike-hero-1-cube"
+              alt=""
+              className="hero__photo"
+              objectPosition="80% 64%"
               loading="eager"
               fetchPriority="high"
-              decoding="async"
               sizes="100vw"
             />
             <span className="hero__veil" aria-hidden="true" />
           </figure>
-          <div className="container hero__copy">
+          <div className="hero__copy">
             <h1 id="hero-heading">
               <span className="mask-title__clip">
                 <span className="mask-title__inner">Dein nächster Weg.</span>
               </span>
               <span className="mask-title__clip">
-                <span className="mask-title__inner">Wird eine gute Fahrt.</span>
+                <span className="mask-title__inner">Wird eine</span>
+              </span>
+              <span className="mask-title__clip">
+                <span className="mask-title__inner">gute Fahrt.</span>
               </span>
               <span className="mask-title__clip hero__seo-clip">
                 <span className="mask-title__inner">
-                  E-Bike Verleih und Fahrradverkauf in Koblenz
+                  E-Bike-Verleih und Fahrradverkauf in Koblenz
                 </span>
               </span>
             </h1>
@@ -389,6 +381,9 @@ function App() {
                 Kaufberatung anfragen
               </a>
             </div>
+            <p className="scene-note scene-note--inline">
+              Symbolbild. Verfügbare Modelle auf Anfrage.
+            </p>
           </div>
         </section>
 
@@ -495,31 +490,33 @@ function App() {
         <section id="verkauf" className="photo-band">
           <span id="service" className="visually-hidden" />
           <div className="photo-band__media media-reveal">
-            <WebpPicture
-              webpSrc="/images/verkauf.webp"
-              fallbackSrc="/images/verkauf.jpg"
-              alt="Fahrradverkauf in Koblenz — klassische Räder und E-Bikes bei FixBike"
-              width={800}
-              height={1000}
+            <ScenePhoto
+              srcBase="/images/hero/fixbike-hero-2-cube"
+              alt=""
+              className="photo-band__photo"
+              objectPosition="78% 62%"
               loading="lazy"
-              decoding="async"
+              sizes="100vw"
             />
           </div>
-          <div className="container photo-band__copy reveal">
+          <div className="photo-band__copy reveal">
             <p className="eyebrow">Verkauf</p>
             <h2 className="mask-title">
               <span className="mask-title__clip">
-                <span className="mask-title__inner">Fahrräder und E-Bikes kaufen</span>
+                <span className="mask-title__inner">Bereit für Ihren nächsten Weg?</span>
               </span>
             </h2>
             <p>
-              Klassische Fahrräder und elektrische Räder — mit Beratung zu
-              Sitzposition, Einsatz und Budget. Aktuelle Modelle nennen wir Ihnen
-              nach Anfrage.
+              Ob Alltag oder sportliche Tour: Wir beraten Sie persönlich zum
+              passenden Fahrrad oder E-Bike. Verfügbare Modelle und Preise auf
+              Anfrage.
             </p>
             <a className="btn btn--primary" href="#contact">
               Kaufberatung anfragen <span className="btn__arrow" aria-hidden="true">→</span>
             </a>
+            <p className="scene-note scene-note--inline">
+              Symbolbild. Verfügbare Modelle auf Anfrage.
+            </p>
           </div>
         </section>
 

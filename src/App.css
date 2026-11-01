@@ -53,9 +53,9 @@ h1,
 h2,
 h3 {
   font-family: var(--display);
-  letter-spacing: -0.035em;
+  letter-spacing: -0.03em;
   line-height: 1.06;
-  font-weight: 700;
+  font-weight: 600;
   margin: 0 0 0.7rem;
 }
 
@@ -241,7 +241,7 @@ html.scrolled .topbar {
 }
 
 .brand__logo {
-  width: 112px;
+  width: 96px;
   height: auto;
   flex-shrink: 0;
 }
@@ -267,12 +267,12 @@ html.scrolled .topbar {
 
 @media (min-width: 720px) {
   .brand__logo {
-    width: 142px;
+    width: 124px;
   }
 
   .brand__seo-line {
-    font-size: 0.84rem;
-    max-width: 14rem;
+    font-size: 0.78rem;
+    max-width: 10.5rem;
   }
 }
 
@@ -401,7 +401,7 @@ html.scrolled .topbar {
 .hero {
   position: relative;
   isolation: isolate;
-  min-height: 100svh;
+  min-height: min(100svh, 48rem);
   background: var(--scene);
   color: var(--cream);
   overflow: hidden;
@@ -409,96 +409,45 @@ html.scrolled .topbar {
   align-items: end;
 }
 
-.hero__atmosphere,
-.hero__stage,
-.hero__wordmark {
-  position: absolute;
-  inset: 0;
-}
-
-.hero__glow {
-  position: absolute;
-  border-radius: 50%;
-  pointer-events: none;
-}
-
-.hero__glow--main {
-  width: 70vw;
-  height: 70vw;
-  right: -8%;
-  top: 8%;
-  background: radial-gradient(circle, rgba(0, 127, 130, 0.38), transparent 68%);
-  filter: blur(8px);
-}
-
-.hero__glow--depth {
-  width: 42vw;
-  height: 42vw;
-  left: -10%;
-  bottom: -12%;
-  background: radial-gradient(circle, rgba(0, 127, 130, 0.14), transparent 70%);
-}
-
-.hero__grain {
-  position: absolute;
-  inset: 0;
-  opacity: 0.09;
-  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='140' height='140'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.8' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.55'/%3E%3C/svg%3E");
-  pointer-events: none;
-}
-
-.hero__wordmark {
-  display: flex;
-  align-items: center;
-  justify-content: flex-end;
-  padding: 0 4vw 8vh;
-  font-family: var(--display);
-  font-size: clamp(5rem, 22vw, 18rem);
-  font-weight: 800;
-  letter-spacing: -0.07em;
-  line-height: 0.8;
-  color: rgba(245, 244, 239, 0.06);
-  z-index: 0;
-}
-
 .hero__stage {
+  position: absolute;
+  inset: 0;
   z-index: 1;
   margin: 0;
+  overflow: hidden;
 }
 
-.hero__bike {
+.hero__stage picture,
+.hero__photo,
+.hero__stage img {
   width: 100%;
   height: 100%;
-  min-height: 100svh;
   object-fit: cover;
-  object-position: 72% 48%;
 }
 
 .hero__veil {
   position: absolute;
   inset: 0;
-  background:
-    linear-gradient(
-      105deg,
-      #101514 0%,
-      rgba(16, 21, 20, 0.88) 28%,
-      rgba(16, 21, 20, 0.38) 54%,
-      rgba(16, 21, 20, 0.18) 100%
-    ),
-    radial-gradient(ellipse at 74% 46%, rgba(0, 127, 130, 0.22), transparent 52%);
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(16, 21, 20, 0.78) 0%,
+    rgba(16, 21, 20, 0.42) 28%,
+    rgba(16, 21, 20, 0.08) 52%,
+    transparent 72%
+  );
 }
 
 .hero__copy {
   position: relative;
   z-index: 2;
-  padding: 7.5rem 0 3.2rem;
-  max-width: 40rem;
+  padding: 7rem 0 2.4rem;
   margin-left: max(1rem, calc((100% - var(--max)) / 2));
-  width: min(40rem, calc(100% - 2rem));
+  width: min(36rem, calc(100% - 2rem));
 }
 
 .hero h1 {
-  margin: 0 0 1rem;
+  margin: 0 0 0.85rem;
 }
 
 .mask-title__clip {
@@ -507,30 +456,31 @@ html.scrolled .topbar {
 }
 
 .hero .mask-title__clip {
-  font-size: clamp(2.35rem, 7.4vw, 5.4rem);
-  font-weight: 750;
-  letter-spacing: -0.045em;
-  line-height: 1.02;
+  font-size: clamp(2.2rem, 5.6vw, 4.35rem);
+  font-weight: 600;
+  letter-spacing: -0.032em;
+  line-height: 1.04;
 }
 
 .hero__seo-clip {
-  margin-top: 0.7rem;
+  margin-top: 0.65rem;
   font-family: var(--font);
-  font-size: clamp(1.02rem, 2.1vw, 1.28rem) !important;
+  font-size: clamp(1rem, 1.8vw, 1.18rem) !important;
   font-weight: 600 !important;
-  letter-spacing: -0.02em !important;
-  color: #c9d6d4;
+  letter-spacing: -0.018em !important;
+  line-height: 1.3 !important;
+  color: #d5dddb;
 }
 
 .hero__lead {
-  max-width: 34ch;
-  color: #cfd6d4;
+  max-width: 36ch;
+  color: #d0d7d5;
 }
 
 .hero__price {
   display: inline-block;
-  margin: 0 0 1.35rem;
-  padding: 0.45rem 0.7rem;
+  margin: 0 0 1.15rem;
+  padding: 0.4rem 0.7rem;
   border-left: 2px solid var(--accent);
   font-family: var(--display);
   font-weight: 650;
@@ -542,40 +492,38 @@ html.scrolled .topbar {
   gap: 0.7rem;
 }
 
-.page-loaded .hero__glow--main {
-  animation: glow-in 900ms var(--ease) both;
+.scene-note {
+  margin: 0;
+  font-size: 0.72rem;
+  letter-spacing: 0.04em;
+  color: rgba(245, 244, 239, 0.62);
 }
 
 .page-loaded .hero .mask-title__inner {
   display: block;
-  animation: mask-up 720ms var(--ease) both;
+  animation: mask-up 700ms var(--ease) both;
 }
 
 .page-loaded .hero .mask-title__clip:nth-child(2) .mask-title__inner {
-  animation-delay: 110ms;
+  animation-delay: 90ms;
 }
 
 .page-loaded .hero .mask-title__clip:nth-child(3) .mask-title__inner {
-  animation-delay: 220ms;
+  animation-delay: 180ms;
 }
 
-.page-loaded .hero__bike {
-  animation: bike-scene 900ms var(--ease) 80ms both;
+.page-loaded .hero .mask-title__clip:nth-child(4) .mask-title__inner {
+  animation-delay: 270ms;
+}
+
+.page-loaded .hero__photo {
+  animation: hero-still 1100ms var(--ease) both;
 }
 
 .page-loaded .hero__lead,
 .page-loaded .hero__price,
 .page-loaded .hero__actions {
-  animation: rise-late 620ms var(--ease) 620ms both;
-}
-
-@keyframes glow-in {
-  from {
-    opacity: 0;
-  }
-  to {
-    opacity: 1;
-  }
+  animation: rise-late 560ms var(--ease) 720ms both;
 }
 
 @keyframes mask-up {
@@ -587,21 +535,21 @@ html.scrolled .topbar {
   }
 }
 
-@keyframes bike-scene {
+@keyframes hero-still {
   from {
     opacity: 0;
-    transform: translateX(56px) scale(0.97);
+    transform: scale(1.025);
   }
   to {
     opacity: 1;
-    transform: none;
+    transform: scale(1);
   }
 }
 
 @keyframes rise-late {
   from {
     opacity: 0;
-    transform: translateY(16px);
+    transform: translateY(12px);
   }
   to {
     opacity: 1;
@@ -609,38 +557,56 @@ html.scrolled .topbar {
   }
 }
 
-@media (max-width: 899px) {
-  .hero__bike {
-    object-position: 62% 42%;
-    min-height: 58svh;
+@media (max-height: 760px) and (min-width: 900px) {
+  .hero {
+    min-height: 100svh;
   }
 
+  .hero .mask-title__clip {
+    font-size: clamp(1.85rem, 5.4vh, 3.2rem);
+  }
+
+  .hero__copy {
+    padding: 6.2rem 0 1.6rem;
+  }
+}
+
+@media (max-width: 899px) {
   .hero {
+    min-height: 0;
     align-items: stretch;
-    grid-template-rows: minmax(38svh, 1fr) auto;
+    grid-template-rows: auto auto;
   }
 
   .hero__stage {
     position: relative;
-    min-height: 42svh;
+    order: 2;
+    aspect-ratio: 1672 / 941;
   }
 
-  .hero__wordmark {
-    font-size: clamp(4.2rem, 28vw, 8rem);
-    align-items: flex-start;
-    padding-top: 18vh;
+  .hero__stage picture,
+  .hero__photo,
+  .hero__stage img {
+    object-fit: cover;
+    object-position: 72% 70%;
+  }
+
+  .hero__veil {
+    background: linear-gradient(180deg, rgba(16, 21, 20, 0.55) 0%, transparent 38%);
   }
 
   .hero__copy {
+    order: 1;
     margin: 0;
     width: 100%;
-    padding: 1.4rem 0 2.2rem;
-    background: linear-gradient(180deg, transparent, #101514 18%);
+    padding: calc(var(--announce-h) + var(--header-h) + 0.85rem) 1rem 1.15rem;
+    background: var(--scene);
   }
 
   .hero .mask-title__clip {
-    font-size: clamp(2.05rem, 10vw, 3.1rem);
+    font-size: clamp(1.85rem, 8.6vw, 2.55rem);
   }
+
 }
 
 /* Facts */
@@ -718,14 +684,19 @@ html.scrolled .topbar {
 }
 
 .section__head {
-  max-width: 38rem;
-  margin-bottom: 2rem;
+  max-width: 34rem;
+  margin-bottom: 2.15rem;
 }
 
 .section__head h1,
 .section__head h2,
 .mask-title {
-  font-size: clamp(1.75rem, 3.6vw, 2.7rem);
+  font-size: clamp(1.55rem, 3.1vw, 2.35rem);
+  font-weight: 600;
+  letter-spacing: -0.03em;
+  line-height: 1.06;
+  max-width: 22ch;
+  text-wrap: balance;
 }
 
 .bike-grid {
@@ -857,7 +828,7 @@ html.scrolled .topbar {
 
 .photo-band {
   position: relative;
-  min-height: min(78vh, 46rem);
+  min-height: min(72vh, 40rem);
   display: grid;
   align-items: end;
   background: var(--scene);
@@ -870,6 +841,8 @@ html.scrolled .topbar {
   inset: 0;
 }
 
+.photo-band__media picture,
+.photo-band__photo,
 .photo-band__media img {
   width: 100%;
   height: 100%;
@@ -879,13 +852,46 @@ html.scrolled .topbar {
 .photo-band__copy {
   position: relative;
   z-index: 1;
-  padding: 5rem 0 3.2rem;
-  max-width: 34rem;
-  background: linear-gradient(90deg, rgba(16, 21, 20, 0.72), transparent);
+  padding: 5rem 0 3rem;
+  margin-left: max(1rem, calc((100% - var(--max)) / 2));
+  width: min(34rem, calc(100% - 2rem));
+  background: linear-gradient(
+    90deg,
+    rgba(16, 21, 20, 0.78) 0%,
+    rgba(16, 21, 20, 0.22) 72%,
+    transparent 100%
+  );
 }
 
 .photo-band .eyebrow {
   color: #9fe0e2;
+}
+
+.photo-band .mask-title {
+  max-width: 16ch;
+}
+
+.scene-note--inline {
+  margin-top: 1.1rem;
+}
+
+@media (max-width: 719px) {
+  .photo-band {
+    min-height: 0;
+    grid-template-rows: auto auto;
+  }
+
+  .photo-band__media {
+    position: relative;
+    aspect-ratio: 1672 / 941;
+  }
+
+  .photo-band__copy {
+    margin: 0;
+    width: 100%;
+    padding: 1.35rem 1rem 2.2rem;
+    background: linear-gradient(180deg, rgba(16, 21, 20, 0.2), var(--scene) 18%);
+  }
 }
 
 .section--parts {
@@ -1339,9 +1345,8 @@ html.scrolled .topbar {
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .page-loaded .hero__glow--main,
   .page-loaded .hero .mask-title__inner,
-  .page-loaded .hero__bike,
+  .page-loaded .hero__photo,
   .page-loaded .hero__lead,
   .page-loaded .hero__price,
   .page-loaded .hero__actions,
@@ -1354,7 +1359,7 @@ html.scrolled .topbar {
   .motion-on .parts-stage img,
   .motion-on .parts-card__media img,
   .motion-on .reveal,
-  .hero__bike {
+  .hero__photo {
     transform: none !important;
     opacity: 1 !important;
   }

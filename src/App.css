@@ -404,49 +404,52 @@ html.scrolled .topbar {
   background: var(--scene);
   color: var(--cream);
   overflow: hidden;
-  padding: calc(var(--announce-h) + var(--header-h) + 1.1rem) 0 2.4rem;
-}
-
-.hero__layout {
   display: grid;
-  grid-template-columns: minmax(16.5rem, 32rem) minmax(0, 1fr);
-  grid-template-areas: "copy photo";
-  gap: 1.4rem 2rem;
-  align-items: center;
+  align-items: end;
+  aspect-ratio: 1672 / 941;
 }
 
 .hero__copy {
-  grid-area: copy;
   position: relative;
   z-index: 2;
-  width: auto;
-  max-width: 34rem;
-  padding: 0;
-  margin: 0;
+  width: min(36rem, calc(100% - 2rem));
+  margin-left: max(1rem, calc((100% - var(--max)) / 2));
+  padding: 7rem 0 2.5rem;
 }
 
 .hero__stage {
-  grid-area: photo;
-  position: relative;
+  position: absolute;
+  inset: 0;
   z-index: 1;
   margin: 0;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(ellipse at 68% 42%, rgba(0, 127, 130, 0.12), transparent 58%);
+  overflow: hidden;
+  background: var(--scene);
 }
 
 .hero__stage picture {
-  display: contents;
+  display: block;
+  position: absolute;
+  inset: -8%;
 }
 
 .hero__photo,
 .hero__stage img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: min(34rem, calc(100svh - var(--announce-h) - var(--header-h) - 3.5rem));
-  object-fit: contain;
-  object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 52%;
+}
+
+.hero__veil {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background: linear-gradient(
+    90deg,
+    rgba(16, 21, 20, 0.72) 0%,
+    rgba(16, 21, 20, 0.28) 34%,
+    transparent 58%
+  );
 }
 
 .hero h1 {
@@ -541,11 +544,9 @@ html.scrolled .topbar {
 @keyframes hero-still {
   from {
     opacity: 0;
-    transform: translateY(10px);
   }
   to {
     opacity: 1;
-    transform: none;
   }
 }
 
@@ -561,41 +562,37 @@ html.scrolled .topbar {
 }
 
 @media (max-height: 760px) and (min-width: 900px) {
-  .hero {
-    padding-top: calc(var(--announce-h) + var(--header-h) + 0.7rem);
-    padding-bottom: 1.4rem;
-  }
-
   .hero .mask-title__clip {
     font-size: clamp(1.7rem, 4.8vh, 2.7rem);
   }
 
-  .hero__photo,
-  .hero__stage img {
-    max-height: calc(100svh - var(--announce-h) - var(--header-h) - 2.4rem);
+  .hero__copy {
+    padding: 6.2rem 0 1.6rem;
   }
 }
 
 @media (max-width: 899px) {
   .hero {
-    padding: calc(var(--announce-h) + var(--header-h) + 0.7rem) 0 1.4rem;
+    aspect-ratio: auto;
+    grid-template-rows: auto auto;
+    align-items: stretch;
   }
 
-  .hero__layout {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "copy"
-      "photo";
-    gap: 1rem;
+  .hero__stage {
+    position: relative;
+    order: 2;
+    aspect-ratio: 1672 / 941;
+  }
+
+  .hero__veil {
+    background: linear-gradient(180deg, rgba(16, 21, 20, 0.4) 0%, transparent 42%);
   }
 
   .hero__copy {
-    max-width: none;
-  }
-
-  .hero__photo,
-  .hero__stage img {
-    max-height: none;
+    order: 1;
+    margin: 0;
+    width: 100%;
+    padding: calc(var(--announce-h) + var(--header-h) + 0.75rem) 1rem 1.1rem;
   }
 
   .hero .mask-title__clip {
@@ -729,9 +726,8 @@ html.scrolled .topbar {
   inset: 0;
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: cover;
   object-position: center;
-  padding: 0.4rem;
 }
 
 .bike-card h3 {
@@ -834,48 +830,44 @@ html.scrolled .topbar {
   background: var(--scene);
   color: var(--cream);
   overflow: hidden;
-  padding: 2.6rem 0;
-}
-
-.photo-band__layout {
   display: grid;
-  grid-template-columns: minmax(16.5rem, 32rem) minmax(0, 1fr);
-  grid-template-areas: "copy photo";
-  gap: 1.4rem 2rem;
-  align-items: center;
+  align-items: end;
+  aspect-ratio: 1672 / 941;
 }
 
 .photo-band__media {
-  grid-area: photo;
-  position: relative;
-  display: grid;
-  place-items: center;
-  background: radial-gradient(ellipse at 70% 40%, rgba(0, 127, 130, 0.1), transparent 56%);
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  background: var(--scene);
 }
 
 .photo-band__media picture {
-  display: contents;
+  display: block;
+  position: absolute;
+  inset: -8%;
 }
 
 .photo-band__photo,
 .photo-band__media img {
-  width: auto;
-  max-width: 100%;
-  height: auto;
-  max-height: min(30rem, 62vh);
-  object-fit: contain;
-  object-position: center;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 72% 52%;
 }
 
 .photo-band__copy {
-  grid-area: copy;
   position: relative;
   z-index: 1;
-  padding: 0.4rem 0;
-  margin: 0;
-  width: auto;
-  max-width: 34rem;
-  background: none;
+  padding: 5rem 0 3rem;
+  margin-left: max(1rem, calc((100% - var(--max)) / 2));
+  width: min(34rem, calc(100% - 2rem));
+  background: linear-gradient(
+    90deg,
+    rgba(16, 21, 20, 0.7) 0%,
+    rgba(16, 21, 20, 0.18) 78%,
+    transparent 100%
+  );
 }
 
 .photo-band .eyebrow {
@@ -892,25 +884,21 @@ html.scrolled .topbar {
 
 @media (max-width: 899px) {
   .photo-band {
-    padding: 1.6rem 0 2rem;
+    aspect-ratio: auto;
+    grid-template-rows: auto auto;
+    align-items: stretch;
   }
 
-  .photo-band__layout {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "photo"
-      "copy";
-    gap: 1rem;
+  .photo-band__media {
+    position: relative;
+    aspect-ratio: 1672 / 941;
   }
 
   .photo-band__copy {
-    max-width: none;
-    padding: 0.2rem 0 0;
-  }
-
-  .photo-band__photo,
-  .photo-band__media img {
-    max-height: none;
+    margin: 0;
+    width: 100%;
+    padding: 1.25rem 1rem 1.8rem;
+    background: var(--scene);
   }
 }
 

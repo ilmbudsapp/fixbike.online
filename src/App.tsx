@@ -337,7 +337,6 @@ function App() {
         {isErsatzteilePage ? null : (
           <>
         <section className="hero" aria-labelledby="hero-heading">
-          <div className="container hero__layout">
           <figure className="hero__stage">
             <ScenePhoto
               srcBase="/images/hero/fixbike-hero-1-cube"
@@ -345,8 +344,9 @@ function App() {
               className="hero__photo"
               loading="eager"
               fetchPriority="high"
-              sizes="(max-width: 899px) 100vw, 58vw"
+              sizes="100vw"
             />
+            <span className="hero__veil" aria-hidden="true" />
           </figure>
           <div className="hero__copy">
             <h1 id="hero-heading">
@@ -383,7 +383,6 @@ function App() {
             <p className="scene-note scene-note--inline">
               Symbolbild. Verfügbare Modelle auf Anfrage.
             </p>
-          </div>
           </div>
         </section>
 
@@ -489,14 +488,13 @@ function App() {
 
         <section id="verkauf" className="photo-band">
           <span id="service" className="visually-hidden" />
-          <div className="container photo-band__layout">
           <div className="photo-band__media">
             <ScenePhoto
               srcBase="/images/hero/fixbike-hero-2-cube"
               alt=""
               className="photo-band__photo"
               loading="lazy"
-              sizes="(max-width: 899px) 100vw, 58vw"
+              sizes="100vw"
             />
           </div>
           <div className="photo-band__copy reveal">
@@ -517,7 +515,6 @@ function App() {
             <p className="scene-note scene-note--inline">
               Symbolbild. Verfügbare Modelle auf Anfrage.
             </p>
-          </div>
           </div>
         </section>
 

@@ -1,4 +1,8 @@
 User-agent: *
 Allow: /
 
+User-agent: Googlebot
+Allow: /
+Allow: /sitemap.xml
+
 Sitemap: https://fixbike.online/sitemap.xml

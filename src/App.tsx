@@ -337,17 +337,16 @@ function App() {
         {isErsatzteilePage ? null : (
           <>
         <section className="hero" aria-labelledby="hero-heading">
+          <div className="container hero__layout">
           <figure className="hero__stage">
             <ScenePhoto
               srcBase="/images/hero/fixbike-hero-1-cube"
               alt=""
               className="hero__photo"
-              objectPosition="80% 64%"
               loading="eager"
               fetchPriority="high"
-              sizes="100vw"
+              sizes="(max-width: 899px) 100vw, 58vw"
             />
-            <span className="hero__veil" aria-hidden="true" />
           </figure>
           <div className="hero__copy">
             <h1 id="hero-heading">
@@ -385,6 +384,7 @@ function App() {
               Symbolbild. Verfügbare Modelle auf Anfrage.
             </p>
           </div>
+          </div>
         </section>
 
         <section className="facts stagger" aria-label="Kurzinfos">
@@ -418,13 +418,13 @@ function App() {
             <div className="bike-grid stagger">
               {rentalEBikes.map((bike) => (
                 <article key={`${bike.title}-${bike.size}`} className="bike-card">
-                  <div className="bike-card__media media-reveal">
+                  <div className="bike-card__media">
                     <WebpPicture
                       webpSrc={bike.image}
                       fallbackSrc={webpToRasterPng(bike.image)}
                       alt={bike.imageAlt}
-                      width={900}
-                      height={675}
+                      width={1024}
+                      height={768}
                       loading="lazy"
                       decoding="async"
                     />
@@ -489,14 +489,14 @@ function App() {
 
         <section id="verkauf" className="photo-band">
           <span id="service" className="visually-hidden" />
-          <div className="photo-band__media media-reveal">
+          <div className="container photo-band__layout">
+          <div className="photo-band__media">
             <ScenePhoto
               srcBase="/images/hero/fixbike-hero-2-cube"
               alt=""
               className="photo-band__photo"
-              objectPosition="78% 62%"
               loading="lazy"
-              sizes="100vw"
+              sizes="(max-width: 899px) 100vw, 58vw"
             />
           </div>
           <div className="photo-band__copy reveal">
@@ -517,6 +517,7 @@ function App() {
             <p className="scene-note scene-note--inline">
               Symbolbild. Verfügbare Modelle auf Anfrage.
             </p>
+          </div>
           </div>
         </section>
 

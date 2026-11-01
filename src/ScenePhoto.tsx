@@ -19,7 +19,7 @@ export default function ScenePhoto({
   fetchPriority,
   sizes = "100vw",
   className,
-  objectPosition = "78% 62%",
+  objectPosition,
 }: ScenePhotoProps) {
   const webp = `${srcBase}.webp`;
   const webpSmall = `${srcBase}-960.webp`;
@@ -42,7 +42,7 @@ export default function ScenePhoto({
         loading={resolvedLoading}
         decoding="async"
         fetchPriority={fetchPriority}
-        style={{ objectPosition }}
+        style={objectPosition ? { objectPosition } : undefined}
       />
     </picture>
   );

@@ -573,26 +573,49 @@ html.scrolled .topbar {
 
 @media (max-width: 899px) {
   .hero {
+    display: flex;
+    flex-direction: column;
     aspect-ratio: auto;
-    grid-template-rows: auto auto;
-    align-items: stretch;
-  }
-
-  .hero__stage {
-    position: relative;
-    order: 2;
-    aspect-ratio: 1672 / 941;
-  }
-
-  .hero__veil {
-    background: linear-gradient(180deg, rgba(16, 21, 20, 0.4) 0%, transparent 42%);
+    min-height: 0;
   }
 
   .hero__copy {
     order: 1;
     margin: 0;
     width: 100%;
-    padding: calc(var(--announce-h) + var(--header-h) + 0.75rem) 1rem 1.1rem;
+    max-width: none;
+    padding: calc(var(--announce-h) + var(--header-h) + 0.7rem) 1rem 1rem;
+  }
+
+  .hero__stage {
+    position: relative;
+    inset: auto;
+    order: 2;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .hero__stage picture {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+  }
+
+  .hero__photo,
+  .hero__stage img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: none;
+    aspect-ratio: 1672 / 941;
+    object-fit: cover;
+    object-position: 78% 50%;
+  }
+
+  .hero__veil {
+    display: none;
   }
 
   .hero .mask-title__clip {
@@ -894,19 +917,48 @@ html.scrolled .topbar {
 
 @media (max-width: 899px) {
   .photo-band {
+    display: flex;
+    flex-direction: column;
     aspect-ratio: auto;
-    grid-template-rows: auto auto;
-    align-items: stretch;
+    min-height: 0;
   }
 
   .photo-band__media {
     position: relative;
+    inset: auto;
+    order: 1;
+    width: 100%;
+    height: auto;
+    overflow: hidden;
+  }
+
+  .photo-band__media picture {
+    position: relative;
+    inset: auto;
+    display: block;
+    width: 100%;
+  }
+
+  .photo-band__photo,
+  .photo-band__media img {
+    position: relative;
+    width: 100%;
+    height: auto;
+    max-width: none;
     aspect-ratio: 1672 / 941;
+    object-fit: cover;
+    object-position: 78% 50%;
+  }
+
+  .photo-band__media::after {
+    display: none;
   }
 
   .photo-band__copy {
+    order: 2;
     margin: 0;
     width: 100%;
+    max-width: none;
     padding: 1.25rem 1rem 1.8rem;
     background: var(--scene);
   }

@@ -385,7 +385,7 @@ export default function SiteFooter() {
 
           <p className="footer__page-meta" lang="de">
 
-            Zuletzt aktualisiert: Mai 2026
+            Zuletzt aktualisiert: November 2026
 
           </p>
 
@@ -395,7 +395,7 @@ export default function SiteFooter() {
 
             <a
 
-              href="https://agrmultimedia.eu/"
+              href="https://www.agrmultimedia.com/"
 
               target="_blank"
 

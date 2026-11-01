@@ -12,7 +12,7 @@ const ADDRESS = `${CONTACT.street}, ${CONTACT.zipCity}, Deutschland`;
 export const privacyPolicy = {
   title: "Datenschutzerklärung",
   subtitle: "Informationen zur Verarbeitung personenbezogener Daten gemäß DSGVO und BDSG",
-  lastUpdated: "Mai 2026",
+  lastUpdated: "November 2026",
   sections: [
     {
       id: "controller",
@@ -27,7 +27,7 @@ export const privacyPolicy = {
       title: "2. Allgemeine Hinweise",
       paragraphs: [
         "Wir verarbeiten personenbezogene Daten nur, soweit dies zur Bereitstellung dieser Website, zur Bearbeitung von Miet- und Kontaktanfragen oder zur Erfüllung gesetzlicher Pflichten erforderlich ist.",
-        "Diese Erklärung beschreibt den Stand der auf fixbike.online eingesetzten Technologien (Stand Mai 2026).",
+        "Diese Erklärung beschreibt den Stand der auf fixbike.online eingesetzten Technologien (Stand November 2026).",
       ],
     },
     {
@@ -89,7 +89,7 @@ export const privacyPolicy = {
       id: "external",
       title: "10. Externe Inhalte & Links",
       paragraphs: [
-        "Die Website enthält Links zu WhatsApp (wa.me), Google Maps (Suche/Navigation), agrmultimedia.eu (Webdesign-Credit) und Pexels (Lizenz-Hinweis). Beim Anklicken gelten die Datenschutzhinweise des jeweiligen Anbieters.",
+        "Die Website enthält Links zu WhatsApp (wa.me), Google Maps (Suche/Navigation), agrmultimedia.com (Webdesign-Credit) und Pexels (Lizenz-Hinweis). Beim Anklicken gelten die Datenschutzhinweise des jeweiligen Anbieters.",
         "Eingebettete Google-Maps-Karten und YouTube-Videos (youtube-nocookie.com) laden nur nach Ihrer Einwilligung über den Cookie-Banner.",
       ],
     },
@@ -206,7 +206,7 @@ export const impressum = {
       title: "Urheberrecht",
       paragraphs: [
         "Die durch den Seitenbetreiber erstellten Inhalte unterliegen dem deutschen Urheberrecht. Vervielfältigung bedarf der schriftlichen Zustimmung.",
-        "Webdesign: AGR Multimedia (agrmultimedia.eu).",
+        "Webdesign: AGR Multimedia (agrmultimedia.com).",
       ],
     },
   ] satisfies LegalSection[],

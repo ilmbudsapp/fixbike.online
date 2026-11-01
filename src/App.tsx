@@ -19,7 +19,7 @@ import {
   rentalEBikes,
 } from "./fixbikeConstants";
 import ErsatzteileSection from "./ErsatzteileSection";
-import { webpToRasterPng } from "./imagePaths";
+import { webpToJpg } from "./imagePaths";
 import ScenePhoto from "./ScenePhoto";
 import WebpPicture from "./WebpPicture";
 
@@ -420,12 +420,13 @@ function App() {
                   <div className="bike-card__media">
                     <WebpPicture
                       webpSrc={bike.image}
-                      fallbackSrc={webpToRasterPng(bike.image)}
+                      fallbackSrc={webpToJpg(bike.image)}
                       alt={bike.imageAlt}
-                      width={1024}
-                      height={768}
+                      width={1200}
+                      height={900}
                       loading="lazy"
                       decoding="async"
+                      sizes="(max-width: 799px) 100vw, 360px"
                     />
                   </div>
                   <div className="bike-card__body">

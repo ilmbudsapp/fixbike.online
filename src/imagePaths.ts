@@ -7,3 +7,7 @@ export const HERO_MECHANIKER_FALLBACK = "/images/hero-mechaniker.png";
 export function webpToRasterPng(webpPath: string): string {
   return webpPath.replace(/\.webp$/i, ".png");
 }
+
+export function webpToJpg(webpPath: string): string {
+  return webpPath.replace(/\.webp$/i, ".jpg");
+}

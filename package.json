@@ -14,7 +14,8 @@
     "check:sitemap": "node scripts/check-sitemap-access.mjs",
     "noscript:sync": "node scripts/sync-noscript.mjs",
     "images:parts": "node scripts/optimize-parts-images.mjs",
-    "images:hero": "node scripts/optimize-hero-images.mjs"
+    "images:hero": "node scripts/optimize-hero-images.mjs",
+    "images:rental": "node scripts/optimize-rental-images.mjs"
   },
   "dependencies": {
     "@fontsource/dm-sans": "^5.2.8",

@@ -30,26 +30,24 @@ export default function WebpPicture({
   fetchPriority,
   sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 80vw, 640px",
 }: WebpPictureProps) {
-  void webpSrc;
-  const mergedClass =
-    [className, imgClassName].filter(Boolean).join(" ").trim() || undefined;
-  const fallbackSrcSet = `${fallbackSrc} 480w, ${fallbackSrc} 768w, ${fallbackSrc} 1200w`;
   const resolvedLoading =
     fetchPriority === "high" ? "eager" : loading ?? "lazy";
 
   return (
-    <img
-      src={fallbackSrc}
-      srcSet={fallbackSrcSet}
-      sizes={sizes}
-      alt={alt}
-      width={width}
-      height={height}
-      className={mergedClass}
-      loading={resolvedLoading}
-      decoding={decoding}
-      fetchPriority={fetchPriority}
-      referrerPolicy="strict-origin-when-cross-origin"
-    />
+    <picture className={className}>
+      <source type="image/webp" srcSet={`${webpSrc} 1200w`} sizes={sizes} />
+      <img
+        src={fallbackSrc}
+        alt={alt}
+        width={width}
+        height={height}
+        className={imgClassName}
+        loading={resolvedLoading}
+        decoding={decoding}
+        fetchPriority={fetchPriority}
+        sizes={sizes}
+        referrerPolicy="strict-origin-when-cross-origin"
+      />
+    </picture>
   );
 }

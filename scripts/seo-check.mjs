@@ -13,8 +13,8 @@ const expected = [
     url: "/",
     title: "FixBike Koblenz | E-Bike-Verleih &amp; Fahrradverkauf",
     canonical: "https://fixbike.online/",
-    h1: "Dein nächster Weg.",
-    snippet: "E-Bike-Verleih und Fahrradverkauf in Koblenz",
+    h1: "Eine Woche Fahrfreude.",
+    snippet: "E-Bike mieten in Koblenz",
   },
   {
     file: path.join("verleih", "index.html"),

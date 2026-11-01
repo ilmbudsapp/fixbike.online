@@ -24,37 +24,40 @@ export default function HomePage() {
           <span className="hero__veil" aria-hidden="true" />
         </figure>
         <div className="hero__copy">
+          <p className="eyebrow hero__eyebrow">CUBE E-Bike-Verleih · Koblenz</p>
           <h1 id="hero-heading">
             <span className="mask-title__clip">
-              <span className="mask-title__inner">Dein nächster Weg. </span>
+              <span className="mask-title__inner">Eine Woche Fahrfreude. </span>
             </span>
             <span className="mask-title__clip">
-              <span className="mask-title__inner">Wird eine </span>
-            </span>
-            <span className="mask-title__clip">
-              <span className="mask-title__inner">gute Fahrt. </span>
-            </span>
-            <span className="mask-title__clip hero__seo-clip">
-              <span className="mask-title__inner">
-                E-Bike-Verleih und Fahrradverkauf in Koblenz
-              </span>
+              <span className="mask-title__inner">Ihr CUBE für 105&nbsp;€.</span>
             </span>
           </h1>
           <p className="hero__lead">
-            Hochwertige CUBE E-Bikes mit persönlicher Beratung. Abholung nach
-            Termin.
-          </p>
-          <p className="hero__price">
-            {BUSINESS.rental.priceLabel} · {BUSINESS.rental.equivalentLabel}
+            Einfach raus und Koblenz entdecken: E-Bike mieten in Koblenz für 7
+            Tage — mit persönlicher Beratung und Übergabe nach Termin.
           </p>
           <div className="hero__actions">
-            <Link className="btn btn--primary btn--lg" to="/verleih">
-              E-Bike auswählen <span className="btn__arrow" aria-hidden="true">→</span>
-            </Link>
-            <Link className="btn btn--ghost btn--lg" to="/verkauf">
-              Kaufberatung anfragen
+            <a
+              className="btn btn--primary btn--lg"
+              href={CONTACT.whatsappWeeklyRental}
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Verfügbarkeit per WhatsApp anfragen{" "}
+              <span className="btn__arrow" aria-hidden="true">
+                →
+              </span>
+            </a>
+            <Link className="btn btn--ghost btn--lg" to="/verleih">
+              E-Bikes ansehen
             </Link>
           </div>
+          <p className="hero__meta">
+            {BUSINESS.rental.priceLabel} · {BUSINESS.rental.equivalentLabel}
+            <br />
+            Abholung: {CONTACT.street}, {BUSINESS.city}
+          </p>
           <p className="scene-note scene-note--inline">
             Symbolbild. Verfügbare Modelle auf Anfrage.
           </p>

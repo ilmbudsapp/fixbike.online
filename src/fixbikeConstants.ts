@@ -13,13 +13,29 @@ export const MAPS_EMBED_URL =
   ) +
   "&hl=de&z=15&ie=UTF8&iwloc=B&output=embed";
 
+const WHATSAPP_NUMBER = BUSINESS.phoneTel.replace("+", "");
+
+export function whatsappLink(text?: string): string {
+  if (!text) return `https://wa.me/${WHATSAPP_NUMBER}`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+
 export const CONTACT = {
   phoneDisplay: BUSINESS.phoneDisplay,
   phoneTel: BUSINESS.phoneTel,
-  whatsapp: `https://wa.me/${BUSINESS.phoneTel.replace("+", "")}`,
-  whatsappRental: `https://wa.me/${BUSINESS.phoneTel.replace("+", "")}?text=Hallo%20FixBike%2C%20ich%20m%C3%B6chte%20ein%20E-Bike%20mieten.%20Bitte%20informieren%20Sie%20mich%20%C3%BCber%20Verf%C3%BCgbarkeit%20und%20Termine.`,
-  whatsappSales: `https://wa.me/${BUSINESS.phoneTel.replace("+", "")}?text=Hallo%20FixBike%2C%20ich%20interessiere%20mich%20f%C3%BCr%20den%20Kauf%20eines%20Fahrrads%20oder%20E-Bikes.%20Bitte%20kontaktieren%20Sie%20mich.`,
-  whatsappParts: `https://wa.me/${BUSINESS.phoneTel.replace("+", "")}?text=Hallo%20FixBike%2C%20ich%20suche%20Ersatzteile%20f%C3%BCr%20mein%20Fahrrad%20oder%20E-Bike.%20Bitte%20kontaktieren%20Sie%20mich.`,
+  whatsapp: whatsappLink(),
+  whatsappRental: whatsappLink(
+    "Hallo FixBike, ich möchte ein E-Bike mieten. Bitte informieren Sie mich über Verfügbarkeit und Termine.",
+  ),
+  whatsappWeeklyRental: whatsappLink(
+    "Hallo FixBike, ich interessiere mich für die CUBE E-Bike-Wochenmiete für 105 €. Mein gewünschter Zeitraum ist: … Welche Modelle und Größen sind verfügbar?",
+  ),
+  whatsappSales: whatsappLink(
+    "Hallo FixBike, ich interessiere mich für den Kauf eines Fahrrads oder E-Bikes. Bitte kontaktieren Sie mich.",
+  ),
+  whatsappParts: whatsappLink(
+    "Hallo FixBike, ich suche Ersatzteile für mein Fahrrad oder E-Bike. Bitte kontaktieren Sie mich.",
+  ),
   email: BUSINESS.email,
   steuernummer: BUSINESS.steuernummer,
   street: BUSINESS.street,

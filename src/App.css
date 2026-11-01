@@ -845,20 +845,32 @@ html.scrolled .topbar {
 .photo-band__media picture {
   display: block;
   position: absolute;
-  inset: -8%;
+  inset: -16%;
 }
 
 .photo-band__photo,
 .photo-band__media img {
   width: 100%;
   height: 100%;
+  max-width: none;
   object-fit: cover;
-  object-position: 72% 52%;
+  object-position: 74% 48%;
+}
+
+.photo-band__media::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  pointer-events: none;
+  box-shadow:
+    inset 0 0 90px 42px var(--scene),
+    inset 0 -56px 64px var(--scene);
 }
 
 .photo-band__copy {
   position: relative;
-  z-index: 1;
+  z-index: 2;
   padding: 5rem 0 3rem;
   margin-left: max(1rem, calc((100% - var(--max)) / 2));
   width: min(34rem, calc(100% - 2rem));

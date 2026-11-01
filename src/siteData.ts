@@ -61,6 +61,8 @@ export type PageDef = {
   indexable: boolean;
   /** Significant content change of this URL — not the build date. */
   lastmod?: string;
+  changefreq?: "always" | "hourly" | "daily" | "weekly" | "monthly" | "yearly" | "never";
+  priority?: string;
   breadcrumbName: string;
 };
 
@@ -76,6 +78,8 @@ export const PAGES: Record<RoutePath, PageDef> = {
     ogHeight: 900,
     indexable: true,
     lastmod: "2026-11-01",
+    changefreq: "weekly",
+    priority: "1.0",
     breadcrumbName: "Startseite",
   },
   "/verleih": {
@@ -89,6 +93,8 @@ export const PAGES: Record<RoutePath, PageDef> = {
     ogHeight: 900,
     indexable: true,
     lastmod: "2026-11-01",
+    changefreq: "weekly",
+    priority: "0.9",
     breadcrumbName: "Verleih",
   },
   "/verkauf": {
@@ -102,6 +108,8 @@ export const PAGES: Record<RoutePath, PageDef> = {
     ogHeight: 941,
     indexable: true,
     lastmod: "2026-11-01",
+    changefreq: "weekly",
+    priority: "0.9",
     breadcrumbName: "Verkauf",
   },
   "/ersatzteile": {
@@ -115,6 +123,8 @@ export const PAGES: Record<RoutePath, PageDef> = {
     ogHeight: 1024,
     indexable: true,
     lastmod: "2026-11-01",
+    changefreq: "weekly",
+    priority: "0.8",
     breadcrumbName: "Ersatzteile",
   },
   "/kontakt": {
@@ -128,6 +138,8 @@ export const PAGES: Record<RoutePath, PageDef> = {
     ogHeight: 85,
     indexable: true,
     lastmod: "2026-11-01",
+    changefreq: "monthly",
+    priority: "0.8",
     breadcrumbName: "Kontakt",
   },
   "/impressum": {

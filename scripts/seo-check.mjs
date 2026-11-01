@@ -113,8 +113,11 @@ if (locs.length !== 5) fail(`sitemap has ${locs.length} URLs, expected 5`);
 for (const loc of expectedLocs) {
   if (!locs.includes(loc)) fail(`sitemap missing ${loc}`);
 }
-if (sitemap.includes("changefreq") || sitemap.includes("priority")) {
-  fail("sitemap still has changefreq/priority");
+if (!sitemap.includes("<priority>1.0</priority>")) {
+  fail("sitemap missing homepage priority 1.0");
+}
+if (!sitemap.includes("<?xml version=\"1.0\" encoding=\"UTF-8\"?>")) {
+  fail("sitemap missing XML 1.0 declaration");
 }
 
 const robots = fs.readFileSync(path.join(distDir, "robots.txt"), "utf8");

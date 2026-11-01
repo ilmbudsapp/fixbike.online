@@ -52,7 +52,9 @@ const urls = INDEXABLE_PATHS.map((p) => {
   const page = PAGES[p];
   const loc = p === "/" ? "https://fixbike.online/" : `https://fixbike.online${p}`;
   const lastmod = page.lastmod ? `\n    <lastmod>${page.lastmod}</lastmod>` : "";
-  return `  <url>\n    <loc>${loc}</loc>${lastmod}\n  </url>`;
+  const changefreq = page.changefreq ? `\n    <changefreq>${page.changefreq}</changefreq>` : "";
+  const priority = page.priority ? `\n    <priority>${page.priority}</priority>` : "";
+  return `  <url>\n    <loc>${loc}</loc>${lastmod}${changefreq}${priority}\n  </url>`;
 }).join("\n");
 
 const sitemap = `<?xml version="1.0" encoding="UTF-8"?>

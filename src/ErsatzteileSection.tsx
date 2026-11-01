@@ -77,8 +77,8 @@ export default function ErsatzteileSection({ variant }: { variant: Variant }) {
             </span>
           </HeadingTag>
           <p>
-            Für klassische Fahrräder und E-Bikes: Frag dein benötigtes Teil bei
-            uns an. Wir klären Ausführung, Kompatibilität und Verfügbarkeit
+            Für klassische Fahrräder und E-Bikes: Fragen Sie Ihr benötigtes Teil
+            bei uns an. Wir klären Ausführung, Kompatibilität und Verfügbarkeit
             persönlich.
           </p>
         </header>
@@ -152,12 +152,12 @@ export default function ErsatzteileSection({ variant }: { variant: Variant }) {
               <p className="eyebrow">E-Bike</p>
               <h2 id="ebike-system-heading" className="mask-title">
                 <span className="mask-title__clip">
-                  <span className="mask-title__inner">Fragen zu deinem E-Bike-System?</span>
+                  <span className="mask-title__inner">Fragen zu Ihrem E-Bike-System?</span>
                 </span>
               </h2>
               <p>
                 Akkus, Ladegeräte, Motoren und Displays sind bei uns noch kein
-                bestätigtes Verkaufs- oder Reparaturangebot. Beschreib dein
+                bestätigtes Verkaufs- oder Reparaturangebot. Beschreiben Sie Ihr
                 System — wir prüfen, ob wir weiterhelfen können.
               </p>
             </header>

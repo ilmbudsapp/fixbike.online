@@ -1717,3 +1717,47 @@ body:has(.cookie-consent) .mobile-dock {
     padding-bottom: 2.5rem;
   }
 }
+
+.aeo-answer {
+  max-width: 62ch;
+  font-size: 1.05rem;
+  line-height: 1.55;
+}
+
+.fleet-table-wrap {
+  margin: 0 0 2.5rem;
+}
+
+.fleet-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.95rem;
+}
+
+.fleet-table caption {
+  text-align: left;
+  font-weight: 650;
+  margin-bottom: 0.75rem;
+}
+
+.fleet-table th,
+.fleet-table td {
+  text-align: left;
+  padding: 0.7rem 0.85rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.12);
+  vertical-align: top;
+}
+
+.fleet-table thead th {
+  color: var(--muted, #b7c0bd);
+  font-weight: 600;
+}
+
+.fleet-table__price {
+  margin: 0.85rem 0 0;
+  font-weight: 650;
+}
+
+.photo-band--page .photo-band__copy .btn + .btn {
+  margin-left: 0.6rem;
+}

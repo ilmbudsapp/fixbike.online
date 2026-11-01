@@ -1,34 +1,33 @@
-/** Shared site data — used by App + lazy-loaded sections */
+/** Shared site data — UI catalog and contact aliases from BUSINESS. */
+
+import { BUSINESS } from "./siteData";
 
 export const MAPS_URL =
   "https://www.google.com/maps/search/?api=1&query=" +
-  encodeURIComponent("Wallersheimer Weg 16, 56070 Koblenz");
+  encodeURIComponent(`${BUSINESS.street}, ${BUSINESS.postalCode} ${BUSINESS.city}`);
 
 export const MAPS_EMBED_URL =
   "https://maps.google.com/maps?q=" +
-  encodeURIComponent("Wallersheimer Weg 16, 56070 Koblenz, Deutschland") +
+  encodeURIComponent(
+    `${BUSINESS.street}, ${BUSINESS.postalCode} ${BUSINESS.city}, ${BUSINESS.countryName}`,
+  ) +
   "&hl=de&z=15&ie=UTF8&iwloc=B&output=embed";
 
 export const CONTACT = {
-  phoneDisplay: "+49 163 7046825",
-  phoneTel: "+491637046825",
-  whatsapp: "https://wa.me/491637046825",
-  whatsappRental: "https://wa.me/491637046825?text=Hallo%20FixBike%2C%20ich%20m%C3%B6chte%20ein%20E-Bike%20mieten.%20Bitte%20Informieren%20Sie%20mich%20%C3%BCber%20Verf%C3%BCgbarkeit%20und%20Termine.",
-  whatsappSales: "https://wa.me/491637046825?text=Hallo%20FixBike%2C%20ich%20interessiere%20mich%20f%C3%BCr%20den%20Kauf%20eines%20Fahrrads%20oder%20E-Bikes.%20Bitte%20kontaktieren%20Sie%20mich.",
-  whatsappParts: "https://wa.me/491637046825?text=Hallo%20FixBike%2C%20ich%20suche%20Ersatzteile%20f%C3%BCr%20mein%20Fahrrad%20oder%20E-Bike.%20Bitte%20kontaktieren%20Sie%20mich.",
-  email: "fixbike2025@gmail.com",
-  steuernummer: "32/125/57407",
-  street: "Wallersheimer Weg 16",
-  zipCity: "56070 Koblenz",
+  phoneDisplay: BUSINESS.phoneDisplay,
+  phoneTel: BUSINESS.phoneTel,
+  whatsapp: `https://wa.me/${BUSINESS.phoneTel.replace("+", "")}`,
+  whatsappRental: `https://wa.me/${BUSINESS.phoneTel.replace("+", "")}?text=Hallo%20FixBike%2C%20ich%20m%C3%B6chte%20ein%20E-Bike%20mieten.%20Bitte%20informieren%20Sie%20mich%20%C3%BCber%20Verf%C3%BCgbarkeit%20und%20Termine.`,
+  whatsappSales: `https://wa.me/${BUSINESS.phoneTel.replace("+", "")}?text=Hallo%20FixBike%2C%20ich%20interessiere%20mich%20f%C3%BCr%20den%20Kauf%20eines%20Fahrrads%20oder%20E-Bikes.%20Bitte%20kontaktieren%20Sie%20mich.`,
+  whatsappParts: `https://wa.me/${BUSINESS.phoneTel.replace("+", "")}?text=Hallo%20FixBike%2C%20ich%20suche%20Ersatzteile%20f%C3%BCr%20mein%20Fahrrad%20oder%20E-Bike.%20Bitte%20kontaktieren%20Sie%20mich.`,
+  email: BUSINESS.email,
+  steuernummer: BUSINESS.steuernummer,
+  street: BUSINESS.street,
+  zipCity: `${BUSINESS.postalCode} ${BUSINESS.city}`,
+  hoursNote: BUSINESS.hoursNote,
 } as const;
 
-export const nav = [
-  { href: "#ebike-vermietung", label: "Verleih" },
-  { href: "#verkauf", label: "Verkauf" },
-  { href: "#ersatzteile", label: "Ersatzteile" },
-  { href: "#ueber-uns", label: "Über uns" },
-  { href: "#contact", label: "Kontakt" },
-] as const;
+export { nav } from "./siteData";
 
 export const rentalEBikes: {
   title: string;

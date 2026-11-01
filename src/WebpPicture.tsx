@@ -35,9 +35,10 @@ export default function WebpPicture({
 
   return (
     <picture className={className}>
-      <source type="image/webp" srcSet={`${webpSrc} 1200w`} sizes={sizes} />
+      <source type="image/webp" srcSet={`${webpSrc} ${width}w`} sizes={sizes} />
       <img
         src={fallbackSrc}
+        srcSet={`${fallbackSrc} ${width}w`}
         alt={alt}
         width={width}
         height={height}

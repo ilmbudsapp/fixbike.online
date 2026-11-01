@@ -23,7 +23,7 @@ export const PARTS_INTRO = {
   objectPosition: "58% 48%",
   titleLines: ["Kleine Teile.", "Großer Unterschied."],
   description:
-    "Antrieb, Bremsen und Zubehör: Beschreib uns, was du benötigst — wir klären die passende Ausführung und Verfügbarkeit.",
+    "Antrieb, Bremsen und Zubehör: Beschreiben Sie uns, was Sie benötigen — wir klären die passende Ausführung und Verfügbarkeit.",
   ctaLabel: genericCta,
   whatsapp: whatsappHref(
     "Hallo FixBike, ich suche ein Ersatzteil für mein Fahrrad oder E-Bike. Fahrradmarke/Modell: … Benötigtes Teil: … Könnt ihr mir bei der passenden Ausführung und Verfügbarkeit helfen?",
@@ -35,7 +35,7 @@ export const PARTS_CATEGORIES: readonly PartsCategory[] = [
     id: "schaltung",
     title: "Schaltung & Kette",
     description:
-      "Ketten, Kassetten und Schaltkomponenten müssen zum vorhandenen Antrieb passen. Nenne uns die Schaltung und die Anzahl der Gänge oder sende ein Foto.",
+      "Ketten, Kassetten und Schaltkomponenten müssen zum vorhandenen Antrieb passen. Nennen Sie uns die Schaltung und die Anzahl der Gänge oder senden Sie ein Foto.",
     imageBase: "/images/parts/klasicni-lanac-menjac",
     alt: "Kette, Ritzel und Schaltwerk eines Fahrrads",
     objectPosition: "52% 50%",
@@ -48,7 +48,7 @@ export const PARTS_CATEGORIES: readonly PartsCategory[] = [
     id: "kurbeln",
     title: "Kurbeln & Pedale",
     description:
-      "Pedale, Kurbeln und Kettenblätter für unterschiedliche Fahrradtypen. Wir klären mit dir die benötigte Ausführung und die passenden Anschlüsse.",
+      "Pedale, Kurbeln und Kettenblätter für unterschiedliche Fahrradtypen. Wir klären mit Ihnen die benötigte Ausführung und die passenden Anschlüsse.",
     imageBase: "/images/parts/klasicni-pedale-pogon",
     alt: "Pedale, Kurbelarm und Kettenblatt",
     objectPosition: "48% 55%",
@@ -61,7 +61,7 @@ export const PARTS_CATEGORIES: readonly PartsCategory[] = [
     id: "kontaktpunkte",
     title: "Sattel, Lenker & Griffe",
     description:
-      "Kontaktpunkte beeinflussen Sitzgefühl und Kontrolle. Frag nach Sätteln, Griffen, Lenkern oder Sattelstützen passend zu deinem Fahrrad.",
+      "Kontaktpunkte beeinflussen Sitzgefühl und Kontrolle. Fragen Sie nach Sätteln, Griffen, Lenkern oder Sattelstützen passend zu Ihrem Fahrrad.",
     imageBase: "/images/parts/klasicni-sediste-volan",
     alt: "Fahrradsattel, Lenker und Griffe",
     objectPosition: "50% 42%",
@@ -87,7 +87,7 @@ export const PARTS_CATEGORIES: readonly PartsCategory[] = [
     id: "scheibenbremsen",
     title: "Scheibenbremsen",
     description:
-      "Bei Bremsscheiben und Bremskomponenten kommt es auf die genaue Ausführung an. Sende uns Hersteller, Modell und möglichst ein Foto.",
+      "Bei Bremsscheiben und Bremskomponenten kommt es auf die genaue Ausführung an. Senden Sie uns Hersteller, Modell und möglichst ein Foto.",
     imageBase: "/images/parts/fixbike-kocnica-detalj",
     alt: "Bremsscheibe und Bremssattel in der Nahaufnahme",
     objectPosition: "55% 50%",
@@ -116,7 +116,7 @@ export const EBKE_INQUIRY_CATEGORIES: readonly PartsCategory[] = [
     id: "akku",
     title: "E-Bike-Akkus & Ladegeräte",
     description:
-      "Bei Akkus und Ladegeräten ist die genaue Systemzuordnung entscheidend. Sende Hersteller, Modell und die Angaben vom Typenschild — wir klären, ob wir weiterhelfen können.",
+      "Bei Akkus und Ladegeräten ist die genaue Systemzuordnung entscheidend. Senden Sie Hersteller, Modell und die Angaben vom Typenschild — wir klären, ob wir weiterhelfen können.",
     imageBase: "/images/parts/fixbike-baterija",
     alt: "E-Bike-Akku auf dunklem Untergrund",
     objectPosition: "50% 48%",
@@ -129,7 +129,7 @@ export const EBKE_INQUIRY_CATEGORIES: readonly PartsCategory[] = [
     id: "antrieb-display",
     title: "E-Bike-Antrieb & Display",
     description:
-      "Motor und Display gehören zu einem abgestimmten E-Bike-System. Nenne uns das verbaute System und dein Anliegen, damit wir die Möglichkeiten prüfen können.",
+      "Motor und Display gehören zu einem abgestimmten E-Bike-System. Nennen Sie uns das verbaute System und Ihr Anliegen, damit wir die Möglichkeiten prüfen können.",
     imageBase: "/images/parts/fixbike-motor-displej",
     alt: "E-Bike-Motor und Display",
     objectPosition: "48% 52%",

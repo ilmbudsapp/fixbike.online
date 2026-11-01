@@ -8,10 +8,11 @@ export function ConsentGate({
   children: ReactNode;
   fallback: ReactNode;
 }) {
-  const [allowed, setAllowed] = useState(hasExternalMediaConsent);
+  const [allowed, setAllowed] = useState(false);
 
   useEffect(() => {
     const sync = () => setAllowed(hasExternalMediaConsent());
+    sync();
     window.addEventListener("fixbike-consent-change", sync);
     return () => window.removeEventListener("fixbike-consent-change", sync);
   }, []);
@@ -48,7 +49,7 @@ export default function CookieConsent() {
           Wir verwenden technisch notwendige Speicherung (Cookie-Einstellung). Google Maps und
           YouTube laden wir nur nach Ihrer Einwilligung. Es gibt kein Google Analytics auf dieser
           Website. Details in der{" "}
-          <a href="#datenschutz">Datenschutzerklärung</a>.
+          <a href="/datenschutz">Datenschutzerklärung</a>.
         </p>
         <div className="cookie-consent__actions">
           <button type="button" className="btn btn--secondary" onClick={() => choose("essential")}>

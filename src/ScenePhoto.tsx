@@ -35,6 +35,8 @@ export default function ScenePhoto({
       />
       <img
         src={jpg}
+        srcSet={`${jpg} ${width}w`}
+        sizes={sizes}
         alt={alt}
         width={width}
         height={height}

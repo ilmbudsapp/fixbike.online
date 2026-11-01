@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
-    "build": "node scripts/sync-sitemap.mjs && tsc --noEmit && vite build && node scripts/verify-dist-output.mjs",
+    "build": "tsc --noEmit && vite build && vite build --ssr src/entry-server.tsx --outDir dist-ssr --emptyOutDir && node scripts/prerender.mjs && node scripts/verify-dist-output.mjs && node scripts/seo-check.mjs",
+    "seo:check": "node scripts/seo-check.mjs",
     "preview": "vite preview",
     "logo:transparent": "node scripts/knockout-black-bg.mjs",
     "qr:generate": "node scripts/generate-qr.mjs",
@@ -21,7 +22,8 @@
     "@fontsource/dm-sans": "^5.2.8",
     "@fontsource/outfit": "^5.2.8",
     "react": "^19.2.0",
-    "react-dom": "^19.2.0"
+    "react-dom": "^19.2.0",
+    "react-router": "^8.5.1"
   },
   "devDependencies": {
     "@types/react": "^19.2.0",

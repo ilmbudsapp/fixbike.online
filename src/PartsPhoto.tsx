@@ -27,10 +27,10 @@ export default function PartsPhoto({
 
   return (
     <picture>
-      <source type="image/webp" srcSet={`${webp} 1600w`} sizes={sizes} />
+      <source type="image/webp" srcSet={`${webp} ${width}w`} sizes={sizes} />
       <img
         src={jpg}
-        srcSet={`${jpg} 1200w`}
+        srcSet={`${jpg} ${width}w`}
         sizes={sizes}
         alt={alt}
         width={width}

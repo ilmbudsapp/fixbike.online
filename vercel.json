@@ -3,10 +3,18 @@
   "outputDirectory": "dist",
   "installCommand": "npm install",
   "framework": null,
-  "rewrites": [
+  "cleanUrls": true,
+  "trailingSlash": false,
+  "redirects": [
     {
-      "source": "/((?!sitemap\\.xml$|robots\\.txt$|feed\\.xml$|indexnow-key\\.txt$|manifest\\.json$).*)",
-      "destination": "/index.html"
+      "source": "/service",
+      "destination": "/kontakt",
+      "statusCode": 308
+    },
+    {
+      "source": "/werkstatt",
+      "destination": "/kontakt",
+      "statusCode": 308
     }
   ],
   "headers": [

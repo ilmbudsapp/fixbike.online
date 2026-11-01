@@ -339,7 +339,7 @@ function App() {
         <section className="hero" aria-labelledby="hero-heading">
           <figure className="hero__stage">
             <ScenePhoto
-              srcBase="/images/hero/fixbike-hero-1-cube"
+              srcBase="/images/hero/fixbike-hero-2-cube"
               alt=""
               className="hero__photo"
               loading="eager"
@@ -490,7 +490,7 @@ function App() {
           <span id="service" className="visually-hidden" />
           <div className="photo-band__media">
             <ScenePhoto
-              srcBase="/images/hero/fixbike-hero-2-cube"
+              srcBase="/images/hero/fixbike-hero-1-cube"
               alt=""
               className="photo-band__photo"
               loading="lazy"

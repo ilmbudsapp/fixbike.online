@@ -17,7 +17,7 @@ export const BUSINESS = {
   phoneDisplay: "+49 163 7046825",
   phoneTel: "+491637046825",
   email: "fixbike2025@gmail.com",
-  steuernummer: "32/125/57407",
+  steuernummer: "22/125/38705",
   appointmentOnly: true,
   hoursWeekdays: { label: "Mo–Fr", opens: "09:00", closes: "18:00" },
   hoursSaturday: { label: "Sa", opens: "09:00", closes: "14:00" },

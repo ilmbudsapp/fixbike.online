@@ -30,7 +30,7 @@ export const BUSINESS = {
     priceLabel: "105 € / 7 Tage",
     equivalentLabel: "entspricht 15 € pro Tag",
   },
-  areaServed: ["Koblenz", "Neuwied", "Rheinland-Pfalz"] as const,
+  areaServed: ["Koblenz", "Rheinland-Pfalz"] as const,
   sameAs: [
     "https://www.instagram.com/fixbike.online/",
     "https://www.facebook.com/fixbike.online",

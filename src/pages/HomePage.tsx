@@ -2,6 +2,7 @@ import { Link } from "react-router";
 
 import { CONTACT } from "../fixbikeConstants";
 import ErsatzteileSection from "../ErsatzteileSection";
+import HeroStage from "../HeroStage";
 import ScenePhoto from "../ScenePhoto";
 import ContactBlock from "../sections/ContactBlock";
 import FaqList from "../sections/FaqList";
@@ -12,17 +13,7 @@ export default function HomePage() {
   return (
     <>
       <section className="hero" aria-labelledby="hero-heading">
-        <figure className="hero__stage">
-          <ScenePhoto
-            srcBase="/images/hero/fixbike-hero-2-cube"
-            alt=""
-            className="hero__photo"
-            loading="eager"
-            fetchPriority="high"
-            sizes="100vw"
-          />
-          <span className="hero__veil" aria-hidden="true" />
-        </figure>
+        <HeroStage />
         <div className="hero__copy">
           <p className="eyebrow hero__eyebrow">CUBE E-Bike-Verleih · Koblenz</p>
           <h1 id="hero-heading">

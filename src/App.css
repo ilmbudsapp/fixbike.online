@@ -594,7 +594,7 @@ html.scrolled .topbar {
 @media (max-width: 899px) {
   .hero {
     display: grid;
-    align-items: end;
+    align-items: start;
     aspect-ratio: auto;
     min-height: 100vh;
     min-height: 100svh;
@@ -604,7 +604,7 @@ html.scrolled .topbar {
     margin: 0;
     width: 100%;
     max-width: none;
-    padding: 5.8rem 1rem calc(4.35rem + env(safe-area-inset-bottom));
+    padding: calc(var(--announce-h) + var(--header-h) + 0.35rem) 1rem 0.85rem;
     text-shadow: 0 1px 16px rgba(0, 0, 0, 0.55);
   }
 
@@ -635,17 +635,17 @@ html.scrolled .topbar {
     max-width: none;
     aspect-ratio: auto;
     object-fit: cover;
-    object-position: center 32%;
+    object-position: center 58%;
   }
 
   .hero__veil {
     display: block;
     background: linear-gradient(
       180deg,
-      rgba(16, 21, 20, 0.5) 0%,
-      rgba(16, 21, 20, 0.16) 26%,
-      rgba(16, 21, 20, 0.22) 46%,
-      rgba(16, 21, 20, 0.82) 100%
+      rgba(16, 21, 20, 0.72) 0%,
+      rgba(16, 21, 20, 0.42) 22%,
+      rgba(16, 21, 20, 0.08) 48%,
+      rgba(16, 21, 20, 0.18) 100%
     );
   }
 

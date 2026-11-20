@@ -68,7 +68,7 @@ export default function HeroStage() {
           muted
           loop
           playsInline
-          preload="metadata"
+          preload="auto"
           aria-hidden="true"
           onPlaying={() => setPlaying(true)}
           onError={() => setClip(null)}

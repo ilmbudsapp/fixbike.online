@@ -32,7 +32,9 @@ export default function HeroStage() {
     if (!node || !clip) return;
     node.muted = true;
     node.defaultMuted = true;
+    node.playbackRate = clip === HERO_VIDEO_DESKTOP ? 0.55 : 1;
     const start = () => {
+      node.playbackRate = clip === HERO_VIDEO_DESKTOP ? 0.55 : 1;
       node.play().catch(() => undefined);
     };
     if (node.readyState >= 2) start();
